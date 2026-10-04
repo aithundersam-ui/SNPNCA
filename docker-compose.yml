@@ -1,0 +1,61 @@
+# Production stack: Caddy (automatic HTTPS) -> Django (gunicorn) + PDF worker -> PostgreSQL.
+services:
+  db:
+    image: postgres:16
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: snpnca
+      POSTGRES_USER: snpnca
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in .env}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U snpnca"]
+      interval: 5s
+      retries: 10
+
+  web:
+    build: .
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      DATABASE_URL: postgres://snpnca:${POSTGRES_PASSWORD}@db:5432/snpnca
+      PRIVATE_MEDIA_ROOT: /data/media
+    volumes:
+      - media:/data/media
+    depends_on:
+      db:
+        condition: service_healthy
+    command: sh -c "python manage.py migrate --noinput && python manage.py createcachetable && python manage.py seed_master_admin && gunicorn config.wsgi:application --bind 0.0.0.0:8000 --workers 3 --timeout 120 --access-logfile -"
+
+  worker:
+    build: .
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      DATABASE_URL: postgres://snpnca:${POSTGRES_PASSWORD}@db:5432/snpnca
+      PRIVATE_MEDIA_ROOT: /data/media
+    volumes:
+      - media:/data/media
+    depends_on:
+      - web
+    command: python manage.py process_documents
+
+  caddy:
+    image: caddy:2
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      SITE_DOMAIN: ${SITE_DOMAIN:?set SITE_DOMAIN in .env}
+    volumes:
+      - ./deploy/Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+    depends_on:
+      - web
+
+volumes:
+  pgdata:
+  media:
+  caddy_data:

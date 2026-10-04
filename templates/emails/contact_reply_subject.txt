@@ -1,0 +1,1 @@
+{% load i18n %}{% translate "Reply to your message to SNPNCA" %}

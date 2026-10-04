@@ -1,0 +1,11 @@
+# Caddy obtains and renews the HTTPS certificate automatically.
+{$SITE_DOMAIN} {
+	encode gzip
+	request_body {
+		max_size 30MB
+	}
+	header Strict-Transport-Security "max-age=31536000; includeSubDomains"
+	reverse_proxy web:8000 {
+		header_up X-Forwarded-For {remote_host}
+	}
+}

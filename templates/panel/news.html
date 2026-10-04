@@ -1,0 +1,25 @@
+{% extends "panel/_layout.html" %}{% load i18n site_tags %}
+{% block title %}{% translate "News" %}{% endblock %}
+{% block panel %}
+<h1>{% translate "News" %}</h1>
+<p><a class="btn" href="{% url 'panel:news_create' %}">{% translate "New article" %}</a></p>
+<div class="table-wrap">
+<table>
+  <thead><tr><th>{% translate "Title" %}</th><th>{% translate "Languages" %}</th><th>{% translate "Date" %}</th><th>{% translate "Status" %}</th><th><span class="sr-only">{% translate "Actions" %}</span></th></tr></thead>
+  <tbody>
+  {% for a in page %}
+  <tr>
+    <td>{% localized a "title" %}</td>
+    <td>{% if a.title_fr %}FR{% endif %} {% if a.title_en %}EN{% endif %}</td>
+    <td class="small">{{ a.published_at|date:"SHORT_DATETIME_FORMAT" }}</td>
+    <td>{% if a.is_published %}<span class="badge ok">{% translate "Published" %}</span>{% else %}<span class="badge">{% translate "Draft" %}</span>{% endif %}</td>
+    <td><div class="actions"><a class="btn secondary small" href="{% url 'panel:news_edit' a.pk %}">{% translate "Edit" %}</a><a class="btn danger small" href="{% url 'panel:news_delete' a.pk %}">{% translate "Delete" %}</a></div></td>
+  </tr>
+  {% empty %}
+  <tr><td colspan="5" class="muted">{% translate "No articles yet." %}</td></tr>
+  {% endfor %}
+  </tbody>
+</table>
+</div>
+{% include "_pagination.html" %}
+{% endblock %}

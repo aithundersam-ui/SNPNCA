@@ -1,0 +1,45 @@
+{% extends "base.html" %}{% load i18n %}
+{% block title %}{% translate "Q&A" %}{% endblock %}
+{% block content %}
+<h1>{% translate "Questions about our documents" %}</h1>
+<p class="muted">{% translate "Ask a question in French or English. Answers come only from the documents published by the union, with the document and page they come from. If the documents do not contain the answer, the assistant will tell you." %}</p>
+<div class="chat-layout">
+  <div>
+    <div class="chat" aria-live="polite">
+      {% for m in history %}
+        <div class="bubble {{ m.role }}{% if m.role == 'assistant' and not m.answered %} unanswered{% endif %}" {% if forloop.last %}id="latest"{% endif %}>
+          <span class="sr-only">{% if m.role == 'user' %}{% translate "You:" %}{% else %}{% translate "Assistant:" %}{% endif %}</span>
+          <div class="bubble-text">{{ m.content }}</div>
+          {% if m.citations %}
+          <div class="sources">
+            <strong>{% translate "Sources" %}</strong>
+            <ul>{% for c in m.citations %}<li><a href="{% url 'qa:document' c.document_id %}#page={{ c.page }}" target="_blank" rel="noopener">{{ c.title }}</a>, {% blocktranslate with page=c.page %}page {{ page }}{% endblocktranslate %}</li>{% endfor %}</ul>
+          </div>
+          {% endif %}
+        </div>
+      {% empty %}
+        <p class="muted">{% translate "No questions yet. Ask your first question below." %}</p>
+      {% endfor %}
+    </div>
+    <form method="post" class="chat-form" data-chat-form novalidate>
+      {% csrf_token %}
+      {% include "_form_fields.html" %}
+      <p class="thinking" role="status">{% translate "Searching the documents…" %}</p>
+      <div class="actions">
+        <button type="submit" class="btn">{% translate "Ask" %}</button>
+      </div>
+    </form>
+    {% if history %}
+    <form method="post" action="{% url 'qa:clear' %}">{% csrf_token %}<button type="submit" class="btn secondary small">{% translate "Clear the conversation" %}</button></form>
+    {% endif %}
+  </div>
+  <aside class="card" aria-labelledby="docs-title">
+    <h2 id="docs-title">{% translate "Available documents" %}</h2>
+    {% if documents %}
+      <ul class="doc-list">{% for d in documents %}<li><a href="{% url 'qa:document' d.pk %}" target="_blank" rel="noopener">{{ d.title }}</a></li>{% endfor %}</ul>
+    {% else %}
+      <p class="small muted">{% translate "No documents have been published yet." %}</p>
+    {% endif %}
+  </aside>
+</div>
+{% endblock %}

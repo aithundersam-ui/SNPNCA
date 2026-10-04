@@ -1,0 +1,1211 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-04 14:49+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: accounts/csv_import.py:52
+msgid "The file is not UTF-8 encoded. In Excel, use “Save as → CSV UTF-8”."
+msgstr ""
+"Le fichier n’est pas encodé en UTF-8. Dans Excel, utilisez « Enregistrer "
+"sous → CSV UTF-8 »."
+
+#: accounts/csv_import.py:64
+msgid "The first line must contain the columns full_name and email."
+msgstr "La première ligne doit contenir les colonnes full_name et email."
+
+#: accounts/csv_import.py:72
+#, python-format
+msgid "The file has more than %(max)s rows."
+msgstr "Le fichier contient plus de %(max)s lignes."
+
+#: accounts/csv_import.py:84
+msgid "Full name is missing."
+msgstr "Le nom complet est manquant."
+
+#: accounts/csv_import.py:86
+msgid "Full name is too long."
+msgstr "Le nom complet est trop long."
+
+#: accounts/csv_import.py:90
+msgid "Invalid email address."
+msgstr "Adresse e-mail invalide."
+
+#: accounts/csv_import.py:92
+msgid "Language must be fr or en."
+msgstr "La langue doit être fr ou en."
+
+#: accounts/csv_import.py:94
+msgid "Role must be user, admin or master."
+msgstr "Le rôle doit être user, admin ou master."
+
+#: accounts/csv_import.py:96
+msgid "Role ignored: only the Master Admin can import admins."
+msgstr ""
+"Rôle ignoré : seul l’administrateur principal peut importer des "
+"administrateurs."
+
+#: accounts/csv_import.py:99
+msgid "This email appears more than once in the file."
+msgstr "Cette adresse e-mail apparaît plusieurs fois dans le fichier."
+
+#: accounts/csv_import.py:102
+msgid "An account with this email already exists; the row will be skipped."
+msgstr ""
+"Un compte existe déjà avec cette adresse e-mail ; la ligne sera ignorée."
+
+#: accounts/forms.py:9 templates/panel/admins.html:9
+#: templates/panel/csv_import.html:22 templates/panel/users.html:16
+msgid "Email"
+msgstr "E-mail"
+
+#: accounts/forms.py:10
+msgid "Password"
+msgstr "Mot de passe"
+
+#: accounts/forms.py:57
+msgid "An account with this email already exists."
+msgstr "Un compte existe déjà avec cette adresse e-mail."
+
+#: accounts/forms.py:63
+msgid "Invalid role."
+msgstr "Rôle invalide."
+
+#: accounts/forms.py:68
+msgid "CSV file (UTF-8)"
+msgstr "Fichier CSV (UTF-8)"
+
+#: accounts/forms.py:73
+msgid "Please upload a .csv file."
+msgstr "Veuillez envoyer un fichier .csv."
+
+#: accounts/forms.py:75
+msgid "The file is larger than 1 MB."
+msgstr "Le fichier dépasse 1 Mo."
+
+#: accounts/models.py:8
+msgid "Member"
+msgstr "Adhérent"
+
+#: accounts/models.py:9
+msgid "Admin"
+msgstr "Administrateur"
+
+#: accounts/models.py:10
+msgid "Master Admin"
+msgstr "Administrateur principal"
+
+#: accounts/models.py:14 config/settings.py:130
+msgid "French"
+msgstr "Français"
+
+#: accounts/models.py:15 config/settings.py:130
+msgid "English"
+msgstr "Anglais"
+
+#: accounts/models.py:37 core/models.py:42
+msgid "email"
+msgstr "e-mail"
+
+#: accounts/models.py:38 core/models.py:41
+msgid "full name"
+msgstr "nom complet"
+
+#: accounts/models.py:39
+msgid "role"
+msgstr "rôle"
+
+#: accounts/models.py:41
+msgid "preferred language"
+msgstr "langue préférée"
+
+#: accounts/models.py:43
+msgid "active"
+msgstr "actif"
+
+#: accounts/views.py:44
+msgid "Too many failed attempts. Please wait 15 minutes and try again."
+msgstr ""
+"Trop de tentatives échouées. Veuillez patienter 15 minutes puis réessayer."
+
+#: accounts/views.py:49
+msgid "Incorrect email or password."
+msgstr "E-mail ou mot de passe incorrect."
+
+#: accounts/views.py:83
+msgid "Your settings were saved."
+msgstr "Vos préférences ont été enregistrées."
+
+#: accounts/views.py:121
+msgid "Your password was changed."
+msgstr "Votre mot de passe a été modifié."
+
+#: core/forms.py:19
+msgid "Leave this field empty"
+msgstr "Laissez ce champ vide"
+
+#: core/forms.py:42
+msgid "Enter a valid phone number."
+msgstr "Saisissez un numéro de téléphone valide."
+
+#: core/forms.py:48
+msgid "Your message is too short."
+msgstr "Votre message est trop court."
+
+#: core/forms.py:69
+msgid "Reply"
+msgstr "Réponse"
+
+#: core/models.py:20
+msgid "organisation description (French)"
+msgstr "présentation de l’organisation (français)"
+
+#: core/models.py:21
+msgid "organisation description (English)"
+msgstr "présentation de l’organisation (anglais)"
+
+#: core/models.py:22
+msgid "our mission (French)"
+msgstr "notre mission (français)"
+
+#: core/models.py:23
+msgid "our mission (English)"
+msgstr "notre mission (anglais)"
+
+#: core/models.py:38 templates/panel/messages.html:7
+msgid "New"
+msgstr "Nouveau"
+
+#: core/models.py:39 templates/panel/messages.html:8
+msgid "Replied"
+msgstr "Répondu"
+
+#: core/models.py:43
+msgid "phone number"
+msgstr "numéro de téléphone"
+
+#: core/models.py:44
+msgid "message"
+msgstr "message"
+
+#: core/views.py:44 core/views.py:50
+msgid "Thank you. Your message has been sent."
+msgstr "Merci. Votre message a bien été envoyé."
+
+#: core/views.py:85
+msgid "Access denied"
+msgstr "Accès refusé"
+
+#: core/views.py:85
+msgid "You do not have permission to view this page."
+msgstr "Vous n’avez pas l’autorisation d’accéder à cette page."
+
+#: core/views.py:89
+msgid "Page not found"
+msgstr "Page introuvable"
+
+#: core/views.py:89
+msgid "The page you are looking for does not exist."
+msgstr "La page que vous cherchez n’existe pas."
+
+#: core/views.py:93
+msgid "Server error"
+msgstr "Erreur du serveur"
+
+#: core/views.py:93
+msgid "Something went wrong. Please try again later."
+msgstr "Une erreur s’est produite. Veuillez réessayer plus tard."
+
+#: news/models.py:34
+msgid "title (French)"
+msgstr "titre (français)"
+
+#: news/models.py:35
+msgid "title (English)"
+msgstr "titre (anglais)"
+
+#: news/models.py:36
+msgid "text (French)"
+msgstr "texte (français)"
+
+#: news/models.py:37
+msgid "text (English)"
+msgstr "texte (anglais)"
+
+#: news/models.py:38
+msgid "publication date"
+msgstr "date de publication"
+
+#: news/models.py:39
+msgid "published"
+msgstr "publié"
+
+#: news/models.py:67
+msgid "YouTube or Vimeo link"
+msgstr "lien YouTube ou Vimeo"
+
+#: panel/forms.py:27
+#, python-format
+msgid "Each image must be smaller than %(mb)s MB."
+msgstr "Chaque image doit faire moins de %(mb)s Mo."
+
+#: panel/forms.py:33
+msgid "One of the files is not a valid image."
+msgstr "L’un des fichiers n’est pas une image valide."
+
+#: panel/forms.py:35
+msgid "Images must be JPEG, PNG or WebP."
+msgstr "Les images doivent être au format JPEG, PNG ou WebP."
+
+#: panel/forms.py:42
+msgid "Videos (YouTube or Vimeo links, one per line)"
+msgstr "Vidéos (liens YouTube ou Vimeo, un par ligne)"
+
+#: panel/forms.py:46
+msgid "Add images"
+msgstr "Ajouter des images"
+
+#: panel/forms.py:67
+#, python-format
+msgid "Only YouTube and Vimeo links are accepted: %(urls)s"
+msgstr "Seuls les liens YouTube et Vimeo sont acceptés : %(urls)s"
+
+#: panel/forms.py:73
+msgid "Enter a title in at least one language."
+msgstr "Saisissez un titre dans au moins une langue."
+
+#: panel/forms.py:78 templates/panel/documents.html:13
+#: templates/panel/news.html:8
+msgid "Title"
+msgstr "Titre"
+
+#: panel/forms.py:78
+msgid "Leave empty to use the file name."
+msgstr "Laissez vide pour utiliser le nom du fichier."
+
+#: panel/forms.py:79
+msgid "PDF file"
+msgstr "Fichier PDF"
+
+#: panel/forms.py:84
+#, python-format
+msgid "The file is larger than %(mb)s MB."
+msgstr "Le fichier dépasse %(mb)s Mo."
+
+#: panel/forms.py:86
+msgid "Only PDF files are accepted."
+msgstr "Seuls les fichiers PDF sont acceptés."
+
+#: panel/forms.py:91
+msgid "This file is not a valid, unprotected PDF."
+msgstr "Ce fichier n’est pas un PDF valide et non protégé."
+
+#: panel/forms.py:96 templates/panel/admins.html:9
+#: templates/panel/admins.html:19 templates/panel/csv_import.html:22
+#: templates/panel/users.html:16
+msgid "Role"
+msgstr "Rôle"
+
+#: panel/views.py:41
+#, python-format
+msgid ""
+"The account was created but the invitation email could not be sent to "
+"%(email)s."
+msgstr ""
+"Le compte a été créé, mais l’e-mail d’invitation n’a pas pu être envoyé à "
+"%(email)s."
+
+#: panel/views.py:88
+#, python-format
+msgid "Account created. A set-password link was emailed to %(email)s."
+msgstr ""
+"Compte créé. Un lien pour choisir le mot de passe a été envoyé à %(email)s."
+
+#: panel/views.py:116 panel/views.py:134 panel/views.py:223
+msgid "There must always be at least one active Master Admin."
+msgstr "Il doit toujours rester au moins un administrateur principal actif."
+
+#: panel/views.py:119
+msgid "Changes saved."
+msgstr "Modifications enregistrées."
+
+#: panel/views.py:137
+msgid "The account was deleted."
+msgstr "Le compte a été supprimé."
+
+#: panel/views.py:152
+#, python-format
+msgid "A new set-password link was emailed to %(email)s."
+msgstr ""
+"Un nouveau lien pour choisir le mot de passe a été envoyé à %(email)s."
+
+#: panel/views.py:187
+msgid "Nothing to import. Please upload the file again."
+msgstr "Rien à importer. Veuillez envoyer le fichier à nouveau."
+
+#: panel/views.py:198
+#, python-format
+msgid "%(count)s accounts created and invited."
+msgstr "%(count)s comptes créés et invités."
+
+#: panel/views.py:200
+#, python-format
+msgid ""
+"%(count)s invitation emails could not be sent. Use “Resend invitation” on "
+"those accounts."
+msgstr ""
+"%(count)s e-mails d’invitation n’ont pas pu être envoyés. Utilisez « "
+"Renvoyer l’invitation » sur ces comptes."
+
+#: panel/views.py:226
+msgid "Role updated."
+msgstr "Rôle mis à jour."
+
+#: panel/views.py:248
+msgid "The PDF was uploaded and is being processed."
+msgstr "Le PDF a été envoyé et est en cours de traitement."
+
+#: panel/views.py:261
+msgid "The document and its extracted text were deleted."
+msgstr "Le document et son texte extrait ont été supprimés."
+
+#: panel/views.py:304
+msgid "Article saved."
+msgstr "Article enregistré."
+
+#: panel/views.py:318
+msgid "Article deleted."
+msgstr "Article supprimé."
+
+#: panel/views.py:346
+msgid "The email could not be sent. Please try again later."
+msgstr "L’e-mail n’a pas pu être envoyé. Veuillez réessayer plus tard."
+
+#: panel/views.py:352
+msgid "Your reply was sent."
+msgstr "Votre réponse a été envoyée."
+
+#: panel/views.py:363
+msgid "Message deleted."
+msgstr "Message supprimé."
+
+#: panel/views.py:377
+msgid "Home page updated."
+msgstr "Page d’accueil mise à jour."
+
+#: qa/assistant.py:40
+msgid ""
+"I could not find the answer to this question in the documents available. "
+"Please contact the union office for help."
+msgstr ""
+"Je n’ai pas trouvé la réponse à cette question dans les documents "
+"disponibles. Veuillez contacter le bureau du syndicat."
+
+#: qa/assistant.py:45
+msgid ""
+"The assistant is temporarily unavailable. Please try again in a few minutes."
+msgstr ""
+"L’assistant est momentanément indisponible. Veuillez réessayer dans quelques"
+" minutes."
+
+#: qa/models.py:16
+msgid "Waiting"
+msgstr "En attente"
+
+#: qa/models.py:17
+msgid "Processing"
+msgstr "En cours de traitement"
+
+#: qa/models.py:18
+msgid "Ready"
+msgstr "Prêt"
+
+#: qa/models.py:19
+msgid "Failed"
+msgstr "Échec"
+
+#: qa/models.py:21
+msgid "title"
+msgstr "titre"
+
+#: qa/views.py:20
+msgid "Your question"
+msgstr "Votre question"
+
+#: qa/views.py:32
+msgid ""
+"You have asked many questions in a short time. Please wait a few minutes."
+msgstr ""
+"Vous avez posé beaucoup de questions en peu de temps. Veuillez patienter "
+"quelques minutes."
+
+#: templates/_pagination.html:2 templates/panel/documents.html:13
+msgid "Pages"
+msgstr "Pages"
+
+#: templates/_pagination.html:3
+msgid "Previous"
+msgstr "Précédent"
+
+#: templates/_pagination.html:4
+#, python-format
+msgid "Page %(n)s of %(total)s"
+msgstr "Page %(n)s sur %(total)s"
+
+#: templates/_pagination.html:5
+msgid "Next"
+msgstr "Suivant"
+
+#: templates/accounts/login.html:2 templates/accounts/login.html:5
+#: templates/base.html:34
+msgid "Member login"
+msgstr "Espace adhérent"
+
+#: templates/accounts/login.html:11
+#: templates/accounts/password_reset_complete.html:7
+msgid "Log in"
+msgstr "Se connecter"
+
+#: templates/accounts/login.html:12
+msgid "Forgot your password?"
+msgstr "Mot de passe oublié ?"
+
+#: templates/accounts/login.html:15
+msgid ""
+"Accounts are created by the union. If you are a member and have no account, "
+"use the contact form on the home page."
+msgstr ""
+"Les comptes sont créés par le syndicat. Si vous êtes adhérent et n’avez pas "
+"de compte, utilisez le formulaire de contact de la page d’accueil."
+
+#: templates/accounts/password_change.html:2
+#: templates/accounts/password_change.html:5
+#: templates/accounts/settings.html:12
+msgid "Change my password"
+msgstr "Modifier mon mot de passe"
+
+#: templates/accounts/password_change.html:9
+msgid "Change password"
+msgstr "Modifier le mot de passe"
+
+#: templates/accounts/password_reset.html:2
+#: templates/accounts/password_reset.html:5
+msgid "Reset your password"
+msgstr "Réinitialiser votre mot de passe"
+
+#: templates/accounts/password_reset.html:6
+msgid ""
+"Enter the email address of your account. We will send you a link to choose a"
+" new password."
+msgstr ""
+"Saisissez l’adresse e-mail de votre compte. Nous vous enverrons un lien pour"
+" choisir un nouveau mot de passe."
+
+#: templates/accounts/password_reset.html:10
+msgid "Send the link"
+msgstr "Envoyer le lien"
+
+#: templates/accounts/password_reset_complete.html:2
+#: templates/accounts/password_reset_complete.html:5
+msgid "Password saved"
+msgstr "Mot de passe enregistré"
+
+#: templates/accounts/password_reset_complete.html:6
+msgid "Your password has been saved. You can now log in."
+msgstr ""
+"Votre mot de passe a été enregistré. Vous pouvez maintenant vous connecter."
+
+#: templates/accounts/password_reset_confirm.html:2
+#: templates/accounts/password_reset_confirm.html:5
+msgid "Choose your password"
+msgstr "Choisissez votre mot de passe"
+
+#: templates/accounts/password_reset_confirm.html:10
+msgid "Save my password"
+msgstr "Enregistrer mon mot de passe"
+
+#: templates/accounts/password_reset_confirm.html:13
+msgid "This link is invalid or has expired. You can request a new one."
+msgstr "Ce lien est invalide ou a expiré. Vous pouvez en demander un nouveau."
+
+#: templates/accounts/password_reset_confirm.html:14
+msgid "Request a new link"
+msgstr "Demander un nouveau lien"
+
+#: templates/accounts/password_reset_done.html:2
+#: templates/accounts/password_reset_done.html:5
+msgid "Check your email"
+msgstr "Consultez votre messagerie"
+
+#: templates/accounts/password_reset_done.html:6
+msgid ""
+"If an account exists for this address, we have sent a link to choose a new "
+"password. The link is valid for 3 days."
+msgstr ""
+"Si un compte existe pour cette adresse, nous avons envoyé un lien pour "
+"choisir un nouveau mot de passe. Le lien est valable 3 jours."
+
+#: templates/accounts/settings.html:2 templates/accounts/settings.html:5
+#: templates/base.html:31
+msgid "My account"
+msgstr "Mon compte"
+
+#: templates/accounts/settings.html:10 templates/panel/home_content.html:18
+#: templates/panel/news_form.html:37 templates/panel/user_form.html:10
+msgid "Save"
+msgstr "Enregistrer"
+
+#: templates/base.html:14
+msgid "Skip to content"
+msgstr "Aller au contenu"
+
+#: templates/base.html:19
+msgid "SNPNCA logo"
+msgstr "Logo du SNPNCA"
+
+#: templates/base.html:25
+msgid "Main navigation"
+msgstr "Navigation principale"
+
+#: templates/base.html:26 templates/core/home.html:2
+msgid "Home"
+msgstr "Accueil"
+
+#: templates/base.html:28 templates/news/list.html:2
+#: templates/news/list.html:4 templates/panel/_layout.html:10
+#: templates/panel/news.html:2 templates/panel/news.html:4
+msgid "News"
+msgstr "Actualités"
+
+#: templates/base.html:29 templates/qa/chat.html:2
+msgid "Q&A"
+msgstr "Questions-réponses"
+
+#: templates/base.html:30 templates/panel/_layout.html:5
+#: templates/panel/dashboard.html:2 templates/panel/dashboard.html:4
+msgid "Admin panel"
+msgstr "Administration"
+
+#: templates/base.html:32
+msgid "Log out"
+msgstr "Se déconnecter"
+
+#: templates/base.html:37 templates/panel/csv_import.html:22
+msgid "Language"
+msgstr "Langue"
+
+#: templates/core/error.html:8
+msgid "Back to the home page"
+msgstr "Retour à l’accueil"
+
+#: templates/core/home.html:7
+msgid "About us"
+msgstr "Qui sommes-nous"
+
+#: templates/core/home.html:8 templates/core/home.html:13
+msgid "Content coming soon."
+msgstr "Contenu bientôt disponible."
+
+#: templates/core/home.html:12
+msgid "Our mission"
+msgstr "Notre mission"
+
+#: templates/core/home.html:17
+msgid "Contact us"
+msgstr "Nous contacter"
+
+#: templates/core/home.html:30
+msgid ""
+"Privacy notice: we use your name, email, phone number and message only to "
+"answer your request. They are kept in our admin panel and are not shared "
+"with third parties. To have them deleted, write to us using this form."
+msgstr ""
+"Confidentialité : nous utilisons votre nom, votre e-mail, votre numéro de "
+"téléphone et votre message uniquement pour répondre à votre demande. Ils "
+"sont conservés dans notre espace d’administration et ne sont pas transmis à "
+"des tiers. Pour les faire supprimer, écrivez-nous via ce formulaire."
+
+#: templates/core/home.html:31
+msgid "Send message"
+msgstr "Envoyer le message"
+
+#: templates/emails/contact_notification_body.txt:1
+msgid "A new message was sent through the contact form."
+msgstr "Un nouveau message a été envoyé via le formulaire de contact."
+
+#: templates/emails/contact_notification_body.txt:3
+msgid "Name:"
+msgstr "Nom :"
+
+#: templates/emails/contact_notification_body.txt:4
+msgid "Email:"
+msgstr "E-mail :"
+
+#: templates/emails/contact_notification_body.txt:5
+msgid "Phone:"
+msgstr "Téléphone :"
+
+#: templates/emails/contact_notification_body.txt:9
+msgid "Reply from the admin panel:"
+msgstr "Répondre depuis l’administration :"
+
+#: templates/emails/contact_notification_subject.txt:1
+#, python-format
+msgid "New contact message from %(name)s"
+msgstr "Nouveau message de contact de %(name)s"
+
+#: templates/emails/contact_reply_body.txt:1
+#: templates/emails/invite_body.txt:1
+#: templates/emails/password_reset_body.txt:1
+#, python-format
+msgid "Hello %(name)s,"
+msgstr "Bonjour %(name)s,"
+
+#: templates/emails/contact_reply_body.txt:8
+msgid "Your original message:"
+msgstr "Votre message d’origine :"
+
+#: templates/emails/contact_reply_subject.txt:1
+msgid "Reply to your message to SNPNCA"
+msgstr "Réponse à votre message au SNPNCA"
+
+#: templates/emails/invite_body.txt:3
+msgid "An account has been created for you on the SNPNCA members website."
+msgstr "Un compte a été créé pour vous sur l’espace adhérents du SNPNCA."
+
+#: templates/emails/invite_body.txt:4
+msgid ""
+"To activate it, choose your password using this link (valid for 3 days):"
+msgstr ""
+"Pour l’activer, choisissez votre mot de passe avec ce lien (valable 3 jours)"
+" :"
+
+#: templates/emails/invite_body.txt:8
+msgid "Your login is your email address:"
+msgstr "Votre identifiant est votre adresse e-mail :"
+
+#: templates/emails/invite_body.txt:10
+msgid "If you were not expecting this email, you can ignore it."
+msgstr "Si vous n’attendiez pas cet e-mail, vous pouvez l’ignorer."
+
+#: templates/emails/invite_subject.txt:1
+msgid "Your SNPNCA member account"
+msgstr "Votre compte adhérent SNPNCA"
+
+#: templates/emails/password_reset_body.txt:3
+msgid ""
+"We received a request to reset the password of your SNPNCA account. Choose a"
+" new password using this link (valid for 3 days):"
+msgstr ""
+"Nous avons reçu une demande de réinitialisation du mot de passe de votre "
+"compte SNPNCA. Choisissez un nouveau mot de passe avec ce lien (valable 3 "
+"jours) :"
+
+#: templates/emails/password_reset_body.txt:7
+msgid ""
+"If you did not ask for this, you can ignore this email; your password will "
+"not change."
+msgstr ""
+"Si vous n’êtes pas à l’origine de cette demande, ignorez cet e-mail ; votre "
+"mot de passe ne changera pas."
+
+#: templates/emails/password_reset_subject.txt:1
+msgid "Reset your SNPNCA password"
+msgstr "Réinitialisation de votre mot de passe SNPNCA"
+
+#: templates/news/detail.html:4
+msgid "All news"
+msgstr "Toutes les actualités"
+
+#: templates/news/detail.html:11
+msgid "Video"
+msgstr "Vidéo"
+
+#: templates/news/detail.html:16
+msgid "Article image"
+msgstr "Image de l’article"
+
+#: templates/news/list.html:22
+msgid "No news yet."
+msgstr "Aucune actualité pour le moment."
+
+#: templates/panel/_layout.html:6
+msgid "Overview"
+msgstr "Vue d’ensemble"
+
+#: templates/panel/_layout.html:7 templates/panel/users.html:2
+#: templates/panel/users.html:4
+msgid "Users"
+msgstr "Utilisateurs"
+
+#: templates/panel/_layout.html:8 templates/panel/admins.html:2
+#: templates/panel/admins.html:4
+msgid "Admins"
+msgstr "Administrateurs"
+
+#: templates/panel/_layout.html:9 templates/panel/dashboard.html:8
+#: templates/panel/documents.html:2 templates/panel/documents.html:4
+msgid "Documents"
+msgstr "Documents"
+
+#: templates/panel/_layout.html:11 templates/panel/messages.html:2
+msgid "Messages"
+msgstr "Messages"
+
+#: templates/panel/_layout.html:12 templates/panel/home_content.html:2
+msgid "Home page"
+msgstr "Page d’accueil"
+
+#: templates/panel/_layout.html:13 templates/panel/audit.html:2
+#: templates/panel/audit.html:4
+msgid "Audit log"
+msgstr "Journal d’audit"
+
+#: templates/panel/admins.html:5
+msgid ""
+"Only the Master Admin can create admins and change roles. There must always "
+"be at least one Master Admin."
+msgstr ""
+"Seul l’administrateur principal peut créer des administrateurs et modifier "
+"les rôles. Il doit toujours rester au moins un administrateur principal."
+
+#: templates/panel/admins.html:6
+msgid "New admin"
+msgstr "Nouvel administrateur"
+
+#: templates/panel/admins.html:9 templates/panel/csv_import.html:22
+#: templates/panel/users.html:16
+msgid "Name"
+msgstr "Nom"
+
+#: templates/panel/admins.html:9
+msgid "Change role"
+msgstr "Modifier le rôle"
+
+#: templates/panel/admins.html:23
+msgid "Apply"
+msgstr "Appliquer"
+
+#: templates/panel/admins.html:31
+msgid ""
+"To make an existing member an admin, edit their account from the Users page "
+"and change the role."
+msgstr ""
+"Pour nommer un adhérent existant administrateur, modifiez son compte depuis "
+"la page Utilisateurs et changez son rôle."
+
+#: templates/panel/audit.html:7 templates/panel/news.html:8
+msgid "Date"
+msgstr "Date"
+
+#: templates/panel/audit.html:7
+msgid "By"
+msgstr "Par"
+
+#: templates/panel/audit.html:7
+msgid "Action"
+msgstr "Action"
+
+#: templates/panel/audit.html:7
+msgid "Target"
+msgstr "Cible"
+
+#: templates/panel/audit.html:7
+msgid "Details"
+msgstr "Détails"
+
+#: templates/panel/audit.html:18
+msgid "Nothing recorded yet."
+msgstr "Aucune entrée pour le moment."
+
+#: templates/panel/confirm_delete.html:2 templates/panel/confirm_delete.html:4
+msgid "Confirm deletion"
+msgstr "Confirmer la suppression"
+
+#: templates/panel/confirm_delete.html:5
+#, python-format
+msgid "Are you sure you want to delete “%(label)s”? This cannot be undone."
+msgstr ""
+"Voulez-vous vraiment supprimer « %(label)s » ? Cette action est "
+"irréversible."
+
+#: templates/panel/confirm_delete.html:8 templates/panel/documents.html:24
+#: templates/panel/news.html:16 templates/panel/users.html:29
+msgid "Delete"
+msgstr "Supprimer"
+
+#: templates/panel/confirm_delete.html:9 templates/panel/news_form.html:38
+#: templates/panel/user_form.html:11
+msgid "Cancel"
+msgstr "Annuler"
+
+#: templates/panel/csv_import.html:2 templates/panel/users.html:7
+msgid "Import from CSV"
+msgstr "Importer un CSV"
+
+#: templates/panel/csv_import.html:4
+msgid "Import members from CSV"
+msgstr "Importer des adhérents depuis un fichier CSV"
+
+#: templates/panel/csv_import.html:6
+msgid ""
+"Columns: full_name, email, and optionally language (fr or en) and role. The "
+"file must be UTF-8 encoded so accented names are kept."
+msgstr ""
+"Colonnes : full_name, email et, en option, language (fr ou en) et role. Le "
+"fichier doit être encodé en UTF-8 pour conserver les accents."
+
+#: templates/panel/csv_import.html:7
+msgid ""
+"Rows whose email already has an account are skipped. Existing members who "
+"are not in the file are not changed. Each new member receives an email to "
+"choose a password."
+msgstr ""
+"Les lignes dont l’e-mail correspond déjà à un compte sont ignorées. Les "
+"adhérents existants absents du fichier ne sont pas modifiés. Chaque nouvel "
+"adhérent reçoit un e-mail pour choisir son mot de passe."
+
+#: templates/panel/csv_import.html:8
+msgid ""
+"The role column is only applied when the Master Admin imports the file; "
+"otherwise everyone is imported as a member."
+msgstr ""
+"La colonne role n’est appliquée que si l’administrateur principal importe le"
+" fichier ; sinon, tout le monde est importé comme adhérent."
+
+#: templates/panel/csv_import.html:9
+msgid "Download the template file"
+msgstr "Télécharger le modèle de fichier"
+
+#: templates/panel/csv_import.html:14 templates/panel/csv_import.html:18
+msgid "Preview"
+msgstr "Aperçu"
+
+#: templates/panel/csv_import.html:19
+#, python-format
+msgid "%(n)s account will be created."
+msgid_plural "%(n)s accounts will be created."
+msgstr[0] "%(n)s compte sera créé."
+msgstr[1] "%(n)s comptes seront créés."
+
+#: templates/panel/csv_import.html:22
+msgid "Line"
+msgstr "Ligne"
+
+#: templates/panel/csv_import.html:22
+msgid "Result"
+msgstr "Résultat"
+
+#: templates/panel/csv_import.html:28
+msgid "Skipped"
+msgstr "Ignorée"
+
+#: templates/panel/csv_import.html:28
+msgid "Will be created"
+msgstr "Sera créé"
+
+#: templates/panel/csv_import.html:39
+#, python-format
+msgid "Create %(n)s account"
+msgid_plural "Create %(n)s accounts"
+msgstr[0] "Créer %(n)s compte"
+msgstr[1] "Créer %(n)s comptes"
+
+#: templates/panel/dashboard.html:6
+msgid "Accounts"
+msgstr "Comptes"
+
+#: templates/panel/dashboard.html:7
+msgid "New messages"
+msgstr "Nouveaux messages"
+
+#: templates/panel/dashboard.html:8
+#, python-format
+msgid "%(n)s processing"
+msgid_plural "%(n)s processing"
+msgstr[0] "%(n)s en cours"
+msgstr[1] "%(n)s en cours"
+
+#: templates/panel/dashboard.html:9
+msgid "Articles"
+msgstr "Articles"
+
+#: templates/panel/documents.html:5
+#, python-format
+msgid ""
+"PDF only, up to %(max_mb)s MB. Text is extracted automatically; scanned "
+"pages are read with OCR (French, English and Arabic). Members can then ask "
+"questions about these documents."
+msgstr ""
+"PDF uniquement, jusqu’à %(max_mb)s Mo. Le texte est extrait automatiquement "
+"; les pages numérisées sont lues par OCR (français, anglais et arabe). Les "
+"adhérents peuvent ensuite poser des questions sur ces documents."
+
+#: templates/panel/documents.html:9
+msgid "Upload"
+msgstr "Envoyer"
+
+#: templates/panel/documents.html:13 templates/panel/messages.html:12
+#: templates/panel/news.html:8 templates/panel/users.html:16
+msgid "Status"
+msgstr "Statut"
+
+#: templates/panel/documents.html:13
+msgid "Uploaded"
+msgstr "Envoyé le"
+
+#: templates/panel/documents.html:13 templates/panel/news.html:8
+#: templates/panel/users.html:16
+msgid "Actions"
+msgstr "Actions"
+
+#: templates/panel/documents.html:18
+#, python-format
+msgid "%(n)s by OCR"
+msgid_plural "%(n)s by OCR"
+msgstr[0] "%(n)s par OCR"
+msgstr[1] "%(n)s par OCR"
+
+#: templates/panel/documents.html:23
+msgid "Retry"
+msgstr "Relancer"
+
+#: templates/panel/documents.html:29
+msgid "No documents yet."
+msgstr "Aucun document pour le moment."
+
+#: templates/panel/home_content.html:4
+msgid "Home page text"
+msgstr "Textes de la page d’accueil"
+
+#: templates/panel/home_content.html:5
+msgid "If one language is empty, visitors see the other one."
+msgstr "Si une langue est vide, les visiteurs voient l’autre."
+
+#: templates/panel/message_detail.html:2 templates/panel/messages.html:12
+msgid "Message"
+msgstr "Message"
+
+#: templates/panel/message_detail.html:4
+msgid "All messages"
+msgstr "Tous les messages"
+
+#: templates/panel/message_detail.html:12
+#, python-format
+msgid "Reply by %(who)s on %(when)s"
+msgstr "Réponse de %(who)s le %(when)s"
+
+#: templates/panel/message_detail.html:16
+msgid "Reply by email"
+msgstr "Répondre par e-mail"
+
+#: templates/panel/message_detail.html:21
+msgid "Send reply"
+msgstr "Envoyer la réponse"
+
+#: templates/panel/message_detail.html:22
+msgid "Delete message"
+msgstr "Supprimer le message"
+
+#: templates/panel/messages.html:4
+msgid "Contact messages"
+msgstr "Messages de contact"
+
+#: templates/panel/messages.html:5
+msgid "Filter"
+msgstr "Filtrer"
+
+#: templates/panel/messages.html:6
+msgid "All"
+msgstr "Tous"
+
+#: templates/panel/messages.html:12
+msgid "From"
+msgstr "De"
+
+#: templates/panel/messages.html:12
+msgid "Received"
+msgstr "Reçu le"
+
+#: templates/panel/messages.html:22
+msgid "No messages."
+msgstr "Aucun message."
+
+#: templates/panel/news.html:5 templates/panel/news_form.html:2
+#: templates/panel/news_form.html:4
+msgid "New article"
+msgstr "Nouvel article"
+
+#: templates/panel/news.html:8
+msgid "Languages"
+msgstr "Langues"
+
+#: templates/panel/news.html:15
+msgid "Published"
+msgstr "Publié"
+
+#: templates/panel/news.html:15
+msgid "Draft"
+msgstr "Brouillon"
+
+#: templates/panel/news.html:16 templates/panel/users.html:27
+msgid "Edit"
+msgstr "Modifier"
+
+#: templates/panel/news.html:19
+msgid "No articles yet."
+msgstr "Aucun article pour le moment."
+
+#: templates/panel/news_form.html:2 templates/panel/news_form.html:4
+msgid "Edit article"
+msgstr "Modifier l’article"
+
+#: templates/panel/news_form.html:5
+msgid ""
+"Fill in French, English or both. If one language is empty, readers see the "
+"other one."
+msgstr ""
+"Remplissez le français, l’anglais ou les deux. Si une langue est vide, les "
+"lecteurs voient l’autre."
+
+#: templates/panel/news_form.html:19
+msgid "Media"
+msgstr "Médias"
+
+#: templates/panel/news_form.html:21
+msgid "Current images"
+msgstr "Images actuelles"
+
+#: templates/panel/news_form.html:24
+msgid "Image"
+msgstr "Image"
+
+#: templates/panel/news_form.html:25
+msgid "Remove"
+msgstr "Retirer"
+
+#: templates/panel/news_form.html:32
+msgid "Publication"
+msgstr "Publication"
+
+#: templates/panel/user_form.html:2 templates/panel/user_form.html:4
+msgid "New account"
+msgstr "Nouveau compte"
+
+#: templates/panel/user_form.html:2
+msgid "Edit account"
+msgstr "Modifier le compte"
+
+#: templates/panel/user_form.html:5
+msgid ""
+"The person will receive an email with a link to choose their own password."
+msgstr ""
+"La personne recevra un e-mail avec un lien pour choisir son propre mot de "
+"passe."
+
+#: templates/panel/user_form.html:10
+msgid "Create and send invitation"
+msgstr "Créer et envoyer l’invitation"
+
+#: templates/panel/users.html:6
+msgid "New member"
+msgstr "Nouvel adhérent"
+
+#: templates/panel/users.html:10 templates/panel/users.html:11
+msgid "Search by name or email"
+msgstr "Rechercher par nom ou e-mail"
+
+#: templates/panel/users.html:12
+msgid "Search"
+msgstr "Rechercher"
+
+#: templates/panel/users.html:23
+msgid "Deactivated"
+msgstr "Désactivé"
+
+#: templates/panel/users.html:23
+msgid "Invited"
+msgstr "Invité"
+
+#: templates/panel/users.html:23
+msgid "Active"
+msgstr "Actif"
+
+#: templates/panel/users.html:28
+msgid "Resend invitation"
+msgstr "Renvoyer l’invitation"
+
+#: templates/panel/users.html:35
+msgid "No accounts found."
+msgstr "Aucun compte trouvé."
+
+#: templates/qa/chat.html:4
+msgid "Questions about our documents"
+msgstr "Questions sur nos documents"
+
+#: templates/qa/chat.html:5
+msgid ""
+"Ask a question in French or English. Answers come only from the documents "
+"published by the union, with the document and page they come from. If the "
+"documents do not contain the answer, the assistant will tell you."
+msgstr ""
+"Posez une question en français ou en anglais. Les réponses proviennent "
+"uniquement des documents publiés par le syndicat, avec le document et la "
+"page d’origine. Si les documents ne contiennent pas la réponse, l’assistant "
+"vous le dira."
+
+#: templates/qa/chat.html:11
+msgid "You:"
+msgstr "Vous :"
+
+#: templates/qa/chat.html:11
+msgid "Assistant:"
+msgstr "Assistant :"
+
+#: templates/qa/chat.html:15
+msgid "Sources"
+msgstr "Sources"
+
+#: templates/qa/chat.html:16
+#, python-format
+msgid "page %(page)s"
+msgstr "page %(page)s"
+
+#: templates/qa/chat.html:21
+msgid "No questions yet. Ask your first question below."
+msgstr ""
+"Aucune question pour le moment. Posez votre première question ci-dessous."
+
+#: templates/qa/chat.html:27
+msgid "Searching the documents…"
+msgstr "Recherche dans les documents…"
+
+#: templates/qa/chat.html:29
+msgid "Ask"
+msgstr "Envoyer"
+
+#: templates/qa/chat.html:33
+msgid "Clear the conversation"
+msgstr "Effacer la conversation"
+
+#: templates/qa/chat.html:37
+msgid "Available documents"
+msgstr "Documents disponibles"
+
+#: templates/qa/chat.html:41
+msgid "No documents have been published yet."
+msgstr "Aucun document n’a encore été publié."

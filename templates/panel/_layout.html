@@ -1,0 +1,18 @@
+{% extends "base.html" %}{% load i18n %}
+{% block content %}
+{% with name=request.resolver_match.url_name %}
+<div class="panel">
+  <nav class="panel-nav" aria-label="{% translate 'Admin panel' %}">
+    <a href="{% url 'panel:dashboard' %}" {% if name == 'dashboard' %}aria-current="page"{% endif %}>{% translate "Overview" %}</a>
+    <a href="{% url 'panel:users' %}" {% if name == 'users' or name == 'user_create' or name == 'user_edit' or name == 'csv_upload' %}aria-current="page"{% endif %}>{% translate "Users" %}</a>
+    {% if user.is_master %}<a href="{% url 'panel:admins' %}" {% if name == 'admins' or name == 'admin_create' %}aria-current="page"{% endif %}>{% translate "Admins" %}</a>{% endif %}
+    <a href="{% url 'panel:documents' %}" {% if name == 'documents' %}aria-current="page"{% endif %}>{% translate "Documents" %}</a>
+    <a href="{% url 'panel:news' %}" {% if name == 'news' or name == 'news_create' or name == 'news_edit' %}aria-current="page"{% endif %}>{% translate "News" %}</a>
+    <a href="{% url 'panel:messages' %}" {% if name == 'messages' or name == 'message_detail' %}aria-current="page"{% endif %}>{% translate "Messages" %}</a>
+    <a href="{% url 'panel:home_content' %}" {% if name == 'home_content' %}aria-current="page"{% endif %}>{% translate "Home page" %}</a>
+    <a href="{% url 'panel:audit' %}" {% if name == 'audit' %}aria-current="page"{% endif %}>{% translate "Audit log" %}</a>
+  </nav>
+  <div>{% block panel %}{% endblock %}</div>
+</div>
+{% endwith %}
+{% endblock %}

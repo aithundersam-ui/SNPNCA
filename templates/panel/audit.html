@@ -1,0 +1,24 @@
+{% extends "panel/_layout.html" %}{% load i18n %}
+{% block title %}{% translate "Audit log" %}{% endblock %}
+{% block panel %}
+<h1>{% translate "Audit log" %}</h1>
+<div class="table-wrap">
+<table>
+  <thead><tr><th>{% translate "Date" %}</th><th>{% translate "By" %}</th><th>{% translate "Action" %}</th><th>{% translate "Target" %}</th><th>{% translate "Details" %}</th></tr></thead>
+  <tbody>
+  {% for e in page %}
+  <tr>
+    <td class="small">{{ e.created_at|date:"SHORT_DATETIME_FORMAT" }}</td>
+    <td class="small">{{ e.actor_email|default:"—" }}</td>
+    <td><code>{{ e.action }}</code></td>
+    <td>{{ e.target }}</td>
+    <td class="small">{% if e.details %}{% for k, v in e.details.items %}{% if k != "emails" %}{{ k }}: {{ v }}{% if not forloop.last %}, {% endif %}{% endif %}{% endfor %}{% endif %}</td>
+  </tr>
+  {% empty %}
+  <tr><td colspan="5" class="muted">{% translate "Nothing recorded yet." %}</td></tr>
+  {% endfor %}
+  </tbody>
+</table>
+</div>
+{% include "_pagination.html" %}
+{% endblock %}

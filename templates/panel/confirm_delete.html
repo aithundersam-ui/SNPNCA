@@ -1,0 +1,11 @@
+{% extends "panel/_layout.html" %}{% load i18n %}
+{% block title %}{% translate "Confirm deletion" %}{% endblock %}
+{% block panel %}
+<h1>{% translate "Confirm deletion" %}</h1>
+<p>{% blocktranslate with label=object_label %}Are you sure you want to delete “{{ label }}”? This cannot be undone.{% endblocktranslate %}</p>
+<form method="post" class="actions">
+  {% csrf_token %}
+  <button type="submit" class="btn danger">{% translate "Delete" %}</button>
+  <a class="btn secondary" href="{% url cancel_url %}">{% translate "Cancel" %}</a>
+</form>
+{% endblock %}

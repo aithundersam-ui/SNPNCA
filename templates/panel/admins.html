@@ -1,0 +1,32 @@
+{% extends "panel/_layout.html" %}{% load i18n %}
+{% block title %}{% translate "Admins" %}{% endblock %}
+{% block panel %}
+<h1>{% translate "Admins" %}</h1>
+<p class="muted">{% translate "Only the Master Admin can create admins and change roles. There must always be at least one Master Admin." %}</p>
+<p><a class="btn" href="{% url 'panel:admin_create' %}">{% translate "New admin" %}</a></p>
+<div class="table-wrap">
+<table>
+  <thead><tr><th>{% translate "Name" %}</th><th>{% translate "Email" %}</th><th>{% translate "Role" %}</th><th>{% translate "Change role" %}</th></tr></thead>
+  <tbody>
+  {% for a in admins %}
+  <tr>
+    <td><a href="{% url 'panel:user_edit' a.pk %}">{{ a.full_name }}</a></td>
+    <td>{{ a.email }}</td>
+    <td><span class="badge {{ a.role }}">{{ a.get_role_display }}</span></td>
+    <td>
+      <form method="post" action="{% url 'panel:change_role' a.pk %}" class="actions">
+        {% csrf_token %}
+        <label for="role-{{ a.pk }}" class="sr-only">{% translate "Role" %}</label>
+        <select id="role-{{ a.pk }}" name="role" class="w-sm">
+          {% for value, label in role_form.fields.role.choices %}<option value="{{ value }}" {% if value == a.role %}selected{% endif %}>{{ label }}</option>{% endfor %}
+        </select>
+        <button type="submit" class="btn secondary small">{% translate "Apply" %}</button>
+      </form>
+    </td>
+  </tr>
+  {% endfor %}
+  </tbody>
+</table>
+</div>
+<p class="small muted mt">{% translate "To make an existing member an admin, edit their account from the Users page and change the role." %}</p>
+{% endblock %}

@@ -1,0 +1,64 @@
+{% load static i18n %}<!doctype html>
+{% get_current_language as LANG %}
+<html lang="{{ LANG }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}{{ ORG_SHORT }}{% endblock %} · {{ ORG_SHORT }}</title>
+  <meta name="description" content="{{ ORG_NAME }}">
+  <link rel="icon" type="image/png" href="{% static 'img/favicon.png' %}">
+  <link rel="stylesheet" href="{% static 'css/site.css' %}">
+  <script src="{% static 'js/site.js' %}" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">{% translate "Skip to content" %}</a>
+  {% with app=request.resolver_match.app_name %}
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="{% url 'core:home' %}">
+        <img src="{% static 'img/logo.png' %}" alt="{% translate 'SNPNCA logo' %}" width="84" height="40">
+        <span class="brand-text">
+          <span class="brand-short">{{ ORG_SHORT }}</span>
+          <span class="brand-long">{{ ORG_NAME }}</span>
+        </span>
+      </a>
+      <nav class="nav" aria-label="{% translate 'Main navigation' %}">
+        <a href="{% url 'core:home' %}" {% if app == 'core' %}aria-current="page"{% endif %}>{% translate "Home" %}</a>
+        {% if user.is_authenticated %}
+          <a href="{% url 'news:list' %}" {% if app == 'news' %}aria-current="page"{% endif %}>{% translate "News" %}</a>
+          <a href="{% url 'qa:chat' %}" {% if app == 'qa' %}aria-current="page"{% endif %}>{% translate "Q&A" %}</a>
+          {% if user.is_admin %}<a href="{% url 'panel:dashboard' %}" {% if app == 'panel' %}aria-current="page"{% endif %}>{% translate "Admin panel" %}</a>{% endif %}
+          <a href="{% url 'accounts:settings' %}" {% if app == 'accounts' %}aria-current="page"{% endif %}>{% translate "My account" %}</a>
+          <form method="post" action="{% url 'accounts:logout' %}">{% csrf_token %}<button type="submit" class="linklike nav-btn">{% translate "Log out" %}</button></form>
+        {% else %}
+          <a href="{% url 'accounts:login' %}" {% if app == 'accounts' %}aria-current="page"{% endif %}>{% translate "Member login" %}</a>
+        {% endif %}
+      </nav>
+      <form class="lang-switch" method="post" action="{% url 'accounts:set_language' %}" aria-label="{% translate 'Language' %}">
+        {% csrf_token %}
+        <input type="hidden" name="next" value="{{ request.get_full_path }}">
+        <button type="submit" name="language" value="fr" lang="fr" aria-pressed="{% if LANG == 'fr' %}true{% else %}false{% endif %}" title="Français">FR</button>
+        <button type="submit" name="language" value="en" lang="en" aria-pressed="{% if LANG == 'en' %}true{% else %}false{% endif %}" title="English">EN</button>
+      </form>
+    </div>
+  </header>
+  {% endwith %}
+
+  <main id="main" tabindex="-1">
+    <div class="container">
+      {% if messages %}
+        <ul class="messages" role="status">
+          {% for message in messages %}<li class="{{ message.tags }}">{{ message }}</li>{% endfor %}
+        </ul>
+      {% endif %}
+      {% block content %}{% endblock %}
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© {% now "Y" %} {{ ORG_NAME }} ({{ ORG_SHORT }})</p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,10 @@
+{% load i18n %}{% autoescape off %}{% translate "A new message was sent through the contact form." %}
+
+{% translate "Name:" %} {{ contact.full_name }}
+{% translate "Email:" %} {{ contact.email }}
+{% translate "Phone:" %} {{ contact.phone }}
+
+{{ contact.message }}
+
+{% translate "Reply from the admin panel:" %} {{ site_url }}{% url 'panel:message_detail' contact.pk %}
+{% endautoescape %}

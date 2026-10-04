@@ -1,0 +1,20 @@
+{% extends "base.html" %}{% load i18n site_tags %}
+{% block title %}{% localized article "title" %}{% endblock %}
+{% block content %}
+<p><a href="{% url 'news:list' %}">← {% translate "All news" %}</a></p>
+<article class="article-body">
+  <h1>{% localized article "title" %}</h1>
+  <p class="small muted"><time datetime="{{ article.published_at|date:'c' }}">{{ article.published_at|date:"DATE_FORMAT" }}</time></p>
+  {% localized article "body" as body %}{{ body|linebreaks }}
+  {% for video in article.videos.all %}
+    {% if video.embed %}
+    <div class="video"><iframe src="{{ video.embed }}" title="{% translate 'Video' %} {{ forloop.counter }}" loading="lazy" allow="fullscreen; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+    {% endif %}
+  {% endfor %}
+  {% if article.images.all %}
+  <div class="gallery">
+    {% for img in article.images.all %}<a href="{% url 'core:media' img.image.name %}"><img src="{% url 'core:media' img.image.name %}" alt="{% translate 'Article image' %} {{ forloop.counter }}" loading="lazy"></a>{% endfor %}
+  </div>
+  {% endif %}
+</article>
+{% endblock %}

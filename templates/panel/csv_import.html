@@ -1,0 +1,43 @@
+{% extends "panel/_layout.html" %}{% load i18n %}
+{% block title %}{% translate "Import from CSV" %}{% endblock %}
+{% block panel %}
+<h1>{% translate "Import members from CSV" %}</h1>
+<div class="prose">
+  <p>{% translate "Columns: full_name, email, and optionally language (fr or en) and role. The file must be UTF-8 encoded so accented names are kept." %}</p>
+  <p>{% translate "Rows whose email already has an account are skipped. Existing members who are not in the file are not changed. Each new member receives an email to choose a password." %}</p>
+  {% if not user.is_master %}<p class="small muted">{% translate "The role column is only applied when the Master Admin imports the file; otherwise everyone is imported as a member." %}</p>{% endif %}
+  <p><a href="{% url 'panel:csv_template' %}">{% translate "Download the template file" %}</a></p>
+</div>
+<form method="post" enctype="multipart/form-data" class="card" novalidate>
+  {% csrf_token %}
+  {% include "_form_fields.html" %}
+  <button type="submit" class="btn secondary">{% translate "Preview" %}</button>
+</form>
+
+{% if rows is not None %}
+<h2 class="mt-lg">{% translate "Preview" %}</h2>
+<p>{% blocktranslate count n=ready %}{{ n }} account will be created.{% plural %}{{ n }} accounts will be created.{% endblocktranslate %}</p>
+<div class="table-wrap">
+<table>
+  <thead><tr><th>{% translate "Line" %}</th><th>{% translate "Name" %}</th><th>{% translate "Email" %}</th><th>{% translate "Language" %}</th><th>{% translate "Role" %}</th><th>{% translate "Result" %}</th></tr></thead>
+  <tbody>
+  {% for r in rows %}
+    <tr class="{% if r.errors %}row-error{% elif r.skip %}row-skip{% endif %}">
+      <td>{{ r.line }}</td><td>{{ r.full_name }}</td><td>{{ r.email }}</td><td>{{ r.language }}</td><td>{{ r.role }}</td>
+      <td>
+        {% if r.errors %}{% for e in r.errors %}<div>✗ {{ e }}</div>{% endfor %}{% elif r.skip %}{% translate "Skipped" %}{% else %}✓ {% translate "Will be created" %}{% endif %}
+        {% for w in r.warnings %}<div class="small">{{ w }}</div>{% endfor %}
+      </td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+</div>
+{% if ready %}
+<form method="post" action="{% url 'panel:csv_apply' %}" class="mt">
+  {% csrf_token %}
+  <button type="submit" class="btn">{% blocktranslate count n=ready %}Create {{ n }} account{% plural %}Create {{ n }} accounts{% endblocktranslate %}</button>
+</form>
+{% endif %}
+{% endif %}
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "base.html" %}{% load i18n %}
+{% block title %}{% translate "Member login" %}{% endblock %}
+{% block content %}
+<div class="auth-box">
+  <h1>{% translate "Member login" %}</h1>
+  <form method="post" class="card" novalidate>
+    {% csrf_token %}
+    <input type="hidden" name="next" value="{{ next }}">
+    {% include "_form_fields.html" %}
+    <div class="actions">
+      <button type="submit" class="btn">{% translate "Log in" %}</button>
+      <a href="{% url 'accounts:password_reset' %}">{% translate "Forgot your password?" %}</a>
+    </div>
+  </form>
+  <p class="small muted">{% translate "Accounts are created by the union. If you are a member and have no account, use the contact form on the home page." %}</p>
+</div>
+{% endblock %}

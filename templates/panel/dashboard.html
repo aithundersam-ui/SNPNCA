@@ -1,0 +1,11 @@
+{% extends "panel/_layout.html" %}{% load i18n %}
+{% block title %}{% translate "Admin panel" %}{% endblock %}
+{% block panel %}
+<h1>{% translate "Admin panel" %}</h1>
+<div class="grid">
+  <a class="card" href="{% url 'panel:users' %}"><div class="stat">{{ user_count }}</div>{% translate "Accounts" %}</a>
+  <a class="card" href="{% url 'panel:messages' %}?status=new"><div class="stat">{{ new_messages }}</div>{% translate "New messages" %}</a>
+  <a class="card" href="{% url 'panel:documents' %}"><div class="stat">{{ documents }}</div>{% translate "Documents" %}{% if documents_pending %} <span class="badge processing">{% blocktranslate count n=documents_pending %}{{ n }} processing{% plural %}{{ n }} processing{% endblocktranslate %}</span>{% endif %}</a>
+  <a class="card" href="{% url 'panel:news' %}"><div class="stat">{{ articles }}</div>{% translate "Articles" %}</a>
+</div>
+{% endblock %}

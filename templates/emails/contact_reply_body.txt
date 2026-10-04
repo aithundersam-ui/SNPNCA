@@ -1,0 +1,10 @@
+{% load i18n %}{% autoescape off %}{% blocktranslate with name=contact.full_name %}Hello {{ name }},{% endblocktranslate %}
+
+{{ body }}
+
+Syndicat National du Personnel Navigant Commercial Algérien (SNPNCA)
+
+---
+{% translate "Your original message:" %}
+{{ contact.message }}
+{% endautoescape %}

@@ -1,0 +1,28 @@
+{% extends "panel/_layout.html" %}{% load i18n %}
+{% block title %}{% translate "Messages" %}{% endblock %}
+{% block panel %}
+<h1>{% translate "Contact messages" %}</h1>
+<nav class="actions mb" aria-label="{% translate 'Filter' %}">
+  <a class="btn {% if status %}secondary{% endif %} small" href="{% url 'panel:messages' %}">{% translate "All" %}</a>
+  <a class="btn {% if status != 'new' %}secondary{% endif %} small" href="?status=new">{% translate "New" %}</a>
+  <a class="btn {% if status != 'replied' %}secondary{% endif %} small" href="?status=replied">{% translate "Replied" %}</a>
+</nav>
+<div class="table-wrap">
+<table>
+  <thead><tr><th>{% translate "From" %}</th><th>{% translate "Message" %}</th><th>{% translate "Received" %}</th><th>{% translate "Status" %}</th></tr></thead>
+  <tbody>
+  {% for m in page %}
+  <tr>
+    <td><a href="{% url 'panel:message_detail' m.pk %}">{{ m.full_name }}</a><div class="small muted">{{ m.email }}</div></td>
+    <td>{{ m.message|truncatechars:90 }}</td>
+    <td class="small">{{ m.created_at|date:"SHORT_DATETIME_FORMAT" }}</td>
+    <td><span class="badge {{ m.status }}">{{ m.get_status_display }}</span></td>
+  </tr>
+  {% empty %}
+  <tr><td colspan="4" class="muted">{% translate "No messages." %}</td></tr>
+  {% endfor %}
+  </tbody>
+</table>
+</div>
+{% include "_pagination.html" %}
+{% endblock %}

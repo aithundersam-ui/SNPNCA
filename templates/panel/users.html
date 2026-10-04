@@ -1,0 +1,41 @@
+{% extends "panel/_layout.html" %}{% load i18n site_tags %}
+{% block title %}{% translate "Users" %}{% endblock %}
+{% block panel %}
+<h1>{% translate "Users" %}</h1>
+<div class="actions mb">
+  <a class="btn" href="{% url 'panel:user_create' %}">{% translate "New member" %}</a>
+  <a class="btn secondary" href="{% url 'panel:csv_upload' %}">{% translate "Import from CSV" %}</a>
+</div>
+<form method="get" role="search" class="actions mb">
+  <label for="q" class="sr-only">{% translate "Search by name or email" %}</label>
+  <input type="search" id="q" name="q" value="{{ q }}" placeholder="{% translate 'Search by name or email' %}" class="w-md">
+  <button class="btn secondary" type="submit">{% translate "Search" %}</button>
+</form>
+<div class="table-wrap">
+<table>
+  <thead><tr><th>{% translate "Name" %}</th><th>{% translate "Email" %}</th><th>{% translate "Role" %}</th><th>{% translate "Status" %}</th><th><span class="sr-only">{% translate "Actions" %}</span></th></tr></thead>
+  <tbody>
+  {% for u in page %}
+    <tr>
+      <td>{{ u.full_name }}</td>
+      <td>{{ u.email }}</td>
+      <td><span class="badge {{ u.role }}">{{ u.get_role_display }}</span></td>
+      <td>{% if not u.is_active %}<span class="badge failed">{% translate "Deactivated" %}</span>{% elif not u.has_usable_password %}<span class="badge pending">{% translate "Invited" %}</span>{% else %}<span class="badge ok">{% translate "Active" %}</span>{% endif %}</td>
+      <td>
+        {% if user|can_manage:u %}
+        <div class="actions">
+          <a class="btn secondary small" href="{% url 'panel:user_edit' u.pk %}">{% translate "Edit" %}</a>
+          {% if not u.has_usable_password and u.is_active %}<form method="post" action="{% url 'panel:user_invite' u.pk %}">{% csrf_token %}<button class="btn secondary small" type="submit">{% translate "Resend invitation" %}</button></form>{% endif %}
+          <a class="btn danger small" href="{% url 'panel:user_delete' u.pk %}">{% translate "Delete" %}</a>
+        </div>
+        {% endif %}
+      </td>
+    </tr>
+  {% empty %}
+    <tr><td colspan="5" class="muted">{% translate "No accounts found." %}</td></tr>
+  {% endfor %}
+  </tbody>
+</table>
+</div>
+{% include "_pagination.html" %}
+{% endblock %}

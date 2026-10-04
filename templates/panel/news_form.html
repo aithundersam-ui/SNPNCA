@@ -1,0 +1,41 @@
+{% extends "panel/_layout.html" %}{% load i18n %}
+{% block title %}{% if article.pk %}{% translate "Edit article" %}{% else %}{% translate "New article" %}{% endif %}{% endblock %}
+{% block panel %}
+<h1>{% if article.pk %}{% translate "Edit article" %}{% else %}{% translate "New article" %}{% endif %}</h1>
+<p class="muted">{% translate "Fill in French, English or both. If one language is empty, readers see the other one." %}</p>
+<form method="post" enctype="multipart/form-data" novalidate>
+  {% csrf_token %}
+  {% if form.non_field_errors %}<ul class="errorlist nonfield" role="alert">{% for e in form.non_field_errors %}<li>{{ e }}</li>{% endfor %}</ul>{% endif %}
+  <div class="form-row">
+    <fieldset lang="fr"><legend>Français</legend>
+      <div class="field">{{ form.title_fr.as_field_group }}</div>
+      <div class="field">{{ form.body_fr.as_field_group }}</div>
+    </fieldset>
+    <fieldset lang="en"><legend>English</legend>
+      <div class="field">{{ form.title_en.as_field_group }}</div>
+      <div class="field">{{ form.body_en.as_field_group }}</div>
+    </fieldset>
+  </div>
+  <fieldset><legend>{% translate "Media" %}</legend>
+    {% if article.pk and article.images.all %}
+      <p><strong>{% translate "Current images" %}</strong></p>
+      <div class="gallery">
+        {% for img in article.images.all %}
+        <div><img src="{% url 'core:media' img.image.name %}" alt="{% translate 'Image' %} {{ forloop.counter }}">
+          <div class="checkbox"><input type="checkbox" name="remove_image" value="{{ img.pk }}" id="rm-{{ img.pk }}"><label for="rm-{{ img.pk }}">{% translate "Remove" %}</label></div></div>
+        {% endfor %}
+      </div>
+    {% endif %}
+    <div class="field">{{ form.new_images.as_field_group }}</div>
+    <div class="field">{{ form.video_urls.as_field_group }}</div>
+  </fieldset>
+  <fieldset><legend>{% translate "Publication" %}</legend>
+    <div class="field">{{ form.published_at.as_field_group }}</div>
+    <div class="field checkbox">{{ form.is_published.as_field_group }}</div>
+  </fieldset>
+  <div class="actions">
+    <button type="submit" class="btn">{% translate "Save" %}</button>
+    <a href="{% url 'panel:news' %}">{% translate "Cancel" %}</a>
+  </div>
+</form>
+{% endblock %}

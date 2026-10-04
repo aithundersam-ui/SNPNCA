@@ -1,0 +1,25 @@
+{% extends "panel/_layout.html" %}{% load i18n %}
+{% block title %}{% translate "Message" %}{% endblock %}
+{% block panel %}
+<p><a href="{% url 'panel:messages' %}">← {% translate "All messages" %}</a></p>
+<h1>{{ contact.full_name }} <span class="badge {{ contact.status }}">{{ contact.get_status_display }}</span></h1>
+<div class="card">
+  <p class="small muted">{{ contact.email }} · {{ contact.phone }} · {{ contact.created_at|date:"SHORT_DATETIME_FORMAT" }}</p>
+  <div class="bubble-text">{{ contact.message }}</div>
+</div>
+{% for r in contact.replies.all %}
+<div class="card mt reply-card">
+  <p class="small muted">{% blocktranslate with who=r.sent_by.full_name|default:"—" when=r.sent_at|date:"SHORT_DATETIME_FORMAT" %}Reply by {{ who }} on {{ when }}{% endblocktranslate %}</p>
+  <div class="bubble-text">{{ r.body }}</div>
+</div>
+{% endfor %}
+<h2 class="mt-lg">{% translate "Reply by email" %}</h2>
+<form method="post" novalidate>
+  {% csrf_token %}
+  {% include "_form_fields.html" %}
+  <div class="actions">
+    <button type="submit" class="btn">{% translate "Send reply" %}</button>
+    <a class="btn danger secondary small" href="{% url 'panel:message_delete' contact.pk %}">{% translate "Delete message" %}</a>
+  </div>
+</form>
+{% endblock %}

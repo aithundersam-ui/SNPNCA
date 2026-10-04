@@ -1,0 +1,35 @@
+{% extends "base.html" %}{% load i18n site_tags %}
+{% block title %}{% translate "Home" %}{% endblock %}
+{% block content %}
+<h1>{{ ORG_NAME }}</h1>
+
+<section class="section" aria-labelledby="about-title">
+  <h2 id="about-title">{% translate "About us" %}</h2>
+  <div class="prose">{% localized content "description" as description %}{{ description|default:_("Content coming soon.")|linebreaks }}</div>
+</section>
+
+<section class="section" aria-labelledby="mission-title">
+  <h2 id="mission-title">{% translate "Our mission" %}</h2>
+  <div class="prose">{% localized content "mission" as mission %}{{ mission|default:_("Content coming soon.")|linebreaks }}</div>
+</section>
+
+<section class="section" id="contact" aria-labelledby="contact-title">
+  <h2 id="contact-title">{% translate "Contact us" %}</h2>
+  <div class="card prose">
+    <form method="post" action="{% url 'core:home' %}#contact" novalidate>
+      {% csrf_token %}
+      {% if form.non_field_errors %}<ul class="errorlist nonfield" role="alert">{% for e in form.non_field_errors %}<li>{{ e }}</li>{% endfor %}</ul>{% endif %}
+      {{ form.ts }}
+      <div class="form-row">
+        <div class="field">{{ form.full_name.as_field_group }}</div>
+        <div class="field">{{ form.email.as_field_group }}</div>
+      </div>
+      <div class="field">{{ form.phone.as_field_group }}</div>
+      <div class="field">{{ form.message.as_field_group }}</div>
+      <div class="hp" aria-hidden="true">{{ form.website.label_tag }}<input type="text" name="website" id="id_website" tabindex="-1" autocomplete="off"></div>
+      <p class="small muted">{% translate "Privacy notice: we use your name, email, phone number and message only to answer your request. They are kept in our admin panel and are not shared with third parties. To have them deleted, write to us using this form." %}</p>
+      <button type="submit" class="btn">{% translate "Send message" %}</button>
+    </form>
+  </div>
+</section>
+{% endblock %}
