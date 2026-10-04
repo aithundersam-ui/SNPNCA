@@ -1,35 +1,75 @@
-{% extends "base.html" %}{% load i18n site_tags %}
+{% extends "base.html" %}{% load i18n static site_tags %}
 {% block title %}{% translate "Home" %}{% endblock %}
-{% block content %}
-<h1>{{ ORG_NAME }}</h1>
-
-<section class="section" aria-labelledby="about-title">
-  <h2 id="about-title">{% translate "About us" %}</h2>
-  <div class="prose">{% localized content "description" as description %}{{ description|default:_("Content coming soon.")|linebreaks }}</div>
+{% block main_class %}bg-home{% endblock %}
+{% block body %}
+<section class="hero" aria-labelledby="hero-title">
+  <div class="container">
+    <img class="hero-logo" src="{% static 'img/logo.png' %}" alt="{% translate 'SNPNCA logo' %}" width="442" height="224">
+    <h1 id="hero-title" class="gradient-text">{{ ORG_SHORT }}</h1>
+    {% localized content "description" as description %}
+    <div class="hero-lead">{{ description|default:_("An independent organization representing Algerian flight attendants, committed to protecting their rights, enhancing their status, and improving their working conditions while upholding dignity and professionalism at a national level.")|linebreaksbr }}</div>
+    <div class="hero-actions">
+      {% if user.is_authenticated %}
+        <a class="btn gradient lg" href="{% url 'qa:chat' %}">{% translate "Ask AI Assistant" %}{% icon "arrow-right" 20 %}</a>
+      {% else %}
+        <a class="btn gradient lg" href="{% url 'accounts:login' %}?next={% url 'qa:chat' %}">{% translate "Get started" %}{% icon "arrow-right" 20 %}</a>
+      {% endif %}
+      <a class="btn outline lg" href="{% url 'news:list' %}">{% translate "Latest News" %}</a>
+    </div>
+  </div>
 </section>
 
-<section class="section" aria-labelledby="mission-title">
-  <h2 id="mission-title">{% translate "Our mission" %}</h2>
-  <div class="prose">{% localized content "mission" as mission %}{{ mission|default:_("Content coming soon.")|linebreaks }}</div>
-</section>
-
-<section class="section" id="contact" aria-labelledby="contact-title">
-  <h2 id="contact-title">{% translate "Contact us" %}</h2>
-  <div class="card prose">
-    <form method="post" action="{% url 'core:home' %}#contact" novalidate>
-      {% csrf_token %}
-      {% if form.non_field_errors %}<ul class="errorlist nonfield" role="alert">{% for e in form.non_field_errors %}<li>{{ e }}</li>{% endfor %}</ul>{% endif %}
-      {{ form.ts }}
-      <div class="form-row">
-        <div class="field">{{ form.full_name.as_field_group }}</div>
-        <div class="field">{{ form.email.as_field_group }}</div>
+<section class="section section-white" aria-labelledby="mission-title">
+  <div class="container">
+    <div class="section-head">
+      <h2 id="mission-title">{% translate "Our Mission" %}</h2>
+      {% localized content "mission" as mission %}
+      <div>{{ mission|default:_("To represent, defend, and protect the interests of flight attendants. We are the voice of cabin crew, working every day to improve your working conditions and safeguard your rights.")|linebreaks }}</div>
+    </div>
+    <div class="features">
+      <div class="feature">
+        {% icon "globe" 48 "c-blue" %}
+        <h3>{% translate "Knowledge Sharing" %}</h3>
+        <p>{% translate "Centralized access to organizational documents and resources with intelligent search capabilities." %}</p>
       </div>
-      <div class="field">{{ form.phone.as_field_group }}</div>
-      <div class="field">{{ form.message.as_field_group }}</div>
-      <div class="hp" aria-hidden="true">{{ form.website.label_tag }}<input type="text" name="website" id="id_website" tabindex="-1" autocomplete="off"></div>
-      <p class="small muted">{% translate "Privacy notice: we use your name, email, phone number and message only to answer your request. They are kept in our admin panel and are not shared with third parties. To have them deleted, write to us using this form." %}</p>
-      <button type="submit" class="btn">{% translate "Send message" %}</button>
-    </form>
+      <div class="feature">
+        {% icon "message-square" 48 "c-indigo" %}
+        <h3>{% translate "AI-Powered Assistance" %}</h3>
+        <p>{% translate "Get instant, accurate answers from your organization's knowledge base using advanced AI technology." %}</p>
+      </div>
+      <div class="feature">
+        {% icon "shield" 48 "c-purple" %}
+        <h3>{% translate "Secure & Controlled" %}</h3>
+        <p>{% translate "Enterprise-grade security with role-based access control to protect sensitive information." %}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-contact" id="contact" aria-labelledby="contact-title">
+  <div class="container">
+    <div class="section-head">
+      <h2 id="contact-title">{% translate "Contact Us" %}</h2>
+      <p>{% translate "Get in touch with us for any questions or support needs." %}</p>
+    </div>
+    <div class="card contact-card">
+      <p class="card-title">{% icon "mail" 24 "c-blue" %}{% translate "Contact Us" %}</p>
+      <p class="card-sub">{% translate "All fields are required." %}</p>
+      <form method="post" action="{% url 'core:home' %}#contact" novalidate>
+        {% csrf_token %}
+        {% if form.non_field_errors %}<ul class="errorlist nonfield" role="alert">{% for e in form.non_field_errors %}<li>{{ e }}</li>{% endfor %}</ul>{% endif %}
+        {{ form.ts }}
+        <div class="form-row">
+          {% include "core/_contact_field.html" with field=form.full_name icon_name="user" %}
+          {% include "core/_contact_field.html" with field=form.email icon_name="mail" %}
+        </div>
+        {% include "core/_contact_field.html" with field=form.phone icon_name="phone" %}
+        {% include "core/_contact_field.html" with field=form.message icon_name="message-square" %}
+        <div class="hp" aria-hidden="true">{{ form.website.label_tag }}<input type="text" name="website" id="id_website" tabindex="-1" autocomplete="off"></div>
+        <p class="privacy">{% translate "Privacy notice: we use your name, email, phone number and message only to answer your request. They are kept in our admin panel and are not shared with third parties. To have them deleted, write to us using this form." %}</p>
+        <button type="submit" class="btn primary block xl">{% icon "send" 16 %}{% translate "Send Message" %}</button>
+      </form>
+    </div>
   </div>
 </section>
 {% endblock %}

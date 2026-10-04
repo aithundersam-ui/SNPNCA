@@ -41,13 +41,13 @@ def home(request):
         if form.is_valid():
             if form.is_spam() or hit_rate_limit(f"contact:{client_ip(request)}", 5, 3600):
                 # Pretend it worked so bots learn nothing.
-                messages.success(request, _("Thank you. Your message has been sent."))
+                messages.success(request, _("Message sent successfully! We will get back to you soon."))
                 return redirect("core:home")
             contact = form.save(commit=False)
             contact.language = translation.get_language()[:2]
             contact.save()
             _notify_admins(contact)
-            messages.success(request, _("Thank you. Your message has been sent."))
+            messages.success(request, _("Message sent successfully! We will get back to you soon."))
             return redirect(f"{request.path}#contact")
     return render(request, "core/home.html", {"content": content, "form": form})
 
@@ -86,7 +86,7 @@ def error_403(request, exception=None):
 
 
 def error_404(request, exception=None):
-    return render(request, "core/error.html", {"code": 404, "title": _("Page not found"), "text": _("The page you are looking for does not exist.")}, status=404)
+    return render(request, "core/error.html", {"code": 404, "title": _("Page Not Found"), "text": _("The page you're looking for doesn't exist or may have been moved.")}, status=404)
 
 
 def error_500(request):

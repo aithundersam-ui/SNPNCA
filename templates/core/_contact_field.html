@@ -1,0 +1,5 @@
+{% load site_tags %}<div class="field">
+  <label for="{{ field.id_for_label }}">{% icon icon_name 16 %}{{ field.label }}</label>
+  {{ field }}
+  {% if field.errors %}<ul class="errorlist" id="{{ field.auto_id }}_error">{% for e in field.errors %}<li>{{ e }}</li>{% endfor %}</ul>{% endif %}
+</div>

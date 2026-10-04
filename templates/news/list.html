@@ -1,24 +1,32 @@
 {% extends "base.html" %}{% load i18n site_tags %}
 {% block title %}{% translate "News" %}{% endblock %}
 {% block content %}
-<h1>{% translate "News" %}</h1>
-{% if page.object_list %}
-<ul class="article-list">
-  {% for article in page %}
-  <li class="card article-item">
-    {% with img=article.images.all|first %}
-      {% if img %}<img src="{% url 'core:media' img.image.name %}" alt="" loading="lazy">{% else %}<span aria-hidden="true"></span>{% endif %}
-    {% endwith %}
-    <div>
+<div class="narrow">
+  <h1 class="page-head">{% icon "newspaper" 32 %}{% translate "News & Updates" %}</h1>
+  <p class="page-sub">{% translate "Stay informed with the latest organizational announcements and updates" %}</p>
+  {% if page.object_list %}
+  <ul class="news-list">
+    {% for article in page %}
+    <li class="card hoverable news-card">
       <h2><a href="{% url 'news:detail' article.pk %}">{% localized article "title" %}</a></h2>
-      <p class="small muted"><time datetime="{{ article.published_at|date:'c' }}">{{ article.published_at|date:"DATE_FORMAT" }}</time></p>
-      {% localized article "body" as body %}<p>{{ body|truncatewords:40 }}</p>
-    </div>
-  </li>
-  {% endfor %}
-</ul>
-{% include "_pagination.html" %}
-{% else %}
-<p class="muted">{% translate "No news yet." %}</p>
-{% endif %}
+      <div class="meta">
+        {% icon "calendar" 16 %}<time datetime="{{ article.published_at|date:'c' }}">{{ article.published_at|date:"DATE_FORMAT" }}</time>
+        {% if page.number == 1 and forloop.first %}<span class="badge latest">{% translate "Latest" %}</span>{% endif %}
+      </div>
+      {% localized article "body" as body %}<p class="article-body">{{ body|truncatewords:50 }}</p>
+      {% with img=article.images.all|first %}{% if img %}<img class="news-thumb" src="{% url 'core:media' img.image.name %}" alt="" loading="lazy">{% endif %}{% endwith %}
+      <p class="mt"><a href="{% url 'news:detail' article.pk %}">{% translate "Read more" %}{% icon "arrow-right" 14 %}</a></p>
+    </li>
+    {% endfor %}
+  </ul>
+  {% include "_pagination.html" %}
+  {% if not page.has_next %}<p class="feed-end">{% translate "End of news feed. Check back regularly for new updates." %}</p>{% endif %}
+  {% else %}
+  <div class="card empty">
+    {% icon "newspaper" 48 %}
+    <h2>{% translate "No News Available" %}</h2>
+    <p>{% translate "Check back later for updates and announcements." %}</p>
+  </div>
+  {% endif %}
+</div>
 {% endblock %}

@@ -31,6 +31,7 @@ class LanguageTests(TestCase):
     def test_bilingual_content_falls_back_to_other_language(self):
         content = SiteContent.load()
         content.description_fr = "Description en français"
+        content.description_en = ""
         content.save()
         with translation.override("en"):
             self.assertEqual(content.localized("description"), "Description en français")
@@ -188,3 +189,25 @@ class NewsTests(TestCase):
         self.assertEqual(self.client.get(url).status_code, 302)
         self.client.force_login(make_user("m@example.com"))
         self.assertEqual(self.client.get(url).status_code, 200)
+
+
+class RedesignPageTests(TestCase):
+    def test_home_shows_reference_text_in_both_languages(self):
+        fr = self.client.get("/fr/")
+        self.assertContains(fr, "Notre Mission")
+        self.assertContains(fr, "défend les droits")
+        self.assertContains(fr, "Envoyer le Message")
+        en = self.client.get("/en/")
+        self.assertContains(en, "Our Mission")
+        self.assertContains(en, "Algerian flight attendants")
+
+    def test_documents_page_lists_only_ready_documents_for_members(self):
+        from qa.models import Document
+
+        self.assertEqual(self.client.get("/fr/qa/documents/").status_code, 302)
+        Document.objects.create(title="Convention collective", file="docs/a.pdf", original_filename="a.pdf", status=Document.Status.READY)
+        Document.objects.create(title="Brouillon", file="docs/b.pdf", original_filename="b.pdf", status=Document.Status.PENDING)
+        self.client.force_login(make_user("m@example.com"))
+        response = self.client.get("/fr/qa/documents/")
+        self.assertContains(response, "Convention collective")
+        self.assertNotContains(response, "Brouillon")

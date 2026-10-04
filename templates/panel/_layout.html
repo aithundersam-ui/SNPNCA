@@ -1,6 +1,8 @@
 {% extends "base.html" %}{% load i18n %}
 {% block content %}
 {% with name=request.resolver_match.url_name %}
+<p class="page-head h-panel"><strong>{% translate "Admin Panel" %}</strong></p>
+<p class="page-sub">{% translate "Manage employees and documents for SNPNCA" %}</p>
 <div class="panel">
   <nav class="panel-nav" aria-label="{% translate 'Admin panel' %}">
     <a href="{% url 'panel:dashboard' %}" {% if name == 'dashboard' %}aria-current="page"{% endif %}>{% translate "Overview" %}</a>

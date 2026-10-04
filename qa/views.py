@@ -20,7 +20,7 @@ class QuestionForm(forms.Form):
         label=gettext_lazy("Your question"),
         min_length=3,
         max_length=1000,
-        widget=forms.Textarea(attrs={"rows": 3}),
+        widget=forms.Textarea(attrs={"rows": 1, "placeholder": gettext_lazy("Ask about your documents ...")}),
     )
 
 
@@ -53,6 +53,12 @@ def chat(request):
 def clear(request):
     QAMessage.objects.filter(user=request.user).delete()
     return redirect("qa:chat")
+
+
+@login_required
+def document_list(request):
+    documents = Document.objects.filter(status=Document.Status.READY).order_by("-created_at")
+    return render(request, "qa/documents.html", {"documents": documents})
 
 
 @login_required

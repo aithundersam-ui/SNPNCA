@@ -1,0 +1,31 @@
+{% extends "base.html" %}{% load i18n site_tags %}
+{% block title %}{% translate "Documents" %}{% endblock %}
+{% block content %}
+<div class="narrow">
+  <div class="card">
+    <div class="doc-head mb">
+      <div>
+        <h1 class="card-title">{% icon "file-text" 24 "c-blue" %}{% translate "Available Documents" %}</h1>
+        <p class="card-sub">{% translate "Download and view the latest documents shared by the administration." %}</p>
+      </div>
+      <div class="counter"><strong>{{ documents|length }}</strong><span>{% translate "Total" %}</span></div>
+    </div>
+    {% if documents %}
+    <ul class="doc-rows">
+      {% for d in documents %}
+      <li class="doc-row">
+        {% icon "file-text" 28 %}
+        <div class="doc-main">
+          <div class="doc-name">{{ d.title }}</div>
+          <div class="meta">{% icon "calendar" 14 %}<time datetime="{{ d.created_at|date:'c' }}">{{ d.created_at|date:"DATE_FORMAT" }}</time></div>
+        </div>
+        <a class="btn outline small" href="{% url 'qa:document' d.pk %}" target="_blank" rel="noopener">{% icon "eye" 16 %}{% translate "View" %}</a>
+      </li>
+      {% endfor %}
+    </ul>
+    {% else %}
+    <div class="empty">{% icon "file-text" 48 %}<p>{% translate "No documents found" %}</p></div>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

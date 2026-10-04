@@ -1,10 +1,14 @@
 {% extends "base.html" %}{% load i18n %}
 {% block title %}{{ title }}{% endblock %}
+{% block main_class %}bg-auth{% endblock %}
 {% block content %}
 <div class="error-page">
-  <div class="error-code" aria-hidden="true">{{ code }}</div>
+  <div class="error-code gradient-text" aria-hidden="true">{{ code }}</div>
   <h1>{{ title }}</h1>
-  <p>{{ text }}</p>
-  <p><a class="btn" href="{% url 'core:home' %}">{% translate "Back to the home page" %}</a></p>
+  <p class="muted">{{ text }}</p>
+  <div class="actions hero-actions mt-lg">
+    <a class="btn gradient lg" href="{% url 'core:home' %}">{% translate "Return Home" %}</a>
+    <a class="btn outline lg" href="{% url 'core:home' %}" data-back>{% translate "Go Back" %}</a>
+  </div>
 </div>
 {% endblock %}

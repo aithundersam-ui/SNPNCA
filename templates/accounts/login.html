@@ -1,17 +1,35 @@
-{% extends "base.html" %}{% load i18n %}
-{% block title %}{% translate "Member login" %}{% endblock %}
-{% block content %}
-<div class="auth-box">
-  <h1>{% translate "Member login" %}</h1>
-  <form method="post" class="card" novalidate>
-    {% csrf_token %}
-    <input type="hidden" name="next" value="{{ next }}">
-    {% include "_form_fields.html" %}
-    <div class="actions">
-      <button type="submit" class="btn">{% translate "Log in" %}</button>
-      <a href="{% url 'accounts:password_reset' %}">{% translate "Forgot your password?" %}</a>
-    </div>
-  </form>
-  <p class="small muted">{% translate "Accounts are created by the union. If you are a member and have no account, use the contact form on the home page." %}</p>
+{% extends "base.html" %}{% load i18n static site_tags %}
+{% block title %}{% translate "Sign In" %}{% endblock %}
+{% block main_class %}bg-auth{% endblock %}
+{% block body %}
+<div class="auth-page">
+  <div class="auth-card">
+    <img class="auth-logo" src="{% static 'img/logo.png' %}" alt="{% translate 'SNPNCA logo' %}" width="158" height="80">
+    <h1 class="gradient-text">{{ ORG_SHORT }}</h1>
+    <p class="auth-sub">{% translate "Syndicat National du Personnel Navigant Commercial Algerien" %}</p>
+    <form method="post" class="login-form" novalidate>
+      {% csrf_token %}
+      <input type="hidden" name="next" value="{{ next }}">
+      {% if form.non_field_errors %}<ul class="errorlist nonfield" role="alert">{% for e in form.non_field_errors %}<li>{{ e }}</li>{% endfor %}</ul>{% endif %}
+      <div class="field input-tall">
+        <label for="{{ form.email.id_for_label }}">{% icon "mail" 16 %}{% translate "Email Address" %}</label>
+        {{ form.email }}
+        {% if form.email.errors %}<ul class="errorlist">{% for e in form.email.errors %}<li>{{ e }}</li>{% endfor %}</ul>{% endif %}
+      </div>
+      <div class="field input-tall">
+        <label for="{{ form.password.id_for_label }}">{% icon "lock" 16 %}{% translate "Password" %}</label>
+        <div class="password-wrap">
+          {{ form.password }}
+          <button type="button" class="password-toggle" data-password-toggle hidden
+                  data-show="{% translate 'Show password' %}" data-hide="{% translate 'Hide password' %}"
+                  aria-label="{% translate 'Show password' %}" aria-pressed="false">{% icon "eye" 18 %}</button>
+        </div>
+        {% if form.password.errors %}<ul class="errorlist">{% for e in form.password.errors %}<li>{{ e }}</li>{% endfor %}</ul>{% endif %}
+      </div>
+      <button type="submit" class="btn gradient block xl">{% icon "log-in" 18 %}{% translate "Sign In" %}</button>
+    </form>
+    <p class="auth-help"><a href="{% url 'accounts:password_reset' %}">{% translate "Forgot your password?" %}</a></p>
+    <p class="auth-help">{% translate "Need help? Contact your system administrator" %}</p>
+  </div>
 </div>
 {% endblock %}

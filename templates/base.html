@@ -1,4 +1,4 @@
-{% load static i18n %}<!doctype html>
+{% load static i18n site_tags %}<!doctype html>
 {% get_current_language as LANG %}
 <html lang="{{ LANG }}">
 <head>
@@ -12,53 +12,59 @@
 </head>
 <body>
   <a class="skip-link" href="#main">{% translate "Skip to content" %}</a>
-  {% with app=request.resolver_match.app_name %}
+  {% with app=request.resolver_match.app_name url_name=request.resolver_match.url_name %}
   <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="{% url 'core:home' %}">
-        <img src="{% static 'img/logo.png' %}" alt="{% translate 'SNPNCA logo' %}" width="84" height="40">
-        <span class="brand-text">
+    <div class="container">
+      <div class="header-inner">
+        <a class="brand" href="{% url 'core:home' %}">
+          <img src="{% static 'img/logo.png' %}" alt="{% translate 'SNPNCA logo' %}" width="88" height="44">
           <span class="brand-short">{{ ORG_SHORT }}</span>
-          <span class="brand-long">{{ ORG_NAME }}</span>
-        </span>
-      </a>
-      <nav class="nav" aria-label="{% translate 'Main navigation' %}">
-        <a href="{% url 'core:home' %}" {% if app == 'core' %}aria-current="page"{% endif %}>{% translate "Home" %}</a>
+        </a>
+        <nav class="nav" aria-label="{% translate 'Main navigation' %}">
+          {% include "_nav_links.html" %}
+        </nav>
+        <div class="header-tools">
+          {% include "_lang_switch.html" %}
+          {% if user.is_authenticated %}
+            <a class="user-name" href="{% url 'accounts:settings' %}" title="{% translate 'My account' %}">{{ user.full_name|default:user.email }}</a>
+            <form method="post" action="{% url 'accounts:logout' %}">{% csrf_token %}<button type="submit" class="btn outline small">{% icon "log-out" 16 %}{% translate "Log out" %}</button></form>
+          {% else %}
+            <a class="btn primary small" href="{% url 'accounts:login' %}">{% icon "log-in" 16 %}{% translate "Log in" %}</a>
+          {% endif %}
+        </div>
+        <button type="button" class="menu-toggle" aria-expanded="false" aria-controls="mobile-menu" data-menu-toggle>
+          {% icon "menu" 24 %}<span class="sr-only">{% translate "Menu" %}</span>
+        </button>
+      </div>
+      <div class="mobile-menu" id="mobile-menu">
+        <nav aria-label="{% translate 'Main navigation' %}">
+          {% include "_nav_links.html" %}
+          {% if user.is_authenticated %}<a href="{% url 'accounts:settings' %}" {% if app == 'accounts' %}aria-current="page"{% endif %}>{% translate "My account" %}</a>{% endif %}
+        </nav>
+        {% include "_lang_switch.html" %}
         {% if user.is_authenticated %}
-          <a href="{% url 'news:list' %}" {% if app == 'news' %}aria-current="page"{% endif %}>{% translate "News" %}</a>
-          <a href="{% url 'qa:chat' %}" {% if app == 'qa' %}aria-current="page"{% endif %}>{% translate "Q&A" %}</a>
-          {% if user.is_admin %}<a href="{% url 'panel:dashboard' %}" {% if app == 'panel' %}aria-current="page"{% endif %}>{% translate "Admin panel" %}</a>{% endif %}
-          <a href="{% url 'accounts:settings' %}" {% if app == 'accounts' %}aria-current="page"{% endif %}>{% translate "My account" %}</a>
-          <form method="post" action="{% url 'accounts:logout' %}">{% csrf_token %}<button type="submit" class="linklike nav-btn">{% translate "Log out" %}</button></form>
+          <form method="post" action="{% url 'accounts:logout' %}">{% csrf_token %}<button type="submit" class="btn outline">{% icon "log-out" 16 %}{% translate "Log out" %}</button></form>
         {% else %}
-          <a href="{% url 'accounts:login' %}" {% if app == 'accounts' %}aria-current="page"{% endif %}>{% translate "Member login" %}</a>
+          <a class="btn primary" href="{% url 'accounts:login' %}">{% icon "log-in" 16 %}{% translate "Log in" %}</a>
         {% endif %}
-      </nav>
-      <form class="lang-switch" method="post" action="{% url 'accounts:set_language' %}" aria-label="{% translate 'Language' %}">
-        {% csrf_token %}
-        <input type="hidden" name="next" value="{{ request.get_full_path }}">
-        <button type="submit" name="language" value="fr" lang="fr" aria-pressed="{% if LANG == 'fr' %}true{% else %}false{% endif %}" title="Français">FR</button>
-        <button type="submit" name="language" value="en" lang="en" aria-pressed="{% if LANG == 'en' %}true{% else %}false{% endif %}" title="English">EN</button>
-      </form>
+      </div>
     </div>
   </header>
   {% endwith %}
 
-  <main id="main" tabindex="-1">
-    <div class="container">
-      {% if messages %}
+  <main id="main" tabindex="-1" class="{% block main_class %}page bg-gray{% endblock %}">
+    {% if messages %}
+      <div class="container flash-wrap">
         <ul class="messages" role="status">
           {% for message in messages %}<li class="{{ message.tags }}">{{ message }}</li>{% endfor %}
         </ul>
-      {% endif %}
+      </div>
+    {% endif %}
+    {% block body %}
+    <div class="container">
       {% block content %}{% endblock %}
     </div>
+    {% endblock %}
   </main>
-
-  <footer class="site-footer">
-    <div class="container">
-      <p>© {% now "Y" %} {{ ORG_NAME }} ({{ ORG_SHORT }})</p>
-    </div>
-  </footer>
 </body>
 </html>

@@ -1,0 +1,6 @@
+{% load i18n site_tags %}<form class="lang-switch" method="post" action="{% url 'accounts:set_language' %}" aria-label="{% translate 'Language' %}">
+  {% csrf_token %}{% icon "globe" 16 %}
+  <input type="hidden" name="next" value="{{ request.get_full_path }}">
+  <button type="submit" name="language" value="fr" lang="fr" aria-pressed="{% if LANG == 'fr' %}true{% else %}false{% endif %}" title="Français">FR</button>
+  <button type="submit" name="language" value="en" lang="en" aria-pressed="{% if LANG == 'en' %}true{% else %}false{% endif %}" title="English">EN</button>
+</form>

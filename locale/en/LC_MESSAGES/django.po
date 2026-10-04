@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-04 14:49+0100\n"
+"POT-Creation-Date: 2026-10-04 16:56+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -63,12 +63,12 @@ msgstr "This email appears more than once in the file."
 msgid "An account with this email already exists; the row will be skipped."
 msgstr "An account with this email already exists; the row will be skipped."
 
-#: accounts/forms.py:9 templates/panel/admins.html:9
+#: accounts/forms.py:9 core/forms.py:27 templates/panel/admins.html:9
 #: templates/panel/csv_import.html:22 templates/panel/users.html:16
 msgid "Email"
 msgstr "Email"
 
-#: accounts/forms.py:10
+#: accounts/forms.py:10 templates/accounts/login.html:20
 msgid "Password"
 msgstr "Password"
 
@@ -96,7 +96,7 @@ msgstr "The file is larger than 1 MB."
 msgid "Member"
 msgstr "Member"
 
-#: accounts/models.py:9
+#: accounts/models.py:9 templates/_nav_links.html:6
 msgid "Admin"
 msgstr "Admin"
 
@@ -152,15 +152,43 @@ msgstr "Your password was changed."
 msgid "Leave this field empty"
 msgstr "Leave this field empty"
 
-#: core/forms.py:42
+#: core/forms.py:26
+#| msgid "full name"
+msgid "Full Name"
+msgstr ""
+
+#: core/forms.py:28
+#| msgid "phone number"
+msgid "Phone Number"
+msgstr ""
+
+#: core/forms.py:29 templates/panel/message_detail.html:2
+#: templates/panel/messages.html:12
+msgid "Message"
+msgstr "Message"
+
+#: core/forms.py:32
+#| msgid "full name"
+msgid "Your full name"
+msgstr ""
+
+#: core/forms.py:33
+msgid "your.email@example.com"
+msgstr ""
+
+#: core/forms.py:35
+msgid "How can we help you?"
+msgstr ""
+
+#: core/forms.py:48
 msgid "Enter a valid phone number."
 msgstr "Enter a valid phone number."
 
-#: core/forms.py:48
+#: core/forms.py:54
 msgid "Your message is too short."
 msgstr "Your message is too short."
 
-#: core/forms.py:69
+#: core/forms.py:75
 msgid "Reply"
 msgstr "Reply"
 
@@ -197,8 +225,8 @@ msgid "message"
 msgstr "message"
 
 #: core/views.py:44 core/views.py:50
-msgid "Thank you. Your message has been sent."
-msgstr "Thank you. Your message has been sent."
+msgid "Message sent successfully! We will get back to you soon."
+msgstr ""
 
 #: core/views.py:85
 msgid "Access denied"
@@ -209,12 +237,14 @@ msgid "You do not have permission to view this page."
 msgstr "You do not have permission to view this page."
 
 #: core/views.py:89
-msgid "Page not found"
-msgstr "Page not found"
+#| msgid "Page not found"
+msgid "Page Not Found"
+msgstr ""
 
 #: core/views.py:89
-msgid "The page you are looking for does not exist."
-msgstr "The page you are looking for does not exist."
+#| msgid "The page you are looking for does not exist."
+msgid "The page you're looking for doesn't exist or may have been moved."
+msgstr ""
 
 #: core/views.py:93
 msgid "Server error"
@@ -437,11 +467,41 @@ msgstr "title"
 msgid "Your question"
 msgstr "Your question"
 
+#: qa/views.py:23
+#| msgid "Questions about our documents"
+msgid "Ask about your documents ..."
+msgstr ""
+
 #: qa/views.py:32
 msgid ""
 "You have asked many questions in a short time. Please wait a few minutes."
 msgstr ""
 "You have asked many questions in a short time. Please wait a few minutes."
+
+#: templates/_lang_switch.html:1 templates/panel/csv_import.html:22
+msgid "Language"
+msgstr "Language"
+
+#: templates/_nav_links.html:1 templates/core/home.html:2
+msgid "Home"
+msgstr "Home"
+
+#: templates/_nav_links.html:3 templates/qa/chat.html:2
+msgid "Q&A"
+msgstr "Q&A"
+
+#: templates/_nav_links.html:4 templates/news/list.html:2
+#: templates/panel/_layout.html:12 templates/panel/news.html:2
+#: templates/panel/news.html:4
+msgid "News"
+msgstr "News"
+
+#: templates/_nav_links.html:5 templates/panel/_layout.html:11
+#: templates/panel/dashboard.html:8 templates/panel/documents.html:2
+#: templates/panel/documents.html:4 templates/qa/chat.html:12
+#: templates/qa/documents.html:2
+msgid "Documents"
+msgstr "Documents"
 
 #: templates/_pagination.html:2 templates/panel/documents.html:13
 msgid "Pages"
@@ -460,27 +520,41 @@ msgstr "Page %(n)s of %(total)s"
 msgid "Next"
 msgstr "Next"
 
-#: templates/accounts/login.html:2 templates/accounts/login.html:5
-#: templates/base.html:34
-msgid "Member login"
-msgstr "Member login"
+#: templates/accounts/login.html:2 templates/accounts/login.html:29
+msgid "Sign In"
+msgstr ""
 
-#: templates/accounts/login.html:11
-#: templates/accounts/password_reset_complete.html:7
-msgid "Log in"
-msgstr "Log in"
+#: templates/accounts/login.html:7 templates/base.html:20
+#: templates/core/home.html:7
+msgid "SNPNCA logo"
+msgstr "SNPNCA logo"
 
-#: templates/accounts/login.html:12
+#: templates/accounts/login.html:9
+msgid "Syndicat National du Personnel Navigant Commercial Algerien"
+msgstr "Syndicat National du Personnel Navigant Commercial Algerien"
+
+#: templates/accounts/login.html:15
+#| msgid "Invalid email address."
+msgid "Email Address"
+msgstr ""
+
+#: templates/accounts/login.html:24 templates/accounts/login.html:25
+#| msgid "Change password"
+msgid "Show password"
+msgstr ""
+
+#: templates/accounts/login.html:24
+#| msgid "Change password"
+msgid "Hide password"
+msgstr ""
+
+#: templates/accounts/login.html:31
 msgid "Forgot your password?"
 msgstr "Forgot your password?"
 
-#: templates/accounts/login.html:15
-msgid ""
-"Accounts are created by the union. If you are a member and have no account, "
-"use the contact form on the home page."
+#: templates/accounts/login.html:32
+msgid "Need help? Contact your system administrator"
 msgstr ""
-"Accounts are created by the union. If you are a member and have no account, "
-"use the contact form on the home page."
 
 #: templates/accounts/password_change.html:2
 #: templates/accounts/password_change.html:5
@@ -518,6 +592,11 @@ msgstr "Password saved"
 msgid "Your password has been saved. You can now log in."
 msgstr "Your password has been saved. You can now log in."
 
+#: templates/accounts/password_reset_complete.html:7 templates/base.html:32
+#: templates/base.html:48
+msgid "Log in"
+msgstr "Log in"
+
 #: templates/accounts/password_reset_confirm.html:2
 #: templates/accounts/password_reset_confirm.html:5
 msgid "Choose your password"
@@ -549,7 +628,7 @@ msgstr ""
 "password. The link is valid for 3 days."
 
 #: templates/accounts/settings.html:2 templates/accounts/settings.html:5
-#: templates/base.html:31
+#: templates/base.html:29 templates/base.html:42
 msgid "My account"
 msgstr "My account"
 
@@ -562,62 +641,103 @@ msgstr "Save"
 msgid "Skip to content"
 msgstr "Skip to content"
 
-#: templates/base.html:19
-msgid "SNPNCA logo"
-msgstr "SNPNCA logo"
-
-#: templates/base.html:25
+#: templates/base.html:23 templates/base.html:40
 msgid "Main navigation"
 msgstr "Main navigation"
 
-#: templates/base.html:26 templates/core/home.html:2
-msgid "Home"
-msgstr "Home"
-
-#: templates/base.html:28 templates/news/list.html:2
-#: templates/news/list.html:4 templates/panel/_layout.html:10
-#: templates/panel/news.html:2 templates/panel/news.html:4
-msgid "News"
-msgstr "News"
-
-#: templates/base.html:29 templates/qa/chat.html:2
-msgid "Q&A"
-msgstr "Q&A"
-
-#: templates/base.html:30 templates/panel/_layout.html:5
-#: templates/panel/dashboard.html:2 templates/panel/dashboard.html:4
-msgid "Admin panel"
-msgstr "Admin panel"
-
-#: templates/base.html:32
+#: templates/base.html:30 templates/base.html:46
 msgid "Log out"
 msgstr "Log out"
 
-#: templates/base.html:37 templates/panel/csv_import.html:22
-msgid "Language"
-msgstr "Language"
+#: templates/base.html:36
+msgid "Menu"
+msgstr ""
 
-#: templates/core/error.html:8
-msgid "Back to the home page"
-msgstr "Back to the home page"
+#: templates/core/error.html:10
+msgid "Return Home"
+msgstr ""
 
-#: templates/core/home.html:7
-msgid "About us"
-msgstr "About us"
+#: templates/core/error.html:11
+msgid "Go Back"
+msgstr ""
 
-#: templates/core/home.html:8 templates/core/home.html:13
-msgid "Content coming soon."
-msgstr "Content coming soon."
+#: templates/core/home.html:10
+msgid ""
+"An independent organization representing Algerian flight attendants, "
+"committed to protecting their rights, enhancing their status, and improving "
+"their working conditions while upholding dignity and professionalism at a "
+"national level."
+msgstr ""
 
-#: templates/core/home.html:12
-msgid "Our mission"
-msgstr "Our mission"
+#: templates/core/home.html:13
+#| msgid "Assistant:"
+msgid "Ask AI Assistant"
+msgstr ""
+
+#: templates/core/home.html:15
+msgid "Get started"
+msgstr ""
 
 #: templates/core/home.html:17
-msgid "Contact us"
-msgstr "Contact us"
+msgid "Latest News"
+msgstr ""
 
-#: templates/core/home.html:30
+#: templates/core/home.html:25
+#| msgid "Our mission"
+msgid "Our Mission"
+msgstr ""
+
+#: templates/core/home.html:27
+msgid ""
+"To represent, defend, and protect the interests of flight attendants. We are"
+" the voice of cabin crew, working every day to improve your working "
+"conditions and safeguard your rights."
+msgstr ""
+
+#: templates/core/home.html:32
+msgid "Knowledge Sharing"
+msgstr ""
+
+#: templates/core/home.html:33
+msgid ""
+"Centralized access to organizational documents and resources with "
+"intelligent search capabilities."
+msgstr ""
+
+#: templates/core/home.html:37
+msgid "AI-Powered Assistance"
+msgstr ""
+
+#: templates/core/home.html:38
+msgid ""
+"Get instant, accurate answers from your organization's knowledge base using "
+"advanced AI technology."
+msgstr ""
+
+#: templates/core/home.html:42
+msgid "Secure & Controlled"
+msgstr ""
+
+#: templates/core/home.html:43
+msgid ""
+"Enterprise-grade security with role-based access control to protect "
+"sensitive information."
+msgstr ""
+
+#: templates/core/home.html:52 templates/core/home.html:56
+#| msgid "Contact us"
+msgid "Contact Us"
+msgstr ""
+
+#: templates/core/home.html:53
+msgid "Get in touch with us for any questions or support needs."
+msgstr ""
+
+#: templates/core/home.html:57
+msgid "All fields are required."
+msgstr ""
+
+#: templates/core/home.html:69
 msgid ""
 "Privacy notice: we use your name, email, phone number and message only to "
 "answer your request. They are kept in our admin panel and are not shared "
@@ -627,9 +747,10 @@ msgstr ""
 "answer your request. They are kept in our admin panel and are not shared "
 "with third parties. To have them deleted, write to us using this form."
 
-#: templates/core/home.html:31
-msgid "Send message"
-msgstr "Send message"
+#: templates/core/home.html:70
+#| msgid "Send message"
+msgid "Send Message"
+msgstr ""
 
 #: templates/emails/contact_notification_body.txt:1
 msgid "A new message was sent through the contact form."
@@ -713,50 +834,83 @@ msgstr ""
 msgid "Reset your SNPNCA password"
 msgstr "Reset your SNPNCA password"
 
-#: templates/news/detail.html:4
+#: templates/news/detail.html:5
 msgid "All news"
 msgstr "All news"
 
-#: templates/news/detail.html:11
+#: templates/news/detail.html:12
 msgid "Video"
 msgstr "Video"
 
-#: templates/news/detail.html:16
+#: templates/news/detail.html:17
 msgid "Article image"
 msgstr "Article image"
 
-#: templates/news/list.html:22
-msgid "No news yet."
-msgstr "No news yet."
+#: templates/news/list.html:5
+msgid "News & Updates"
+msgstr ""
 
-#: templates/panel/_layout.html:6
+#: templates/news/list.html:6
+msgid "Stay informed with the latest organizational announcements and updates"
+msgstr ""
+
+#: templates/news/list.html:14
+msgid "Latest"
+msgstr ""
+
+#: templates/news/list.html:18
+msgid "Read more"
+msgstr ""
+
+#: templates/news/list.html:23
+msgid "End of news feed. Check back regularly for new updates."
+msgstr ""
+
+#: templates/news/list.html:27
+msgid "No News Available"
+msgstr ""
+
+#: templates/news/list.html:28
+msgid "Check back later for updates and announcements."
+msgstr ""
+
+#: templates/panel/_layout.html:4
+#| msgid "Admin panel"
+msgid "Admin Panel"
+msgstr ""
+
+#: templates/panel/_layout.html:5
+msgid "Manage employees and documents for SNPNCA"
+msgstr ""
+
+#: templates/panel/_layout.html:7 templates/panel/dashboard.html:2
+#: templates/panel/dashboard.html:4
+msgid "Admin panel"
+msgstr "Admin panel"
+
+#: templates/panel/_layout.html:8
 msgid "Overview"
 msgstr "Overview"
 
-#: templates/panel/_layout.html:7 templates/panel/users.html:2
+#: templates/panel/_layout.html:9 templates/panel/users.html:2
 #: templates/panel/users.html:4
 msgid "Users"
 msgstr "Users"
 
-#: templates/panel/_layout.html:8 templates/panel/admins.html:2
+#: templates/panel/_layout.html:10 templates/panel/admins.html:2
 #: templates/panel/admins.html:4
 msgid "Admins"
 msgstr "Admins"
 
-#: templates/panel/_layout.html:9 templates/panel/dashboard.html:8
-#: templates/panel/documents.html:2 templates/panel/documents.html:4
-msgid "Documents"
-msgstr "Documents"
-
-#: templates/panel/_layout.html:11 templates/panel/messages.html:2
+#: templates/panel/_layout.html:13 templates/panel/messages.html:2
 msgid "Messages"
 msgstr "Messages"
 
-#: templates/panel/_layout.html:12 templates/panel/home_content.html:2
+#: templates/panel/_layout.html:14 templates/panel/home_content.html:2
 msgid "Home page"
 msgstr "Home page"
 
-#: templates/panel/_layout.html:13 templates/panel/audit.html:2
+#: templates/panel/_layout.html:15 templates/panel/audit.html:2
 #: templates/panel/audit.html:4
 msgid "Audit log"
 msgstr "Audit log"
@@ -980,10 +1134,6 @@ msgstr "Home page text"
 msgid "If one language is empty, visitors see the other one."
 msgstr "If one language is empty, visitors see the other one."
 
-#: templates/panel/message_detail.html:2 templates/panel/messages.html:12
-msgid "Message"
-msgstr "Message"
-
 #: templates/panel/message_detail.html:4
 msgid "All messages"
 msgstr "All messages"
@@ -1136,57 +1286,139 @@ msgstr "Resend invitation"
 msgid "No accounts found."
 msgstr "No accounts found."
 
-#: templates/qa/chat.html:4
-msgid "Questions about our documents"
-msgstr "Questions about our documents"
-
-#: templates/qa/chat.html:5
-msgid ""
-"Ask a question in French or English. Answers come only from the documents "
-"published by the union, with the document and page they come from. If the "
-"documents do not contain the answer, the assistant will tell you."
+#: templates/qa/chat.html:8
+#| msgid "Assistant:"
+msgid "SNPNCA AI Assistant"
 msgstr ""
-"Ask a question in French or English. Answers come only from the documents "
-"published by the union, with the document and page they come from. If the "
-"documents do not contain the answer, the assistant will tell you."
 
-#: templates/qa/chat.html:11
+#: templates/qa/chat.html:9
+#| msgid "Documents"
+msgid "Document AI"
+msgstr ""
+
+#: templates/qa/chat.html:10
+#, python-format
+#| msgid "%(n)s processing"
+#| msgid_plural "%(n)s processing"
+msgid "%(n)s doc"
+msgid_plural "%(n)s docs"
+msgstr[0] "%(n)s doc"
+msgstr[1] "%(n)s docs"
+
+#: templates/qa/chat.html:14
+msgid "Clear the conversation"
+msgstr "Clear the conversation"
+
+#: templates/qa/chat.html:20
 msgid "You:"
 msgstr "You:"
 
-#: templates/qa/chat.html:11
+#: templates/qa/chat.html:20
 msgid "Assistant:"
 msgstr "Assistant:"
 
-#: templates/qa/chat.html:15
+#: templates/qa/chat.html:24
 msgid "Sources"
 msgstr "Sources"
 
-#: templates/qa/chat.html:16
+#: templates/qa/chat.html:25
 #, python-format
 msgid "page %(page)s"
 msgstr "page %(page)s"
 
-#: templates/qa/chat.html:21
-msgid "No questions yet. Ask your first question below."
-msgstr "No questions yet. Ask your first question below."
-
-#: templates/qa/chat.html:27
-msgid "Searching the documents…"
-msgstr "Searching the documents…"
-
-#: templates/qa/chat.html:29
-msgid "Ask"
-msgstr "Ask"
+#: templates/qa/chat.html:32
+msgid "Welcome to SNPNCA AI Assistant"
+msgstr ""
 
 #: templates/qa/chat.html:33
-msgid "Clear the conversation"
-msgstr "Clear the conversation"
+msgid "I answer questions based on your organizational documents."
+msgstr ""
 
-#: templates/qa/chat.html:37
-msgid "Available documents"
-msgstr "Available documents"
+#: templates/qa/chat.html:34
+#| msgid ""
+#| "Ask a question in French or English. Answers come only from the documents "
+#| "published by the union, with the document and page they come from. If the "
+#| "documents do not contain the answer, the assistant will tell you."
+msgid ""
+"Ask in French or English. Each answer shows the document and page it comes "
+"from. If the documents do not contain the answer, I will tell you."
+msgstr ""
 
-#: templates/qa/chat.html:41
-msgid "No documents have been published yet."
-msgstr "No documents have been published yet."
+#: templates/qa/chat.html:46
+msgid "Send"
+msgstr ""
+
+#: templates/qa/chat.html:49
+msgid "Responding..."
+msgstr ""
+
+#: templates/qa/chat.html:50
+msgid "Press Enter to send"
+msgstr ""
+
+#: templates/qa/chat.html:50
+msgid "Answers come only from the union's documents."
+msgstr ""
+
+#: templates/qa/documents.html:8
+#| msgid "Available documents"
+msgid "Available Documents"
+msgstr ""
+
+#: templates/qa/documents.html:9
+msgid "Download and view the latest documents shared by the administration."
+msgstr ""
+
+#: templates/qa/documents.html:11
+msgid "Total"
+msgstr ""
+
+#: templates/qa/documents.html:22
+msgid "View"
+msgstr ""
+
+#: templates/qa/documents.html:27
+#| msgid "No accounts found."
+msgid "No documents found"
+msgstr ""
+
+msgctxt "navigation"
+msgid "Admin"
+msgstr ""
+
+#~ msgid "Thank you. Your message has been sent."
+#~ msgstr "Thank you. Your message has been sent."
+
+#~ msgid "Member login"
+#~ msgstr "Member login"
+
+#~ msgid ""
+#~ "Accounts are created by the union. If you are a member and have no account, "
+#~ "use the contact form on the home page."
+#~ msgstr ""
+#~ "Accounts are created by the union. If you are a member and have no account, "
+#~ "use the contact form on the home page."
+
+#~ msgid "Back to the home page"
+#~ msgstr "Back to the home page"
+
+#~ msgid "About us"
+#~ msgstr "About us"
+
+#~ msgid "Content coming soon."
+#~ msgstr "Content coming soon."
+
+#~ msgid "No news yet."
+#~ msgstr "No news yet."
+
+#~ msgid "No questions yet. Ask your first question below."
+#~ msgstr "No questions yet. Ask your first question below."
+
+#~ msgid "Searching the documents…"
+#~ msgstr "Searching the documents…"
+
+#~ msgid "Ask"
+#~ msgstr "Ask"
+
+#~ msgid "No documents have been published yet."
+#~ msgstr "No documents have been published yet."

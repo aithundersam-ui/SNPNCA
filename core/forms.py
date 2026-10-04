@@ -22,11 +22,17 @@ class ContactForm(forms.ModelForm):
     class Meta:
         model = ContactMessage
         fields = ["full_name", "email", "phone", "message"]
+        labels = {
+            "full_name": _("Full Name"),
+            "email": _("Email"),
+            "phone": _("Phone Number"),
+            "message": _("Message"),
+        }
         widgets = {
-            "full_name": forms.TextInput(attrs={"autocomplete": "name"}),
-            "email": forms.EmailInput(attrs={"autocomplete": "email"}),
-            "phone": forms.TextInput(attrs={"autocomplete": "tel", "inputmode": "tel"}),
-            "message": forms.Textarea(attrs={"rows": 6}),
+            "full_name": forms.TextInput(attrs={"autocomplete": "name", "placeholder": _("Your full name")}),
+            "email": forms.EmailInput(attrs={"autocomplete": "email", "placeholder": _("your.email@example.com")}),
+            "phone": forms.TextInput(attrs={"autocomplete": "tel", "inputmode": "tel", "placeholder": "+213 5XX XX XX XX"}),
+            "message": forms.Textarea(attrs={"rows": 6, "placeholder": _("How can we help you?")}),
         }
 
     def __init__(self, *args, **kwargs):
