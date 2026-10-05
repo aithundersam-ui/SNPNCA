@@ -72,17 +72,30 @@ class ClaudeClient:
                 betas=["server-side-fallback-2026-07-01"],
                 fallbacks="default",
             )
+        except anthropic.AuthenticationError as exc:
+            logger.error("Claude API rejected the API key (401). Check ANTHROPIC_API_KEY.")
+            raise LLMError("invalid API key") from exc
+        except anthropic.PermissionDeniedError as exc:
+            logger.error("Claude API permission denied (403): %s", exc.message)
+            raise LLMError("permission denied: {}".format(exc.message)) from exc
+        except anthropic.NotFoundError as exc:
+            logger.error("Claude API 404 (model %r not available to this key?): %s", settings.CLAUDE_MODEL, exc.message)
+            raise LLMError("model not found: {}".format(settings.CLAUDE_MODEL)) from exc
         except anthropic.RateLimitError as exc:
+            logger.warning("Claude API rate limited (429)")
             raise LLMError("rate limited") from exc
         except anthropic.APIStatusError as exc:
             logger.error("Claude API error %s: %s", exc.status_code, exc.message)
-            raise LLMError("api error") from exc
+            raise LLMError("API error {}: {}".format(exc.status_code, exc.message)) from exc
         except anthropic.APIConnectionError as exc:
-            raise LLMError("connection error") from exc
+            logger.error("Could not reach the Claude API: %s", exc)
+            raise LLMError("connection error: {}".format(exc)) from exc
 
         if response.stop_reason == "refusal":
+            logger.warning("Claude declined the request (stop_details=%s)", getattr(response, "stop_details", None))
             raise LLMError("refused")
         if response.stop_reason == "max_tokens":
+            logger.warning("Claude response hit max_tokens")
             raise LLMError("truncated")
         text = next((b.text for b in response.content if b.type == "text"), "")
         try:

@@ -171,7 +171,7 @@ MAX_IMAGE_MB = env_int("MAX_IMAGE_MB", 5)
 MAX_CSV_ROWS = env_int("MAX_CSV_ROWS", 2000)
 
 # Q&A assistant (server-side only; the key never reaches the browser)
-ANTHROPIC_API_KEY = env("ANTHROPIC_API_KEY", "")
+ANTHROPIC_API_KEY = env("ANTHROPIC_API_KEY", "").strip().strip("\"'")
 CLAUDE_MODEL = env("CLAUDE_MODEL", "claude-opus-5-5")
 QA_MAX_CHUNKS = env_int("QA_MAX_CHUNKS", 8)
 QA_RATE_LIMIT = env_int("QA_RATE_LIMIT", 20)  # questions per user per 10 minutes
