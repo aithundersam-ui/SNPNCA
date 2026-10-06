@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-04 16:56+0100\n"
+"POT-Creation-Date: 2026-10-06 12:23+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -96,7 +96,7 @@ msgstr "The file is larger than 1 MB."
 msgid "Member"
 msgstr "Member"
 
-#: accounts/models.py:9 templates/_nav_links.html:6
+#: accounts/models.py:9
 msgid "Admin"
 msgstr "Admin"
 
@@ -153,12 +153,10 @@ msgid "Leave this field empty"
 msgstr "Leave this field empty"
 
 #: core/forms.py:26
-#| msgid "full name"
 msgid "Full Name"
 msgstr ""
 
 #: core/forms.py:28
-#| msgid "phone number"
 msgid "Phone Number"
 msgstr ""
 
@@ -168,7 +166,6 @@ msgid "Message"
 msgstr "Message"
 
 #: core/forms.py:32
-#| msgid "full name"
 msgid "Your full name"
 msgstr ""
 
@@ -237,12 +234,10 @@ msgid "You do not have permission to view this page."
 msgstr "You do not have permission to view this page."
 
 #: core/views.py:89
-#| msgid "Page not found"
 msgid "Page Not Found"
 msgstr ""
 
 #: core/views.py:89
-#| msgid "The page you are looking for does not exist."
 msgid "The page you're looking for doesn't exist or may have been moved."
 msgstr ""
 
@@ -344,7 +339,7 @@ msgstr "This file is not a valid, unprotected PDF."
 msgid "Role"
 msgstr "Role"
 
-#: panel/views.py:41
+#: panel/views.py:44
 #, python-format
 msgid ""
 "The account was created but the invitation email could not be sent to "
@@ -353,38 +348,44 @@ msgstr ""
 "The account was created but the invitation email could not be sent to "
 "%(email)s."
 
-#: panel/views.py:88
+#: panel/views.py:91
 #, python-format
 msgid "Account created. A set-password link was emailed to %(email)s."
 msgstr "Account created. A set-password link was emailed to %(email)s."
 
-#: panel/views.py:116 panel/views.py:134 panel/views.py:223
+#: panel/views.py:119 panel/views.py:154 panel/views.py:243
 msgid "There must always be at least one active Master Admin."
 msgstr "There must always be at least one active Master Admin."
 
-#: panel/views.py:119
+#: panel/views.py:122
 msgid "Changes saved."
 msgstr "Changes saved."
 
-#: panel/views.py:137
+#: panel/views.py:139
+#, python-format
+#| msgid "A new set-password link was emailed to %(email)s."
+msgid "Password changed for %(email)s."
+msgstr ""
+
+#: panel/views.py:157
 msgid "The account was deleted."
 msgstr "The account was deleted."
 
-#: panel/views.py:152
+#: panel/views.py:172
 #, python-format
 msgid "A new set-password link was emailed to %(email)s."
 msgstr "A new set-password link was emailed to %(email)s."
 
-#: panel/views.py:187
+#: panel/views.py:207
 msgid "Nothing to import. Please upload the file again."
 msgstr "Nothing to import. Please upload the file again."
 
-#: panel/views.py:198
+#: panel/views.py:218
 #, python-format
 msgid "%(count)s accounts created and invited."
 msgstr "%(count)s accounts created and invited."
 
-#: panel/views.py:200
+#: panel/views.py:220
 #, python-format
 msgid ""
 "%(count)s invitation emails could not be sent. Use “Resend invitation” on "
@@ -393,39 +394,39 @@ msgstr ""
 "%(count)s invitation emails could not be sent. Use “Resend invitation” on "
 "those accounts."
 
-#: panel/views.py:226
+#: panel/views.py:246
 msgid "Role updated."
 msgstr "Role updated."
 
-#: panel/views.py:248
+#: panel/views.py:268
 msgid "The PDF was uploaded and is being processed."
 msgstr "The PDF was uploaded and is being processed."
 
-#: panel/views.py:261
+#: panel/views.py:281
 msgid "The document and its extracted text were deleted."
 msgstr "The document and its extracted text were deleted."
 
-#: panel/views.py:304
+#: panel/views.py:324
 msgid "Article saved."
 msgstr "Article saved."
 
-#: panel/views.py:318
+#: panel/views.py:338
 msgid "Article deleted."
 msgstr "Article deleted."
 
-#: panel/views.py:346
+#: panel/views.py:366
 msgid "The email could not be sent. Please try again later."
 msgstr "The email could not be sent. Please try again later."
 
-#: panel/views.py:352
+#: panel/views.py:372
 msgid "Your reply was sent."
 msgstr "Your reply was sent."
 
-#: panel/views.py:363
+#: panel/views.py:383
 msgid "Message deleted."
 msgstr "Message deleted."
 
-#: panel/views.py:377
+#: panel/views.py:397
 msgid "Home page updated."
 msgstr "Home page updated."
 
@@ -468,7 +469,6 @@ msgid "Your question"
 msgstr "Your question"
 
 #: qa/views.py:23
-#| msgid "Questions about our documents"
 msgid "Ask about your documents ..."
 msgstr ""
 
@@ -503,6 +503,11 @@ msgstr "News"
 msgid "Documents"
 msgstr "Documents"
 
+#: templates/_nav_links.html:6
+msgctxt "navigation"
+msgid "Admin"
+msgstr ""
+
 #: templates/_pagination.html:2 templates/panel/documents.html:13
 msgid "Pages"
 msgstr "Pages"
@@ -534,17 +539,14 @@ msgid "Syndicat National du Personnel Navigant Commercial Algerien"
 msgstr "Syndicat National du Personnel Navigant Commercial Algerien"
 
 #: templates/accounts/login.html:15
-#| msgid "Invalid email address."
 msgid "Email Address"
 msgstr ""
 
 #: templates/accounts/login.html:24 templates/accounts/login.html:25
-#| msgid "Change password"
 msgid "Show password"
 msgstr ""
 
 #: templates/accounts/login.html:24
-#| msgid "Change password"
 msgid "Hide password"
 msgstr ""
 
@@ -670,7 +672,6 @@ msgid ""
 msgstr ""
 
 #: templates/core/home.html:13
-#| msgid "Assistant:"
 msgid "Ask AI Assistant"
 msgstr ""
 
@@ -683,7 +684,6 @@ msgid "Latest News"
 msgstr ""
 
 #: templates/core/home.html:25
-#| msgid "Our mission"
 msgid "Our Mission"
 msgstr ""
 
@@ -725,7 +725,6 @@ msgid ""
 msgstr ""
 
 #: templates/core/home.html:52 templates/core/home.html:56
-#| msgid "Contact us"
 msgid "Contact Us"
 msgstr ""
 
@@ -748,7 +747,6 @@ msgstr ""
 "with third parties. To have them deleted, write to us using this form."
 
 #: templates/core/home.html:70
-#| msgid "Send message"
 msgid "Send Message"
 msgstr ""
 
@@ -875,7 +873,6 @@ msgid "Check back later for updates and announcements."
 msgstr ""
 
 #: templates/panel/_layout.html:4
-#| msgid "Admin panel"
 msgid "Admin Panel"
 msgstr ""
 
@@ -936,11 +933,23 @@ msgstr "Name"
 msgid "Change role"
 msgstr "Change role"
 
+#: templates/panel/admins.html:9 templates/panel/documents.html:13
+#: templates/panel/news.html:8 templates/panel/users.html:16
+msgid "Actions"
+msgstr "Actions"
+
 #: templates/panel/admins.html:23
 msgid "Apply"
 msgstr "Apply"
 
-#: templates/panel/admins.html:31
+#: templates/panel/admins.html:26 templates/panel/set_password.html:2
+#: templates/panel/set_password.html:4 templates/panel/set_password.html:10
+#: templates/panel/users.html:29
+#| msgid "Save my password"
+msgid "Set password"
+msgstr ""
+
+#: templates/panel/admins.html:32
 msgid ""
 "To make an existing member an admin, edit their account from the Users page "
 "and change the role."
@@ -982,12 +991,12 @@ msgid "Are you sure you want to delete “%(label)s”? This cannot be undone."
 msgstr "Are you sure you want to delete “%(label)s”? This cannot be undone."
 
 #: templates/panel/confirm_delete.html:8 templates/panel/documents.html:24
-#: templates/panel/news.html:16 templates/panel/users.html:29
+#: templates/panel/news.html:16 templates/panel/users.html:30
 msgid "Delete"
 msgstr "Delete"
 
 #: templates/panel/confirm_delete.html:9 templates/panel/news_form.html:38
-#: templates/panel/user_form.html:11
+#: templates/panel/set_password.html:11 templates/panel/user_form.html:11
 msgid "Cancel"
 msgstr "Cancel"
 
@@ -1105,11 +1114,6 @@ msgstr "Status"
 #: templates/panel/documents.html:13
 msgid "Uploaded"
 msgstr "Uploaded"
-
-#: templates/panel/documents.html:13 templates/panel/news.html:8
-#: templates/panel/users.html:16
-msgid "Actions"
-msgstr "Actions"
 
 #: templates/panel/documents.html:18
 #, python-format
@@ -1236,6 +1240,14 @@ msgstr "Remove"
 msgid "Publication"
 msgstr "Publication"
 
+#: templates/panel/set_password.html:5
+#, python-format
+msgid ""
+"New password for %(name)s (%(email)s). It is not emailed and cannot be "
+"viewed later, so pass it on in person. They will be signed out of any open "
+"sessions."
+msgstr ""
+
 #: templates/panel/user_form.html:2 templates/panel/user_form.html:4
 msgid "New account"
 msgstr "New account"
@@ -1282,24 +1294,20 @@ msgstr "Active"
 msgid "Resend invitation"
 msgstr "Resend invitation"
 
-#: templates/panel/users.html:35
+#: templates/panel/users.html:36
 msgid "No accounts found."
 msgstr "No accounts found."
 
 #: templates/qa/chat.html:8
-#| msgid "Assistant:"
 msgid "SNPNCA AI Assistant"
 msgstr ""
 
 #: templates/qa/chat.html:9
-#| msgid "Documents"
 msgid "Document AI"
 msgstr ""
 
 #: templates/qa/chat.html:10
 #, python-format
-#| msgid "%(n)s processing"
-#| msgid_plural "%(n)s processing"
 msgid "%(n)s doc"
 msgid_plural "%(n)s docs"
 msgstr[0] "%(n)s doc"
@@ -1335,10 +1343,6 @@ msgid "I answer questions based on your organizational documents."
 msgstr ""
 
 #: templates/qa/chat.html:34
-#| msgid ""
-#| "Ask a question in French or English. Answers come only from the documents "
-#| "published by the union, with the document and page they come from. If the "
-#| "documents do not contain the answer, the assistant will tell you."
 msgid ""
 "Ask in French or English. Each answer shows the document and page it comes "
 "from. If the documents do not contain the answer, I will tell you."
@@ -1361,7 +1365,6 @@ msgid "Answers come only from the union's documents."
 msgstr ""
 
 #: templates/qa/documents.html:8
-#| msgid "Available documents"
 msgid "Available Documents"
 msgstr ""
 
@@ -1378,12 +1381,7 @@ msgid "View"
 msgstr ""
 
 #: templates/qa/documents.html:27
-#| msgid "No accounts found."
 msgid "No documents found"
-msgstr ""
-
-msgctxt "navigation"
-msgid "Admin"
 msgstr ""
 
 #~ msgid "Thank you. Your message has been sent."

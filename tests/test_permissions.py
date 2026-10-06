@@ -135,3 +135,52 @@ class SeedTests(TestCase):
         self.assertEqual(User.objects.filter(role=Role.MASTER).count(), 1)
         self.assertEqual(User.objects.get().email, "boss@example.com")
         self.assertEqual(len(mail.outbox), 1)
+
+
+class SetPasswordTests(TestCase):
+    NEW = "Tres-long-mot-2026!"
+
+    def setUp(self):
+        self.master = make_user("boss@example.com", role=Role.MASTER)
+        self.admin = make_user("admin@example.com", role=Role.ADMIN)
+        self.member = make_user("member@example.com")
+        self.url = f"/fr/panel/users/{self.member.pk}/password/"
+
+    def post(self, actor, password=None, url=None):
+        self.client.force_login(actor)
+        password = password or self.NEW
+        return self.client.post(url or self.url, {"new_password1": password, "new_password2": password})
+
+    def test_master_can_set_any_password_and_it_is_audited_not_stored(self):
+        from django.core import mail
+
+        response = self.post(self.master)
+        self.assertEqual(response.status_code, 302)
+        self.member.refresh_from_db()
+        self.assertTrue(self.member.check_password(self.NEW))
+        entry = AuditLog.objects.get(action="user.password_set")
+        self.assertEqual(entry.target, "member@example.com")
+        self.assertNotIn(self.NEW, str(entry.details))
+        self.assertEqual(len(mail.outbox), 0)
+        # Works on other admins too.
+        self.post(self.master, url=f"/fr/panel/users/{self.admin.pk}/password/")
+        self.admin.refresh_from_db()
+        self.assertTrue(self.admin.check_password(self.NEW))
+
+    def test_admins_and_members_cannot_set_passwords(self):
+        for actor in (self.admin, self.member):
+            self.assertEqual(self.post(actor).status_code, 403)
+        self.member.refresh_from_db()
+        self.assertFalse(self.member.check_password(self.NEW))
+        self.client.logout()
+        self.assertEqual(self.client.get(self.url).status_code, 302)
+
+    def test_weak_password_is_rejected(self):
+        response = self.post(self.master, password="Sam1234")
+        self.assertEqual(response.status_code, 200)
+        self.member.refresh_from_db()
+        self.assertFalse(self.member.check_password("Sam1234"))
+
+    def test_master_changing_own_password_stays_logged_in(self):
+        self.post(self.master, url=f"/fr/panel/users/{self.master.pk}/password/")
+        self.assertEqual(self.client.get("/fr/panel/").status_code, 200)

@@ -6,7 +6,7 @@
 <p><a class="btn" href="{% url 'panel:admin_create' %}">{% translate "New admin" %}</a></p>
 <div class="table-wrap">
 <table>
-  <thead><tr><th>{% translate "Name" %}</th><th>{% translate "Email" %}</th><th>{% translate "Role" %}</th><th>{% translate "Change role" %}</th></tr></thead>
+  <thead><tr><th>{% translate "Name" %}</th><th>{% translate "Email" %}</th><th>{% translate "Role" %}</th><th>{% translate "Change role" %}</th><th><span class="sr-only">{% translate "Actions" %}</span></th></tr></thead>
   <tbody>
   {% for a in admins %}
   <tr>
@@ -23,6 +23,7 @@
         <button type="submit" class="btn secondary small">{% translate "Apply" %}</button>
       </form>
     </td>
+    <td><a class="btn secondary small" href="{% url 'panel:user_password' a.pk %}">{% translate "Set password" %}</a></td>
   </tr>
   {% endfor %}
   </tbody>

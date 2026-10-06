@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-04 16:56+0100\n"
+"POT-Creation-Date: 2026-10-06 12:23+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -101,7 +101,7 @@ msgstr "Le fichier dépasse 1 Mo."
 msgid "Member"
 msgstr "Adhérent"
 
-#: accounts/models.py:9 templates/_nav_links.html:6
+#: accounts/models.py:9
 msgid "Admin"
 msgstr "Administrateur"
 
@@ -159,12 +159,10 @@ msgid "Leave this field empty"
 msgstr "Laissez ce champ vide"
 
 #: core/forms.py:26
-#| msgid "full name"
 msgid "Full Name"
 msgstr "Nom Complet"
 
 #: core/forms.py:28
-#| msgid "phone number"
 msgid "Phone Number"
 msgstr "Numéro de Téléphone"
 
@@ -174,7 +172,6 @@ msgid "Message"
 msgstr "Message"
 
 #: core/forms.py:32
-#| msgid "full name"
 msgid "Your full name"
 msgstr "Votre nom complet"
 
@@ -243,12 +240,10 @@ msgid "You do not have permission to view this page."
 msgstr "Vous n’avez pas l’autorisation d’accéder à cette page."
 
 #: core/views.py:89
-#| msgid "Page not found"
 msgid "Page Not Found"
 msgstr "Page Introuvable"
 
 #: core/views.py:89
-#| msgid "The page you are looking for does not exist."
 msgid "The page you're looking for doesn't exist or may have been moved."
 msgstr "La page que vous recherchez n’existe pas ou a peut-être été déplacée."
 
@@ -350,7 +345,7 @@ msgstr "Ce fichier n’est pas un PDF valide et non protégé."
 msgid "Role"
 msgstr "Rôle"
 
-#: panel/views.py:41
+#: panel/views.py:44
 #, python-format
 msgid ""
 "The account was created but the invitation email could not be sent to "
@@ -359,40 +354,46 @@ msgstr ""
 "Le compte a été créé, mais l’e-mail d’invitation n’a pas pu être envoyé à "
 "%(email)s."
 
-#: panel/views.py:88
+#: panel/views.py:91
 #, python-format
 msgid "Account created. A set-password link was emailed to %(email)s."
 msgstr ""
 "Compte créé. Un lien pour choisir le mot de passe a été envoyé à %(email)s."
 
-#: panel/views.py:116 panel/views.py:134 panel/views.py:223
+#: panel/views.py:119 panel/views.py:154 panel/views.py:243
 msgid "There must always be at least one active Master Admin."
 msgstr "Il doit toujours rester au moins un administrateur principal actif."
 
-#: panel/views.py:119
+#: panel/views.py:122
 msgid "Changes saved."
 msgstr "Modifications enregistrées."
 
-#: panel/views.py:137
+#: panel/views.py:139
+#, python-format
+#| msgid "A new set-password link was emailed to %(email)s."
+msgid "Password changed for %(email)s."
+msgstr "Mot de passe modifié pour %(email)s."
+
+#: panel/views.py:157
 msgid "The account was deleted."
 msgstr "Le compte a été supprimé."
 
-#: panel/views.py:152
+#: panel/views.py:172
 #, python-format
 msgid "A new set-password link was emailed to %(email)s."
 msgstr ""
 "Un nouveau lien pour choisir le mot de passe a été envoyé à %(email)s."
 
-#: panel/views.py:187
+#: panel/views.py:207
 msgid "Nothing to import. Please upload the file again."
 msgstr "Rien à importer. Veuillez envoyer le fichier à nouveau."
 
-#: panel/views.py:198
+#: panel/views.py:218
 #, python-format
 msgid "%(count)s accounts created and invited."
 msgstr "%(count)s comptes créés et invités."
 
-#: panel/views.py:200
+#: panel/views.py:220
 #, python-format
 msgid ""
 "%(count)s invitation emails could not be sent. Use “Resend invitation” on "
@@ -401,39 +402,39 @@ msgstr ""
 "%(count)s e-mails d’invitation n’ont pas pu être envoyés. Utilisez « "
 "Renvoyer l’invitation » sur ces comptes."
 
-#: panel/views.py:226
+#: panel/views.py:246
 msgid "Role updated."
 msgstr "Rôle mis à jour."
 
-#: panel/views.py:248
+#: panel/views.py:268
 msgid "The PDF was uploaded and is being processed."
 msgstr "Le PDF a été envoyé et est en cours de traitement."
 
-#: panel/views.py:261
+#: panel/views.py:281
 msgid "The document and its extracted text were deleted."
 msgstr "Le document et son texte extrait ont été supprimés."
 
-#: panel/views.py:304
+#: panel/views.py:324
 msgid "Article saved."
 msgstr "Article enregistré."
 
-#: panel/views.py:318
+#: panel/views.py:338
 msgid "Article deleted."
 msgstr "Article supprimé."
 
-#: panel/views.py:346
+#: panel/views.py:366
 msgid "The email could not be sent. Please try again later."
 msgstr "L’e-mail n’a pas pu être envoyé. Veuillez réessayer plus tard."
 
-#: panel/views.py:352
+#: panel/views.py:372
 msgid "Your reply was sent."
 msgstr "Votre réponse a été envoyée."
 
-#: panel/views.py:363
+#: panel/views.py:383
 msgid "Message deleted."
 msgstr "Message supprimé."
 
-#: panel/views.py:377
+#: panel/views.py:397
 msgid "Home page updated."
 msgstr "Page d’accueil mise à jour."
 
@@ -477,7 +478,6 @@ msgid "Your question"
 msgstr "Votre question"
 
 #: qa/views.py:23
-#| msgid "Questions about our documents"
 msgid "Ask about your documents ..."
 msgstr "Posez une question sur vos documents ..."
 
@@ -513,6 +513,11 @@ msgstr "Actualités"
 msgid "Documents"
 msgstr "Documents"
 
+#: templates/_nav_links.html:6
+msgctxt "navigation"
+msgid "Admin"
+msgstr "Admin"
+
 #: templates/_pagination.html:2 templates/panel/documents.html:13
 msgid "Pages"
 msgstr "Pages"
@@ -544,17 +549,14 @@ msgid "Syndicat National du Personnel Navigant Commercial Algerien"
 msgstr "Plateforme de Gestion des Connaissances"
 
 #: templates/accounts/login.html:15
-#| msgid "Invalid email address."
 msgid "Email Address"
 msgstr "Adresse Email"
 
 #: templates/accounts/login.html:24 templates/accounts/login.html:25
-#| msgid "Change password"
 msgid "Show password"
 msgstr "Afficher le mot de passe"
 
 #: templates/accounts/login.html:24
-#| msgid "Change password"
 msgid "Hide password"
 msgstr "Masquer le mot de passe"
 
@@ -684,7 +686,6 @@ msgstr ""
 " commercial Algérien"
 
 #: templates/core/home.html:13
-#| msgid "Assistant:"
 msgid "Ask AI Assistant"
 msgstr "Demander à l’Assistant IA"
 
@@ -697,7 +698,6 @@ msgid "Latest News"
 msgstr "Dernières Actualités"
 
 #: templates/core/home.html:25
-#| msgid "Our mission"
 msgid "Our Mission"
 msgstr "Notre Mission"
 
@@ -747,7 +747,6 @@ msgstr ""
 "protéger les informations sensibles."
 
 #: templates/core/home.html:52 templates/core/home.html:56
-#| msgid "Contact us"
 msgid "Contact Us"
 msgstr "Nous Contacter"
 
@@ -771,7 +770,6 @@ msgstr ""
 "des tiers. Pour les faire supprimer, écrivez-nous via ce formulaire."
 
 #: templates/core/home.html:70
-#| msgid "Send message"
 msgid "Send Message"
 msgstr "Envoyer le Message"
 
@@ -903,7 +901,6 @@ msgid "Check back later for updates and announcements."
 msgstr "Revenez plus tard pour les mises à jour et annonces."
 
 #: templates/panel/_layout.html:4
-#| msgid "Admin panel"
 msgid "Admin Panel"
 msgstr "Panneau d’Administration"
 
@@ -964,11 +961,23 @@ msgstr "Nom"
 msgid "Change role"
 msgstr "Modifier le rôle"
 
+#: templates/panel/admins.html:9 templates/panel/documents.html:13
+#: templates/panel/news.html:8 templates/panel/users.html:16
+msgid "Actions"
+msgstr "Actions"
+
 #: templates/panel/admins.html:23
 msgid "Apply"
 msgstr "Appliquer"
 
-#: templates/panel/admins.html:31
+#: templates/panel/admins.html:26 templates/panel/set_password.html:2
+#: templates/panel/set_password.html:4 templates/panel/set_password.html:10
+#: templates/panel/users.html:29
+#| msgid "Show password"
+msgid "Set password"
+msgstr "Définir le mot de passe"
+
+#: templates/panel/admins.html:32
 msgid ""
 "To make an existing member an admin, edit their account from the Users page "
 "and change the role."
@@ -1012,12 +1021,12 @@ msgstr ""
 "irréversible."
 
 #: templates/panel/confirm_delete.html:8 templates/panel/documents.html:24
-#: templates/panel/news.html:16 templates/panel/users.html:29
+#: templates/panel/news.html:16 templates/panel/users.html:30
 msgid "Delete"
 msgstr "Supprimer"
 
 #: templates/panel/confirm_delete.html:9 templates/panel/news_form.html:38
-#: templates/panel/user_form.html:11
+#: templates/panel/set_password.html:11 templates/panel/user_form.html:11
 msgid "Cancel"
 msgstr "Annuler"
 
@@ -1135,11 +1144,6 @@ msgstr "Statut"
 #: templates/panel/documents.html:13
 msgid "Uploaded"
 msgstr "Envoyé le"
-
-#: templates/panel/documents.html:13 templates/panel/news.html:8
-#: templates/panel/users.html:16
-msgid "Actions"
-msgstr "Actions"
 
 #: templates/panel/documents.html:18
 #, python-format
@@ -1266,6 +1270,17 @@ msgstr "Retirer"
 msgid "Publication"
 msgstr "Publication"
 
+#: templates/panel/set_password.html:5
+#, python-format
+msgid ""
+"New password for %(name)s (%(email)s). It is not emailed and cannot be "
+"viewed later, so pass it on in person. They will be signed out of any open "
+"sessions."
+msgstr ""
+"Nouveau mot de passe pour %(name)s (%(email)s). Il n’est pas envoyé par "
+"e-mail et ne peut pas être consulté ensuite : communiquez-le en personne. La"
+" personne sera déconnectée de ses sessions ouvertes."
+
 #: templates/panel/user_form.html:2 templates/panel/user_form.html:4
 msgid "New account"
 msgstr "Nouveau compte"
@@ -1313,24 +1328,20 @@ msgstr "Actif"
 msgid "Resend invitation"
 msgstr "Renvoyer l’invitation"
 
-#: templates/panel/users.html:35
+#: templates/panel/users.html:36
 msgid "No accounts found."
 msgstr "Aucun compte trouvé."
 
 #: templates/qa/chat.html:8
-#| msgid "Assistant:"
 msgid "SNPNCA AI Assistant"
 msgstr "Assistant IA SNPNCA"
 
 #: templates/qa/chat.html:9
-#| msgid "Documents"
 msgid "Document AI"
 msgstr "IA Documentaire"
 
 #: templates/qa/chat.html:10
 #, python-format
-#| msgid "%(n)s processing"
-#| msgid_plural "%(n)s processing"
 msgid "%(n)s doc"
 msgid_plural "%(n)s docs"
 msgstr[0] "%(n)s doc"
@@ -1366,10 +1377,6 @@ msgid "I answer questions based on your organizational documents."
 msgstr "Je réponds aux questions basées sur vos documents organisationnels."
 
 #: templates/qa/chat.html:34
-#| msgid ""
-#| "Ask a question in French or English. Answers come only from the documents "
-#| "published by the union, with the document and page they come from. If the "
-#| "documents do not contain the answer, the assistant will tell you."
 msgid ""
 "Ask in French or English. Each answer shows the document and page it comes "
 "from. If the documents do not contain the answer, I will tell you."
@@ -1395,7 +1402,6 @@ msgid "Answers come only from the union's documents."
 msgstr "Les réponses proviennent uniquement des documents du syndicat."
 
 #: templates/qa/documents.html:8
-#| msgid "Available documents"
 msgid "Available Documents"
 msgstr "Documents disponibles"
 
@@ -1414,13 +1420,8 @@ msgid "View"
 msgstr "Voir"
 
 #: templates/qa/documents.html:27
-#| msgid "No accounts found."
 msgid "No documents found"
 msgstr "Aucun document trouvé"
-
-msgctxt "navigation"
-msgid "Admin"
-msgstr "Admin"
 
 #~ msgid "Thank you. Your message has been sent."
 #~ msgstr "Merci. Votre message a bien été envoyé."

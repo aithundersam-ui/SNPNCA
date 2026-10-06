@@ -3,6 +3,8 @@ from pathlib import Path
 
 from django.conf import settings
 from django.contrib import messages
+from django.contrib.auth import update_session_auth_hash
+from django.contrib.auth.forms import SetPasswordForm
 from django.core.exceptions import PermissionDenied
 from django.core.paginator import Paginator
 from django.db import transaction
@@ -13,6 +15,7 @@ from django.utils.translation import gettext as _
 from django.views.decorators.http import require_POST
 
 from accounts import csv_import
+from accounts import lockout
 from accounts import permissions as perms
 from accounts.audit import log_action
 from accounts.emails import send_invitation, send_templated
@@ -119,6 +122,23 @@ def user_edit(request, pk):
         messages.success(request, _("Changes saved."))
         return redirect("panel:users")
     return render(request, "panel/user_form.html", {"form": form, "target": target})
+
+
+@master_required
+def user_set_password(request, pk):
+    """Master Admins can set any account's password. The password is never
+    emailed, shown again or written to the audit log."""
+    target = get_object_or_404(User, pk=pk)
+    form = SetPasswordForm(target, request.POST or None)
+    if request.method == "POST" and form.is_valid():
+        form.save()  # also signs the person out of their other sessions
+        if target.pk == request.user.pk:
+            update_session_auth_hash(request, target)
+        lockout.clear(target.email)
+        log_action(request, "user.password_set", target.email)
+        messages.success(request, _("Password changed for %(email)s.") % {"email": target.email})
+        return redirect("panel:admins" if target.is_admin else "panel:users")
+    return render(request, "panel/set_password.html", {"form": form, "target": target})
 
 
 @admin_required

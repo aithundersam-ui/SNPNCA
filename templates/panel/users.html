@@ -26,6 +26,7 @@
         <div class="actions">
           <a class="btn secondary small" href="{% url 'panel:user_edit' u.pk %}">{% translate "Edit" %}</a>
           {% if not u.has_usable_password and u.is_active %}<form method="post" action="{% url 'panel:user_invite' u.pk %}">{% csrf_token %}<button class="btn secondary small" type="submit">{% translate "Resend invitation" %}</button></form>{% endif %}
+          {% if user.is_master %}<a class="btn secondary small" href="{% url 'panel:user_password' u.pk %}">{% translate "Set password" %}</a>{% endif %}
           <a class="btn danger small" href="{% url 'panel:user_delete' u.pk %}">{% translate "Delete" %}</a>
         </div>
         {% endif %}
