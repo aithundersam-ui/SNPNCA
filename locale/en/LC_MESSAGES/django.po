@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-11 19:29+0100\n"
+"POT-Creation-Date: 2026-10-11 19:55+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,48 +18,52 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: accounts/csv_import.py:52
+#: accounts/csv_import.py:53
 msgid "The file is not UTF-8 encoded. In Excel, use “Save as → CSV UTF-8”."
 msgstr "The file is not UTF-8 encoded. In Excel, use “Save as → CSV UTF-8”."
 
-#: accounts/csv_import.py:64
+#: accounts/csv_import.py:65
 msgid "The first line must contain the columns full_name and email."
 msgstr "The first line must contain the columns full_name and email."
 
-#: accounts/csv_import.py:72
+#: accounts/csv_import.py:73
 #, python-format
 msgid "The file has more than %(max)s rows."
 msgstr "The file has more than %(max)s rows."
 
-#: accounts/csv_import.py:84
+#: accounts/csv_import.py:86
 msgid "Full name is missing."
 msgstr "Full name is missing."
 
-#: accounts/csv_import.py:86
+#: accounts/csv_import.py:88
 msgid "Full name is too long."
 msgstr "Full name is too long."
 
-#: accounts/csv_import.py:90
+#: accounts/csv_import.py:92
 msgid "Invalid email address."
 msgstr "Invalid email address."
 
-#: accounts/csv_import.py:92
+#: accounts/csv_import.py:98
+msgid "No WhatsApp number: the member can add it when booking a meeting."
+msgstr ""
+
+#: accounts/csv_import.py:100
 msgid "Language must be fr or en."
 msgstr "Language must be fr or en."
 
-#: accounts/csv_import.py:94
+#: accounts/csv_import.py:102
 msgid "Role must be user, admin or master."
 msgstr "Role must be user, admin or master."
 
-#: accounts/csv_import.py:96
+#: accounts/csv_import.py:104
 msgid "Role ignored: only the Master Admin can import admins."
 msgstr "Role ignored: only the Master Admin can import admins."
 
-#: accounts/csv_import.py:99
+#: accounts/csv_import.py:107
 msgid "This email appears more than once in the file."
 msgstr "This email appears more than once in the file."
 
-#: accounts/csv_import.py:102
+#: accounts/csv_import.py:110
 msgid "An account with this email already exists; the row will be skipped."
 msgstr "An account with this email already exists; the row will be skipped."
 
@@ -72,63 +76,77 @@ msgstr "Email"
 msgid "Password"
 msgstr "Password"
 
-#: accounts/forms.py:57
+#: accounts/forms.py:54
+msgid "Used by admins to call the member on WhatsApp for one-on-one meetings."
+msgstr ""
+
+#: accounts/forms.py:65
 msgid "An account with this email already exists."
 msgstr "An account with this email already exists."
 
-#: accounts/forms.py:63
+#: accounts/forms.py:74
 msgid "Invalid role."
 msgstr "Invalid role."
 
-#: accounts/forms.py:68
+#: accounts/forms.py:79
 msgid "CSV file (UTF-8)"
 msgstr "CSV file (UTF-8)"
 
-#: accounts/forms.py:73
+#: accounts/forms.py:84
 msgid "Please upload a .csv file."
 msgstr "Please upload a .csv file."
 
-#: accounts/forms.py:75
+#: accounts/forms.py:86
 msgid "The file is larger than 1 MB."
 msgstr "The file is larger than 1 MB."
 
-#: accounts/models.py:8 templates/meetings/panel_queue.html:14
+#: accounts/models.py:11 templates/meetings/panel_queue.html:14
 msgid "Member"
 msgstr "Member"
 
-#: accounts/models.py:9
+#: accounts/models.py:12
 msgid "Admin"
 msgstr "Admin"
 
-#: accounts/models.py:10
+#: accounts/models.py:13
 msgid "Master Admin"
 msgstr "Master Admin"
 
-#: accounts/models.py:14 config/settings.py:131
+#: accounts/models.py:17 config/settings.py:131
 msgid "French"
 msgstr "French"
 
-#: accounts/models.py:15 config/settings.py:131
+#: accounts/models.py:18 config/settings.py:131
 msgid "English"
 msgstr "English"
 
-#: accounts/models.py:37 core/models.py:42
+#: accounts/models.py:35
+msgid ""
+"Enter a WhatsApp number with its country code, for example +213 5XX XX XX "
+"XX."
+msgstr ""
+
+#: accounts/models.py:58 core/models.py:42
 msgid "email"
 msgstr "email"
 
-#: accounts/models.py:38 core/models.py:41
+#: accounts/models.py:59 core/models.py:41
 msgid "full name"
 msgstr "full name"
 
-#: accounts/models.py:39
+#: accounts/models.py:60
+msgid "WhatsApp number"
+msgstr ""
+
+#: accounts/models.py:61
 msgid "role"
 msgstr "role"
 
-#: accounts/models.py:41
+#: accounts/models.py:63
 msgid "preferred language"
 msgstr "preferred language"
 
-#: accounts/models.py:43
+#: accounts/models.py:65
 msgid "active"
 msgstr "active"
 
@@ -249,27 +267,36 @@ msgstr "Server error"
 msgid "Something went wrong. Please try again later."
 msgstr "Something went wrong. Please try again later."
 
-#: meetings/forms.py:20
+#: meetings/forms.py:22
 msgid "Choose a date that is not in the past."
 msgstr ""
 
-#: meetings/forms.py:26
+#: meetings/forms.py:28
 msgid "Choose between 5 and 180 minutes."
 msgstr ""
 
-#: meetings/forms.py:32
+#: meetings/forms.py:34
 msgid "Choose between 1 and 200."
 msgstr ""
 
 #: meetings/forms.py:40
+msgid "Your WhatsApp number"
+msgstr ""
+
+#: meetings/forms.py:42
+msgid ""
+"An admin will call you on WhatsApp at this number when your turn comes."
+msgstr ""
+
+#: meetings/forms.py:49
 msgid "What would you like to discuss?"
 msgstr ""
 
-#: meetings/forms.py:51
+#: meetings/forms.py:63
 msgid "This day has passed."
 msgstr ""
 
-#: meetings/forms.py:53 meetings/views.py:34
+#: meetings/forms.py:65 meetings/views.py:30
 msgid "This day is full. Please choose another day."
 msgstr ""
 
@@ -306,11 +333,13 @@ msgstr "Waiting"
 msgid "In meeting"
 msgstr ""
 
-#: meetings/models.py:71 templates/meetings/panel_queue.html:25
+#: meetings/models.py:71 templates/meetings/panel_call.html:15
+#: templates/meetings/panel_queue.html:25
 msgid "Done"
 msgstr ""
 
-#: meetings/models.py:72 templates/meetings/panel_queue.html:26
+#: meetings/models.py:72 templates/meetings/panel_call.html:16
+#: templates/meetings/panel_queue.html:26
 msgid "Absent"
 msgstr ""
 
@@ -326,48 +355,37 @@ msgstr ""
 msgid "subject"
 msgstr ""
 
-#: meetings/panel_views.py:39
+#: meetings/panel_views.py:37
 msgid "Meeting day saved."
 msgstr ""
 
-#: meetings/panel_views.py:50
+#: meetings/panel_views.py:48
 msgid "Meeting day deleted."
 msgstr ""
 
-#: meetings/panel_views.py:76
+#: meetings/panel_views.py:73
 #, python-format
 msgid "Request #%(number)s is no longer in the queue."
 msgstr ""
 
-#: meetings/panel_views.py:83
-msgid ""
-"The video call could not be created. Check that DAILY_API_KEY is set in the "
-"server settings, then try again."
+#: meetings/panel_views.py:76
+#, python-format
+msgid "%(name)s has no WhatsApp number. Add it to their account first."
 msgstr ""
 
-#: meetings/views.py:27
+#: meetings/views.py:23
 msgid ""
 "You already have a meeting request. Cancel it before booking another one."
 msgstr ""
 
-#: meetings/views.py:37
+#: meetings/views.py:36
 #, python-format
 msgid "Your request is registered with number #%(number)s."
 msgstr ""
 
-#: meetings/views.py:60
+#: meetings/views.py:59
 #, python-format
 msgid "Your request #%(number)s has been cancelled."
-msgstr ""
-
-#: meetings/views.py:73
-msgid "This meeting is not in progress."
-msgstr ""
-
-#: meetings/views.py:78
-#| msgid ""
-#| "The assistant is temporarily unavailable. Please try again in a few minutes."
-msgid "The video call is unavailable right now. Please try again in a moment."
 msgstr ""
 
 #: news/models.py:34
@@ -962,8 +980,8 @@ msgstr ""
 
 #: templates/meetings/index.html:7
 msgid ""
-"Book a private video call with the union's representatives. Meetings take "
-"place on the days chosen each month, in order of request number."
+"Book a private WhatsApp call with the union's representatives. Meetings take"
+" place on the days chosen each month, in order of request number."
 msgstr ""
 
 #: templates/meetings/index.html:13
@@ -980,91 +998,108 @@ msgid "Your number"
 msgstr ""
 
 #: templates/meetings/index.html:19
-msgid "It's your turn! An admin has opened the meeting."
+#, python-format
+msgid ""
+"It's your turn! An admin is calling you on WhatsApp at %(number)s. Keep your"
+" phone close."
 msgstr ""
 
-#: templates/meetings/index.html:20
-msgid "Join the video call"
-msgstr ""
-
-#: templates/meetings/index.html:23 templates/meetings/panel_queue.html:7
+#: templates/meetings/index.html:22 templates/meetings/panel_queue.html:7
 msgid "Now being processed"
 msgstr ""
 
-#: templates/meetings/index.html:23
+#: templates/meetings/index.html:22
 msgid "Not started yet"
 msgstr ""
 
-#: templates/meetings/index.html:24
+#: templates/meetings/index.html:23
 msgid "People before you"
 msgstr ""
 
-#: templates/meetings/index.html:25
+#: templates/meetings/index.html:24
 msgid "Estimated time"
 msgstr ""
 
-#: templates/meetings/index.html:27
+#: templates/meetings/index.html:26
 #, python-format
 msgid ""
 "The estimate assumes about %(minutes)s minutes per meeting and can change. "
-"Keep this page open on the day: the \"Join\" button appears here when your "
-"turn comes."
+"Keep this page open on the day: an admin will call you on WhatsApp when your"
+" turn comes."
 msgstr ""
 
-#: templates/meetings/index.html:28
+#: templates/meetings/index.html:27
 msgid "Cancel this request?"
 msgstr ""
 
-#: templates/meetings/index.html:28
+#: templates/meetings/index.html:27
 msgid "Cancel my request"
 msgstr ""
 
-#: templates/meetings/index.html:33
+#: templates/meetings/index.html:32
 msgid "Book a meeting"
 msgstr ""
 
-#: templates/meetings/index.html:38
+#: templates/meetings/index.html:37
 msgid "Get my number"
 msgstr ""
 
-#: templates/meetings/index.html:41
+#: templates/meetings/index.html:40
 msgid "No meeting days are planned yet. Check back later."
 msgstr ""
 
-#: templates/meetings/index.html:48
+#: templates/meetings/index.html:47
 msgid "Upcoming meeting days"
 msgstr ""
 
-#: templates/meetings/index.html:51
+#: templates/meetings/index.html:50
 #, python-format
 msgid "From %(time)s"
 msgstr ""
 
-#: templates/meetings/index.html:51
+#: templates/meetings/index.html:50
 msgid "Full"
 msgstr ""
 
-#: templates/meetings/index.html:59
+#: templates/meetings/index.html:58
 msgid "Past requests"
 msgstr ""
 
-#: templates/meetings/index.html:61 templates/meetings/panel_queue.html:14
+#: templates/meetings/index.html:60 templates/meetings/panel_queue.html:14
 msgid "Number"
 msgstr ""
 
-#: templates/meetings/index.html:61 templates/meetings/panel_days.html:9
+#: templates/meetings/index.html:60 templates/meetings/panel_days.html:9
 msgid "Day"
 msgstr ""
 
-#: templates/meetings/index.html:61 templates/meetings/panel_queue.html:14
+#: templates/meetings/index.html:60 templates/meetings/panel_queue.html:14
 msgid "Subject"
 msgstr ""
 
-#: templates/meetings/index.html:61 templates/meetings/panel_queue.html:14
+#: templates/meetings/index.html:60 templates/meetings/panel_queue.html:14
 #: templates/panel/documents.html:13 templates/panel/messages.html:12
 #: templates/panel/news.html:8 templates/panel/users.html:16
 msgid "Status"
 msgstr "Status"
+
+#: templates/meetings/panel_call.html:2
+msgid "WhatsApp call"
+msgstr ""
+
+#: templates/meetings/panel_call.html:4
+msgid "Back to the queue"
+msgstr ""
+
+#: templates/meetings/panel_call.html:10
+msgid "Open WhatsApp"
+msgstr ""
+
+#: templates/meetings/panel_call.html:11
+msgid ""
+"WhatsApp opens the chat with this member: tap the call (phone or video) "
+"button at the top to call them. When the call is over, close it here."
+msgstr ""
 
 #: templates/meetings/panel_day_form.html:2
 msgid "Meeting day"
@@ -1088,9 +1123,9 @@ msgstr "Cancel"
 
 #: templates/meetings/panel_days.html:5
 msgid ""
-"Members book one-on-one video calls on the meeting days below (at most two "
-"per month, chosen by a Master Admin). Open a day to see its queue and start "
-"meetings."
+"Members book one-on-one WhatsApp calls on the meeting days below (at most "
+"two per month, chosen by a Master Admin). Open a day to see its queue and "
+"start meetings."
 msgstr ""
 
 #: templates/meetings/panel_days.html:9 templates/meetings/panel_queue.html:9
@@ -1147,13 +1182,12 @@ msgstr ""
 
 #: templates/meetings/panel_queue.html:11
 msgid ""
-"“Start meeting” opens a private video call on this site, marks the order as "
-"in a meeting (the member then sees a Join button) and closes the previous "
-"meeting."
+"“Start meeting” marks the order as in a meeting, closes the previous one and"
+" opens WhatsApp with the member's chat: tap the call button there."
 msgstr ""
 
 #: templates/meetings/panel_queue.html:24
-msgid "Rejoin call"
+msgid "Open WhatsApp again"
 msgstr ""
 
 #: templates/meetings/panel_queue.html:24
@@ -1166,29 +1200,6 @@ msgstr ""
 
 #: templates/meetings/panel_queue.html:34
 msgid "No requests for this day yet."
-msgstr ""
-
-#: templates/meetings/room.html:2 templates/meetings/room.html:19
-#| msgid "Video"
-msgid "Video call"
-msgstr ""
-
-#: templates/meetings/room.html:8
-#, python-format
-msgid "Meeting #%(number)s"
-msgstr ""
-
-#: templates/meetings/room.html:13
-#| msgid "Back to the home page"
-msgid "Back to the queue"
-msgstr ""
-
-#: templates/meetings/room.html:14
-msgid "End meeting"
-msgstr ""
-
-#: templates/meetings/room.html:16
-msgid "Leave"
 msgstr ""
 
 #: templates/news/detail.html:5
@@ -1353,11 +1364,10 @@ msgstr "Import members from CSV"
 
 #: templates/panel/csv_import.html:6
 msgid ""
-"Columns: full_name, email, and optionally language (fr or en) and role. The "
-"file must be UTF-8 encoded so accented names are kept."
+"Columns: full_name, email, and optionally whatsapp (number with country "
+"code), language (fr or en) and role. The file must be UTF-8 encoded so "
+"accented names are kept."
 msgstr ""
-"Columns: full_name, email, and optionally language (fr or en) and role. The "
-"file must be UTF-8 encoded so accented names are kept."
 
 #: templates/panel/csv_import.html:7
 msgid ""
@@ -1395,6 +1405,10 @@ msgstr[1] "%(n)s accounts will be created."
 #: templates/panel/csv_import.html:22
 msgid "Line"
 msgstr "Line"
+
+#: templates/panel/csv_import.html:22
+msgid "WhatsApp"
+msgstr ""
 
 #: templates/panel/csv_import.html:22
 msgid "Result"

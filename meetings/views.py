@@ -1,5 +1,4 @@
 from django.contrib import messages
-from django.core.exceptions import PermissionDenied
 from django.contrib.auth.decorators import login_required
 from django.db import transaction
 from django.shortcuts import get_object_or_404, redirect, render
@@ -7,9 +6,6 @@ from django.utils import timezone
 from django.utils.translation import gettext as _
 from django.views.decorators.http import require_POST
 
-from core.middleware import SecurityHeadersMiddleware as SecurityHeaders
-
-from . import daily
 from .forms import BookingForm
 from .models import MeetingDay, MeetingRequest
 
@@ -21,7 +17,7 @@ def index(request):
         .select_related("day")
         .first()
     )
-    form = BookingForm(request.POST or None)
+    form = BookingForm(request.POST or None, initial={"whatsapp_number": request.user.whatsapp_number})
     if request.method == "POST":
         if active:
             messages.error(request, _("You already have a meeting request. Cancel it before booking another one."))
@@ -33,6 +29,9 @@ def index(request):
                 if day.is_full():
                     form.add_error("day", _("This day is full. Please choose another day."))
                 else:
+                    if request.user.whatsapp_number != form.cleaned_data["whatsapp_number"]:
+                        request.user.whatsapp_number = form.cleaned_data["whatsapp_number"]
+                        request.user.save(update_fields=["whatsapp_number"])
                     booking = MeetingRequest.objects.create(day=day, user=request.user, subject=form.cleaned_data["subject"])
                     messages.success(request, _("Your request is registered with number #%(number)s.") % {"number": booking.number})
                     return redirect("meetings:index")
@@ -60,32 +59,3 @@ def cancel(request, pk):
     messages.success(request, _("Your request #%(number)s has been cancelled.") % {"number": booking.number})
     return redirect("meetings:index")
 
-
-@login_required
-def room(request, pk):
-    """The video call, inside the site. Only the member who booked (while the
-    meeting is running) and admins get a token to enter the private room."""
-    booking = get_object_or_404(MeetingRequest.objects.select_related("day", "user"), pk=pk)
-    is_admin = request.user.is_admin
-    if not is_admin and booking.user_id != request.user.pk:
-        raise PermissionDenied
-    if booking.status != MeetingRequest.Status.IN_PROGRESS or not booking.room_url:
-        messages.info(request, _("This meeting is not in progress."))
-        return redirect("panel:meeting_queue", pk=booking.day_id) if is_admin else redirect("meetings:index")
-    try:
-        token = daily.meeting_token(booking.room_name, request.user.full_name or request.user.email, is_owner=is_admin)
-    except daily.DailyError:
-        messages.error(request, _("The video call is unavailable right now. Please try again in a moment."))
-        return redirect("panel:meeting_queue", pk=booking.day_id) if is_admin else redirect("meetings:index")
-    response = render(request, "meetings/room.html", {
-        "booking": booking,
-        "frame_url": f"{booking.room_url}?t={token}",
-        "is_admin": is_admin,
-    })
-    # Let this page (and only this page) frame the Daily room and use the camera and microphone.
-    host = daily.origin(booking.room_url)
-    response["Content-Security-Policy"] = SecurityHeaders.CSP.replace("frame-src ", f"frame-src {host} ")
-    allow = f'(self "{host}")'
-    response["Permissions-Policy"] = f"camera={allow}, microphone={allow}, display-capture={allow}, fullscreen={allow}, geolocation=()"
-    response["Cache-Control"] = "no-store"
-    return response

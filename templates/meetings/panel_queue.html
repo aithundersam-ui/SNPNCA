@@ -8,7 +8,7 @@
   <div><span class="queue-label">{% translate "Waiting" %}</span><strong>{{ waiting }}</strong></div>
   <div><span class="queue-label">{% translate "Start" %}</span><strong>{{ day.start_time|time:"H:i" }}</strong></div>
 </div>
-<p class="small muted">{% translate "“Start meeting” opens a private video call on this site, marks the order as in a meeting (the member then sees a Join button) and closes the previous meeting." %}</p>
+<p class="small muted">{% translate "“Start meeting” marks the order as in a meeting, closes the previous one and opens WhatsApp with the member's chat: tap the call button there." %}</p>
 <div class="table-wrap">
 <table>
   <thead><tr><th>{% translate "Number" %}</th><th>{% translate "Member" %}</th><th>{% translate "Subject" %}</th><th>{% translate "Status" %}</th><th><span class="sr-only">{% translate "Actions" %}</span></th></tr></thead>
@@ -16,12 +16,12 @@
   {% for r in queue %}
   <tr>
     <td><strong>#{{ r.number }}</strong></td>
-    <td>{{ r.user.full_name }}<div class="small muted">{{ r.user.email }}</div></td>
+    <td>{{ r.user.full_name }}<div class="small muted">{{ r.user.whatsapp_number|default:r.user.email }}</div></td>
     <td>{{ r.subject }}</td>
     <td><span class="badge {{ r.status }}">{{ r.get_status_display }}</span>{% if r.handled_by %}<div class="small muted">{{ r.handled_by.full_name }}</div>{% endif %}</td>
     <td><div class="actions">
       {% if r.is_active %}
-        {% if r.status == 'in_progress' %}<a class="btn primary small" href="{% url 'meetings:room' r.pk %}">{% icon "video" 16 %}{% translate "Rejoin call" %}</a>{% else %}<form method="post" action="{% url 'panel:meeting_start' r.pk %}">{% csrf_token %}<button type="submit" class="btn primary small">{% icon "video" 16 %}{% translate "Start meeting" %}</button></form>{% endif %}
+        {% if r.status == 'in_progress' %}<a class="btn primary small" href="{{ r.user.whatsapp_link }}" target="_blank" rel="noopener">{% icon "phone" 16 %}{% translate "Open WhatsApp again" %}</a>{% else %}<form method="post" action="{% url 'panel:meeting_start' r.pk %}">{% csrf_token %}<button type="submit" class="btn primary small">{% icon "phone" 16 %}{% translate "Start meeting" %}</button></form>{% endif %}
         {% if r.status == 'in_progress' %}{% include "meetings/_status_button.html" with status="done" label=_("Done") %}{% endif %}
         {% include "meetings/_status_button.html" with status="no_show" label=_("Absent") %}
         {% include "meetings/_status_button.html" with status="cancelled" label=_("Cancel") %}

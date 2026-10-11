@@ -176,8 +176,6 @@ ANTHROPIC_API_KEY = env("ANTHROPIC_API_KEY", "").strip().strip("\"'")
 CLAUDE_MODEL = env("CLAUDE_MODEL", "claude-opus-5-5")
 QA_MAX_CHUNKS = env_int("QA_MAX_CHUNKS", 8)
 QA_RATE_LIMIT = env_int("QA_RATE_LIMIT", 20)  # questions per user per 10 minutes
-# Video calls for one-on-one meetings (Daily.co); server-side only.
-DAILY_API_KEY = env("DAILY_API_KEY", "").strip().strip("\"'")
 OCR_LANGUAGES = env("OCR_LANGUAGES", "fra+eng+ara")
 
 # Security

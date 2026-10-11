@@ -2,6 +2,8 @@ from django import forms
 from django.utils import formats, timezone
 from django.utils.translation import gettext_lazy as _
 
+from accounts.models import normalize_whatsapp
+
 from .models import MeetingDay, MeetingRequest
 
 
@@ -34,6 +36,13 @@ class MeetingDayForm(forms.ModelForm):
 
 
 class BookingForm(forms.ModelForm):
+    whatsapp_number = forms.CharField(
+        label=_("Your WhatsApp number"),
+        max_length=25,
+        help_text=_("An admin will call you on WhatsApp at this number when your turn comes."),
+        widget=forms.TextInput(attrs={"autocomplete": "tel", "inputmode": "tel", "placeholder": "+213 5XX XX XX XX"}),
+    )
+
     class Meta:
         model = MeetingRequest
         fields = ["day", "subject"]
@@ -44,6 +53,9 @@ class BookingForm(forms.ModelForm):
         self.fields["day"].queryset = MeetingDay.upcoming()
         self.fields["day"].empty_label = None
         self.fields["day"].label_from_instance = lambda d: formats.date_format(d.date, "DATE_FORMAT")
+
+    def clean_whatsapp_number(self):
+        return normalize_whatsapp(self.cleaned_data["whatsapp_number"])
 
     def clean_day(self):
         day = self.cleaned_data["day"]

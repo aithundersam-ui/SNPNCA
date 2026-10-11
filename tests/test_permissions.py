@@ -48,7 +48,7 @@ class PermissionMatrixTests(TestCase):
         self.login(self.admin)
         response = self.client.post(
             reverse("panel:user_create"),
-            {"full_name": "Nadia Saïdi", "email": "nadia@example.com", "preferred_language": "fr", "is_active": "on"},
+            {"full_name": "Nadia Saïdi", "email": "nadia@example.com", "whatsapp_number": "+213550000001", "preferred_language": "fr", "is_active": "on"},
         )
         self.assertEqual(response.status_code, 302)
         created = User.objects.get(email="nadia@example.com")
@@ -62,7 +62,7 @@ class PermissionMatrixTests(TestCase):
         self.login(self.admin)
         self.client.post(
             reverse("panel:user_create"),
-            {"full_name": "Sneaky", "email": "sneaky@example.com", "preferred_language": "fr", "role": "master", "is_active": "on"},
+            {"full_name": "Sneaky", "email": "sneaky@example.com", "whatsapp_number": "+213550000002", "preferred_language": "fr", "role": "master", "is_active": "on"},
         )
         self.assertEqual(User.objects.get(email="sneaky@example.com").role, Role.USER)
         self.assertEqual(self.client.get(reverse("panel:admin_create")).status_code, 403)
@@ -90,7 +90,7 @@ class PermissionMatrixTests(TestCase):
         self.login(self.master)
         self.client.post(
             reverse("panel:admin_create"),
-            {"full_name": "New Admin", "email": "newadmin@example.com", "preferred_language": "fr", "role": "admin", "is_active": "on"},
+            {"full_name": "New Admin", "email": "newadmin@example.com", "whatsapp_number": "+213550000003", "preferred_language": "fr", "role": "admin", "is_active": "on"},
         )
         self.assertEqual(User.objects.get(email="newadmin@example.com").role, Role.ADMIN)
         self.client.post(reverse("panel:change_role", args=[self.member.pk]), {"role": "admin"})

@@ -1,17 +1,15 @@
 """One-on-one meeting bookings: numbered queue, two days a month, admin flow."""
 
 from datetime import timedelta
-from unittest import mock
 
-from django.test import TestCase, override_settings
+from django.test import TestCase
 from django.utils import timezone
 
-from accounts.models import AuditLog, Role
+from accounts.models import AuditLog, Role, User
 from meetings.models import MeetingDay, MeetingRequest
 
 from .helpers import make_user
 
-ROOM = "https://snpnca.daily.co/"
 
 
 def make_day(days_ahead=7, **extra):
@@ -26,7 +24,7 @@ class BookingTests(TestCase):
 
     def book(self, user, subject="Congés"):
         self.client.force_login(user)
-        return self.client.post("/fr/meetings/", {"day": self.day.pk, "subject": subject})
+        return self.client.post("/fr/meetings/", {"day": self.day.pk, "subject": subject, "whatsapp_number": "+213550123456"})
 
     def test_members_get_increasing_numbers_and_see_their_place(self):
         self.book(self.alice)
@@ -37,7 +35,6 @@ class BookingTests(TestCase):
         self.assertEqual(b.people_ahead(), 1)
         page = self.client.get("/fr/meetings/")  # logged in as bob
         self.assertContains(page, f"#{b.number}")
-        self.assertNotContains(page, f"/meetings/{b.pk}/room/")  # join only shown when it's their turn
 
     def test_one_active_request_per_member(self):
         self.book(self.alice)
@@ -83,51 +80,34 @@ class AdminQueueTests(TestCase):
             self.client.post("/fr/panel/meetings/days/new/", {**data, "date": target + timedelta(days=offset)})
         self.assertEqual(MeetingDay.objects.filter(date__month=target.month, date__year=target.year).count(), 2)
 
-    @mock.patch("meetings.daily.delete_room")
-    @mock.patch("meetings.daily.meeting_token", return_value="tok")
-    @mock.patch("meetings.daily.create_room", side_effect=lambda name: ROOM + name)
-    def test_start_creates_private_room_and_only_owner_and_admins_get_in(self, create_room, meeting_token, delete_room):
+    def test_start_marks_meeting_and_opens_whatsapp_with_member_number(self):
+        self.member.whatsapp_number = "+213550123456"
+        self.member.save()
         first = MeetingRequest.objects.create(day=self.day, user=self.member, subject="A")
-        other = make_user("other@example.com")
+        other = make_user("other@example.com", whatsapp_number="+213661234567")
         second = MeetingRequest.objects.create(day=self.day, user=other, subject="B")
         self.client.force_login(self.admin)
         response = self.client.post(f"/fr/panel/meetings/requests/{first.pk}/start/")
-        self.assertRedirects(response, f"/fr/meetings/{first.pk}/room/", fetch_redirect_response=False)
+        self.assertRedirects(response, f"/fr/panel/meetings/requests/{first.pk}/call/?open=1", fetch_redirect_response=False)
         first.refresh_from_db()
         self.assertEqual(first.status, MeetingRequest.Status.IN_PROGRESS)
-        self.assertTrue(first.room_url.startswith(ROOM))
         self.assertEqual(second.people_ahead(), 1)
         self.assertTrue(AuditLog.objects.filter(action="meeting.start").exists())
-        # Admin enters as room owner; page may frame Daily and use the camera.
-        page = self.client.get(f"/fr/meetings/{first.pk}/room/")
-        self.assertContains(page, f"{first.room_url}?t=tok")
-        self.assertIn("https://snpnca.daily.co", page["Content-Security-Policy"])
-        self.assertIn("camera=(self", page["Permissions-Policy"])
-        self.assertTrue(meeting_token.call_args.kwargs["is_owner"])
-        # The member who booked gets in (not as owner); another member does not.
+        page = self.client.get(response["Location"])
+        self.assertContains(page, 'href="https://wa.me/213550123456" data-auto-open')
+        # The member is told an admin is calling them.
         self.client.force_login(self.member)
-        self.assertContains(self.client.get("/fr/meetings/"), f"/meetings/{first.pk}/room/")
-        self.assertEqual(self.client.get(f"/fr/meetings/{first.pk}/room/").status_code, 200)
-        self.assertFalse(meeting_token.call_args.kwargs["is_owner"])
-        self.client.force_login(other)
-        self.assertEqual(self.client.get(f"/fr/meetings/{first.pk}/room/").status_code, 403)
-        # Starting the next one closes the previous meeting and its room.
+        self.assertContains(self.client.get("/fr/meetings/"), "+213550123456")
+        # Starting the next one closes the previous meeting.
         self.client.force_login(self.admin)
         self.client.post(f"/fr/panel/meetings/requests/{second.pk}/start/")
         first.refresh_from_db()
         self.assertEqual(first.status, MeetingRequest.Status.DONE)
-        self.assertEqual(first.room_url, "")
-        delete_room.assert_called()
-        # A finished meeting can no longer be entered.
-        self.client.force_login(self.member)
-        self.assertEqual(self.client.get(f"/fr/meetings/{first.pk}/room/").status_code, 302)
 
-    @override_settings(DAILY_API_KEY="")
-    def test_start_without_daily_key_explains_and_keeps_queue(self):
+    def test_start_without_whatsapp_number_explains_and_keeps_queue(self):
         booking = MeetingRequest.objects.create(day=self.day, user=self.member, subject="A")
         self.client.force_login(self.admin)
-        response = self.client.post(f"/fr/panel/meetings/requests/{booking.pk}/start/", follow=True)
-        self.assertContains(response, "DAILY_API_KEY")
+        self.client.post(f"/fr/panel/meetings/requests/{booking.pk}/start/")
         booking.refresh_from_db()
         self.assertEqual(booking.status, MeetingRequest.Status.WAITING)
 
@@ -144,34 +124,45 @@ class AdminQueueTests(TestCase):
             self.assertEqual(self.client.get(url).status_code, 200, url)
 
 
-class DailyClientTests(TestCase):
-    @override_settings(DAILY_API_KEY="test-key")
-    def test_create_room_is_private_and_sends_key_server_side(self):
-        import json
 
-        from meetings import daily
+class WhatsAppNumberTests(TestCase):
+    def test_numbers_are_normalised_to_international_form(self):
+        from django.core.exceptions import ValidationError
 
-        captured = {}
+        from accounts.models import normalize_whatsapp
 
-        class Resp:
-            def __enter__(self):
-                return self
+        self.assertEqual(normalize_whatsapp("0550 12 34 56"), "+213550123456")
+        self.assertEqual(normalize_whatsapp("00213 550-12-34-56"), "+213550123456")
+        self.assertEqual(normalize_whatsapp("+33 6 12 34 56 78"), "+33612345678")
+        for bad in ("12", "abc", "+0123456789"):
+            with self.assertRaises(ValidationError):
+                normalize_whatsapp(bad)
 
-            def __exit__(self, *a):
-                return False
+    def test_booking_saves_members_whatsapp_number(self):
+        day = make_day()
+        member = make_user("m@example.com")
+        self.client.force_login(member)
+        self.client.post("/fr/meetings/", {"day": day.pk, "subject": "Congés", "whatsapp_number": "0661 23 45 67"})
+        member.refresh_from_db()
+        self.assertEqual(member.whatsapp_number, "+213661234567")
+        self.assertTrue(MeetingRequest.objects.filter(user=member).exists())
 
-            def read(self):
-                return json.dumps({"url": "https://snpnca.daily.co/r1"}).encode()
+    def test_admin_must_give_whatsapp_number_when_creating_member(self):
+        admin = make_user("admin@example.com", role=Role.ADMIN)
+        self.client.force_login(admin)
+        data = {"full_name": "Nadia", "email": "nadia@example.com", "preferred_language": "fr", "is_active": "on"}
+        self.client.post("/fr/panel/users/new/", data)
+        self.assertFalse(User.objects.filter(email="nadia@example.com").exists())
+        self.client.post("/fr/panel/users/new/", {**data, "whatsapp_number": "0550123456"})
+        self.assertEqual(User.objects.get(email="nadia@example.com").whatsapp_number, "+213550123456")
 
-        def fake_urlopen(req, timeout):
-            captured["req"] = req
-            return Resp()
+    def test_csv_import_reads_optional_whatsapp_column(self):
+        from accounts import csv_import
 
-        with mock.patch("urllib.request.urlopen", fake_urlopen):
-            self.assertEqual(daily.create_room("r1"), "https://snpnca.daily.co/r1")
-        req = captured["req"]
-        body = json.loads(req.data)
-        self.assertEqual(req.full_url, "https://api.daily.co/v1/rooms")
-        self.assertEqual(req.get_header("Authorization"), "Bearer test-key")
-        self.assertEqual(body["privacy"], "private")
-        self.assertIn("exp", body["properties"])
+        master = make_user("boss@example.com", role=Role.MASTER)
+        rows = csv_import.parse("full_name,email,whatsapp\nA,a@example.com,0550123456\nB,b@example.com,\nC,c@example.com,12\n", master)
+        self.assertEqual(rows[0].whatsapp, "+213550123456")
+        self.assertTrue(rows[1].ok and rows[1].warnings)
+        self.assertFalse(rows[2].ok)
+        csv_import.apply([r.as_dict() for r in rows if r.ok], master)
+        self.assertEqual(User.objects.get(email="a@example.com").whatsapp_number, "+213550123456")

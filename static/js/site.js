@@ -51,6 +51,10 @@
     });
   });
 
+  // Admin "Start meeting": go straight to WhatsApp with the member's chat.
+  var waLink = document.querySelector("[data-auto-open]");
+  if (waLink) window.location.href = waLink.href;
+
   // Confirmation for destructive buttons that aren't on their own confirm page.
   document.querySelectorAll("[data-confirm]").forEach(function (el) {
     el.addEventListener("click", function (e) {

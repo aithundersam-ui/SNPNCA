@@ -1,4 +1,7 @@
+import re
+
 from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager
+from django.core.exceptions import ValidationError
 from django.db import models
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
@@ -13,6 +16,24 @@ class Role(models.TextChoices):
 class Language(models.TextChoices):
     FR = "fr", _("French")
     EN = "en", _("English")
+
+
+def normalize_whatsapp(value):
+    """Return the number in international form (+213XXXXXXXXX) or raise ValidationError.
+    Accepts spaces, dashes, dots and brackets, a leading 00, and Algerian
+    local numbers starting with 0 (0XXXXXXXXX)."""
+    raw = re.sub(r"[\s\-().]", "", value or "")
+    if not raw:
+        return ""
+    if raw.startswith("00"):
+        raw = "+" + raw[2:]
+    elif re.fullmatch(r"0\d{9}", raw):
+        raw = "+213" + raw[1:]
+    elif not raw.startswith("+"):
+        raw = "+" + raw
+    if not re.fullmatch(r"\+[1-9]\d{7,14}", raw):
+        raise ValidationError(_("Enter a WhatsApp number with its country code, for example +213 5XX XX XX XX."))
+    return raw
 
 
 class UserManager(BaseUserManager):
@@ -36,6 +57,7 @@ class User(AbstractBaseUser):
 
     email = models.EmailField(_("email"), unique=True)
     full_name = models.CharField(_("full name"), max_length=150)
+    whatsapp_number = models.CharField(_("WhatsApp number"), max_length=20, blank=True)
     role = models.CharField(_("role"), max_length=10, choices=Role.choices, default=Role.USER)
     preferred_language = models.CharField(
         _("preferred language"), max_length=2, choices=Language.choices, default=Language.FR
@@ -58,6 +80,11 @@ class User(AbstractBaseUser):
     def save(self, *args, **kwargs):
         self.email = (self.email or "").strip().lower()
         super().save(*args, **kwargs)
+
+    @property
+    def whatsapp_link(self):
+        """wa.me link that opens a WhatsApp chat with this member."""
+        return f"https://wa.me/{self.whatsapp_number.lstrip('+')}" if self.whatsapp_number else ""
 
     @property
     def is_admin(self):

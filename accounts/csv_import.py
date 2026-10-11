@@ -1,7 +1,7 @@
 """CSV bulk import of members.
 
 Rules (from the agreed defaults):
-- Columns: full_name,email, optional language, optional role.
+- Columns: full_name,email, optional whatsapp, optional language, optional role.
 - role is honoured only when the importer is the Master Admin; otherwise it is ignored with a warning.
 - A row whose email already has an account is skipped (never overwritten).
 - Members not present in the file are left untouched.
@@ -17,9 +17,9 @@ from django.core.validators import validate_email
 from django.db import transaction
 from django.utils.translation import gettext as _
 
-from .models import Language, Role, User
+from .models import Language, Role, User, normalize_whatsapp
 
-TEMPLATE_CSV = "full_name,email,language,role\nAmina Benali,amina.benali@example.com,fr,user\nKarim Haddad,karim.haddad@example.com,en,\n"
+TEMPLATE_CSV = "full_name,email,whatsapp,language,role\nAmina Benali,amina.benali@example.com,+213 550 12 34 56,fr,user\nKarim Haddad,karim.haddad@example.com,0661234567,en,\n"
 
 
 @dataclass
@@ -27,6 +27,7 @@ class Row:
     line: int
     full_name: str
     email: str
+    whatsapp: str
     language: str
     role: str
     errors: list = field(default_factory=list)
@@ -38,7 +39,7 @@ class Row:
         return not self.errors and not self.skip
 
     def as_dict(self):
-        return {"line": self.line, "full_name": self.full_name, "email": self.email, "language": self.language, "role": self.role}
+        return {"line": self.line, "full_name": self.full_name, "email": self.email, "whatsapp": self.whatsapp, "language": self.language, "role": self.role}
 
 
 class CsvFormatError(Exception):
@@ -77,6 +78,7 @@ def parse(text: str, importer) -> list[Row]:
             line=i,
             full_name=values.get("full_name", ""),
             email=values.get("email", "").lower(),
+            whatsapp=values.get("whatsapp", ""),
             language=values.get("language", "").lower() or Language.FR,
             role=values.get("role", "").lower() or Role.USER,
         )
@@ -88,6 +90,12 @@ def parse(text: str, importer) -> list[Row]:
             validate_email(row.email)
         except ValidationError:
             row.errors.append(_("Invalid email address."))
+        try:
+            row.whatsapp = normalize_whatsapp(row.whatsapp)
+        except ValidationError as exc:
+            row.errors.append(exc.messages[0])
+        if not row.whatsapp:
+            row.warnings.append(_("No WhatsApp number: the member can add it when booking a meeting."))
         if row.language not in Language.values:
             row.errors.append(_("Language must be fr or en."))
         if row.role not in Role.values:
@@ -115,5 +123,9 @@ def apply(rows: list[dict], importer) -> list[User]:
             continue
         role = data["role"] if importer.is_master and data["role"] in Role.values else Role.USER
         language = data["language"] if data["language"] in Language.values else Language.FR
-        created.append(User.objects.create_user(email=email, full_name=data["full_name"][:150], role=role, preferred_language=language))
+        try:
+            whatsapp = normalize_whatsapp(data.get("whatsapp", ""))
+        except ValidationError:
+            whatsapp = ""
+        created.append(User.objects.create_user(email=email, full_name=data["full_name"][:150], role=role, preferred_language=language, whatsapp_number=whatsapp))
     return created

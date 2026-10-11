@@ -4,7 +4,7 @@
 {% block content %}
 <div class="narrow">
   <h1 class="page-head">{% icon "video" 32 %}{% translate "One-on-one meetings" %}</h1>
-  <p class="page-sub">{% translate "Book a private video call with the union's representatives. Meetings take place on the days chosen each month, in order of request number." %}</p>
+  <p class="page-sub">{% translate "Book a private WhatsApp call with the union's representatives. Meetings take place on the days chosen each month, in order of request number." %}</p>
 
   {% if active %}
   <section class="card queue-card mb" aria-labelledby="my-request">
@@ -16,15 +16,14 @@
       <div class="counter"><strong>#{{ active.number }}</strong><span>{% translate "Your number" %}</span></div>
     </div>
     {% if active.status == 'in_progress' %}
-      <p class="queue-now">{% translate "It's your turn! An admin has opened the meeting." %}</p>
-      <a class="btn gradient xl block" href="{% url 'meetings:room' active.pk %}">{% icon "video" 18 %}{% translate "Join the video call" %}</a>
+      <p class="queue-now">{% blocktranslate with number=user.whatsapp_number %}It's your turn! An admin is calling you on WhatsApp at {{ number }}. Keep your phone close.{% endblocktranslate %}</p>
     {% else %}
       <div class="queue-stats">
         <div><span class="queue-label">{% translate "Now being processed" %}</span><strong>{% if now_serving %}#{{ now_serving.number }}{% else %}{% translate "Not started yet" %}{% endif %}</strong></div>
         <div><span class="queue-label">{% translate "People before you" %}</span><strong>{{ active.people_ahead }}</strong></div>
         <div><span class="queue-label">{% translate "Estimated time" %}</span><strong>{% icon "clock" 16 %} {{ active.estimated_start|date:"H:i" }}</strong></div>
       </div>
-      <p class="small muted">{% blocktranslate with minutes=active.day.slot_minutes %}The estimate assumes about {{ minutes }} minutes per meeting and can change. Keep this page open on the day: the "Join" button appears here when your turn comes.{% endblocktranslate %}</p>
+      <p class="small muted">{% blocktranslate with minutes=active.day.slot_minutes %}The estimate assumes about {{ minutes }} minutes per meeting and can change. Keep this page open on the day: an admin will call you on WhatsApp when your turn comes.{% endblocktranslate %}</p>
       <form method="post" action="{% url 'meetings:cancel' active.pk %}">{% csrf_token %}<button type="submit" class="btn danger secondary small" data-confirm="{% translate 'Cancel this request?' %}">{% translate "Cancel my request" %}</button></form>
     {% endif %}
   </section>

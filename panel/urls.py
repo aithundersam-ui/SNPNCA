@@ -38,6 +38,7 @@ urlpatterns = [
     path("meetings/days/<int:pk>/edit/", meeting_views.day_edit, name="meeting_day_edit"),
     path("meetings/days/<int:pk>/delete/", meeting_views.day_delete, name="meeting_day_delete"),
     path("meetings/requests/<int:pk>/start/", meeting_views.start, name="meeting_start"),
+    path("meetings/requests/<int:pk>/call/", meeting_views.call, name="meeting_call"),
     path("meetings/requests/<int:pk>/status/", meeting_views.set_status, name="meeting_status"),
     path("home/", views.home_content, name="home_content"),
     path("audit/", views.audit_log, name="audit"),

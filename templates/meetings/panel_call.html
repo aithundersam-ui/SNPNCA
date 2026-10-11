@@ -1,0 +1,21 @@
+{% extends "panel/_layout.html" %}{% load i18n site_tags %}
+{% block title %}{% translate "WhatsApp call" %}{% endblock %}
+{% block panel %}
+<p><a href="{% url 'panel:meeting_queue' booking.day_id %}">← {% translate "Back to the queue" %}</a></p>
+<div class="card call-box">
+  <div class="counter"><strong>#{{ booking.number }}</strong><span>{{ booking.get_status_display }}</span></div>
+  <h1>{{ booking.user.full_name }}</h1>
+  <p class="muted">{{ booking.subject }}</p>
+  <p class="call-number">{{ booking.user.whatsapp_number }}</p>
+  <a class="btn gradient xl block" href="{{ booking.user.whatsapp_link }}" {% if auto_open %}data-auto-open{% endif %}>{% icon "phone" 18 %}{% translate "Open WhatsApp" %}</a>
+  <p class="small muted mt">{% translate "WhatsApp opens the chat with this member: tap the call (phone or video) button at the top to call them. When the call is over, close it here." %}</p>
+  {% if booking.status == 'in_progress' %}
+  <div class="actions mt">
+    {% with r=booking %}
+      {% include "meetings/_status_button.html" with status="done" label=_("Done") %}
+      {% include "meetings/_status_button.html" with status="no_show" label=_("Absent") %}
+    {% endwith %}
+  </div>
+  {% endif %}
+</div>
+{% endblock %}

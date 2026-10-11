@@ -60,7 +60,7 @@ class AuthTests(TestCase):
     def test_invitation_link_lets_new_member_set_password(self):
         admin = make_user("admin@example.com", Role.ADMIN)
         self.client.force_login(admin)
-        self.client.post(reverse("panel:user_create"), {"full_name": "Yasmine", "email": "y@example.com", "preferred_language": "fr", "is_active": "on"})
+        self.client.post(reverse("panel:user_create"), {"full_name": "Yasmine", "email": "y@example.com", "whatsapp_number": "+213550000004", "preferred_language": "fr", "is_active": "on"})
         self.client.logout()
         self.assertEqual(len(mail.outbox), 1)
         body = mail.outbox[0].body

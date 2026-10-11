@@ -2,7 +2,7 @@ from django import forms
 from django.contrib.auth.forms import PasswordResetForm
 from django.utils.translation import gettext_lazy as _
 
-from .models import Language, Role, User
+from .models import Language, Role, User, normalize_whatsapp
 
 
 class LoginForm(forms.Form):
@@ -31,7 +31,11 @@ class MemberPasswordResetForm(PasswordResetForm):
 class AccountSettingsForm(forms.ModelForm):
     class Meta:
         model = User
-        fields = ["full_name", "preferred_language"]
+        fields = ["full_name", "whatsapp_number", "preferred_language"]
+        widgets = {"whatsapp_number": forms.TextInput(attrs={"autocomplete": "tel", "inputmode": "tel", "placeholder": "+213 5XX XX XX XX"})}
+
+    def clean_whatsapp_number(self):
+        return normalize_whatsapp(self.cleaned_data["whatsapp_number"])
 
 
 class UserForm(forms.ModelForm):
@@ -39,11 +43,15 @@ class UserForm(forms.ModelForm):
 
     class Meta:
         model = User
-        fields = ["full_name", "email", "preferred_language", "role", "is_active"]
+        fields = ["full_name", "email", "whatsapp_number", "preferred_language", "role", "is_active"]
+        widgets = {"whatsapp_number": forms.TextInput(attrs={"inputmode": "tel", "placeholder": "+213 5XX XX XX XX"})}
 
     def __init__(self, *args, actor=None, **kwargs):
         super().__init__(*args, **kwargs)
         self.actor = actor
+        # Required for new accounts; older accounts may not have one yet.
+        self.fields["whatsapp_number"].required = not self.instance.pk
+        self.fields["whatsapp_number"].help_text = _("Used by admins to call the member on WhatsApp for one-on-one meetings.")
         self.fields["preferred_language"].choices = Language.choices
         if not (actor and actor.is_master):
             del self.fields["role"]
@@ -56,6 +64,9 @@ class UserForm(forms.ModelForm):
         if qs.exists():
             raise forms.ValidationError(_("An account with this email already exists."))
         return email
+
+    def clean_whatsapp_number(self):
+        return normalize_whatsapp(self.cleaned_data["whatsapp_number"])
 
     def clean_role(self):
         role = self.cleaned_data.get("role", Role.USER)
