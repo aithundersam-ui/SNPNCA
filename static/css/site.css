@@ -320,3 +320,13 @@ tr.row-skip td { background: var(--warn-bg); }
 .row-split { display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; }
 code { font-size: .85em; background: var(--slate-100); padding: .1rem .35rem; border-radius: 4px; }
 .h-panel { font-size: 1.5rem; }
+/* ---------- Meetings ---------- */
+.queue-stats { display: grid; gap: .75rem; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); margin: 0 0 1rem; }
+.queue-stats > div { background: var(--blue-50); border-radius: var(--radius); padding: .75rem 1rem; }
+.queue-stats strong { display: flex; align-items: center; gap: .3rem; font-size: 1.4rem; color: var(--blue-700); }
+.queue-label { display: block; font-size: .8rem; color: var(--gray-600); }
+.queue-now { font-weight: 600; color: var(--ok); }
+.badge.in_progress { background: var(--blue-100); color: var(--blue-700); }
+.badge.waiting { background: var(--warn-bg); color: var(--warn); }
+.badge.done { background: var(--ok-bg); color: var(--ok); }
+.badge.no_show, .badge.cancelled { background: var(--slate-100); color: var(--gray-500); }

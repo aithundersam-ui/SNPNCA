@@ -1,0 +1,67 @@
+{% extends "base.html" %}{% load i18n site_tags %}
+{% block title %}{% translate "Meetings" %}{% endblock %}
+{% block extra_head %}{% if auto_refresh %}<meta http-equiv="refresh" content="60">{% endif %}{% endblock %}
+{% block content %}
+<div class="narrow">
+  <h1 class="page-head">{% icon "video" 32 %}{% translate "One-on-one meetings" %}</h1>
+  <p class="page-sub">{% translate "Book a private Google Meet session with the union's representatives. Meetings take place on the days chosen each month, in order of request number." %}</p>
+
+  {% if active %}
+  <section class="card queue-card mb" aria-labelledby="my-request">
+    <div class="doc-head">
+      <div>
+        <h2 id="my-request" class="card-title">{% translate "Your request" %}</h2>
+        <p class="card-sub">{% blocktranslate with date=active.day.date|date:"DATE_FORMAT" %}Meeting day: {{ date }}{% endblocktranslate %} · {{ active.subject }}</p>
+      </div>
+      <div class="counter"><strong>#{{ active.number }}</strong><span>{% translate "Your number" %}</span></div>
+    </div>
+    {% if active.status == 'in_progress' %}
+      <p class="queue-now">{% translate "It's your turn! An admin has opened the meeting." %}</p>
+      <a class="btn gradient xl block" href="{{ active.day.meet_link }}" target="_blank" rel="noopener">{% icon "video" 18 %}{% translate "Join the Google Meet" %}</a>
+    {% else %}
+      <div class="queue-stats">
+        <div><span class="queue-label">{% translate "Now being processed" %}</span><strong>{% if now_serving %}#{{ now_serving.number }}{% else %}{% translate "Not started yet" %}{% endif %}</strong></div>
+        <div><span class="queue-label">{% translate "People before you" %}</span><strong>{{ active.people_ahead }}</strong></div>
+        <div><span class="queue-label">{% translate "Estimated time" %}</span><strong>{% icon "clock" 16 %} {{ active.estimated_start|date:"H:i" }}</strong></div>
+      </div>
+      <p class="small muted">{% blocktranslate with minutes=active.day.slot_minutes %}The estimate assumes about {{ minutes }} minutes per meeting and can change. Keep this page open on the day: the "Join" button appears here when your turn comes.{% endblocktranslate %}</p>
+      <form method="post" action="{% url 'meetings:cancel' active.pk %}">{% csrf_token %}<button type="submit" class="btn danger secondary small" data-confirm="{% translate 'Cancel this request?' %}">{% translate "Cancel my request" %}</button></form>
+    {% endif %}
+  </section>
+  {% else %}
+  <section class="card mb" aria-labelledby="book-title">
+    <h2 id="book-title" class="card-title">{% icon "calendar" 22 "c-blue" %}{% translate "Book a meeting" %}</h2>
+    {% if days %}
+    <form method="post" novalidate>
+      {% csrf_token %}
+      {% include "_form_fields.html" %}
+      <button type="submit" class="btn primary">{% translate "Get my number" %}</button>
+    </form>
+    {% else %}
+    <p class="muted">{% translate "No meeting days are planned yet. Check back later." %}</p>
+    {% endif %}
+  </section>
+  {% endif %}
+
+  {% if days %}
+  <section class="card mb" aria-labelledby="days-title">
+    <h2 id="days-title" class="card-title">{% translate "Upcoming meeting days" %}</h2>
+    <ul class="doc-rows">
+      {% for d in days %}
+      <li class="doc-row">{% icon "calendar" 22 %}<div class="doc-main"><div class="doc-name">{{ d.date|date:"l j F Y" }}</div><div class="meta">{% blocktranslate with time=d.start_time|time:"H:i" %}From {{ time }}{% endblocktranslate %}{% if d.is_full %} · <span class="badge failed">{% translate "Full" %}</span>{% endif %}</div></div></li>
+      {% endfor %}
+    </ul>
+  </section>
+  {% endif %}
+
+  {% if history %}
+  <section class="card" aria-labelledby="history-title">
+    <h2 id="history-title" class="card-title">{% translate "Past requests" %}</h2>
+    <div class="table-wrap"><table>
+      <thead><tr><th>{% translate "Number" %}</th><th>{% translate "Day" %}</th><th>{% translate "Subject" %}</th><th>{% translate "Status" %}</th></tr></thead>
+      <tbody>{% for r in history %}<tr><td>#{{ r.number }}</td><td>{{ r.day.date|date:"SHORT_DATE_FORMAT" }}</td><td>{{ r.subject }}</td><td><span class="badge {{ r.status }}">{{ r.get_status_display }}</span></td></tr>{% endfor %}</tbody>
+    </table></div>
+  </section>
+  {% endif %}
+</div>
+{% endblock %}

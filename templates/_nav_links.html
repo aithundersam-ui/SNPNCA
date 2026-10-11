@@ -3,5 +3,6 @@
 <a href="{% url 'qa:chat' %}" {% if app == 'qa' and url_name != 'documents' %}aria-current="page"{% endif %}>{% translate "Q&A" %}</a>
 <a href="{% url 'news:list' %}" {% if app == 'news' %}aria-current="page"{% endif %}>{% translate "News" %}</a>
 <a href="{% url 'qa:documents' %}" {% if app == 'qa' and url_name == 'documents' %}aria-current="page"{% endif %}>{% translate "Documents" %}</a>
+<a href="{% url 'meetings:index' %}" {% if app == 'meetings' %}aria-current="page"{% endif %}>{% translate "Meetings" %}</a>
 {% if user.is_admin %}<a href="{% url 'panel:dashboard' %}" {% if app == 'panel' %}aria-current="page"{% endif %}>{% translate "Admin" context "navigation" %}</a>{% endif %}
 {% endif %}

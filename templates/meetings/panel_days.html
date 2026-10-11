@@ -1,0 +1,32 @@
+{% extends "panel/_layout.html" %}{% load i18n %}
+{% block title %}{% translate "Meetings" %}{% endblock %}
+{% block panel %}
+<h1>{% translate "Meetings" %}</h1>
+<p class="muted">{% translate "Members book one-on-one Google Meet sessions on the meeting days below (at most two per month, chosen by a Master Admin). Open a day to see its queue and start meetings." %}</p>
+{% if user.is_master %}<p><a class="btn" href="{% url 'panel:meeting_day_create' %}">{% translate "New meeting day" %}</a></p>{% endif %}
+<div class="table-wrap">
+<table>
+  <thead><tr><th>{% translate "Day" %}</th><th>{% translate "Start" %}</th><th>{% translate "Waiting" %}</th><th>{% translate "Requests" %}</th><th><span class="sr-only">{% translate "Actions" %}</span></th></tr></thead>
+  <tbody>
+  {% for d in upcoming %}
+  <tr>
+    <td><a href="{% url 'panel:meeting_queue' d.pk %}">{{ d.date|date:"l j F Y" }}</a></td>
+    <td>{{ d.start_time|time:"H:i" }}</td>
+    <td>{{ d.active_requests.count }}</td>
+    <td>{{ d.requests.count }} / {{ d.capacity }}</td>
+    <td><div class="actions">
+      <a class="btn primary small" href="{% url 'panel:meeting_queue' d.pk %}">{% translate "Open queue" %}</a>
+      {% if user.is_master %}<a class="btn secondary small" href="{% url 'panel:meeting_day_edit' d.pk %}">{% translate "Edit" %}</a><a class="btn danger small" href="{% url 'panel:meeting_day_delete' d.pk %}">{% translate "Delete" %}</a>{% endif %}
+    </div></td>
+  </tr>
+  {% empty %}
+  <tr><td colspan="5" class="muted">{% translate "No upcoming meeting days." %}</td></tr>
+  {% endfor %}
+  </tbody>
+</table>
+</div>
+{% if past %}
+<h2 class="mt-lg">{% translate "Past days" %}</h2>
+<ul>{% for d in past %}<li><a href="{% url 'panel:meeting_queue' d.pk %}">{{ d.date|date:"DATE_FORMAT" }}</a> · {% blocktranslate count n=d.requests.count %}{{ n }} request{% plural %}{{ n }} requests{% endblocktranslate %}</li>{% endfor %}</ul>
+{% endif %}
+{% endblock %}

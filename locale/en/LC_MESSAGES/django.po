@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-06 12:23+0100\n"
+"POT-Creation-Date: 2026-10-11 19:17+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -92,7 +92,7 @@ msgstr "Please upload a .csv file."
 msgid "The file is larger than 1 MB."
 msgstr "The file is larger than 1 MB."
 
-#: accounts/models.py:8
+#: accounts/models.py:8 templates/meetings/panel_queue.html:14
 msgid "Member"
 msgstr "Member"
 
@@ -104,11 +104,11 @@ msgstr "Admin"
 msgid "Master Admin"
 msgstr "Master Admin"
 
-#: accounts/models.py:14 config/settings.py:130
+#: accounts/models.py:14 config/settings.py:131
 msgid "French"
 msgstr "French"
 
-#: accounts/models.py:15 config/settings.py:130
+#: accounts/models.py:15 config/settings.py:131
 msgid "English"
 msgstr "English"
 
@@ -249,6 +249,124 @@ msgstr "Server error"
 msgid "Something went wrong. Please try again later."
 msgstr "Something went wrong. Please try again later."
 
+#: meetings/forms.py:18
+msgid ""
+"Create a meeting in Google Meet or Google Calendar and paste its link here. "
+"Members only see it when their turn comes."
+msgstr ""
+
+#: meetings/forms.py:24
+msgid "Choose a date that is not in the past."
+msgstr ""
+
+#: meetings/forms.py:30
+msgid "Choose between 5 and 180 minutes."
+msgstr ""
+
+#: meetings/forms.py:36
+msgid "Choose between 1 and 200."
+msgstr ""
+
+#: meetings/forms.py:44
+msgid "What would you like to discuss?"
+msgstr ""
+
+#: meetings/forms.py:55
+msgid "This day has passed."
+msgstr ""
+
+#: meetings/forms.py:57 meetings/views.py:30
+msgid "This day is full. Please choose another day."
+msgstr ""
+
+#: meetings/models.py:14
+msgid "Enter a Google Meet link starting with https://meet.google.com/"
+msgstr ""
+
+#: meetings/models.py:21
+msgid "date"
+msgstr ""
+
+#: meetings/models.py:22
+msgid "start time"
+msgstr ""
+
+#: meetings/models.py:23
+msgid "minutes per meeting"
+msgstr ""
+
+#: meetings/models.py:24
+msgid "maximum number of requests"
+msgstr ""
+
+#: meetings/models.py:25
+msgid "Google Meet link"
+msgstr ""
+
+#: meetings/models.py:39
+msgid "There can be at most two meeting days per month."
+msgstr ""
+
+#: meetings/models.py:69 qa/models.py:16 templates/meetings/panel_days.html:9
+#: templates/meetings/panel_queue.html:8
+msgid "Waiting"
+msgstr "Waiting"
+
+#: meetings/models.py:70
+msgid "In meeting"
+msgstr ""
+
+#: meetings/models.py:71 templates/meetings/panel_queue.html:25
+msgid "Done"
+msgstr ""
+
+#: meetings/models.py:72 templates/meetings/panel_queue.html:26
+msgid "Absent"
+msgstr ""
+
+#: meetings/models.py:73
+#| msgid "Cancel"
+msgid "Cancelled"
+msgstr ""
+
+#: meetings/models.py:77
+msgid "day"
+msgstr ""
+
+#: meetings/models.py:79
+msgid "subject"
+msgstr ""
+
+#: meetings/panel_views.py:37
+#| msgid "Your settings were saved."
+msgid "Meeting day saved."
+msgstr ""
+
+#: meetings/panel_views.py:48
+#| msgid "Message deleted."
+msgid "Meeting day deleted."
+msgstr ""
+
+#: meetings/panel_views.py:73
+#, python-format
+msgid "Request #%(number)s is no longer in the queue."
+msgstr ""
+
+#: meetings/views.py:23
+msgid ""
+"You already have a meeting request. Cancel it before booking another one."
+msgstr ""
+
+#: meetings/views.py:33
+#, python-format
+msgid "Your request is registered with number #%(number)s."
+msgstr ""
+
+#: meetings/views.py:56
+#, python-format
+msgid "Your request #%(number)s has been cancelled."
+msgstr ""
+
 #: news/models.py:34
 msgid "title (French)"
 msgstr "title (French)"
@@ -363,7 +481,6 @@ msgstr "Changes saved."
 
 #: panel/views.py:139
 #, python-format
-#| msgid "A new set-password link was emailed to %(email)s."
 msgid "Password changed for %(email)s."
 msgstr ""
 
@@ -444,10 +561,6 @@ msgid ""
 msgstr ""
 "The assistant is temporarily unavailable. Please try again in a few minutes."
 
-#: qa/models.py:16
-msgid "Waiting"
-msgstr "Waiting"
-
 #: qa/models.py:17
 msgid "Processing"
 msgstr "Processing"
@@ -503,7 +616,13 @@ msgstr "News"
 msgid "Documents"
 msgstr "Documents"
 
-#: templates/_nav_links.html:6
+#: templates/_nav_links.html:6 templates/meetings/index.html:2
+#: templates/meetings/panel_days.html:2 templates/meetings/panel_days.html:4
+#: templates/panel/_layout.html:13
+msgid "Meetings"
+msgstr ""
+
+#: templates/_nav_links.html:7
 msgctxt "navigation"
 msgid "Admin"
 msgstr ""
@@ -529,7 +648,7 @@ msgstr "Next"
 msgid "Sign In"
 msgstr ""
 
-#: templates/accounts/login.html:7 templates/base.html:20
+#: templates/accounts/login.html:7 templates/base.html:21
 #: templates/core/home.html:7
 msgid "SNPNCA logo"
 msgstr "SNPNCA logo"
@@ -594,8 +713,8 @@ msgstr "Password saved"
 msgid "Your password has been saved. You can now log in."
 msgstr "Your password has been saved. You can now log in."
 
-#: templates/accounts/password_reset_complete.html:7 templates/base.html:32
-#: templates/base.html:48
+#: templates/accounts/password_reset_complete.html:7 templates/base.html:33
+#: templates/base.html:49
 msgid "Log in"
 msgstr "Log in"
 
@@ -630,28 +749,30 @@ msgstr ""
 "password. The link is valid for 3 days."
 
 #: templates/accounts/settings.html:2 templates/accounts/settings.html:5
-#: templates/base.html:29 templates/base.html:42
+#: templates/base.html:30 templates/base.html:43
 msgid "My account"
 msgstr "My account"
 
-#: templates/accounts/settings.html:10 templates/panel/home_content.html:18
-#: templates/panel/news_form.html:37 templates/panel/user_form.html:10
+#: templates/accounts/settings.html:10
+#: templates/meetings/panel_day_form.html:9
+#: templates/panel/home_content.html:18 templates/panel/news_form.html:37
+#: templates/panel/user_form.html:10
 msgid "Save"
 msgstr "Save"
 
-#: templates/base.html:14
+#: templates/base.html:15
 msgid "Skip to content"
 msgstr "Skip to content"
 
-#: templates/base.html:23 templates/base.html:40
+#: templates/base.html:24 templates/base.html:41
 msgid "Main navigation"
 msgstr "Main navigation"
 
-#: templates/base.html:30 templates/base.html:46
+#: templates/base.html:31 templates/base.html:47
 msgid "Log out"
 msgstr "Log out"
 
-#: templates/base.html:36
+#: templates/base.html:37
 msgid "Menu"
 msgstr ""
 
@@ -832,6 +953,226 @@ msgstr ""
 msgid "Reset your SNPNCA password"
 msgstr "Reset your SNPNCA password"
 
+#: templates/meetings/index.html:6
+msgid "One-on-one meetings"
+msgstr ""
+
+#: templates/meetings/index.html:7
+msgid ""
+"Book a private Google Meet session with the union's representatives. "
+"Meetings take place on the days chosen each month, in order of request "
+"number."
+msgstr ""
+
+#: templates/meetings/index.html:13
+#| msgid "Your question"
+msgid "Your request"
+msgstr ""
+
+#: templates/meetings/index.html:14
+#, python-format
+msgid "Meeting day: %(date)s"
+msgstr ""
+
+#: templates/meetings/index.html:16
+#| msgid "phone number"
+msgid "Your number"
+msgstr ""
+
+#: templates/meetings/index.html:19
+msgid "It's your turn! An admin has opened the meeting."
+msgstr ""
+
+#: templates/meetings/index.html:20
+msgid "Join the Google Meet"
+msgstr ""
+
+#: templates/meetings/index.html:23 templates/meetings/panel_queue.html:7
+msgid "Now being processed"
+msgstr ""
+
+#: templates/meetings/index.html:23
+#| msgid "No articles yet."
+msgid "Not started yet"
+msgstr ""
+
+#: templates/meetings/index.html:24
+msgid "People before you"
+msgstr ""
+
+#: templates/meetings/index.html:25
+msgid "Estimated time"
+msgstr ""
+
+#: templates/meetings/index.html:27
+#, python-format
+msgid ""
+"The estimate assumes about %(minutes)s minutes per meeting and can change. "
+"Keep this page open on the day: the \"Join\" button appears here when your "
+"turn comes."
+msgstr ""
+
+#: templates/meetings/index.html:28
+msgid "Cancel this request?"
+msgstr ""
+
+#: templates/meetings/index.html:28
+msgid "Cancel my request"
+msgstr ""
+
+#: templates/meetings/index.html:33
+msgid "Book a meeting"
+msgstr ""
+
+#: templates/meetings/index.html:38
+#| msgid "phone number"
+msgid "Get my number"
+msgstr ""
+
+#: templates/meetings/index.html:41
+msgid "No meeting days are planned yet. Check back later."
+msgstr ""
+
+#: templates/meetings/index.html:48
+msgid "Upcoming meeting days"
+msgstr ""
+
+#: templates/meetings/index.html:51
+#, python-format
+msgid "From %(time)s"
+msgstr ""
+
+#: templates/meetings/index.html:51
+msgid "Full"
+msgstr ""
+
+#: templates/meetings/index.html:59
+msgid "Past requests"
+msgstr ""
+
+#: templates/meetings/index.html:61 templates/meetings/panel_queue.html:14
+#| msgid "Member"
+msgid "Number"
+msgstr ""
+
+#: templates/meetings/index.html:61 templates/meetings/panel_days.html:9
+msgid "Day"
+msgstr ""
+
+#: templates/meetings/index.html:61 templates/meetings/panel_queue.html:14
+msgid "Subject"
+msgstr ""
+
+#: templates/meetings/index.html:61 templates/meetings/panel_queue.html:14
+#: templates/panel/documents.html:13 templates/panel/messages.html:12
+#: templates/panel/news.html:8 templates/panel/users.html:16
+msgid "Status"
+msgstr "Status"
+
+#: templates/meetings/panel_day_form.html:2
+msgid "Meeting day"
+msgstr ""
+
+#: templates/meetings/panel_day_form.html:4
+msgid "Edit meeting day"
+msgstr ""
+
+#: templates/meetings/panel_day_form.html:4
+#: templates/meetings/panel_days.html:6
+msgid "New meeting day"
+msgstr ""
+
+#: templates/meetings/panel_day_form.html:10
+#: templates/meetings/panel_queue.html:27
+#: templates/panel/confirm_delete.html:9 templates/panel/news_form.html:38
+#: templates/panel/set_password.html:11 templates/panel/user_form.html:11
+msgid "Cancel"
+msgstr "Cancel"
+
+#: templates/meetings/panel_days.html:5
+msgid ""
+"Members book one-on-one Google Meet sessions on the meeting days below (at "
+"most two per month, chosen by a Master Admin). Open a day to see its queue "
+"and start meetings."
+msgstr ""
+
+#: templates/meetings/panel_days.html:9 templates/meetings/panel_queue.html:9
+msgid "Start"
+msgstr ""
+
+#: templates/meetings/panel_days.html:9
+msgid "Requests"
+msgstr ""
+
+#: templates/meetings/panel_days.html:9 templates/meetings/panel_queue.html:14
+#: templates/panel/admins.html:9 templates/panel/documents.html:13
+#: templates/panel/news.html:8 templates/panel/users.html:16
+msgid "Actions"
+msgstr "Actions"
+
+#: templates/meetings/panel_days.html:18
+msgid "Open queue"
+msgstr ""
+
+#: templates/meetings/panel_days.html:19 templates/panel/news.html:16
+#: templates/panel/users.html:27
+msgid "Edit"
+msgstr "Edit"
+
+#: templates/meetings/panel_days.html:19 templates/panel/confirm_delete.html:8
+#: templates/panel/documents.html:24 templates/panel/news.html:16
+#: templates/panel/users.html:30
+msgid "Delete"
+msgstr "Delete"
+
+#: templates/meetings/panel_days.html:23
+msgid "No upcoming meeting days."
+msgstr ""
+
+#: templates/meetings/panel_days.html:29
+msgid "Past days"
+msgstr ""
+
+#: templates/meetings/panel_days.html:30
+#, python-format
+#| msgid "%(n)s processing"
+#| msgid_plural "%(n)s processing"
+msgid "%(n)s request"
+msgid_plural "%(n)s requests"
+msgstr[0] ""
+msgstr[1] ""
+
+#: templates/meetings/panel_queue.html:2
+msgid "Meeting queue"
+msgstr ""
+
+#: templates/meetings/panel_queue.html:4
+msgid "All meeting days"
+msgstr ""
+
+#: templates/meetings/panel_queue.html:11
+msgid ""
+"“Start meeting” opens the day's Google Meet in a new tab, marks the order as"
+" in a meeting (the member then sees a Join button) and closes the previous "
+"meeting."
+msgstr ""
+
+#: templates/meetings/panel_queue.html:24
+msgid "Reopen Meet"
+msgstr ""
+
+#: templates/meetings/panel_queue.html:24
+msgid "Start meeting"
+msgstr ""
+
+#: templates/meetings/panel_queue.html:29
+msgid "Back to queue"
+msgstr ""
+
+#: templates/meetings/panel_queue.html:34
+msgid "No requests for this day yet."
+msgstr ""
+
 #: templates/news/detail.html:5
 msgid "All news"
 msgstr "All news"
@@ -899,15 +1240,15 @@ msgstr "Users"
 msgid "Admins"
 msgstr "Admins"
 
-#: templates/panel/_layout.html:13 templates/panel/messages.html:2
+#: templates/panel/_layout.html:14 templates/panel/messages.html:2
 msgid "Messages"
 msgstr "Messages"
 
-#: templates/panel/_layout.html:14 templates/panel/home_content.html:2
+#: templates/panel/_layout.html:15 templates/panel/home_content.html:2
 msgid "Home page"
 msgstr "Home page"
 
-#: templates/panel/_layout.html:15 templates/panel/audit.html:2
+#: templates/panel/_layout.html:16 templates/panel/audit.html:2
 #: templates/panel/audit.html:4
 msgid "Audit log"
 msgstr "Audit log"
@@ -933,11 +1274,6 @@ msgstr "Name"
 msgid "Change role"
 msgstr "Change role"
 
-#: templates/panel/admins.html:9 templates/panel/documents.html:13
-#: templates/panel/news.html:8 templates/panel/users.html:16
-msgid "Actions"
-msgstr "Actions"
-
 #: templates/panel/admins.html:23
 msgid "Apply"
 msgstr "Apply"
@@ -945,7 +1281,6 @@ msgstr "Apply"
 #: templates/panel/admins.html:26 templates/panel/set_password.html:2
 #: templates/panel/set_password.html:4 templates/panel/set_password.html:10
 #: templates/panel/users.html:29
-#| msgid "Save my password"
 msgid "Set password"
 msgstr ""
 
@@ -989,16 +1324,6 @@ msgstr "Confirm deletion"
 #, python-format
 msgid "Are you sure you want to delete “%(label)s”? This cannot be undone."
 msgstr "Are you sure you want to delete “%(label)s”? This cannot be undone."
-
-#: templates/panel/confirm_delete.html:8 templates/panel/documents.html:24
-#: templates/panel/news.html:16 templates/panel/users.html:30
-msgid "Delete"
-msgstr "Delete"
-
-#: templates/panel/confirm_delete.html:9 templates/panel/news_form.html:38
-#: templates/panel/set_password.html:11 templates/panel/user_form.html:11
-msgid "Cancel"
-msgstr "Cancel"
 
 #: templates/panel/csv_import.html:2 templates/panel/users.html:7
 msgid "Import from CSV"
@@ -1106,11 +1431,6 @@ msgstr ""
 msgid "Upload"
 msgstr "Upload"
 
-#: templates/panel/documents.html:13 templates/panel/messages.html:12
-#: templates/panel/news.html:8 templates/panel/users.html:16
-msgid "Status"
-msgstr "Status"
-
 #: templates/panel/documents.html:13
 msgid "Uploaded"
 msgstr "Uploaded"
@@ -1199,10 +1519,6 @@ msgstr "Published"
 #: templates/panel/news.html:15
 msgid "Draft"
 msgstr "Draft"
-
-#: templates/panel/news.html:16 templates/panel/users.html:27
-msgid "Edit"
-msgstr "Edit"
 
 #: templates/panel/news.html:19
 msgid "No articles yet."

@@ -51,6 +51,14 @@
     });
   });
 
+  // Admin queue: "Start meeting" opens Google Meet in a new tab; refresh this
+  // page afterwards so the queue shows the new state.
+  document.querySelectorAll("[data-start-meeting]").forEach(function (form) {
+    form.addEventListener("submit", function () {
+      setTimeout(function () { window.location.reload(); }, 1500);
+    });
+  });
+
   // Confirmation for destructive buttons that aren't on their own confirm page.
   document.querySelectorAll("[data-confirm]").forEach(function (el) {
     el.addEventListener("click", function (e) {

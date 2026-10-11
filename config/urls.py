@@ -14,6 +14,7 @@ urlpatterns += i18n_patterns(
     path("account/", include("accounts.urls")),
     path("news/", include("news.urls")),
     path("qa/", include("qa.urls")),
+    path("meetings/", include("meetings.urls")),
     path("panel/", include("panel.urls")),
     prefix_default_language=True,
 )

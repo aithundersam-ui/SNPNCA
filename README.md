@@ -82,6 +82,10 @@ Every rule is checked on the server (`accounts/permissions.py`). The last active
 
 Columns `full_name,email` with optional `language` (`fr`/`en`) and `role` (`user`/`admin`/`master`, honoured only when the Master Admin imports). UTF-8 required. A preview with per-row errors is shown before anything is created. Rows whose email already exists are **skipped**; members missing from the file are **left untouched**. Each new account gets a set-password email. A template is downloadable from the import page.
 
+## One-on-one meetings
+
+Members book a Google Meet session from **Meetings** and get an order number (`#12`). They see which number is being processed, how many people are before them and an estimated time; the Join button appears only when their turn starts. A Master Admin creates the meeting days (at most two per month) under Admin → Meetings, each with a Google Meet link created in Google Meet or Google Calendar. On the day, any admin opens the day's queue and presses **Start meeting**: the Meet opens in a new tab, the order is marked "in meeting" and the previous one is closed. Code: `meetings/`.
+
 ## Security notes
 
 - HTTPS enforced (Caddy + `SECURE_SSL_REDIRECT`, HSTS), secure HTTP-only session cookies, CSRF on every form, a strict Content-Security-Policy, no inline scripts.

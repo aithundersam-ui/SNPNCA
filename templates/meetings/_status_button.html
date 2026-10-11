@@ -1,0 +1,1 @@
+<form method="post" action="{% url 'panel:meeting_status' r.pk %}">{% csrf_token %}<input type="hidden" name="status" value="{{ status }}"><button type="submit" class="btn secondary small">{{ label }}</button></form>

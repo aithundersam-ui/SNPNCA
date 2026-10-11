@@ -2,6 +2,8 @@ from django.urls import path
 
 from accounts.models import Role
 
+from meetings import panel_views as meeting_views
+
 from . import views
 
 app_name = "panel"
@@ -30,6 +32,13 @@ urlpatterns = [
     path("messages/", views.message_list, name="messages"),
     path("messages/<int:pk>/", views.message_detail, name="message_detail"),
     path("messages/<int:pk>/delete/", views.message_delete, name="message_delete"),
+    path("meetings/", meeting_views.day_list, name="meetings"),
+    path("meetings/days/new/", meeting_views.day_edit, name="meeting_day_create"),
+    path("meetings/days/<int:pk>/", meeting_views.day_queue, name="meeting_queue"),
+    path("meetings/days/<int:pk>/edit/", meeting_views.day_edit, name="meeting_day_edit"),
+    path("meetings/days/<int:pk>/delete/", meeting_views.day_delete, name="meeting_day_delete"),
+    path("meetings/requests/<int:pk>/start/", meeting_views.start, name="meeting_start"),
+    path("meetings/requests/<int:pk>/status/", meeting_views.set_status, name="meeting_status"),
     path("home/", views.home_content, name="home_content"),
     path("audit/", views.audit_log, name="audit"),
 ]
