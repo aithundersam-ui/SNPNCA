@@ -2,7 +2,8 @@
 
 from django.contrib import messages
 from django.db import transaction
-from django.http import HttpResponseRedirect
+import secrets
+
 from django.shortcuts import get_object_or_404, redirect, render
 from django.utils import timezone
 from django.utils.translation import gettext as _
@@ -11,6 +12,7 @@ from django.views.decorators.http import require_POST
 from accounts.audit import log_action
 from accounts.permissions import admin_required, master_required
 
+from . import daily
 from .forms import MeetingDayForm
 from .models import MeetingDay, MeetingRequest
 
@@ -65,22 +67,44 @@ def day_queue(request, pk):
 @admin_required
 @require_POST
 def start(request, pk):
-    """Mark the order as in a meeting, finish the previous one, and open the
-    day's Google Meet link."""
+    """Open a private video room for this order, mark it as in a meeting (the
+    member then sees a Join button), close the previous meeting, and take the
+    admin into the room."""
     with transaction.atomic():
         booking = get_object_or_404(MeetingRequest.objects.select_for_update().select_related("day"), pk=pk)
         if booking.status not in MeetingRequest.ACTIVE:
             messages.error(request, _("Request #%(number)s is no longer in the queue.") % {"number": booking.number})
             return redirect("panel:meeting_queue", pk=booking.day_id)
+        if not booking.room_url:
+            name = f"snpnca-{booking.pk}-{secrets.token_hex(6)}"
+            try:
+                booking.room_url = daily.create_room(name)
+            except daily.DailyError:
+                messages.error(request, _("The video call could not be created. Check that DAILY_API_KEY is set in the server settings, then try again."))
+                return redirect("panel:meeting_queue", pk=booking.day_id)
+            booking.room_name = name
         now = timezone.now()
-        booking.day.requests.filter(status=Status.IN_PROGRESS).exclude(pk=booking.pk).update(status=Status.DONE, finished_at=now)
+        for previous in booking.day.requests.filter(status=Status.IN_PROGRESS).exclude(pk=booking.pk):
+            _close(previous, Status.DONE)
         if booking.status == Status.WAITING:
             booking.status = Status.IN_PROGRESS
             booking.started_at = now
             booking.handled_by = request.user
-            booking.save(update_fields=["status", "started_at", "handled_by"])
             log_action(request, "meeting.start", f"#{booking.number}", member=booking.user.email)
-    return HttpResponseRedirect(booking.day.meet_link)
+        booking.save(update_fields=["status", "started_at", "handled_by", "room_name", "room_url"])
+    return redirect("meetings:room", pk=booking.pk)
+
+
+def _close(booking, status):
+    """Leave the meeting state `status` and shut its video room."""
+    if booking.room_name:
+        daily.delete_room(booking.room_name)
+    booking.status = status
+    booking.room_name = booking.room_url = ""
+    booking.finished_at = None if status == Status.WAITING else timezone.now()
+    if status == Status.WAITING:
+        booking.started_at = None
+    booking.save(update_fields=["status", "room_name", "room_url", "finished_at", "started_at"])
 
 
 @admin_required
@@ -91,10 +115,6 @@ def set_status(request, pk):
     allowed = {Status.DONE, Status.NO_SHOW, Status.CANCELLED, Status.WAITING}
     if new in allowed and booking.status != new:
         old = booking.status
-        booking.status = new
-        booking.finished_at = None if new == Status.WAITING else timezone.now()
-        if new == Status.WAITING:
-            booking.started_at = None
-        booking.save(update_fields=["status", "finished_at", "started_at"])
+        _close(booking, new)
         log_action(request, "meeting.status", f"#{booking.number}", old=old, new=new)
     return redirect("panel:meeting_queue", pk=booking.day_id)

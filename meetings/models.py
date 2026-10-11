@@ -10,6 +10,7 @@ MAX_DAYS_PER_MONTH = 2
 
 
 def validate_meet_link(value):
+    """No longer used (meetings now run on Daily); kept because migration 0001 refers to it."""
     if not value.startswith("https://meet.google.com/"):
         raise ValidationError(_("Enter a Google Meet link starting with https://meet.google.com/"))
 
@@ -22,7 +23,6 @@ class MeetingDay(models.Model):
     start_time = models.TimeField(_("start time"), default="09:00")
     slot_minutes = models.PositiveSmallIntegerField(_("minutes per meeting"), default=20)
     capacity = models.PositiveSmallIntegerField(_("maximum number of requests"), default=20)
-    meet_link = models.URLField(_("Google Meet link"), max_length=200, validators=[validate_meet_link])
     created_by = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, on_delete=models.SET_NULL, related_name="+")
     created_at = models.DateTimeField(auto_now_add=True)
 
@@ -78,6 +78,8 @@ class MeetingRequest(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="meeting_requests")
     subject = models.CharField(_("subject"), max_length=200)
     status = models.CharField(max_length=12, choices=Status.choices, default=Status.WAITING, db_index=True)
+    room_name = models.CharField(max_length=64, blank=True)
+    room_url = models.URLField(max_length=300, blank=True)
     handled_by = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, blank=True, on_delete=models.SET_NULL, related_name="+")
     created_at = models.DateTimeField(auto_now_add=True)
     started_at = models.DateTimeField(null=True, blank=True)

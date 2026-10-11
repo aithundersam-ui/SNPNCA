@@ -330,3 +330,6 @@ code { font-size: .85em; background: var(--slate-100); padding: .1rem .35rem; bo
 .badge.waiting { background: var(--warn-bg); color: var(--warn); }
 .badge.done { background: var(--ok-bg); color: var(--ok); }
 .badge.no_show, .badge.cancelled { background: var(--slate-100); color: var(--gray-500); }
+.call-card { max-width: 1200px; }
+.call-frame { display: block; width: 100%; flex: 1; min-height: 70vh; border: 0; background: #0f172a; }
+.chat-header form { margin: 0; }

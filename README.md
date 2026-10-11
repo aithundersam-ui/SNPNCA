@@ -84,7 +84,7 @@ Columns `full_name,email` with optional `language` (`fr`/`en`) and `role` (`user
 
 ## One-on-one meetings
 
-Members book a Google Meet session from **Meetings** and get an order number (`#12`). They see which number is being processed, how many people are before them and an estimated time; the Join button appears only when their turn starts. A Master Admin creates the meeting days (at most two per month) under Admin → Meetings, each with a Google Meet link created in Google Meet or Google Calendar. On the day, any admin opens the day's queue and presses **Start meeting**: the Meet opens in a new tab, the order is marked "in meeting" and the previous one is closed. Code: `meetings/`.
+Members book a video call from **Meetings** and get an order number (`#12`). They see which number is being processed, how many people are before them and an estimated time. A Master Admin creates the meeting days (at most two per month) under Admin → Meetings. On the day, any admin opens the day's queue and presses **Start meeting**: the site creates a private [Daily.co](https://www.daily.co) room for that order, the admin enters it on the site, and the member gets a **Join** button. Only that member and admins receive a token to enter; the room is deleted when the meeting is closed. Set `DAILY_API_KEY` (free Daily account → Developers → API key). Code: `meetings/`.
 
 ## Security notes
 

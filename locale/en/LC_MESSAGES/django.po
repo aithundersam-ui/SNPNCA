@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-11 19:17+0100\n"
+"POT-Creation-Date: 2026-10-11 19:29+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -249,58 +249,48 @@ msgstr "Server error"
 msgid "Something went wrong. Please try again later."
 msgstr "Something went wrong. Please try again later."
 
-#: meetings/forms.py:18
-msgid ""
-"Create a meeting in Google Meet or Google Calendar and paste its link here. "
-"Members only see it when their turn comes."
-msgstr ""
-
-#: meetings/forms.py:24
+#: meetings/forms.py:20
 msgid "Choose a date that is not in the past."
 msgstr ""
 
-#: meetings/forms.py:30
+#: meetings/forms.py:26
 msgid "Choose between 5 and 180 minutes."
 msgstr ""
 
-#: meetings/forms.py:36
+#: meetings/forms.py:32
 msgid "Choose between 1 and 200."
 msgstr ""
 
-#: meetings/forms.py:44
+#: meetings/forms.py:40
 msgid "What would you like to discuss?"
 msgstr ""
 
-#: meetings/forms.py:55
+#: meetings/forms.py:51
 msgid "This day has passed."
 msgstr ""
 
-#: meetings/forms.py:57 meetings/views.py:30
+#: meetings/forms.py:53 meetings/views.py:34
 msgid "This day is full. Please choose another day."
 msgstr ""
 
-#: meetings/models.py:14
+#: meetings/models.py:15
 msgid "Enter a Google Meet link starting with https://meet.google.com/"
 msgstr ""
 
-#: meetings/models.py:21
+#: meetings/models.py:22
 msgid "date"
 msgstr ""
 
-#: meetings/models.py:22
+#: meetings/models.py:23
 msgid "start time"
 msgstr ""
 
-#: meetings/models.py:23
+#: meetings/models.py:24
 msgid "minutes per meeting"
 msgstr ""
 
-#: meetings/models.py:24
-msgid "maximum number of requests"
-msgstr ""
-
 #: meetings/models.py:25
-msgid "Google Meet link"
+msgid "maximum number of requests"
 msgstr ""
 
 #: meetings/models.py:39
@@ -325,7 +315,6 @@ msgid "Absent"
 msgstr ""
 
 #: meetings/models.py:73
-#| msgid "Cancel"
 msgid "Cancelled"
 msgstr ""
 
@@ -337,34 +326,48 @@ msgstr ""
 msgid "subject"
 msgstr ""
 
-#: meetings/panel_views.py:37
-#| msgid "Your settings were saved."
+#: meetings/panel_views.py:39
 msgid "Meeting day saved."
 msgstr ""
 
-#: meetings/panel_views.py:48
-#| msgid "Message deleted."
+#: meetings/panel_views.py:50
 msgid "Meeting day deleted."
 msgstr ""
 
-#: meetings/panel_views.py:73
+#: meetings/panel_views.py:76
 #, python-format
 msgid "Request #%(number)s is no longer in the queue."
 msgstr ""
 
-#: meetings/views.py:23
+#: meetings/panel_views.py:83
+msgid ""
+"The video call could not be created. Check that DAILY_API_KEY is set in the "
+"server settings, then try again."
+msgstr ""
+
+#: meetings/views.py:27
 msgid ""
 "You already have a meeting request. Cancel it before booking another one."
 msgstr ""
 
-#: meetings/views.py:33
+#: meetings/views.py:37
 #, python-format
 msgid "Your request is registered with number #%(number)s."
 msgstr ""
 
-#: meetings/views.py:56
+#: meetings/views.py:60
 #, python-format
 msgid "Your request #%(number)s has been cancelled."
+msgstr ""
+
+#: meetings/views.py:73
+msgid "This meeting is not in progress."
+msgstr ""
+
+#: meetings/views.py:78
+#| msgid ""
+#| "The assistant is temporarily unavailable. Please try again in a few minutes."
+msgid "The video call is unavailable right now. Please try again in a moment."
 msgstr ""
 
 #: news/models.py:34
@@ -959,13 +962,11 @@ msgstr ""
 
 #: templates/meetings/index.html:7
 msgid ""
-"Book a private Google Meet session with the union's representatives. "
-"Meetings take place on the days chosen each month, in order of request "
-"number."
+"Book a private video call with the union's representatives. Meetings take "
+"place on the days chosen each month, in order of request number."
 msgstr ""
 
 #: templates/meetings/index.html:13
-#| msgid "Your question"
 msgid "Your request"
 msgstr ""
 
@@ -975,7 +976,6 @@ msgid "Meeting day: %(date)s"
 msgstr ""
 
 #: templates/meetings/index.html:16
-#| msgid "phone number"
 msgid "Your number"
 msgstr ""
 
@@ -984,7 +984,7 @@ msgid "It's your turn! An admin has opened the meeting."
 msgstr ""
 
 #: templates/meetings/index.html:20
-msgid "Join the Google Meet"
+msgid "Join the video call"
 msgstr ""
 
 #: templates/meetings/index.html:23 templates/meetings/panel_queue.html:7
@@ -992,7 +992,6 @@ msgid "Now being processed"
 msgstr ""
 
 #: templates/meetings/index.html:23
-#| msgid "No articles yet."
 msgid "Not started yet"
 msgstr ""
 
@@ -1025,7 +1024,6 @@ msgid "Book a meeting"
 msgstr ""
 
 #: templates/meetings/index.html:38
-#| msgid "phone number"
 msgid "Get my number"
 msgstr ""
 
@@ -1051,7 +1049,6 @@ msgid "Past requests"
 msgstr ""
 
 #: templates/meetings/index.html:61 templates/meetings/panel_queue.html:14
-#| msgid "Member"
 msgid "Number"
 msgstr ""
 
@@ -1091,9 +1088,9 @@ msgstr "Cancel"
 
 #: templates/meetings/panel_days.html:5
 msgid ""
-"Members book one-on-one Google Meet sessions on the meeting days below (at "
-"most two per month, chosen by a Master Admin). Open a day to see its queue "
-"and start meetings."
+"Members book one-on-one video calls on the meeting days below (at most two "
+"per month, chosen by a Master Admin). Open a day to see its queue and start "
+"meetings."
 msgstr ""
 
 #: templates/meetings/panel_days.html:9 templates/meetings/panel_queue.html:9
@@ -1135,8 +1132,6 @@ msgstr ""
 
 #: templates/meetings/panel_days.html:30
 #, python-format
-#| msgid "%(n)s processing"
-#| msgid_plural "%(n)s processing"
 msgid "%(n)s request"
 msgid_plural "%(n)s requests"
 msgstr[0] ""
@@ -1152,13 +1147,13 @@ msgstr ""
 
 #: templates/meetings/panel_queue.html:11
 msgid ""
-"“Start meeting” opens the day's Google Meet in a new tab, marks the order as"
-" in a meeting (the member then sees a Join button) and closes the previous "
+"“Start meeting” opens a private video call on this site, marks the order as "
+"in a meeting (the member then sees a Join button) and closes the previous "
 "meeting."
 msgstr ""
 
 #: templates/meetings/panel_queue.html:24
-msgid "Reopen Meet"
+msgid "Rejoin call"
 msgstr ""
 
 #: templates/meetings/panel_queue.html:24
@@ -1171,6 +1166,29 @@ msgstr ""
 
 #: templates/meetings/panel_queue.html:34
 msgid "No requests for this day yet."
+msgstr ""
+
+#: templates/meetings/room.html:2 templates/meetings/room.html:19
+#| msgid "Video"
+msgid "Video call"
+msgstr ""
+
+#: templates/meetings/room.html:8
+#, python-format
+msgid "Meeting #%(number)s"
+msgstr ""
+
+#: templates/meetings/room.html:13
+#| msgid "Back to the home page"
+msgid "Back to the queue"
+msgstr ""
+
+#: templates/meetings/room.html:14
+msgid "End meeting"
+msgstr ""
+
+#: templates/meetings/room.html:16
+msgid "Leave"
 msgstr ""
 
 #: templates/news/detail.html:5
@@ -1712,9 +1730,6 @@ msgstr ""
 #~ msgstr ""
 #~ "Accounts are created by the union. If you are a member and have no account, "
 #~ "use the contact form on the home page."
-
-#~ msgid "Back to the home page"
-#~ msgstr "Back to the home page"
 
 #~ msgid "About us"
 #~ msgstr "About us"

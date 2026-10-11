@@ -8,7 +8,7 @@
   <div><span class="queue-label">{% translate "Waiting" %}</span><strong>{{ waiting }}</strong></div>
   <div><span class="queue-label">{% translate "Start" %}</span><strong>{{ day.start_time|time:"H:i" }}</strong></div>
 </div>
-<p class="small muted">{% translate "“Start meeting” opens the day's Google Meet in a new tab, marks the order as in a meeting (the member then sees a Join button) and closes the previous meeting." %}</p>
+<p class="small muted">{% translate "“Start meeting” opens a private video call on this site, marks the order as in a meeting (the member then sees a Join button) and closes the previous meeting." %}</p>
 <div class="table-wrap">
 <table>
   <thead><tr><th>{% translate "Number" %}</th><th>{% translate "Member" %}</th><th>{% translate "Subject" %}</th><th>{% translate "Status" %}</th><th><span class="sr-only">{% translate "Actions" %}</span></th></tr></thead>
@@ -21,7 +21,7 @@
     <td><span class="badge {{ r.status }}">{{ r.get_status_display }}</span>{% if r.handled_by %}<div class="small muted">{{ r.handled_by.full_name }}</div>{% endif %}</td>
     <td><div class="actions">
       {% if r.is_active %}
-        <form method="post" action="{% url 'panel:meeting_start' r.pk %}" target="_blank" data-start-meeting>{% csrf_token %}<button type="submit" class="btn primary small">{% icon "video" 16 %}{% if r.status == 'in_progress' %}{% translate "Reopen Meet" %}{% else %}{% translate "Start meeting" %}{% endif %}</button></form>
+        {% if r.status == 'in_progress' %}<a class="btn primary small" href="{% url 'meetings:room' r.pk %}">{% icon "video" 16 %}{% translate "Rejoin call" %}</a>{% else %}<form method="post" action="{% url 'panel:meeting_start' r.pk %}">{% csrf_token %}<button type="submit" class="btn primary small">{% icon "video" 16 %}{% translate "Start meeting" %}</button></form>{% endif %}
         {% if r.status == 'in_progress' %}{% include "meetings/_status_button.html" with status="done" label=_("Done") %}{% endif %}
         {% include "meetings/_status_button.html" with status="no_show" label=_("Absent") %}
         {% include "meetings/_status_button.html" with status="cancelled" label=_("Cancel") %}

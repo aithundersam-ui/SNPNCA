@@ -2,7 +2,7 @@
 {% block title %}{% translate "Meetings" %}{% endblock %}
 {% block panel %}
 <h1>{% translate "Meetings" %}</h1>
-<p class="muted">{% translate "Members book one-on-one Google Meet sessions on the meeting days below (at most two per month, chosen by a Master Admin). Open a day to see its queue and start meetings." %}</p>
+<p class="muted">{% translate "Members book one-on-one video calls on the meeting days below (at most two per month, chosen by a Master Admin). Open a day to see its queue and start meetings." %}</p>
 {% if user.is_master %}<p><a class="btn" href="{% url 'panel:meeting_day_create' %}">{% translate "New meeting day" %}</a></p>{% endif %}
 <div class="table-wrap">
 <table>

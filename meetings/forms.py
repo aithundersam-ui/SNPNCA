@@ -8,14 +8,10 @@ from .models import MeetingDay, MeetingRequest
 class MeetingDayForm(forms.ModelForm):
     class Meta:
         model = MeetingDay
-        fields = ["date", "start_time", "slot_minutes", "capacity", "meet_link"]
+        fields = ["date", "start_time", "slot_minutes", "capacity"]
         widgets = {
             "date": forms.DateInput(attrs={"type": "date"}, format="%Y-%m-%d"),
             "start_time": forms.TimeInput(attrs={"type": "time"}, format="%H:%M"),
-            "meet_link": forms.URLInput(attrs={"placeholder": "https://meet.google.com/abc-defg-hij"}),
-        }
-        help_texts = {
-            "meet_link": _("Create a meeting in Google Meet or Google Calendar and paste its link here. Members only see it when their turn comes."),
         }
 
     def clean_date(self):

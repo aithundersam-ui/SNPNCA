@@ -4,7 +4,7 @@
 {% block content %}
 <div class="narrow">
   <h1 class="page-head">{% icon "video" 32 %}{% translate "One-on-one meetings" %}</h1>
-  <p class="page-sub">{% translate "Book a private Google Meet session with the union's representatives. Meetings take place on the days chosen each month, in order of request number." %}</p>
+  <p class="page-sub">{% translate "Book a private video call with the union's representatives. Meetings take place on the days chosen each month, in order of request number." %}</p>
 
   {% if active %}
   <section class="card queue-card mb" aria-labelledby="my-request">
@@ -17,7 +17,7 @@
     </div>
     {% if active.status == 'in_progress' %}
       <p class="queue-now">{% translate "It's your turn! An admin has opened the meeting." %}</p>
-      <a class="btn gradient xl block" href="{{ active.day.meet_link }}" target="_blank" rel="noopener">{% icon "video" 18 %}{% translate "Join the Google Meet" %}</a>
+      <a class="btn gradient xl block" href="{% url 'meetings:room' active.pk %}">{% icon "video" 18 %}{% translate "Join the video call" %}</a>
     {% else %}
       <div class="queue-stats">
         <div><span class="queue-label">{% translate "Now being processed" %}</span><strong>{% if now_serving %}#{{ now_serving.number }}{% else %}{% translate "Not started yet" %}{% endif %}</strong></div>
