@@ -333,3 +333,16 @@ code { font-size: .85em; background: var(--slate-100); padding: .1rem .35rem; bo
 .call-box { text-align: center; max-width: 560px; margin: 0 auto; }
 .call-box .counter { margin-bottom: 1rem; }
 .call-number { font-size: 1.5rem; font-weight: 700; letter-spacing: .02em; margin: .25rem 0 1.25rem; }
+
+/* Home page membership pop-up */
+.panel-subtitle { font-size: 1.25rem; margin: 2.5rem 0 .5rem; }
+.signup-dialog { width: min(28rem, calc(100% - 2rem)); border: 0; border-radius: var(--radius); padding: 2rem 1.75rem 1.5rem; box-shadow: var(--shadow-lg); text-align: center; color: inherit; background: #fff; }
+.signup-dialog::backdrop { background: rgba(15, 23, 42, .55); }
+.signup-dialog h2 { font-size: 1.5rem; margin: .75rem 0 .5rem; }
+.signup-dialog p { color: var(--muted); margin: 0 0 1.25rem; }
+.signup-icon { display: inline-flex; padding: .85rem; border-radius: 999px; background: var(--gradient); color: #fff; }
+.signup-close { position: absolute; top: .75rem; right: .75rem; display: inline-flex; padding: .4rem; border: 0; border-radius: 999px; background: transparent; color: var(--muted); cursor: pointer; }
+.signup-close:hover, .signup-close:focus-visible { background: var(--border); color: inherit; }
+.signup-actions { display: flex; flex-direction: column; gap: .75rem; }
+.signup-actions .btn { justify-content: center; }
+.signup-note { font-size: .875rem; margin: 1.25rem 0 0 !important; }

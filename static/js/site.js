@@ -55,6 +55,27 @@
   var waLink = document.querySelector("[data-auto-open]");
   if (waLink) window.location.href = waLink.href;
 
+  // Home page membership pop-up for visitors: shown once per browser session,
+  // and again whenever "Become a member" is pressed.
+  var signup = document.querySelector("[data-signup-dialog]");
+  if (signup && typeof signup.showModal === "function") {
+    var seenKey = "signupPopupSeen";
+    var seen = false;
+    try { seen = window.sessionStorage.getItem(seenKey) === "1"; } catch (e) { seen = false; }
+    var openSignup = function () {
+      if (!signup.open) signup.showModal();
+      try { window.sessionStorage.setItem(seenKey, "1"); } catch (e) { /* storage blocked */ }
+    };
+    signup.querySelectorAll("[data-signup-close]").forEach(function (el) {
+      el.addEventListener("click", function () { signup.close(); });
+    });
+    signup.addEventListener("click", function (e) { if (e.target === signup) signup.close(); });
+    document.querySelectorAll("[data-signup-open]").forEach(function (el) {
+      el.addEventListener("click", function (e) { e.preventDefault(); openSignup(); });
+    });
+    if (!seen) window.setTimeout(openSignup, 1500);
+  }
+
   // Confirmation for destructive buttons that aren't on their own confirm page.
   document.querySelectorAll("[data-confirm]").forEach(function (el) {
     el.addEventListener("click", function (e) {

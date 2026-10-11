@@ -41,5 +41,6 @@ urlpatterns = [
     path("meetings/requests/<int:pk>/call/", meeting_views.call, name="meeting_call"),
     path("meetings/requests/<int:pk>/status/", meeting_views.set_status, name="meeting_status"),
     path("home/", views.home_content, name="home_content"),
+    path("home/signup-link/", views.signup_link, name="signup_link"),
     path("audit/", views.audit_log, name="audit"),
 ]

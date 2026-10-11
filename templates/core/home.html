@@ -13,11 +13,28 @@
         <a class="btn gradient lg" href="{% url 'qa:chat' %}">{% translate "Ask AI Assistant" %}{% icon "arrow-right" 20 %}</a>
       {% else %}
         <a class="btn gradient lg" href="{% url 'accounts:login' %}?next={% url 'qa:chat' %}">{% translate "Get started" %}{% icon "arrow-right" 20 %}</a>
+        {% if content.signup_form_url %}
+          <a class="btn outline lg" href="{{ content.signup_form_url }}" target="_blank" rel="noopener noreferrer" data-signup-open>{% icon "user-plus" 20 %}{% translate "Become a member" %}</a>
+        {% endif %}
       {% endif %}
       <a class="btn outline lg" href="{% url 'news:list' %}">{% translate "Latest News" %}</a>
     </div>
   </div>
 </section>
+
+{% if not user.is_authenticated and content.signup_form_url %}
+<dialog class="signup-dialog" id="signup-dialog" aria-labelledby="signup-title" data-signup-dialog>
+  <button type="button" class="signup-close" data-signup-close>{% icon "x" 20 %}<span class="sr-only">{% translate "Close" %}</span></button>
+  <div class="signup-icon">{% icon "user-plus" 32 %}</div>
+  <h2 id="signup-title">{% translate "Not a member yet?" %}</h2>
+  <p>{% blocktranslate trimmed %}Join {{ ORG_SHORT }}: fill in the membership form with your details. Our admins will review it and create your account, then you'll receive an email to choose your password.{% endblocktranslate %}</p>
+  <div class="signup-actions">
+    <a class="btn gradient" href="{{ content.signup_form_url }}" target="_blank" rel="noopener noreferrer" data-signup-close>{% translate "Fill in the membership form" %}{% icon "external-link" 18 %}</a>
+    <button type="button" class="btn outline" data-signup-close>{% translate "Maybe later" %}</button>
+  </div>
+  <p class="signup-note">{% translate "Already a member?" %} <a href="{% url 'accounts:login' %}">{% translate "Log in" %}</a></p>
+</dialog>
+{% endif %}
 
 <section class="section section-white" aria-labelledby="mission-title">
   <div class="container">

@@ -21,7 +21,7 @@ from accounts.audit import log_action
 from accounts.emails import send_invitation, send_templated
 from accounts.forms import CsvUploadForm, UserForm
 from accounts.models import AuditLog, Role, User
-from core.forms import ReplyForm, SiteContentForm
+from core.forms import ReplyForm, SignupFormLinkForm, SiteContentForm
 from core.models import ContactMessage, ContactReply, SiteContent
 from news.models import Article, ArticleImage, ArticleVideo
 from qa.models import Document
@@ -390,13 +390,35 @@ def message_delete(request, pk):
 
 @admin_required
 def home_content(request):
-    form = SiteContentForm(request.POST or None, instance=SiteContent.load())
+    content = SiteContent.load()
+    form = SiteContentForm(request.POST or None, instance=content)
     if request.method == "POST" and form.is_valid():
         form.save()
         log_action(request, "home.update")
         messages.success(request, _("Home page updated."))
         return redirect("panel:home_content")
-    return render(request, "panel/home_content.html", {"form": form})
+    signup_form = SignupFormLinkForm(instance=content) if request.user.is_master else None
+    return render(request, "panel/home_content.html", {"form": form, "signup_form": signup_form, "content": content})
+
+
+@master_required
+@require_POST
+def signup_link(request):
+    content = SiteContent.load()
+    form = SignupFormLinkForm(request.POST, instance=content)
+    if form.is_valid():
+        form.save()
+        log_action(request, "home.signup_link", url=content.signup_form_url or "")
+        if content.signup_form_url:
+            messages.success(request, _("Sign-up pop-up updated. Visitors now see it on the home page."))
+        else:
+            messages.success(request, _("Sign-up pop-up turned off."))
+        return redirect("panel:home_content")
+    return render(
+        request,
+        "panel/home_content.html",
+        {"form": SiteContentForm(instance=content), "signup_form": form, "content": content},
+    )
 
 
 @admin_required

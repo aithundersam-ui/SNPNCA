@@ -1,5 +1,6 @@
 import re
 import time
+from urllib.parse import urlsplit
 
 from django import forms
 from django.core import signing
@@ -69,6 +70,27 @@ class SiteContentForm(forms.ModelForm):
         model = SiteContent
         fields = ["description_fr", "description_en", "mission_fr", "mission_en"]
         widgets = {f: forms.Textarea(attrs={"rows": 6}) for f in fields}
+
+
+GOOGLE_FORM_HOSTS = {"docs.google.com", "forms.gle", "forms.google.com"}
+
+
+class SignupFormLinkForm(forms.ModelForm):
+    class Meta:
+        model = SiteContent
+        fields = ["signup_form_url"]
+        widgets = {"signup_form_url": forms.URLInput(attrs={"placeholder": "https://forms.gle/..."})}
+
+    def clean_signup_form_url(self):
+        url = self.cleaned_data["signup_form_url"].strip()
+        if not url:
+            return ""
+        parts = urlsplit(url)
+        if parts.scheme != "https" or (parts.hostname or "").lower() not in GOOGLE_FORM_HOSTS:
+            raise forms.ValidationError(_("Paste the link of a Google Form (it starts with https://forms.gle/ or https://docs.google.com/forms/)."))
+        if parts.hostname.lower() == "docs.google.com" and not parts.path.startswith("/forms/"):
+            raise forms.ValidationError(_("Paste the link of a Google Form (it starts with https://forms.gle/ or https://docs.google.com/forms/)."))
+        return url
 
 
 class ReplyForm(forms.Form):

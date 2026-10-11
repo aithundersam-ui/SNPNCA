@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-11 19:55+0100\n"
+"POT-Creation-Date: 2026-10-11 20:25+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -67,7 +67,7 @@ msgstr "This email appears more than once in the file."
 msgid "An account with this email already exists; the row will be skipped."
 msgstr "An account with this email already exists; the row will be skipped."
 
-#: accounts/forms.py:9 core/forms.py:27 templates/panel/admins.html:9
+#: accounts/forms.py:9 core/forms.py:28 templates/panel/admins.html:9
 #: templates/panel/csv_import.html:22 templates/panel/users.html:16
 msgid "Email"
 msgstr "Email"
@@ -126,11 +126,11 @@ msgid ""
 "XX."
 msgstr ""
 
-#: accounts/models.py:58 core/models.py:42
+#: accounts/models.py:58 core/models.py:47
 msgid "email"
 msgstr "email"
 
-#: accounts/models.py:59 core/models.py:41
+#: accounts/models.py:59 core/models.py:46
 msgid "full name"
 msgstr "full name"
 
@@ -166,44 +166,50 @@ msgstr "Your settings were saved."
 msgid "Your password was changed."
 msgstr "Your password was changed."
 
-#: core/forms.py:19
+#: core/forms.py:20
 msgid "Leave this field empty"
 msgstr "Leave this field empty"
 
-#: core/forms.py:26
+#: core/forms.py:27
 msgid "Full Name"
 msgstr ""
 
-#: core/forms.py:28
+#: core/forms.py:29
 msgid "Phone Number"
 msgstr ""
 
-#: core/forms.py:29 templates/panel/message_detail.html:2
+#: core/forms.py:30 templates/panel/message_detail.html:2
 #: templates/panel/messages.html:12
 msgid "Message"
 msgstr "Message"
 
-#: core/forms.py:32
+#: core/forms.py:33
 msgid "Your full name"
 msgstr ""
 
-#: core/forms.py:33
+#: core/forms.py:34
 msgid "your.email@example.com"
 msgstr ""
 
-#: core/forms.py:35
+#: core/forms.py:36
 msgid "How can we help you?"
 msgstr ""
 
-#: core/forms.py:48
+#: core/forms.py:49
 msgid "Enter a valid phone number."
 msgstr "Enter a valid phone number."
 
-#: core/forms.py:54
+#: core/forms.py:55
 msgid "Your message is too short."
 msgstr "Your message is too short."
 
-#: core/forms.py:75
+#: core/forms.py:90 core/forms.py:92
+msgid ""
+"Paste the link of a Google Form (it starts with https://forms.gle/ or "
+"https://docs.google.com/forms/)."
+msgstr ""
+
+#: core/forms.py:97
 msgid "Reply"
 msgstr "Reply"
 
@@ -223,19 +229,29 @@ msgstr "our mission (French)"
 msgid "our mission (English)"
 msgstr "our mission (English)"
 
-#: core/models.py:38 templates/panel/messages.html:7
+#: core/models.py:25
+msgid "membership sign-up form (Google Form link)"
+msgstr ""
+
+#: core/models.py:27
+msgid ""
+"Visitors who aren't logged in see a pop-up on the home page that opens this "
+"form. Leave empty to hide the pop-up."
+msgstr ""
+
+#: core/models.py:43 templates/panel/messages.html:7
 msgid "New"
 msgstr "New"
 
-#: core/models.py:39 templates/panel/messages.html:8
+#: core/models.py:44 templates/panel/messages.html:8
 msgid "Replied"
 msgstr "Replied"
 
-#: core/models.py:43
+#: core/models.py:48
 msgid "phone number"
 msgstr "phone number"
 
-#: core/models.py:44
+#: core/models.py:49
 msgid "message"
 msgstr "message"
 
@@ -564,9 +580,17 @@ msgstr "Your reply was sent."
 msgid "Message deleted."
 msgstr "Message deleted."
 
-#: panel/views.py:397
+#: panel/views.py:398
 msgid "Home page updated."
 msgstr "Home page updated."
+
+#: panel/views.py:413
+msgid "Sign-up pop-up updated. Visitors now see it on the home page."
+msgstr ""
+
+#: panel/views.py:415
+msgid "Sign-up pop-up turned off."
+msgstr ""
 
 #: qa/assistant.py:40
 msgid ""
@@ -735,7 +759,7 @@ msgid "Your password has been saved. You can now log in."
 msgstr "Your password has been saved. You can now log in."
 
 #: templates/accounts/password_reset_complete.html:7 templates/base.html:33
-#: templates/base.html:49
+#: templates/base.html:49 templates/core/home.html:35
 msgid "Log in"
 msgstr "Log in"
 
@@ -822,63 +846,95 @@ msgid "Get started"
 msgstr ""
 
 #: templates/core/home.html:17
+msgid "Become a member"
+msgstr ""
+
+#: templates/core/home.html:20
 msgid "Latest News"
 msgstr ""
 
-#: templates/core/home.html:25
+#: templates/core/home.html:27
+msgid "Close"
+msgstr ""
+
+#: templates/core/home.html:29
+msgid "Not a member yet?"
+msgstr ""
+
+#: templates/core/home.html:30
+#, python-format
+msgid ""
+"Join %(ORG_SHORT)s: fill in the membership form with your details. Our "
+"admins will review it and create your account, then you'll receive an email "
+"to choose your password."
+msgstr ""
+
+#: templates/core/home.html:32
+msgid "Fill in the membership form"
+msgstr ""
+
+#: templates/core/home.html:33
+msgid "Maybe later"
+msgstr ""
+
+#: templates/core/home.html:35
+msgid "Already a member?"
+msgstr ""
+
+#: templates/core/home.html:42
 msgid "Our Mission"
 msgstr ""
 
-#: templates/core/home.html:27
+#: templates/core/home.html:44
 msgid ""
 "To represent, defend, and protect the interests of flight attendants. We are"
 " the voice of cabin crew, working every day to improve your working "
 "conditions and safeguard your rights."
 msgstr ""
 
-#: templates/core/home.html:32
+#: templates/core/home.html:49
 msgid "Knowledge Sharing"
 msgstr ""
 
-#: templates/core/home.html:33
+#: templates/core/home.html:50
 msgid ""
 "Centralized access to organizational documents and resources with "
 "intelligent search capabilities."
 msgstr ""
 
-#: templates/core/home.html:37
+#: templates/core/home.html:54
 msgid "AI-Powered Assistance"
 msgstr ""
 
-#: templates/core/home.html:38
+#: templates/core/home.html:55
 msgid ""
 "Get instant, accurate answers from your organization's knowledge base using "
 "advanced AI technology."
 msgstr ""
 
-#: templates/core/home.html:42
+#: templates/core/home.html:59
 msgid "Secure & Controlled"
 msgstr ""
 
-#: templates/core/home.html:43
+#: templates/core/home.html:60
 msgid ""
 "Enterprise-grade security with role-based access control to protect "
 "sensitive information."
 msgstr ""
 
-#: templates/core/home.html:52 templates/core/home.html:56
+#: templates/core/home.html:69 templates/core/home.html:73
 msgid "Contact Us"
 msgstr ""
 
-#: templates/core/home.html:53
+#: templates/core/home.html:70
 msgid "Get in touch with us for any questions or support needs."
 msgstr ""
 
-#: templates/core/home.html:57
+#: templates/core/home.html:74
 msgid "All fields are required."
 msgstr ""
 
-#: templates/core/home.html:69
+#: templates/core/home.html:86
 msgid ""
 "Privacy notice: we use your name, email, phone number and message only to "
 "answer your request. They are kept in our admin panel and are not shared "
@@ -888,7 +944,7 @@ msgstr ""
 "answer your request. They are kept in our admin panel and are not shared "
 "with third parties. To have them deleted, write to us using this form."
 
-#: templates/core/home.html:70
+#: templates/core/home.html:87
 msgid "Send Message"
 msgstr ""
 
@@ -1489,6 +1545,33 @@ msgstr "Home page text"
 #: templates/panel/home_content.html:5
 msgid "If one language is empty, visitors see the other one."
 msgstr "If one language is empty, visitors see the other one."
+
+#: templates/panel/home_content.html:22
+msgid "Membership sign-up pop-up"
+msgstr ""
+
+#: templates/panel/home_content.html:23
+msgid ""
+"Visitors who aren't logged in see a pop-up on the home page inviting them to"
+" join. It opens your Google Form, and admins then create the accounts from "
+"the answers. Only Master Admins can change this link."
+msgstr ""
+
+#: templates/panel/home_content.html:27
+msgid "Status: the pop-up is shown to visitors."
+msgstr ""
+
+#: templates/panel/home_content.html:27
+msgid "Open the form"
+msgstr ""
+
+#: templates/panel/home_content.html:27
+msgid "Status: no link, so the pop-up is hidden."
+msgstr ""
+
+#: templates/panel/home_content.html:28
+msgid "Save link"
+msgstr ""
 
 #: templates/panel/message_detail.html:4
 msgid "All messages"

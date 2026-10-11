@@ -17,4 +17,15 @@
   </div>
   <button type="submit" class="btn">{% translate "Save" %}</button>
 </form>
+
+{% if signup_form %}
+<h2 class="panel-subtitle">{% translate "Membership sign-up pop-up" %}</h2>
+<p class="muted">{% translate "Visitors who aren't logged in see a pop-up on the home page inviting them to join. It opens your Google Form, and admins then create the accounts from the answers. Only Master Admins can change this link." %}</p>
+<form method="post" action="{% url 'panel:signup_link' %}" class="card" novalidate>
+  {% csrf_token %}
+  <div class="field">{{ signup_form.signup_form_url.as_field_group }}</div>
+  <p class="muted">{% if content.signup_form_url %}{% translate "Status: the pop-up is shown to visitors." %} <a href="{{ content.signup_form_url }}" target="_blank" rel="noopener noreferrer">{% translate "Open the form" %}</a>{% else %}{% translate "Status: no link, so the pop-up is hidden." %}{% endif %}</p>
+  <button type="submit" class="btn">{% translate "Save link" %}</button>
+</form>
+{% endif %}
 {% endblock %}

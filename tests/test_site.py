@@ -211,3 +211,54 @@ class RedesignPageTests(TestCase):
         response = self.client.get("/fr/qa/documents/")
         self.assertContains(response, "Convention collective")
         self.assertNotContains(response, "Brouillon")
+
+
+class SignupPopupTests(TestCase):
+    FORM_URL = "https://forms.gle/AbCdEf123"
+
+    def setUp(self):
+        translation.activate("fr")
+        self.master = make_user("master@example.com", Role.MASTER)
+        self.admin = make_user("admin@example.com", Role.ADMIN)
+
+    def test_popup_hidden_until_a_link_is_set(self):
+        response = self.client.get(reverse("core:home"))
+        self.assertNotContains(response, "data-signup-dialog")
+        self.assertNotContains(response, "data-signup-open")
+
+    def test_visitors_see_popup_with_the_form_link(self):
+        SiteContent.objects.update_or_create(pk=1, defaults={"signup_form_url": self.FORM_URL})
+        response = self.client.get(reverse("core:home"))
+        self.assertContains(response, "data-signup-dialog")
+        self.assertContains(response, f'href="{self.FORM_URL}" target="_blank" rel="noopener noreferrer"', count=2)
+
+    def test_logged_in_members_do_not_see_popup(self):
+        SiteContent.objects.update_or_create(pk=1, defaults={"signup_form_url": self.FORM_URL})
+        self.client.force_login(make_user("member@example.com", Role.USER))
+        response = self.client.get(reverse("core:home"))
+        self.assertNotContains(response, "data-signup-dialog")
+        self.assertNotContains(response, self.FORM_URL)
+
+    def test_master_sets_and_clears_the_link(self):
+        self.client.force_login(self.master)
+        self.assertContains(self.client.get(reverse("panel:home_content")), "signup_form_url")
+        self.client.post(reverse("panel:signup_link"), {"signup_form_url": self.FORM_URL})
+        self.assertEqual(SiteContent.load().signup_form_url, self.FORM_URL)
+        self.client.post(reverse("panel:signup_link"), {"signup_form_url": "https://docs.google.com/forms/d/e/xyz/viewform"})
+        self.assertEqual(SiteContent.load().signup_form_url, "https://docs.google.com/forms/d/e/xyz/viewform")
+        self.client.post(reverse("panel:signup_link"), {"signup_form_url": ""})
+        self.assertEqual(SiteContent.load().signup_form_url, "")
+
+    def test_only_google_form_links_are_accepted(self):
+        self.client.force_login(self.master)
+        for bad in ["http://forms.gle/abc", "https://evil.example.com/form", "https://docs.google.com/document/d/1", "javascript:alert(1)"]:
+            response = self.client.post(reverse("panel:signup_link"), {"signup_form_url": bad})
+            self.assertEqual(response.status_code, 200, bad)
+            self.assertEqual(SiteContent.load().signup_form_url, "", bad)
+
+    def test_plain_admins_cannot_change_the_link(self):
+        self.client.force_login(self.admin)
+        self.assertNotContains(self.client.get(reverse("panel:home_content")), "signup_form_url")
+        response = self.client.post(reverse("panel:signup_link"), {"signup_form_url": self.FORM_URL})
+        self.assertEqual(response.status_code, 403)
+        self.assertEqual(SiteContent.load().signup_form_url, "")

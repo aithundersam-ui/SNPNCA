@@ -21,6 +21,11 @@ class SiteContent(BilingualMixin, models.Model):
     description_en = models.TextField(_("organisation description (English)"), blank=True)
     mission_fr = models.TextField(_("our mission (French)"), blank=True)
     mission_en = models.TextField(_("our mission (English)"), blank=True)
+    signup_form_url = models.URLField(
+        _("membership sign-up form (Google Form link)"),
+        blank=True,
+        help_text=_("Visitors who aren't logged in see a pop-up on the home page that opens this form. Leave empty to hide the pop-up."),
+    )
     updated_at = models.DateTimeField(auto_now=True)
 
     @classmethod
