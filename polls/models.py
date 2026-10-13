@@ -23,6 +23,8 @@ class Poll(BilingualMixin, models.Model):
     title_en = models.CharField(_("question (English)"), max_length=200, blank=True)
     description_fr = models.TextField(_("explanation (French)"), blank=True)
     description_en = models.TextField(_("explanation (English)"), blank=True)
+    title_ar = models.CharField(_("question (Arabic)"), max_length=200, blank=True)
+    description_ar = models.TextField(_("explanation (Arabic)"), blank=True)
     category = models.CharField(_("type"), max_length=10, choices=Category.choices, default=Category.SURVEY)
     opens_at = models.DateTimeField(_("voting opens"), default=timezone.now)
     closes_at = models.DateTimeField(_("voting closes"))
@@ -78,6 +80,7 @@ class Choice(BilingualMixin, models.Model):
     poll = models.ForeignKey(Poll, on_delete=models.CASCADE, related_name="choices")
     text_fr = models.CharField(max_length=200, blank=True)
     text_en = models.CharField(max_length=200, blank=True)
+    text_ar = models.CharField(max_length=200, blank=True)
     position = models.PositiveIntegerField(default=0)
     # A plain counter so no row links a member to their choice.
     votes = models.PositiveIntegerField(default=0)

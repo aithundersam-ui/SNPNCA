@@ -13,7 +13,7 @@ logger = logging.getLogger(__name__)
 def email_alert(alert):
     """Email the alert to every active member in their language. Returns (sent, failed)."""
     rendered = {}
-    for language in ("fr", "en"):
+    for language in ("fr", "en", "ar"):
         title, body = alert.text_in(language)
         context = {"alert": alert, "title": title, "body": body, "url": alert.url(language), "site_url": settings.SITE_URL}
         with translation.override(language):

@@ -131,7 +131,7 @@ LOGIN_LOCKOUT_SECONDS = env_int("LOGIN_LOCKOUT_SECONDS", 15 * 60)
 
 # Languages. French is the default; URLs carry /fr/ or /en/.
 LANGUAGE_CODE = "fr"
-LANGUAGES = [("fr", _("French")), ("en", _("English"))]
+LANGUAGES = [("fr", _("French")), ("en", _("English")), ("ar", _("Arabic"))]
 LOCALE_PATHS = [BASE_DIR / "locale"]
 LANGUAGE_COOKIE_NAME = "snpnca_lang"
 LANGUAGE_COOKIE_AGE = 60 * 60 * 24 * 365

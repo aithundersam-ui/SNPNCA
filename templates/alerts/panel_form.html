@@ -2,7 +2,7 @@
 {% block title %}{% translate "New alert" %}{% endblock %}
 {% block panel %}
 <h1>{% translate "New alert" %}</h1>
-<p class="muted">{% translate "Keep it short: members read it on their phones. If one language is empty, members see the other one." %}</p>
+<p class="muted">{% translate "Keep it short: members read it on their phones. Arabic is optional: if it is empty, members who chose Arabic get the French text." %}</p>
 <form method="post" class="card" novalidate>
   {% csrf_token %}
   {% include "_form_fields.html" %}

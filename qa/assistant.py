@@ -32,7 +32,7 @@ def get_llm():
 
 
 def _ui_language(language, fallback):
-    return language if language in ("fr", "en") else fallback
+    return language if language in ("fr", "en", "ar") else fallback
 
 
 def not_found(language):

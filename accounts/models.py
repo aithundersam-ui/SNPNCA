@@ -16,6 +16,7 @@ class Role(models.TextChoices):
 class Language(models.TextChoices):
     FR = "fr", _("French")
     EN = "en", _("English")
+    AR = "ar", _("Arabic")
 
 
 def normalize_whatsapp(value):

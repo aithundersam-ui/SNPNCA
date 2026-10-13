@@ -1,6 +1,7 @@
 {% load static i18n site_tags %}<!doctype html>
 {% get_current_language as LANG %}
-<html lang="{{ LANG }}">
+{% get_current_language_bidi as LANG_BIDI %}
+<html lang="{{ LANG }}" dir="{% if LANG_BIDI %}rtl{% else %}ltr{% endif %}">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">

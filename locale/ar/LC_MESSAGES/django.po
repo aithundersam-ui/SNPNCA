@@ -1,0 +1,2702 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-13 22:32+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+
+#: accounts/csv_import.py:53
+msgid "The file is not UTF-8 encoded. In Excel, use “Save as → CSV UTF-8”."
+msgstr "الملف غير مُرمَّز بـ UTF-8. في Excel، استخدم «حفظ باسم ← CSV UTF-8»."
+
+#: accounts/csv_import.py:65
+msgid "The first line must contain the columns full_name and email."
+msgstr "يجب أن يحتوي السطر الأول على العمودين full_name وemail."
+
+#: accounts/csv_import.py:73
+#, python-format
+msgid "The file has more than %(max)s rows."
+msgstr "يحتوي الملف على أكثر من %(max)s سطر."
+
+#: accounts/csv_import.py:86
+msgid "Full name is missing."
+msgstr "الاسم الكامل مفقود."
+
+#: accounts/csv_import.py:88
+msgid "Full name is too long."
+msgstr "الاسم الكامل طويل جدًا."
+
+#: accounts/csv_import.py:92
+msgid "Invalid email address."
+msgstr "عنوان بريد إلكتروني غير صالح."
+
+#: accounts/csv_import.py:98
+msgid "No WhatsApp number: the member can add it when booking a meeting."
+msgstr "لا يوجد رقم WhatsApp: يمكن للمنخرط إضافته عند حجز موعد."
+
+#: accounts/csv_import.py:100
+msgid "Language must be fr, en or ar."
+msgstr "يجب أن تكون اللغة fr أو en أو ar."
+
+#: accounts/csv_import.py:102
+msgid "Role must be user, admin or master."
+msgstr "يجب أن يكون الدور user أو admin أو master."
+
+#: accounts/csv_import.py:104
+msgid "Role ignored: only the Master Admin can import admins."
+msgstr "تم تجاهل الدور: المشرف الرئيسي وحده يمكنه استيراد المشرفين."
+
+#: accounts/csv_import.py:107
+msgid "This email appears more than once in the file."
+msgstr "يظهر هذا البريد الإلكتروني أكثر من مرة في الملف."
+
+#: accounts/csv_import.py:110
+msgid "An account with this email already exists; the row will be skipped."
+msgstr "يوجد حساب بهذا البريد الإلكتروني مسبقًا؛ سيتم تخطي هذا السطر."
+
+#: accounts/forms.py:9 core/forms.py:38 templates/panel/admins.html:9
+#: templates/panel/csv_import.html:22 templates/panel/users.html:16
+msgid "Email"
+msgstr "البريد الإلكتروني"
+
+#: accounts/forms.py:10 templates/accounts/login.html:20
+msgid "Password"
+msgstr "كلمة المرور"
+
+#: accounts/forms.py:54
+msgid "Used by admins to call the member on WhatsApp for one-on-one meetings."
+msgstr "يستخدمه المشرفون للاتصال بالمنخرط عبر WhatsApp في المواعيد الفردية."
+
+#: accounts/forms.py:65
+msgid "An account with this email already exists."
+msgstr "يوجد حساب بهذا البريد الإلكتروني مسبقًا."
+
+#: accounts/forms.py:74
+msgid "Invalid role."
+msgstr "دور غير صالح."
+
+#: accounts/forms.py:79
+msgid "CSV file (UTF-8)"
+msgstr "ملف CSV (UTF-8)"
+
+#: accounts/forms.py:84
+msgid "Please upload a .csv file."
+msgstr "يرجى رفع ملف بصيغة .csv."
+
+#: accounts/forms.py:86
+msgid "The file is larger than 1 MB."
+msgstr "حجم الملف يتجاوز 1 ميغابايت."
+
+#: accounts/models.py:11 templates/meetings/panel_queue.html:14
+msgid "Member"
+msgstr "منخرط"
+
+#: accounts/models.py:12
+msgid "Admin"
+msgstr "مشرف"
+
+#: accounts/models.py:13
+msgid "Master Admin"
+msgstr "المشرف الرئيسي"
+
+#: accounts/models.py:17 config/settings.py:134
+msgid "French"
+msgstr "الفرنسية"
+
+#: accounts/models.py:18 config/settings.py:134
+msgid "English"
+msgstr "الإنجليزية"
+
+#: accounts/models.py:19 config/settings.py:134
+msgid "Arabic"
+msgstr "العربية"
+
+#: accounts/models.py:36
+msgid ""
+"Enter a WhatsApp number with its country code, for example +213 5XX XX XX "
+"XX."
+msgstr "أدخل رقم WhatsApp مع رمز البلد، مثلًا +213 5XX XX XX XX."
+
+#: accounts/models.py:59 core/models.py:65
+msgid "email"
+msgstr "البريد الإلكتروني"
+
+#: accounts/models.py:60 core/models.py:64 team/models.py:27
+msgid "full name"
+msgstr "الاسم الكامل"
+
+#: accounts/models.py:61
+msgid "WhatsApp number"
+msgstr "رقم WhatsApp"
+
+#: accounts/models.py:62 team/models.py:28
+msgid "role"
+msgstr "الدور"
+
+#: accounts/models.py:64
+msgid "preferred language"
+msgstr "اللغة المفضلة"
+
+#: accounts/models.py:66
+msgid "active"
+msgstr "نشط"
+
+#: accounts/views.py:44
+msgid "Too many failed attempts. Please wait 15 minutes and try again."
+msgstr "محاولات فاشلة كثيرة. يرجى الانتظار 15 دقيقة ثم إعادة المحاولة."
+
+#: accounts/views.py:49
+msgid "Incorrect email or password."
+msgstr "البريد الإلكتروني أو كلمة المرور غير صحيحة."
+
+#: accounts/views.py:83
+msgid "Your settings were saved."
+msgstr "تم حفظ إعداداتك."
+
+#: accounts/views.py:121
+msgid "Your password was changed."
+msgstr "تم تغيير كلمة المرور."
+
+#: alerts/forms.py:11
+msgid "1 day"
+msgstr "يوم واحد"
+
+#: alerts/forms.py:11
+msgid "3 days"
+msgstr "3 أيام"
+
+#: alerts/forms.py:11
+msgid "1 week"
+msgstr "أسبوع واحد"
+
+#: alerts/forms.py:11
+msgid "2 weeks"
+msgstr "أسبوعان"
+
+#: alerts/forms.py:11
+msgid "1 month"
+msgstr "شهر واحد"
+
+#: alerts/forms.py:15
+msgid "Show the banner on the site for"
+msgstr "عرض الشريط على الموقع لمدة"
+
+#: alerts/forms.py:16
+msgid "Also email it to all members now"
+msgstr "إرساله أيضًا الآن بالبريد الإلكتروني إلى جميع المنخرطين"
+
+#: alerts/forms.py:26
+msgid "Write the title in French or English."
+msgstr "اكتب العنوان بالفرنسية أو الإنجليزية."
+
+#: alerts/forms.py:28
+msgid "Write the message in French or English."
+msgstr "اكتب الرسالة بالفرنسية أو الإنجليزية."
+
+#: alerts/models.py:20 news/models.py:34
+msgid "title (French)"
+msgstr "العنوان (بالفرنسية)"
+
+#: alerts/models.py:21 news/models.py:35
+msgid "title (English)"
+msgstr "العنوان (بالإنجليزية)"
+
+#: alerts/models.py:22
+msgid "message (French)"
+msgstr "الرسالة (بالفرنسية)"
+
+#: alerts/models.py:23
+msgid "message (English)"
+msgstr "الرسالة (بالإنجليزية)"
+
+#: alerts/models.py:24 news/models.py:38
+msgid "title (Arabic)"
+msgstr "العنوان (بالعربية)"
+
+#: alerts/models.py:25
+msgid "message (Arabic)"
+msgstr "الرسالة (بالعربية)"
+
+#: alerts/models.py:26
+msgid "show the banner until"
+msgstr "عرض الشريط حتى"
+
+#: alerts/panel_views.py:32
+#, python-format
+msgid ""
+"The alert is on the site, but %(failed)s emails could not be sent. Check the"
+" email settings."
+msgstr ""
+"التنبيه منشور على الموقع، لكن تعذّر إرسال %(failed)s رسالة بريد إلكتروني. "
+"تحقق من إعدادات البريد الإلكتروني."
+
+#: alerts/panel_views.py:34
+#, python-format
+msgid "Alert published and emailed to %(sent)s members."
+msgstr "تم نشر التنبيه وإرساله بالبريد الإلكتروني إلى %(sent)s منخرط."
+
+#: alerts/panel_views.py:36
+msgid "Alert published on the site."
+msgstr "تم نشر التنبيه على الموقع."
+
+#: alerts/panel_views.py:67
+#, python-format
+msgid "%(failed)s emails could not be sent. Check the email settings."
+msgstr ""
+"تعذّر إرسال %(failed)s رسالة بريد إلكتروني. تحقق من إعدادات البريد "
+"الإلكتروني."
+
+#: alerts/panel_views.py:69
+#, python-format
+msgid "Alert emailed to %(sent)s members."
+msgstr "تم إرسال التنبيه بالبريد الإلكتروني إلى %(sent)s منخرط."
+
+#: alerts/panel_views.py:79
+msgid "Alert deleted."
+msgstr "تم حذف التنبيه."
+
+#: core/forms.py:30
+msgid "Leave this field empty"
+msgstr "اترك هذا الحقل فارغًا"
+
+#: core/forms.py:37
+msgid "Full Name"
+msgstr "الاسم الكامل"
+
+#: core/forms.py:39
+msgid "Phone Number"
+msgstr "رقم الهاتف"
+
+#: core/forms.py:40 templates/panel/message_detail.html:2
+#: templates/panel/messages.html:12
+msgid "Message"
+msgstr "الرسالة"
+
+#: core/forms.py:43
+msgid "Your full name"
+msgstr "اسمك الكامل"
+
+#: core/forms.py:44
+msgid "your.email@example.com"
+msgstr "your.email@example.com"
+
+#: core/forms.py:46
+msgid "How can we help you?"
+msgstr "كيف يمكننا مساعدتك؟"
+
+#: core/forms.py:61
+msgid "Enter a valid phone number."
+msgstr "أدخل رقم هاتف صالحًا."
+
+#: core/forms.py:67
+msgid "Your message is too short."
+msgstr "رسالتك قصيرة جدًا."
+
+#: core/forms.py:117 core/forms.py:119
+msgid ""
+"Paste the link of a Google Form (it starts with https://forms.gle/ or "
+"https://docs.google.com/forms/)."
+msgstr ""
+"الصق رابط نموذج Google (يبدأ بـ https://forms.gle/ أو "
+"https://docs.google.com/forms/)."
+
+#: core/forms.py:124
+msgid "Reply"
+msgstr "الرد"
+
+#: core/models.py:30
+msgid "organisation description (French)"
+msgstr "تقديم المنظمة (بالفرنسية)"
+
+#: core/models.py:31
+msgid "organisation description (English)"
+msgstr "تقديم المنظمة (بالإنجليزية)"
+
+#: core/models.py:32
+msgid "our mission (French)"
+msgstr "مهمتنا (بالفرنسية)"
+
+#: core/models.py:33
+msgid "our mission (English)"
+msgstr "مهمتنا (بالإنجليزية)"
+
+#: core/models.py:34
+msgid "organisation description (Arabic)"
+msgstr "تعريف النقابة (بالعربية)"
+
+#: core/models.py:35
+msgid "our mission (Arabic)"
+msgstr "مهمتنا (بالعربية)"
+
+#: core/models.py:37
+msgid "home page background photo"
+msgstr "صورة خلفية الصفحة الرئيسية"
+
+#: core/models.py:40
+msgid ""
+"Shown behind the title at the top of the home page. A wide photo (at least "
+"1600 pixels across) works best. Leave empty to use the default background."
+msgstr ""
+"تظهر خلف العنوان أعلى الصفحة الرئيسية. يُفضَّل استخدام صورة عريضة (بعرض 1600"
+" بكسل على الأقل). اتركها فارغة لاستخدام الخلفية الافتراضية."
+
+#: core/models.py:43
+msgid "membership sign-up form (Google Form link)"
+msgstr "استمارة الانخراط (رابط نموذج Google)"
+
+#: core/models.py:45
+msgid ""
+"Visitors who aren't logged in see a pop-up on the home page that opens this "
+"form. Leave empty to hide the pop-up."
+msgstr ""
+"يرى الزوار غير المسجلين الدخول نافذة منبثقة في الصفحة الرئيسية تفتح هذه "
+"الاستمارة. اتركه فارغًا لإخفاء النافذة."
+
+#: core/models.py:61 templates/panel/messages.html:7
+msgid "New"
+msgstr "جديد"
+
+#: core/models.py:62 templates/panel/messages.html:8
+msgid "Replied"
+msgstr "تم الرد"
+
+#: core/models.py:66
+msgid "phone number"
+msgstr "رقم الهاتف"
+
+#: core/models.py:67
+msgid "message"
+msgstr "الرسالة"
+
+#: core/models.py:69
+msgid "addressed to"
+msgstr "موجَّهة إلى"
+
+#: core/views.py:48 core/views.py:54
+msgid "Message sent successfully! We will get back to you soon."
+msgstr "تم إرسال الرسالة بنجاح! سنتواصل معك قريبًا."
+
+#: core/views.py:100
+msgid "Access denied"
+msgstr "الوصول مرفوض"
+
+#: core/views.py:100
+msgid "You do not have permission to view this page."
+msgstr "ليست لديك صلاحية لعرض هذه الصفحة."
+
+#: core/views.py:104
+msgid "Page Not Found"
+msgstr "الصفحة غير موجودة"
+
+#: core/views.py:104
+msgid "The page you're looking for doesn't exist or may have been moved."
+msgstr "الصفحة التي تبحث عنها غير موجودة أو ربما تم نقلها."
+
+#: core/views.py:108
+msgid "Server error"
+msgstr "خطأ في الخادم"
+
+#: core/views.py:108
+msgid "Something went wrong. Please try again later."
+msgstr "حدث خطأ ما. يرجى المحاولة لاحقًا."
+
+#: meetings/forms.py:22
+msgid "Choose a date that is not in the past."
+msgstr "اختر تاريخًا غير منقضٍ."
+
+#: meetings/forms.py:28
+msgid "Choose between 5 and 180 minutes."
+msgstr "اختر مدة بين 5 و180 دقيقة."
+
+#: meetings/forms.py:34
+msgid "Choose between 1 and 200."
+msgstr "اختر عددًا بين 1 و200."
+
+#: meetings/forms.py:40
+msgid "Your WhatsApp number"
+msgstr "رقم WhatsApp الخاص بك"
+
+#: meetings/forms.py:42
+msgid ""
+"An admin will call you on WhatsApp at this number when your turn comes."
+msgstr "سيتصل بك أحد المشرفين عبر WhatsApp على هذا الرقم عندما يحين دورك."
+
+#: meetings/forms.py:49
+msgid "What would you like to discuss?"
+msgstr "ما الموضوع الذي تودّ مناقشته؟"
+
+#: meetings/forms.py:63
+msgid "This day has passed."
+msgstr "لقد انقضى هذا اليوم."
+
+#: meetings/forms.py:65 meetings/views.py:30
+msgid "This day is full. Please choose another day."
+msgstr "هذا اليوم ممتلئ. يرجى اختيار يوم آخر."
+
+#: meetings/models.py:15
+msgid "Enter a Google Meet link starting with https://meet.google.com/"
+msgstr "أدخل رابط Google Meet يبدأ بـ https://meet.google.com/"
+
+#: meetings/models.py:22
+msgid "date"
+msgstr "التاريخ"
+
+#: meetings/models.py:23
+msgid "start time"
+msgstr "وقت البداية"
+
+#: meetings/models.py:24
+msgid "minutes per meeting"
+msgstr "عدد الدقائق لكل موعد"
+
+#: meetings/models.py:25
+msgid "maximum number of requests"
+msgstr "الحد الأقصى لعدد الطلبات"
+
+#: meetings/models.py:39
+msgid "There can be at most two meeting days per month."
+msgstr "لا يمكن تحديد أكثر من يومين للمواعيد في الشهر."
+
+#: meetings/models.py:69 qa/models.py:16 templates/meetings/panel_days.html:9
+#: templates/meetings/panel_queue.html:8
+msgid "Waiting"
+msgstr "في الانتظار"
+
+#: meetings/models.py:70
+msgid "In meeting"
+msgstr "في الموعد"
+
+#: meetings/models.py:71 templates/meetings/panel_call.html:15
+#: templates/meetings/panel_queue.html:25
+msgid "Done"
+msgstr "منتهٍ"
+
+#: meetings/models.py:72 templates/meetings/panel_call.html:16
+#: templates/meetings/panel_queue.html:26
+msgid "Absent"
+msgstr "غائب"
+
+#: meetings/models.py:73
+msgid "Cancelled"
+msgstr "ملغى"
+
+#: meetings/models.py:77
+msgid "day"
+msgstr "اليوم"
+
+#: meetings/models.py:79
+msgid "subject"
+msgstr "الموضوع"
+
+#: meetings/panel_views.py:37
+msgid "Meeting day saved."
+msgstr "تم حفظ يوم المواعيد."
+
+#: meetings/panel_views.py:48
+msgid "Meeting day deleted."
+msgstr "تم حذف يوم المواعيد."
+
+#: meetings/panel_views.py:73
+#, python-format
+msgid "Request #%(number)s is no longer in the queue."
+msgstr "لم يعد الطلب رقم #%(number)s في قائمة الانتظار."
+
+#: meetings/panel_views.py:76
+#, python-format
+msgid "%(name)s has no WhatsApp number. Add it to their account first."
+msgstr "ليس لدى %(name)s رقم WhatsApp. أضفه إلى حسابه أولًا."
+
+#: meetings/views.py:23
+msgid ""
+"You already have a meeting request. Cancel it before booking another one."
+msgstr "لديك طلب موعد مسبقًا. ألغِه قبل حجز موعد آخر."
+
+#: meetings/views.py:36
+#, python-format
+msgid "Your request is registered with number #%(number)s."
+msgstr "تم تسجيل طلبك تحت الرقم #%(number)s."
+
+#: meetings/views.py:59
+#, python-format
+msgid "Your request #%(number)s has been cancelled."
+msgstr "تم إلغاء طلبك رقم #%(number)s."
+
+#: news/models.py:36
+msgid "text (French)"
+msgstr "النص (بالفرنسية)"
+
+#: news/models.py:37
+msgid "text (English)"
+msgstr "النص (بالإنجليزية)"
+
+#: news/models.py:39
+msgid "text (Arabic)"
+msgstr "النص (بالعربية)"
+
+#: news/models.py:40
+msgid "publication date"
+msgstr "تاريخ النشر"
+
+#: news/models.py:41
+msgid "published"
+msgstr "منشور"
+
+#: news/models.py:69
+msgid "YouTube or Vimeo link"
+msgstr "رابط YouTube أو Vimeo"
+
+#: panel/forms.py:28
+#, python-format
+msgid "Each image must be smaller than %(mb)s MB."
+msgstr "يجب أن يكون حجم كل صورة أقل من %(mb)s ميغابايت."
+
+#: panel/forms.py:34
+msgid "One of the files is not a valid image."
+msgstr "أحد الملفات ليس صورة صالحة."
+
+#: panel/forms.py:36
+msgid "Images must be JPEG, PNG or WebP."
+msgstr "يجب أن تكون الصور بصيغة JPEG أو PNG أو WebP."
+
+#: panel/forms.py:43
+msgid "Videos (YouTube or Vimeo links, one per line)"
+msgstr "مقاطع الفيديو (روابط YouTube أو Vimeo، رابط واحد في كل سطر)"
+
+#: panel/forms.py:47
+msgid "Add images"
+msgstr "إضافة صور"
+
+#: panel/forms.py:69
+#, python-format
+msgid "Only YouTube and Vimeo links are accepted: %(urls)s"
+msgstr "لا تُقبل إلا روابط YouTube وVimeo: %(urls)s"
+
+#: panel/forms.py:75
+msgid "Enter a title in French or English."
+msgstr "أدخل عنوانًا بالفرنسية أو الإنجليزية."
+
+#: panel/forms.py:80 templates/alerts/panel_list.html:9
+#: templates/panel/documents.html:13 templates/panel/news.html:8
+msgid "Title"
+msgstr "العنوان"
+
+#: panel/forms.py:80
+msgid "Leave empty to use the file name."
+msgstr "اتركه فارغًا لاستخدام اسم الملف."
+
+#: panel/forms.py:81
+msgid "PDF file"
+msgstr "ملف PDF"
+
+#: panel/forms.py:86
+#, python-format
+msgid "The file is larger than %(mb)s MB."
+msgstr "حجم الملف يتجاوز %(mb)s ميغابايت."
+
+#: panel/forms.py:88
+msgid "Only PDF files are accepted."
+msgstr "لا تُقبل إلا ملفات PDF."
+
+#: panel/forms.py:93
+msgid "This file is not a valid, unprotected PDF."
+msgstr "هذا الملف ليس ملف PDF صالحًا وغير محمي."
+
+#: panel/forms.py:98 templates/panel/admins.html:9
+#: templates/panel/admins.html:19 templates/panel/csv_import.html:22
+#: templates/panel/users.html:16 templates/team/panel_list.html:9
+msgid "Role"
+msgstr "الدور"
+
+#: panel/views.py:44
+#, python-format
+msgid ""
+"The account was created but the invitation email could not be sent to "
+"%(email)s."
+msgstr "تم إنشاء الحساب، لكن تعذّر إرسال رسالة الدعوة إلى %(email)s."
+
+#: panel/views.py:91
+#, python-format
+msgid "Account created. A set-password link was emailed to %(email)s."
+msgstr "تم إنشاء الحساب. أُرسل رابط لتعيين كلمة المرور إلى %(email)s."
+
+#: panel/views.py:119 panel/views.py:154 panel/views.py:243
+msgid "There must always be at least one active Master Admin."
+msgstr "يجب أن يبقى دائمًا مشرف رئيسي نشط واحد على الأقل."
+
+#: panel/views.py:122
+msgid "Changes saved."
+msgstr "تم حفظ التغييرات."
+
+#: panel/views.py:139
+#, python-format
+msgid "Password changed for %(email)s."
+msgstr "تم تغيير كلمة المرور لـ %(email)s."
+
+#: panel/views.py:157
+msgid "The account was deleted."
+msgstr "تم حذف الحساب."
+
+#: panel/views.py:172
+#, python-format
+msgid "A new set-password link was emailed to %(email)s."
+msgstr "أُرسل رابط جديد لتعيين كلمة المرور إلى %(email)s."
+
+#: panel/views.py:207
+msgid "Nothing to import. Please upload the file again."
+msgstr "لا يوجد ما يُستورد. يرجى رفع الملف مرة أخرى."
+
+#: panel/views.py:218
+#, python-format
+msgid "%(count)s accounts created and invited."
+msgstr "تم إنشاء %(count)s حساب وإرسال الدعوات إليها."
+
+#: panel/views.py:220
+#, python-format
+msgid ""
+"%(count)s invitation emails could not be sent. Use “Resend invitation” on "
+"those accounts."
+msgstr ""
+"تعذّر إرسال %(count)s رسالة دعوة. استخدم «إعادة إرسال الدعوة» لهذه الحسابات."
+
+#: panel/views.py:246
+msgid "Role updated."
+msgstr "تم تحديث الدور."
+
+#: panel/views.py:268
+msgid "The PDF was uploaded and is being processed."
+msgstr "تم رفع ملف PDF وهو قيد المعالجة."
+
+#: panel/views.py:281
+msgid "The document and its extracted text were deleted."
+msgstr "تم حذف المستند والنص المستخرج منه."
+
+#: panel/views.py:324
+msgid "Article saved."
+msgstr "تم حفظ المقال."
+
+#: panel/views.py:338
+msgid "Article deleted."
+msgstr "تم حذف المقال."
+
+#: panel/views.py:366
+msgid "The email could not be sent. Please try again later."
+msgstr "تعذّر إرسال البريد الإلكتروني. يرجى المحاولة لاحقًا."
+
+#: panel/views.py:372
+msgid "Your reply was sent."
+msgstr "تم إرسال ردك."
+
+#: panel/views.py:383
+msgid "Message deleted."
+msgstr "تم حذف الرسالة."
+
+#: panel/views.py:398
+msgid "Home page updated."
+msgstr "تم تحديث الصفحة الرئيسية."
+
+#: panel/views.py:413
+msgid "Sign-up pop-up updated. Visitors now see it on the home page."
+msgstr "تم تحديث نافذة الانخراط. أصبح الزوار يرونها الآن في الصفحة الرئيسية."
+
+#: panel/views.py:415
+msgid "Sign-up pop-up turned off."
+msgstr "تم إيقاف نافذة الانخراط."
+
+#: polls/forms.py:17
+msgid "Answers (French), one per line"
+msgstr "الإجابات (بالفرنسية)، إجابة واحدة في كل سطر"
+
+#: polls/forms.py:20
+msgid "For example: Oui / Non / Abstention."
+msgstr "مثلًا: Oui / Non / Abstention."
+
+#: polls/forms.py:23
+msgid "Answers (English), one per line"
+msgstr "الإجابات (بالإنجليزية)، إجابة واحدة في كل سطر"
+
+#: polls/forms.py:26 polls/forms.py:32
+msgid "Optional. Same order and number of lines as the French answers."
+msgstr "اختياري. بنفس الترتيب وعدد الأسطر الخاص بالإجابات الفرنسية."
+
+#: polls/forms.py:29
+msgid "Answers (Arabic), one per line"
+msgstr "الأجوبة (بالعربية)، جواب في كل سطر"
+
+#: polls/forms.py:62
+msgid "Write the question in French or English."
+msgstr "اكتب السؤال بالفرنسية أو الإنجليزية."
+
+#: polls/forms.py:65
+msgid "The vote must close after it opens."
+msgstr "يجب أن يكون موعد إغلاق التصويت بعد موعد فتحه."
+
+#: polls/forms.py:71
+msgid "Give at least two answers."
+msgstr "أدخل إجابتين على الأقل."
+
+#: polls/forms.py:73
+#, python-format
+msgid "Give at most %(n)s answers."
+msgstr "أدخل %(n)s إجابات على الأكثر."
+
+#: polls/forms.py:75
+msgid "Give the same number of answers in French and English."
+msgstr "أدخل العدد نفسه من الإجابات بالفرنسية والإنجليزية."
+
+#: polls/forms.py:78
+msgid "Give the same number of answers in Arabic as in French."
+msgstr "أدخل عدد الأجوبة نفسه بالعربية وبالفرنسية."
+
+#: polls/forms.py:93
+msgid "Your answer"
+msgstr "إجابتك"
+
+#: polls/models.py:13
+msgid "General assembly"
+msgstr "الجمعية العامة"
+
+#: polls/models.py:14
+msgid "Strike consultation"
+msgstr "استشارة حول الإضراب"
+
+#: polls/models.py:15
+msgid "Survey"
+msgstr "استطلاع رأي"
+
+#: polls/models.py:22
+msgid "question (French)"
+msgstr "السؤال (بالفرنسية)"
+
+#: polls/models.py:23
+msgid "question (English)"
+msgstr "السؤال (بالإنجليزية)"
+
+#: polls/models.py:24
+msgid "explanation (French)"
+msgstr "الشرح (بالفرنسية)"
+
+#: polls/models.py:25
+msgid "explanation (English)"
+msgstr "الشرح (بالإنجليزية)"
+
+#: polls/models.py:26
+msgid "question (Arabic)"
+msgstr "السؤال (بالعربية)"
+
+#: polls/models.py:27
+msgid "explanation (Arabic)"
+msgstr "الشرح (بالعربية)"
+
+#: polls/models.py:28
+msgid "type"
+msgstr "النوع"
+
+#: polls/models.py:29
+msgid "voting opens"
+msgstr "فتح التصويت"
+
+#: polls/models.py:30
+msgid "voting closes"
+msgstr "إغلاق التصويت"
+
+#: polls/models.py:33
+msgid "show results to members once the vote is closed"
+msgstr "عرض النتائج على المنخرطين بعد إغلاق التصويت"
+
+#: polls/models.py:35
+msgid "Admins always see the results, even while the vote is open."
+msgstr "يرى المشرفون النتائج دائمًا، حتى أثناء فتح التصويت."
+
+#: polls/panel_views.py:24
+msgid "This vote is closed and can no longer be changed."
+msgstr "هذا التصويت مغلق ولم يعد بالإمكان تعديله."
+
+#: polls/panel_views.py:33
+msgid "Vote saved."
+msgstr "تم حفظ التصويت."
+
+#: polls/panel_views.py:60
+msgid ""
+"Vote closed. Members can now see the results if you chose to show them."
+msgstr "تم إغلاق التصويت. يمكن للمنخرطين الآن رؤية النتائج إذا اخترت عرضها."
+
+#: polls/panel_views.py:69
+msgid "Members have already voted. Only a Master Admin can delete this vote."
+msgstr ""
+"لقد صوّت بعض المنخرطين بالفعل. لا يمكن حذف هذا التصويت إلا من قِبل المشرف "
+"الرئيسي."
+
+#: polls/panel_views.py:73
+msgid "Vote deleted."
+msgstr "تم حذف التصويت."
+
+#: polls/views.py:38
+msgid "This vote is closed."
+msgstr "هذا التصويت مغلق."
+
+#: polls/views.py:41 polls/views.py:49
+msgid "You have already voted. Each member votes only once."
+msgstr "لقد صوّتّ بالفعل. يصوّت كل منخرط مرة واحدة فقط."
+
+#: polls/views.py:51
+msgid ""
+"Thank you, your vote has been counted. It is secret: nobody can see what you"
+" chose."
+msgstr "شكرًا، تم احتساب صوتك. التصويت سري: لا أحد يمكنه معرفة اختيارك."
+
+#: qa/assistant.py:40
+msgid ""
+"I could not find the answer to this question in the documents available. "
+"Please contact the union office for help."
+msgstr ""
+"لم أجد إجابة عن هذا السؤال في المستندات المتاحة. يرجى التواصل مع مكتب "
+"النقابة للمساعدة."
+
+#: qa/assistant.py:45
+msgid ""
+"The assistant is temporarily unavailable. Please try again in a few minutes."
+msgstr "المساعد غير متاح مؤقتًا. يرجى المحاولة بعد بضع دقائق."
+
+#: qa/models.py:17
+msgid "Processing"
+msgstr "قيد المعالجة"
+
+#: qa/models.py:18
+msgid "Ready"
+msgstr "جاهز"
+
+#: qa/models.py:19
+msgid "Failed"
+msgstr "فشل"
+
+#: qa/models.py:21
+msgid "title"
+msgstr "العنوان"
+
+#: qa/views.py:20
+msgid "Your question"
+msgstr "سؤالك"
+
+#: qa/views.py:23
+msgid "Ask about your documents ..."
+msgstr "اطرح سؤالًا حول مستنداتك ..."
+
+#: qa/views.py:32
+msgid ""
+"You have asked many questions in a short time. Please wait a few minutes."
+msgstr "لقد طرحت أسئلة كثيرة في وقت قصير. يرجى الانتظار بضع دقائق."
+
+#: team/models.py:20
+msgid "President"
+msgstr "الرئيس"
+
+#: team/models.py:21
+msgid "General Secretary"
+msgstr "الأمين العام"
+
+#: team/models.py:22
+msgid "Treasurer"
+msgstr "أمين المال"
+
+#: team/models.py:23
+msgctxt "bureau role"
+msgid "Member"
+msgstr "عضو"
+
+#: team/models.py:31
+msgid "order within the same role"
+msgstr "الترتيب ضمن الدور نفسه"
+
+#: team/models.py:31
+msgid "Lower numbers come first, for example among the members."
+msgstr "تظهر الأرقام الأصغر أولًا، مثلًا بين الأعضاء."
+
+#: team/models.py:34
+msgid "photo"
+msgstr "الصورة"
+
+#: team/models.py:37
+msgid ""
+"Any portrait: the site zooms in on the face and crops it automatically. The "
+"original is kept."
+msgstr ""
+"أي صورة شخصية: يقوم الموقع تلقائيًا بالتكبير على الوجه وقصّها. ويُحتفَظ "
+"بالصورة الأصلية."
+
+#: team/models.py:42
+msgid "WhatsApp number (optional)"
+msgstr "رقم WhatsApp (اختياري)"
+
+#: team/models.py:45
+msgid ""
+"If filled in, visitors see a WhatsApp button on this card. Leave empty to "
+"keep it private."
+msgstr ""
+"إذا مُلئ هذا الحقل، يرى الزوار زر WhatsApp على هذه البطاقة. اتركه فارغًا "
+"لإبقائه خاصًا."
+
+#: team/panel_views.py:24
+msgid "Team page updated."
+msgstr "تم تحديث صفحة الفريق."
+
+#: team/panel_views.py:26
+msgid ""
+"No face was found in the photo, so it was cropped around the top centre. Try"
+" a photo where the face is clearly visible."
+msgstr ""
+"لم يُعثر على وجه في الصورة، لذا تم قصّها حول الجزء العلوي من الوسط. جرّب "
+"صورة يظهر فيها الوجه بوضوح."
+
+#: team/panel_views.py:37
+msgid "Removed from the team page."
+msgstr "تمت الإزالة من صفحة الفريق."
+
+#: templates/_lang_switch.html:1 templates/panel/csv_import.html:22
+msgid "Language"
+msgstr "اللغة"
+
+#: templates/_nav_links.html:1 templates/core/home.html:2
+msgid "Home"
+msgstr "الرئيسية"
+
+#: templates/_nav_links.html:2 templates/core/home.html:25
+#: templates/core/home.html:49 templates/panel/_layout.html:13
+#: templates/team/panel_list.html:2
+msgid "Team"
+msgstr "الفريق"
+
+#: templates/_nav_links.html:4 templates/qa/chat.html:2
+msgid "Q&A"
+msgstr "سؤال وجواب"
+
+#: templates/_nav_links.html:5 templates/news/list.html:2
+#: templates/panel/_layout.html:12 templates/panel/news.html:2
+#: templates/panel/news.html:4
+msgid "News"
+msgstr "الأخبار"
+
+#: templates/_nav_links.html:6 templates/panel/_layout.html:11
+#: templates/panel/dashboard.html:8 templates/panel/documents.html:2
+#: templates/panel/documents.html:4 templates/qa/chat.html:12
+#: templates/qa/documents.html:2
+msgid "Documents"
+msgstr "المستندات"
+
+#: templates/_nav_links.html:7 templates/panel/_layout.html:15
+#: templates/polls/list.html:2 templates/polls/list.html:5
+#: templates/polls/panel_list.html:2 templates/polls/panel_list.html:4
+msgid "Votes"
+msgstr "التصويتات"
+
+#: templates/_nav_links.html:8 templates/meetings/index.html:2
+#: templates/meetings/panel_days.html:2 templates/meetings/panel_days.html:4
+#: templates/panel/_layout.html:16
+msgid "Meetings"
+msgstr "المواعيد"
+
+#: templates/_nav_links.html:9
+msgctxt "navigation"
+msgid "Admin"
+msgstr "الإدارة"
+
+#: templates/_pagination.html:2 templates/panel/documents.html:13
+msgid "Pages"
+msgstr "الصفحات"
+
+#: templates/_pagination.html:3
+msgid "Previous"
+msgstr "السابق"
+
+#: templates/_pagination.html:4
+#, python-format
+msgid "Page %(n)s of %(total)s"
+msgstr "الصفحة %(n)s من %(total)s"
+
+#: templates/_pagination.html:5
+msgid "Next"
+msgstr "التالي"
+
+#: templates/accounts/login.html:2 templates/accounts/login.html:29
+msgid "Sign In"
+msgstr "تسجيل الدخول"
+
+#: templates/accounts/login.html:7 templates/base.html:23
+#: templates/core/home.html:17
+msgid "SNPNCA logo"
+msgstr "شعار SNPNCA"
+
+#: templates/accounts/login.html:9
+msgid "Syndicat National du Personnel Navigant Commercial Algerien"
+msgstr "النقابة الوطنية لطاقم الملاحة التجارية الجزائري"
+
+#: templates/accounts/login.html:15
+msgid "Email Address"
+msgstr "البريد الإلكتروني"
+
+#: templates/accounts/login.html:24 templates/accounts/login.html:25
+msgid "Show password"
+msgstr "إظهار كلمة المرور"
+
+#: templates/accounts/login.html:24
+msgid "Hide password"
+msgstr "إخفاء كلمة المرور"
+
+#: templates/accounts/login.html:31
+msgid "Forgot your password?"
+msgstr "هل نسيت كلمة المرور؟"
+
+#: templates/accounts/login.html:32
+msgid "Need help? Contact your system administrator"
+msgstr "هل تحتاج إلى مساعدة؟ تواصل مع مسؤول النظام"
+
+#: templates/accounts/password_change.html:2
+#: templates/accounts/password_change.html:5
+#: templates/accounts/settings.html:12
+msgid "Change my password"
+msgstr "تغيير كلمة المرور الخاصة بي"
+
+#: templates/accounts/password_change.html:9
+msgid "Change password"
+msgstr "تغيير كلمة المرور"
+
+#: templates/accounts/password_reset.html:2
+#: templates/accounts/password_reset.html:5
+msgid "Reset your password"
+msgstr "إعادة تعيين كلمة المرور"
+
+#: templates/accounts/password_reset.html:6
+msgid ""
+"Enter the email address of your account. We will send you a link to choose a"
+" new password."
+msgstr ""
+"أدخل عنوان البريد الإلكتروني لحسابك. سنرسل إليك رابطًا لاختيار كلمة مرور "
+"جديدة."
+
+#: templates/accounts/password_reset.html:10
+msgid "Send the link"
+msgstr "إرسال الرابط"
+
+#: templates/accounts/password_reset_complete.html:2
+#: templates/accounts/password_reset_complete.html:5
+msgid "Password saved"
+msgstr "تم حفظ كلمة المرور"
+
+#: templates/accounts/password_reset_complete.html:6
+msgid "Your password has been saved. You can now log in."
+msgstr "تم حفظ كلمة المرور. يمكنك الآن تسجيل الدخول."
+
+#: templates/accounts/password_reset_complete.html:7 templates/base.html:35
+#: templates/base.html:51 templates/core/home.html:35
+#: templates/core/home.html:57 templates/core/home.html:101
+msgid "Log in"
+msgstr "تسجيل الدخول"
+
+#: templates/accounts/password_reset_confirm.html:2
+#: templates/accounts/password_reset_confirm.html:5
+msgid "Choose your password"
+msgstr "اختر كلمة المرور"
+
+#: templates/accounts/password_reset_confirm.html:10
+msgid "Save my password"
+msgstr "حفظ كلمة المرور"
+
+#: templates/accounts/password_reset_confirm.html:13
+msgid "This link is invalid or has expired. You can request a new one."
+msgstr "هذا الرابط غير صالح أو منتهي الصلاحية. يمكنك طلب رابط جديد."
+
+#: templates/accounts/password_reset_confirm.html:14
+msgid "Request a new link"
+msgstr "طلب رابط جديد"
+
+#: templates/accounts/password_reset_done.html:2
+#: templates/accounts/password_reset_done.html:5
+msgid "Check your email"
+msgstr "تحقق من بريدك الإلكتروني"
+
+#: templates/accounts/password_reset_done.html:6
+msgid ""
+"If an account exists for this address, we have sent a link to choose a new "
+"password. The link is valid for 3 days."
+msgstr ""
+"إذا كان هناك حساب مرتبط بهذا العنوان، فقد أرسلنا رابطًا لاختيار كلمة مرور "
+"جديدة. الرابط صالح لمدة 3 أيام."
+
+#: templates/accounts/settings.html:2 templates/accounts/settings.html:5
+#: templates/base.html:32 templates/base.html:45 templates/core/home.html:32
+#: templates/core/home.html:46
+msgid "My account"
+msgstr "حسابي"
+
+#: templates/accounts/settings.html:10
+#: templates/meetings/panel_day_form.html:9
+#: templates/panel/home_content.html:23 templates/panel/news_form.html:41
+#: templates/panel/user_form.html:10 templates/polls/panel_form.html:10
+#: templates/team/panel_form.html:9
+msgid "Save"
+msgstr "حفظ"
+
+#: templates/alerts/_banner.html:5
+msgid "Read the alert"
+msgstr "قراءة التنبيه"
+
+#: templates/alerts/_banner.html:6
+msgid "Hide this alert"
+msgstr "إخفاء هذا التنبيه"
+
+#: templates/alerts/detail.html:5 templates/alerts/panel_detail.html:4
+msgid "All alerts"
+msgstr "جميع التنبيهات"
+
+#: templates/alerts/detail.html:7
+msgid "Urgent alert"
+msgstr "تنبيه عاجل"
+
+#: templates/alerts/list.html:2 templates/alerts/list.html:5
+#: templates/alerts/panel_list.html:4 templates/news/list.html:6
+msgid "Urgent alerts"
+msgstr "التنبيهات العاجلة"
+
+#: templates/alerts/list.html:6
+msgid ""
+"Important announcements from the union, such as strike notices or "
+"negotiation results. They are also sent by email and WhatsApp."
+msgstr ""
+"الإعلانات المهمة الصادرة عن النقابة، مثل إشعارات الإضراب أو نتائج المفاوضات."
+" تُرسل أيضًا عبر البريد الإلكتروني وWhatsApp."
+
+#: templates/alerts/list.html:14
+msgid "No alerts"
+msgstr "لا توجد تنبيهات"
+
+#: templates/alerts/list.html:14
+msgid "Urgent announcements will appear here."
+msgstr "ستظهر الإعلانات العاجلة هنا."
+
+#: templates/alerts/panel_detail.html:2
+msgid "Alert"
+msgstr "تنبيه"
+
+#: templates/alerts/panel_detail.html:9
+msgid "Site banner"
+msgstr "شريط الموقع"
+
+#: templates/alerts/panel_detail.html:9
+#, python-format
+msgid "Until %(date)s"
+msgstr "حتى %(date)s"
+
+#: templates/alerts/panel_detail.html:9 templates/alerts/panel_list.html:17
+msgid "Ended"
+msgstr "منتهٍ"
+
+#: templates/alerts/panel_detail.html:10
+msgid "Emails sent"
+msgstr "أُرسلت الرسائل"
+
+#: templates/alerts/panel_detail.html:10
+msgid "Not sent"
+msgstr "لم يُرسل"
+
+#: templates/alerts/panel_detail.html:11
+msgid "Emails failed"
+msgstr "فشل إرسال الرسائل"
+
+#: templates/alerts/panel_detail.html:13
+msgid "Email this alert to all members?"
+msgstr "إرسال هذا التنبيه بالبريد الإلكتروني إلى جميع المنخرطين؟"
+
+#: templates/alerts/panel_detail.html:13
+msgid "Email it again"
+msgstr "إعادة الإرسال بالبريد الإلكتروني"
+
+#: templates/alerts/panel_detail.html:13
+msgid "Email it to all members"
+msgstr "إرساله بالبريد الإلكتروني إلى جميع المنخرطين"
+
+#: templates/alerts/panel_detail.html:16
+msgid "Send on WhatsApp"
+msgstr "إرسال عبر WhatsApp"
+
+#: templates/alerts/panel_detail.html:17
+msgid ""
+"WhatsApp opens with the message ready. Choose your union's WhatsApp group, "
+"community or broadcast list and tap send: everyone in it gets the alert at "
+"once, for free."
+msgstr ""
+"يُفتح WhatsApp والرسالة جاهزة. اختر مجموعة WhatsApp الخاصة بنقابتك أو "
+"مجتمعها أو قائمة البث، ثم اضغط إرسال: يتلقى الجميع التنبيه دفعة واحدة، "
+"مجانًا."
+
+#: templates/alerts/panel_detail.html:19
+msgid "Share in French"
+msgstr "المشاركة بالفرنسية"
+
+#: templates/alerts/panel_detail.html:20
+msgid "Share in English"
+msgstr "المشاركة بالإنجليزية"
+
+#: templates/alerts/panel_detail.html:23
+#, python-format
+msgid "Or send it one by one (%(n)s member with a WhatsApp number)"
+msgid_plural "Or send it one by one (%(n)s members with a WhatsApp number)"
+msgstr[0] "أو أرسله إلى كل منخرط على حدة (%(n)s منخرط لديهم رقم WhatsApp)"
+msgstr[1] "أو أرسله إلى كل منخرط على حدة (%(n)s منخرط لديه رقم WhatsApp)"
+msgstr[2] "أو أرسله إلى كل منخرط على حدة (%(n)s منخرطان لديهما رقم WhatsApp)"
+msgstr[3] "أو أرسله إلى كل منخرط على حدة (%(n)s منخرطين لديهم رقم WhatsApp)"
+msgstr[4] "أو أرسله إلى كل منخرط على حدة (%(n)s منخرطًا لديهم رقم WhatsApp)"
+msgstr[5] "أو أرسله إلى كل منخرط على حدة (%(n)s منخرط لديهم رقم WhatsApp)"
+
+#: templates/alerts/panel_detail.html:24
+msgid ""
+"Each link opens a chat with that member and the message ready to send. "
+"Useful for members who are not in your WhatsApp group."
+msgstr ""
+"يفتح كل رابط محادثة مع هذا المنخرط والرسالة جاهزة للإرسال. مفيد للمنخرطين "
+"غير الموجودين في مجموعة WhatsApp الخاصة بك."
+
+#: templates/alerts/panel_detail.html:27 templates/qa/chat.html:46
+msgid "Send"
+msgstr "إرسال"
+
+#: templates/alerts/panel_detail.html:30
+#, python-format
+msgid "%(n)s member has no WhatsApp number."
+msgid_plural "%(n)s members have no WhatsApp number."
+msgstr[0] "%(n)s منخرط ليس لديهم رقم WhatsApp."
+msgstr[1] "%(n)s منخرط ليس لديه رقم WhatsApp."
+msgstr[2] "%(n)s منخرطان ليس لديهما رقم WhatsApp."
+msgstr[3] "%(n)s منخرطين ليس لديهم رقم WhatsApp."
+msgstr[4] "%(n)s منخرطًا ليس لديهم رقم WhatsApp."
+msgstr[5] "%(n)s منخرط ليس لديهم رقم WhatsApp."
+
+#: templates/alerts/panel_detail.html:33 templates/meetings/panel_days.html:19
+#: templates/panel/confirm_delete.html:8 templates/panel/documents.html:24
+#: templates/panel/news.html:16 templates/panel/users.html:30
+#: templates/polls/panel_results.html:20 templates/team/panel_list.html:17
+msgid "Delete"
+msgstr "حذف"
+
+#: templates/alerts/panel_form.html:2 templates/alerts/panel_form.html:4
+#: templates/alerts/panel_list.html:6
+msgid "New alert"
+msgstr "تنبيه جديد"
+
+#: templates/alerts/panel_form.html:5
+msgid ""
+"Keep it short: members read it on their phones. Arabic is optional: if it is"
+" empty, members who chose Arabic get the French text."
+msgstr ""
+"اختصر: يقرأ المنخرطون التنبيه على هواتفهم. العربية اختيارية: إذا تُركت "
+"فارغة، يتلقى المنخرطون الذين اختاروا العربية النص الفرنسي."
+
+#: templates/alerts/panel_form.html:10
+msgid "Publish this alert to all members now?"
+msgstr "نشر هذا التنبيه لجميع المنخرطين الآن؟"
+
+#: templates/alerts/panel_form.html:10
+msgid "Publish the alert"
+msgstr "نشر التنبيه"
+
+#: templates/alerts/panel_form.html:11
+#: templates/meetings/panel_day_form.html:10
+#: templates/meetings/panel_queue.html:27
+#: templates/panel/confirm_delete.html:9 templates/panel/news_form.html:42
+#: templates/panel/set_password.html:11 templates/panel/user_form.html:11
+#: templates/polls/panel_form.html:11 templates/team/panel_form.html:10
+msgid "Cancel"
+msgstr "إلغاء"
+
+#: templates/alerts/panel_list.html:2 templates/panel/_layout.html:14
+msgid "Alerts"
+msgstr "التنبيهات"
+
+#: templates/alerts/panel_list.html:5
+msgid ""
+"An alert appears as a red banner for logged-in members, is emailed to every "
+"member and can be shared on WhatsApp in one tap."
+msgstr ""
+"يظهر التنبيه في شريط أحمر للمنخرطين المسجلين الدخول، ويُرسل بالبريد "
+"الإلكتروني إلى كل منخرط، ويمكن مشاركته على WhatsApp بلمسة واحدة."
+
+#: templates/alerts/panel_list.html:9
+msgid "Sent"
+msgstr "مُرسَل"
+
+#: templates/alerts/panel_list.html:9
+msgid "Emails"
+msgstr "رسائل البريد"
+
+#: templates/alerts/panel_list.html:9
+msgid "Banner"
+msgstr "الشريط"
+
+#: templates/alerts/panel_list.html:16
+#, python-format
+msgid "%(n)s failed"
+msgstr "فشل %(n)s"
+
+#: templates/alerts/panel_list.html:17
+msgid "Visible"
+msgstr "ظاهر"
+
+#: templates/alerts/panel_list.html:20
+msgid "No alerts yet."
+msgstr "لا توجد تنبيهات حاليًا."
+
+#: templates/base.html:16
+msgid "Skip to content"
+msgstr "الانتقال إلى المحتوى"
+
+#: templates/base.html:26 templates/base.html:43 templates/core/home.html:20
+#: templates/core/home.html:43
+msgid "Main navigation"
+msgstr "القائمة الرئيسية"
+
+#: templates/base.html:33 templates/base.html:49 templates/core/home.html:33
+#: templates/core/home.html:55
+msgid "Log out"
+msgstr "تسجيل الخروج"
+
+#: templates/base.html:39 templates/core/home.html:39
+msgid "Menu"
+msgstr "القائمة"
+
+#: templates/core/error.html:10
+msgid "Return Home"
+msgstr "العودة إلى الصفحة الرئيسية"
+
+#: templates/core/error.html:11
+msgid "Go Back"
+msgstr "رجوع"
+
+#: templates/core/home.html:24 templates/core/home.html:48
+#: templates/core/home.html:108
+msgid "Our Mission"
+msgstr "مهمتنا"
+
+#: templates/core/home.html:26 templates/core/home.html:50
+#: templates/team/_card.html:9
+msgid "Contact"
+msgstr "اتصل بنا"
+
+#: templates/core/home.html:65
+msgid "The voice of Algerian cabin crew"
+msgstr "صوت طاقم الضيافة الجزائري"
+
+#: templates/core/home.html:66
+msgid ""
+"Defending the rights, working conditions and dignity of flight attendants "
+"across Algeria."
+msgstr ""
+"ندافع عن حقوق المضيفين والمضيفات وظروف عملهم وكرامتهم في جميع أنحاء الجزائر."
+
+#: templates/core/home.html:69
+msgid "Ask AI Assistant"
+msgstr "اسأل المساعد الذكي"
+
+#: templates/core/home.html:71
+msgid "Get started"
+msgstr "ابدأ"
+
+#: templates/core/home.html:73
+msgid "Become a member"
+msgstr "انخرط في النقابة"
+
+#: templates/core/home.html:83
+msgid "About us"
+msgstr "من نحن"
+
+#: templates/core/home.html:86
+msgid ""
+"An independent organization representing Algerian flight attendants, "
+"committed to protecting their rights, enhancing their status, and improving "
+"their working conditions while upholding dignity and professionalism at a "
+"national level."
+msgstr ""
+"نقابة مستقلة وتمثيلية، تدافع SNPNCA عن حقوق طاقم الضيافة الجزائري، وتثمّن "
+"دوره، وتعمل على تحسين ظروف عمله."
+
+#: templates/core/home.html:87
+msgid "Latest News"
+msgstr "آخر الأخبار"
+
+#: templates/core/home.html:93
+msgid "Close"
+msgstr "إغلاق"
+
+#: templates/core/home.html:95
+msgid "Not a member yet?"
+msgstr "لست منخرطًا بعد؟"
+
+#: templates/core/home.html:96
+#, python-format
+msgid ""
+"Join %(ORG_SHORT)s: fill in the membership form with your details. Our "
+"admins will review it and create your account, then you'll receive an email "
+"to choose your password."
+msgstr ""
+"انضم إلى %(ORG_SHORT)s: املأ استمارة الانخراط ببياناتك. سيراجعها المشرفون "
+"وينشئون حسابك، ثم تتلقى بريدًا إلكترونيًا لاختيار كلمة المرور."
+
+#: templates/core/home.html:98
+msgid "Fill in the membership form"
+msgstr "املأ استمارة الانخراط"
+
+#: templates/core/home.html:99
+msgid "Maybe later"
+msgstr "لاحقًا"
+
+#: templates/core/home.html:101
+msgid "Already a member?"
+msgstr "منخرط بالفعل؟"
+
+#: templates/core/home.html:110
+msgid ""
+"To represent, defend, and protect the interests of flight attendants. We are"
+" the voice of cabin crew, working every day to improve your working "
+"conditions and safeguard your rights."
+msgstr ""
+"كل رحلة تبدأ بالتزام: التزام بخدمة الآخرين. وتحرص SNPNCA على أن يكون هذا "
+"الالتزام معترفًا به ومحترمًا ومصونًا."
+
+#: templates/core/home.html:115
+msgid "Knowledge Sharing"
+msgstr "تبادل المعارف"
+
+#: templates/core/home.html:116
+msgid ""
+"Centralized access to organizational documents and resources with "
+"intelligent search capabilities."
+msgstr "وصول مركزي إلى وثائق النقابة ومواردها مع إمكانيات بحث ذكية."
+
+#: templates/core/home.html:120
+msgid "AI-Powered Assistance"
+msgstr "مساعدة بالذكاء الاصطناعي"
+
+#: templates/core/home.html:121
+msgid ""
+"Get instant, accurate answers from your organization's knowledge base using "
+"advanced AI technology."
+msgstr ""
+"احصل على إجابات فورية ودقيقة من قاعدة معارف نقابتك بفضل تقنيات الذكاء "
+"الاصطناعي المتقدمة."
+
+#: templates/core/home.html:125
+msgid "Secure & Controlled"
+msgstr "آمن ومُتحكَّم فيه"
+
+#: templates/core/home.html:126
+msgid ""
+"Enterprise-grade security with role-based access control to protect "
+"sensitive information."
+msgstr ""
+"أمان على مستوى المؤسسات مع تحكم في الوصول حسب الأدوار لحماية المعلومات "
+"الحساسة."
+
+#: templates/core/home.html:135 templates/core/home.html:139
+msgid "Contact Us"
+msgstr "اتصل بنا"
+
+#: templates/core/home.html:136
+msgid "Get in touch with us for any questions or support needs."
+msgstr "تواصل معنا لأي سؤال أو طلب مساعدة."
+
+#: templates/core/home.html:140
+msgid "All fields are required."
+msgstr "جميع الحقول إلزامية."
+
+#: templates/core/home.html:145
+#, python-format
+msgid "Your message will be passed to %(name)s (%(role)s)."
+msgstr "ستُحال رسالتك إلى %(name)s (%(role)s)."
+
+#: templates/core/home.html:153
+msgid ""
+"Privacy notice: we use your name, email, phone number and message only to "
+"answer your request. They are kept in our admin panel and are not shared "
+"with third parties. To have them deleted, write to us using this form."
+msgstr ""
+"إشعار الخصوصية: نستخدم اسمك وبريدك الإلكتروني ورقم هاتفك ورسالتك فقط للرد "
+"على طلبك. تُحفظ هذه البيانات في لوحة الإدارة ولا تُشارك مع أي طرف ثالث. لطلب"
+" حذفها، راسلنا عبر هذه الاستمارة."
+
+#: templates/core/home.html:154
+msgid "Send Message"
+msgstr "إرسال الرسالة"
+
+#: templates/emails/alert_body.txt:5
+msgid "Read it on the members' site:"
+msgstr "اقرأها على موقع المنخرطين:"
+
+#: templates/emails/alert_body.txt:9
+msgid "You receive this email because you are a member of SNPNCA."
+msgstr "تتلقى هذا البريد الإلكتروني لأنك منخرط في SNPNCA."
+
+#: templates/emails/alert_subject.txt:1
+msgid "Urgent"
+msgstr "عاجل"
+
+#: templates/emails/contact_notification_body.txt:1
+msgid "A new message was sent through the contact form."
+msgstr "أُرسلت رسالة جديدة عبر استمارة الاتصال."
+
+#: templates/emails/contact_notification_body.txt:3
+msgid "Name:"
+msgstr "الاسم:"
+
+#: templates/emails/contact_notification_body.txt:4
+msgid "Email:"
+msgstr "البريد الإلكتروني:"
+
+#: templates/emails/contact_notification_body.txt:5
+msgid "Phone:"
+msgstr "الهاتف:"
+
+#: templates/emails/contact_notification_body.txt:6
+msgid "Addressed to:"
+msgstr "موجهة إلى:"
+
+#: templates/emails/contact_notification_body.txt:10
+msgid "Reply from the admin panel:"
+msgstr "الرد من لوحة الإدارة:"
+
+#: templates/emails/contact_notification_subject.txt:1
+#, python-format
+msgid "New contact message from %(name)s"
+msgstr "رسالة اتصال جديدة من %(name)s"
+
+#: templates/emails/contact_reply_body.txt:1
+#: templates/emails/invite_body.txt:1
+#: templates/emails/password_reset_body.txt:1
+#, python-format
+msgid "Hello %(name)s,"
+msgstr "مرحبًا %(name)s،"
+
+#: templates/emails/contact_reply_body.txt:8
+msgid "Your original message:"
+msgstr "رسالتك الأصلية:"
+
+#: templates/emails/contact_reply_subject.txt:1
+msgid "Reply to your message to SNPNCA"
+msgstr "رد على رسالتك إلى SNPNCA"
+
+#: templates/emails/invite_body.txt:3
+msgid "An account has been created for you on the SNPNCA members website."
+msgstr "أُنشئ لك حساب على موقع منخرطي SNPNCA."
+
+#: templates/emails/invite_body.txt:4
+msgid ""
+"To activate it, choose your password using this link (valid for 3 days):"
+msgstr "لتفعيله، اختر كلمة المرور عبر هذا الرابط (صالح لمدة 3 أيام):"
+
+#: templates/emails/invite_body.txt:8
+msgid "Your login is your email address:"
+msgstr "اسم المستخدم الخاص بك هو عنوان بريدك الإلكتروني:"
+
+#: templates/emails/invite_body.txt:10
+msgid "If you were not expecting this email, you can ignore it."
+msgstr "إذا لم تكن تنتظر هذا البريد الإلكتروني، يمكنك تجاهله."
+
+#: templates/emails/invite_subject.txt:1
+msgid "Your SNPNCA member account"
+msgstr "حسابك كمنخرط في SNPNCA"
+
+#: templates/emails/password_reset_body.txt:3
+msgid ""
+"We received a request to reset the password of your SNPNCA account. Choose a"
+" new password using this link (valid for 3 days):"
+msgstr ""
+"تلقينا طلبًا لإعادة تعيين كلمة مرور حسابك في SNPNCA. اختر كلمة مرور جديدة "
+"عبر هذا الرابط (صالح لمدة 3 أيام):"
+
+#: templates/emails/password_reset_body.txt:7
+msgid ""
+"If you did not ask for this, you can ignore this email; your password will "
+"not change."
+msgstr ""
+"إذا لم تطلب ذلك، يمكنك تجاهل هذا البريد الإلكتروني؛ لن تتغير كلمة المرور "
+"الخاصة بك."
+
+#: templates/emails/password_reset_subject.txt:1
+msgid "Reset your SNPNCA password"
+msgstr "إعادة تعيين كلمة مرور SNPNCA"
+
+#: templates/meetings/index.html:6
+msgid "One-on-one meetings"
+msgstr "المقابلات الفردية"
+
+#: templates/meetings/index.html:7
+msgid ""
+"Book a private WhatsApp call with the union's representatives. Meetings take"
+" place on the days chosen each month, in order of request number."
+msgstr ""
+"احجز مكالمة WhatsApp خاصة مع ممثلي النقابة. تُعقد المقابلات في الأيام "
+"المحددة كل شهر، حسب ترتيب أرقام الطلبات."
+
+#: templates/meetings/index.html:13
+msgid "Your request"
+msgstr "طلبك"
+
+#: templates/meetings/index.html:14
+#, python-format
+msgid "Meeting day: %(date)s"
+msgstr "يوم المقابلة: %(date)s"
+
+#: templates/meetings/index.html:16
+msgid "Your number"
+msgstr "رقمك"
+
+#: templates/meetings/index.html:19
+#, python-format
+msgid ""
+"It's your turn! An admin is calling you on WhatsApp at %(number)s. Keep your"
+" phone close."
+msgstr ""
+"حان دورك! يتصل بك أحد المشرفين على WhatsApp على الرقم %(number)s. أبقِ هاتفك"
+" قريبًا منك."
+
+#: templates/meetings/index.html:22 templates/meetings/panel_queue.html:7
+msgid "Now being processed"
+msgstr "قيد المعالجة الآن"
+
+#: templates/meetings/index.html:22
+msgid "Not started yet"
+msgstr "لم يبدأ بعد"
+
+#: templates/meetings/index.html:23
+msgid "People before you"
+msgstr "عدد الأشخاص قبلك"
+
+#: templates/meetings/index.html:24
+msgid "Estimated time"
+msgstr "الوقت التقديري"
+
+#: templates/meetings/index.html:26
+#, python-format
+msgid ""
+"The estimate assumes about %(minutes)s minutes per meeting and can change. "
+"Keep this page open on the day: an admin will call you on WhatsApp when your"
+" turn comes."
+msgstr ""
+"يفترض التقدير نحو %(minutes)s دقيقة لكل مقابلة وقد يتغير. أبقِ هذه الصفحة "
+"مفتوحة في ذلك اليوم: سيتصل بك أحد المشرفين على WhatsApp عندما يحين دورك."
+
+#: templates/meetings/index.html:27
+msgid "Cancel this request?"
+msgstr "إلغاء هذا الطلب؟"
+
+#: templates/meetings/index.html:27
+msgid "Cancel my request"
+msgstr "إلغاء طلبي"
+
+#: templates/meetings/index.html:32
+msgid "Book a meeting"
+msgstr "حجز مقابلة"
+
+#: templates/meetings/index.html:37
+msgid "Get my number"
+msgstr "احصل على رقمي"
+
+#: templates/meetings/index.html:40
+msgid "No meeting days are planned yet. Check back later."
+msgstr "لا توجد أيام مقابلات مبرمجة حاليًا. عُد لاحقًا."
+
+#: templates/meetings/index.html:47
+msgid "Upcoming meeting days"
+msgstr "أيام المقابلات القادمة"
+
+#: templates/meetings/index.html:50
+#, python-format
+msgid "From %(time)s"
+msgstr "ابتداءً من %(time)s"
+
+#: templates/meetings/index.html:50
+msgid "Full"
+msgstr "مكتمل"
+
+#: templates/meetings/index.html:58
+msgid "Past requests"
+msgstr "الطلبات السابقة"
+
+#: templates/meetings/index.html:60 templates/meetings/panel_queue.html:14
+msgid "Number"
+msgstr "الرقم"
+
+#: templates/meetings/index.html:60 templates/meetings/panel_days.html:9
+msgid "Day"
+msgstr "اليوم"
+
+#: templates/meetings/index.html:60 templates/meetings/panel_queue.html:14
+msgid "Subject"
+msgstr "الموضوع"
+
+#: templates/meetings/index.html:60 templates/meetings/panel_queue.html:14
+#: templates/panel/documents.html:13 templates/panel/messages.html:12
+#: templates/panel/news.html:8 templates/panel/users.html:16
+#: templates/polls/panel_list.html:9
+msgid "Status"
+msgstr "الحالة"
+
+#: templates/meetings/panel_call.html:2
+msgid "WhatsApp call"
+msgstr "مكالمة WhatsApp"
+
+#: templates/meetings/panel_call.html:4
+msgid "Back to the queue"
+msgstr "العودة إلى قائمة الانتظار"
+
+#: templates/meetings/panel_call.html:10
+msgid "Open WhatsApp"
+msgstr "فتح WhatsApp"
+
+#: templates/meetings/panel_call.html:11
+msgid ""
+"WhatsApp opens the chat with this member: tap the call (phone or video) "
+"button at the top to call them. When the call is over, close it here."
+msgstr ""
+"يفتح WhatsApp المحادثة مع هذا المنخرط: اضغط على زر الاتصال (صوتي أو مرئي) في"
+" الأعلى للاتصال به. عند انتهاء المكالمة، أغلقها هنا."
+
+#: templates/meetings/panel_day_form.html:2
+msgid "Meeting day"
+msgstr "يوم المقابلات"
+
+#: templates/meetings/panel_day_form.html:4
+msgid "Edit meeting day"
+msgstr "تعديل يوم المقابلات"
+
+#: templates/meetings/panel_day_form.html:4
+#: templates/meetings/panel_days.html:6
+msgid "New meeting day"
+msgstr "يوم مقابلات جديد"
+
+#: templates/meetings/panel_days.html:5
+msgid ""
+"Members book one-on-one WhatsApp calls on the meeting days below (at most "
+"two per month, chosen by a Master Admin). Open a day to see its queue and "
+"start meetings."
+msgstr ""
+"يحجز المنخرطون مكالمات WhatsApp فردية في أيام المقابلات أدناه (يومان في "
+"الشهر كحد أقصى، يحددهما مشرف رئيسي). افتح يومًا لعرض قائمة انتظاره وبدء "
+"المقابلات."
+
+#: templates/meetings/panel_days.html:9 templates/meetings/panel_queue.html:9
+msgid "Start"
+msgstr "البداية"
+
+#: templates/meetings/panel_days.html:9
+msgid "Requests"
+msgstr "الطلبات"
+
+#: templates/meetings/panel_days.html:9 templates/meetings/panel_queue.html:14
+#: templates/panel/admins.html:9 templates/panel/documents.html:13
+#: templates/panel/news.html:8 templates/panel/users.html:16
+#: templates/polls/panel_list.html:9 templates/team/panel_list.html:9
+msgid "Actions"
+msgstr "الإجراءات"
+
+#: templates/meetings/panel_days.html:18
+msgid "Open queue"
+msgstr "فتح قائمة الانتظار"
+
+#: templates/meetings/panel_days.html:19 templates/panel/news.html:16
+#: templates/panel/users.html:27 templates/polls/panel_list.html:17
+#: templates/polls/panel_results.html:18 templates/team/panel_list.html:17
+msgid "Edit"
+msgstr "تعديل"
+
+#: templates/meetings/panel_days.html:23
+msgid "No upcoming meeting days."
+msgstr "لا توجد أيام مقابلات قادمة."
+
+#: templates/meetings/panel_days.html:29
+msgid "Past days"
+msgstr "الأيام السابقة"
+
+#: templates/meetings/panel_days.html:30
+#, python-format
+msgid "%(n)s request"
+msgid_plural "%(n)s requests"
+msgstr[0] "%(n)s طلب"
+msgstr[1] "%(n)s طلب"
+msgstr[2] "%(n)s طلبان"
+msgstr[3] "%(n)s طلبات"
+msgstr[4] "%(n)s طلبًا"
+msgstr[5] "%(n)s طلب"
+
+#: templates/meetings/panel_queue.html:2
+msgid "Meeting queue"
+msgstr "قائمة انتظار المقابلات"
+
+#: templates/meetings/panel_queue.html:4
+msgid "All meeting days"
+msgstr "جميع أيام المقابلات"
+
+#: templates/meetings/panel_queue.html:11
+msgid ""
+"“Start meeting” marks the order as in a meeting, closes the previous one and"
+" opens WhatsApp with the member's chat: tap the call button there."
+msgstr ""
+"يضع زر «بدء المقابلة» الطلب في حالة مقابلة جارية، ويُغلق الطلب السابق، ويفتح"
+" WhatsApp على محادثة المنخرط: اضغط هناك على زر الاتصال."
+
+#: templates/meetings/panel_queue.html:24
+msgid "Open WhatsApp again"
+msgstr "إعادة فتح WhatsApp"
+
+#: templates/meetings/panel_queue.html:24
+msgid "Start meeting"
+msgstr "بدء المقابلة"
+
+#: templates/meetings/panel_queue.html:29
+msgid "Back to queue"
+msgstr "إعادة إلى قائمة الانتظار"
+
+#: templates/meetings/panel_queue.html:34
+msgid "No requests for this day yet."
+msgstr "لا توجد طلبات لهذا اليوم حاليًا."
+
+#: templates/news/detail.html:5
+msgid "All news"
+msgstr "جميع الأخبار"
+
+#: templates/news/detail.html:12
+msgid "Video"
+msgstr "فيديو"
+
+#: templates/news/detail.html:17
+msgid "Article image"
+msgstr "صورة المقال"
+
+#: templates/news/list.html:5
+msgid "News & Updates"
+msgstr "الأخبار والمستجدات"
+
+#: templates/news/list.html:6
+msgid "Stay informed with the latest organizational announcements and updates"
+msgstr "ابقَ على اطلاع بآخر إعلانات النقابة ومستجداتها"
+
+#: templates/news/list.html:14
+msgid "Latest"
+msgstr "الأحدث"
+
+#: templates/news/list.html:18
+msgid "Read more"
+msgstr "اقرأ المزيد"
+
+#: templates/news/list.html:23
+msgid "End of news feed. Check back regularly for new updates."
+msgstr "نهاية الأخبار. عُد بانتظام للاطلاع على المستجدات."
+
+#: templates/news/list.html:27
+msgid "No News Available"
+msgstr "لا توجد أخبار"
+
+#: templates/news/list.html:28
+msgid "Check back later for updates and announcements."
+msgstr "عُد لاحقًا للاطلاع على المستجدات والإعلانات."
+
+#: templates/panel/_layout.html:4
+msgid "Admin Panel"
+msgstr "لوحة الإدارة"
+
+#: templates/panel/_layout.html:5
+msgid "Manage employees and documents for SNPNCA"
+msgstr "إدارة الموظفين والوثائق الخاصة بـ SNPNCA"
+
+#: templates/panel/_layout.html:7 templates/panel/dashboard.html:2
+#: templates/panel/dashboard.html:4
+msgid "Admin panel"
+msgstr "الإدارة"
+
+#: templates/panel/_layout.html:8
+msgid "Overview"
+msgstr "نظرة عامة"
+
+#: templates/panel/_layout.html:9 templates/panel/users.html:2
+#: templates/panel/users.html:4
+msgid "Users"
+msgstr "المستخدمون"
+
+#: templates/panel/_layout.html:10 templates/panel/admins.html:2
+#: templates/panel/admins.html:4
+msgid "Admins"
+msgstr "المشرفون"
+
+#: templates/panel/_layout.html:17 templates/panel/messages.html:2
+msgid "Messages"
+msgstr "الرسائل"
+
+#: templates/panel/_layout.html:18 templates/panel/home_content.html:2
+msgid "Home page"
+msgstr "الصفحة الرئيسية"
+
+#: templates/panel/_layout.html:19 templates/panel/audit.html:2
+#: templates/panel/audit.html:4
+msgid "Audit log"
+msgstr "سجل التدقيق"
+
+#: templates/panel/admins.html:5
+msgid ""
+"Only the Master Admin can create admins and change roles. There must always "
+"be at least one Master Admin."
+msgstr ""
+"وحده المشرف الرئيسي يمكنه إنشاء المشرفين وتغيير الأدوار. يجب أن يبقى دائمًا "
+"مشرف رئيسي واحد على الأقل."
+
+#: templates/panel/admins.html:6
+msgid "New admin"
+msgstr "مشرف جديد"
+
+#: templates/panel/admins.html:9 templates/panel/csv_import.html:22
+#: templates/panel/users.html:16 templates/team/panel_list.html:9
+msgid "Name"
+msgstr "الاسم"
+
+#: templates/panel/admins.html:9
+msgid "Change role"
+msgstr "تغيير الدور"
+
+#: templates/panel/admins.html:23
+msgid "Apply"
+msgstr "تطبيق"
+
+#: templates/panel/admins.html:26 templates/panel/set_password.html:2
+#: templates/panel/set_password.html:4 templates/panel/set_password.html:10
+#: templates/panel/users.html:29
+msgid "Set password"
+msgstr "تعيين كلمة المرور"
+
+#: templates/panel/admins.html:32
+msgid ""
+"To make an existing member an admin, edit their account from the Users page "
+"and change the role."
+msgstr "لتعيين منخرط حالي مشرفًا، عدّل حسابه من صفحة المستخدمين وغيّر دوره."
+
+#: templates/panel/audit.html:7 templates/panel/news.html:8
+msgid "Date"
+msgstr "التاريخ"
+
+#: templates/panel/audit.html:7
+msgid "By"
+msgstr "بواسطة"
+
+#: templates/panel/audit.html:7
+msgid "Action"
+msgstr "الإجراء"
+
+#: templates/panel/audit.html:7
+msgid "Target"
+msgstr "الهدف"
+
+#: templates/panel/audit.html:7
+msgid "Details"
+msgstr "التفاصيل"
+
+#: templates/panel/audit.html:18
+msgid "Nothing recorded yet."
+msgstr "لا يوجد أي سجل حاليًا."
+
+#: templates/panel/confirm_delete.html:2 templates/panel/confirm_delete.html:4
+msgid "Confirm deletion"
+msgstr "تأكيد الحذف"
+
+#: templates/panel/confirm_delete.html:5
+#, python-format
+msgid "Are you sure you want to delete “%(label)s”? This cannot be undone."
+msgstr "هل أنت متأكد من حذف «%(label)s»؟ لا يمكن التراجع عن هذا الإجراء."
+
+#: templates/panel/csv_import.html:2 templates/panel/users.html:7
+msgid "Import from CSV"
+msgstr "استيراد من CSV"
+
+#: templates/panel/csv_import.html:4
+msgid "Import members from CSV"
+msgstr "استيراد المنخرطين من ملف CSV"
+
+#: templates/panel/csv_import.html:6
+msgid ""
+"Columns: full_name, email, and optionally whatsapp (number with country "
+"code), language (fr, en or ar) and role. The file must be UTF-8 encoded so "
+"accented names are kept."
+msgstr ""
+"الأعمدة: full_name وemail، واختياريًا whatsapp (الرقم مع رمز البلد) "
+"وlanguage (fr أو en أو ar) وrole. يجب أن يكون الملف بترميز UTF-8 للحفاظ على "
+"الأحرف المشكولة والأسماء العربية."
+
+#: templates/panel/csv_import.html:7
+msgid ""
+"Rows whose email already has an account are skipped. Existing members who "
+"are not in the file are not changed. Each new member receives an email to "
+"choose a password."
+msgstr ""
+"تُتجاهل الأسطر التي يملك بريدها الإلكتروني حسابًا مسبقًا. لا يُغيَّر "
+"المنخرطون الحاليون غير الموجودين في الملف. يتلقى كل منخرط جديد بريدًا "
+"إلكترونيًا لاختيار كلمة المرور."
+
+#: templates/panel/csv_import.html:8
+msgid ""
+"The role column is only applied when the Master Admin imports the file; "
+"otherwise everyone is imported as a member."
+msgstr ""
+"لا يُطبَّق عمود role إلا إذا استورد المشرف الرئيسي الملف؛ وإلا يُستورد "
+"الجميع كمنخرطين."
+
+#: templates/panel/csv_import.html:9
+msgid "Download the template file"
+msgstr "تنزيل ملف النموذج"
+
+#: templates/panel/csv_import.html:14 templates/panel/csv_import.html:18
+msgid "Preview"
+msgstr "معاينة"
+
+#: templates/panel/csv_import.html:19
+#, python-format
+msgid "%(n)s account will be created."
+msgid_plural "%(n)s accounts will be created."
+msgstr[0] "سيتم إنشاء %(n)s حساب."
+msgstr[1] "سيتم إنشاء %(n)s حساب."
+msgstr[2] "سيتم إنشاء %(n)s حسابين."
+msgstr[3] "سيتم إنشاء %(n)s حسابات."
+msgstr[4] "سيتم إنشاء %(n)s حسابًا."
+msgstr[5] "سيتم إنشاء %(n)s حساب."
+
+#: templates/panel/csv_import.html:22
+msgid "Line"
+msgstr "السطر"
+
+#: templates/panel/csv_import.html:22
+msgid "WhatsApp"
+msgstr "WhatsApp"
+
+#: templates/panel/csv_import.html:22
+msgid "Result"
+msgstr "النتيجة"
+
+#: templates/panel/csv_import.html:28
+msgid "Skipped"
+msgstr "تم تجاهله"
+
+#: templates/panel/csv_import.html:28
+msgid "Will be created"
+msgstr "سيتم إنشاؤه"
+
+#: templates/panel/csv_import.html:39
+#, python-format
+msgid "Create %(n)s account"
+msgid_plural "Create %(n)s accounts"
+msgstr[0] "إنشاء %(n)s حساب"
+msgstr[1] "إنشاء %(n)s حساب"
+msgstr[2] "إنشاء %(n)s حسابين"
+msgstr[3] "إنشاء %(n)s حسابات"
+msgstr[4] "إنشاء %(n)s حسابًا"
+msgstr[5] "إنشاء %(n)s حساب"
+
+#: templates/panel/dashboard.html:6
+msgid "Accounts"
+msgstr "الحسابات"
+
+#: templates/panel/dashboard.html:7
+msgid "New messages"
+msgstr "رسائل جديدة"
+
+#: templates/panel/dashboard.html:8
+#, python-format
+msgid "%(n)s processing"
+msgid_plural "%(n)s processing"
+msgstr[0] "%(n)s قيد المعالجة"
+msgstr[1] "%(n)s قيد المعالجة"
+msgstr[2] "%(n)s قيد المعالجة"
+msgstr[3] "%(n)s قيد المعالجة"
+msgstr[4] "%(n)s قيد المعالجة"
+msgstr[5] "%(n)s قيد المعالجة"
+
+#: templates/panel/dashboard.html:9
+msgid "Articles"
+msgstr "المقالات"
+
+#: templates/panel/documents.html:5
+#, python-format
+msgid ""
+"PDF only, up to %(max_mb)s MB. Text is extracted automatically; scanned "
+"pages are read with OCR (French, English and Arabic). Members can then ask "
+"questions about these documents."
+msgstr ""
+"PDF فقط، بحجم أقصاه %(max_mb)s ميغابايت. يُستخرج النص تلقائيًا؛ وتُقرأ "
+"الصفحات الممسوحة ضوئيًا بتقنية OCR (الفرنسية والإنجليزية والعربية). يمكن "
+"للمنخرطين بعد ذلك طرح أسئلة حول هذه الوثائق."
+
+#: templates/panel/documents.html:9
+msgid "Upload"
+msgstr "رفع"
+
+#: templates/panel/documents.html:13
+msgid "Uploaded"
+msgstr "تاريخ الرفع"
+
+#: templates/panel/documents.html:18
+#, python-format
+msgid "%(n)s by OCR"
+msgid_plural "%(n)s by OCR"
+msgstr[0] "%(n)s بتقنية OCR"
+msgstr[1] "%(n)s بتقنية OCR"
+msgstr[2] "%(n)s بتقنية OCR"
+msgstr[3] "%(n)s بتقنية OCR"
+msgstr[4] "%(n)s بتقنية OCR"
+msgstr[5] "%(n)s بتقنية OCR"
+
+#: templates/panel/documents.html:23
+msgid "Retry"
+msgstr "إعادة المحاولة"
+
+#: templates/panel/documents.html:29
+msgid "No documents yet."
+msgstr "لا توجد وثائق حاليًا."
+
+#: templates/panel/home_content.html:4
+msgid "Home page text"
+msgstr "نصوص الصفحة الرئيسية"
+
+#: templates/panel/home_content.html:5
+msgid ""
+"If one language is empty, visitors see the French text (or the English one "
+"if French is empty too)."
+msgstr ""
+"إذا تُركت لغة فارغة، يرى الزوار النص الفرنسي (أو الإنجليزي إذا كان الفرنسي "
+"فارغًا أيضًا)."
+
+#: templates/panel/home_content.html:27
+msgid "Membership sign-up pop-up"
+msgstr "نافذة الانخراط المنبثقة"
+
+#: templates/panel/home_content.html:28
+msgid ""
+"Visitors who aren't logged in see a pop-up on the home page inviting them to"
+" join. It opens your Google Form, and admins then create the accounts from "
+"the answers. Only Master Admins can change this link."
+msgstr ""
+"يرى الزوار غير المسجلين نافذة منبثقة في الصفحة الرئيسية تدعوهم إلى الانخراط."
+" تفتح هذه النافذة استمارة Google الخاصة بكم، ثم ينشئ المشرفون الحسابات "
+"انطلاقًا من الإجابات. وحدهم المشرفون الرئيسيون يمكنهم تغيير هذا الرابط."
+
+#: templates/panel/home_content.html:32
+msgid "Status: the pop-up is shown to visitors."
+msgstr "الحالة: النافذة المنبثقة معروضة للزوار."
+
+#: templates/panel/home_content.html:32
+msgid "Open the form"
+msgstr "فتح الاستمارة"
+
+#: templates/panel/home_content.html:32
+msgid "Status: no link, so the pop-up is hidden."
+msgstr "الحالة: لا يوجد رابط، لذا النافذة المنبثقة مخفية."
+
+#: templates/panel/home_content.html:33
+msgid "Save link"
+msgstr "حفظ الرابط"
+
+#: templates/panel/message_detail.html:4
+msgid "All messages"
+msgstr "جميع الرسائل"
+
+#: templates/panel/message_detail.html:7 templates/panel/messages.html:16
+#, python-format
+msgid "For %(name)s"
+msgstr "إلى %(name)s"
+
+#: templates/panel/message_detail.html:12
+#, python-format
+msgid "Reply by %(who)s on %(when)s"
+msgstr "رد %(who)s بتاريخ %(when)s"
+
+#: templates/panel/message_detail.html:16
+msgid "Reply by email"
+msgstr "الرد عبر البريد الإلكتروني"
+
+#: templates/panel/message_detail.html:21
+msgid "Send reply"
+msgstr "إرسال الرد"
+
+#: templates/panel/message_detail.html:22
+msgid "Delete message"
+msgstr "حذف الرسالة"
+
+#: templates/panel/messages.html:4
+msgid "Contact messages"
+msgstr "رسائل الاتصال"
+
+#: templates/panel/messages.html:5
+msgid "Filter"
+msgstr "تصفية"
+
+#: templates/panel/messages.html:6
+msgid "All"
+msgstr "الكل"
+
+#: templates/panel/messages.html:12
+msgid "From"
+msgstr "من"
+
+#: templates/panel/messages.html:12
+msgid "Received"
+msgstr "تاريخ الاستلام"
+
+#: templates/panel/messages.html:22
+msgid "No messages."
+msgstr "لا توجد رسائل."
+
+#: templates/panel/news.html:5 templates/panel/news_form.html:2
+#: templates/panel/news_form.html:4
+msgid "New article"
+msgstr "مقال جديد"
+
+#: templates/panel/news.html:8
+msgid "Languages"
+msgstr "اللغات"
+
+#: templates/panel/news.html:15
+msgid "Published"
+msgstr "منشور"
+
+#: templates/panel/news.html:15
+msgid "Draft"
+msgstr "مسودة"
+
+#: templates/panel/news.html:19
+msgid "No articles yet."
+msgstr "لا توجد مقالات حاليًا."
+
+#: templates/panel/news_form.html:2 templates/panel/news_form.html:4
+msgid "Edit article"
+msgstr "تعديل المقال"
+
+#: templates/panel/news_form.html:5
+msgid ""
+"Fill in French, English or both. Arabic is optional: if it is empty, Arabic "
+"readers see the French text."
+msgstr ""
+"املأ بالفرنسية أو الإنجليزية أو كليهما. العربية اختيارية: إذا تُركت فارغة، "
+"يرى قرّاء العربية النص الفرنسي."
+
+#: templates/panel/news_form.html:23
+msgid "Media"
+msgstr "الوسائط"
+
+#: templates/panel/news_form.html:25
+msgid "Current images"
+msgstr "الصور الحالية"
+
+#: templates/panel/news_form.html:28
+msgid "Image"
+msgstr "صورة"
+
+#: templates/panel/news_form.html:29
+msgid "Remove"
+msgstr "إزالة"
+
+#: templates/panel/news_form.html:36
+msgid "Publication"
+msgstr "النشر"
+
+#: templates/panel/set_password.html:5
+#, python-format
+msgid ""
+"New password for %(name)s (%(email)s). It is not emailed and cannot be "
+"viewed later, so pass it on in person. They will be signed out of any open "
+"sessions."
+msgstr ""
+"كلمة مرور جديدة لـ %(name)s (%(email)s). لا تُرسل عبر البريد الإلكتروني ولا "
+"يمكن الاطلاع عليها لاحقًا، لذا أبلغها للشخص مباشرة. سيتم تسجيل خروجه من جميع"
+" الجلسات المفتوحة."
+
+#: templates/panel/user_form.html:2 templates/panel/user_form.html:4
+msgid "New account"
+msgstr "حساب جديد"
+
+#: templates/panel/user_form.html:2
+msgid "Edit account"
+msgstr "تعديل الحساب"
+
+#: templates/panel/user_form.html:5
+msgid ""
+"The person will receive an email with a link to choose their own password."
+msgstr ""
+"سيتلقى الشخص بريدًا إلكترونيًا يتضمن رابطًا لاختيار كلمة المرور الخاصة به."
+
+#: templates/panel/user_form.html:10
+msgid "Create and send invitation"
+msgstr "إنشاء وإرسال الدعوة"
+
+#: templates/panel/users.html:6
+msgid "New member"
+msgstr "منخرط جديد"
+
+#: templates/panel/users.html:10 templates/panel/users.html:11
+msgid "Search by name or email"
+msgstr "البحث بالاسم أو البريد الإلكتروني"
+
+#: templates/panel/users.html:12
+msgid "Search"
+msgstr "بحث"
+
+#: templates/panel/users.html:23
+msgid "Deactivated"
+msgstr "معطَّل"
+
+#: templates/panel/users.html:23
+msgid "Invited"
+msgstr "مدعو"
+
+#: templates/panel/users.html:23
+msgid "Active"
+msgstr "نشط"
+
+#: templates/panel/users.html:28
+msgid "Resend invitation"
+msgstr "إعادة إرسال الدعوة"
+
+#: templates/panel/users.html:36
+msgid "No accounts found."
+msgstr "لم يُعثر على أي حساب."
+
+#: templates/polls/_bars.html:6
+#, python-format
+msgid "%(n)s vote"
+msgid_plural "%(n)s votes"
+msgstr[0] "%(n)s صوت"
+msgstr[1] "%(n)s صوت"
+msgstr[2] "%(n)s صوتان"
+msgstr[3] "%(n)s أصوات"
+msgstr[4] "%(n)s صوتًا"
+msgstr[5] "%(n)s صوت"
+
+#: templates/polls/_status.html:1
+msgid "Open"
+msgstr "مفتوح"
+
+#: templates/polls/_status.html:1
+msgid "Closed"
+msgstr "مغلق"
+
+#: templates/polls/_status.html:1 templates/polls/list.html:25
+#: templates/team/page.html:20
+msgid "Coming soon"
+msgstr "قريبًا"
+
+#: templates/polls/detail.html:2 templates/polls/list.html:17
+msgid "Vote"
+msgstr "صوِّت"
+
+#: templates/polls/detail.html:5 templates/polls/panel_results.html:4
+msgid "All votes"
+msgstr "جميع عمليات التصويت"
+
+#: templates/polls/detail.html:11 templates/polls/list.html:15
+#, python-format
+msgid "Closes %(date)s"
+msgstr "يُغلق في %(date)s"
+
+#: templates/polls/detail.html:12 templates/polls/list.html:37
+#, python-format
+msgid "Closed on %(date)s"
+msgstr "أُغلق في %(date)s"
+
+#: templates/polls/detail.html:17
+msgid ""
+"You have voted. Thank you! Results will be published when the vote closes."
+msgstr "لقد صوّتّ. شكرًا لك! ستُنشر النتائج عند إغلاق التصويت."
+
+#: templates/polls/detail.html:22
+msgid ""
+"Your vote is secret and final: the union only records that you voted, never "
+"what you chose."
+msgstr ""
+"تصويتك سري ونهائي: لا تسجل النقابة إلا أنك صوّتّ، ولا تسجل أبدًا اختيارك."
+
+#: templates/polls/detail.html:23
+msgid "Confirm your vote? You cannot change it afterwards."
+msgstr "تأكيد تصويتك؟ لن تتمكن من تغييره بعد ذلك."
+
+#: templates/polls/detail.html:23
+msgid "Submit my vote"
+msgstr "تأكيد تصويتي"
+
+#: templates/polls/detail.html:27 templates/polls/panel_list.html:17
+#: templates/polls/panel_results.html:2
+msgid "Results"
+msgstr "النتائج"
+
+#: templates/polls/detail.html:29
+#, python-format
+msgid "%(n)s vote in total"
+msgid_plural "%(n)s votes in total"
+msgstr[0] "%(n)s صوت إجمالًا"
+msgstr[1] "%(n)s صوت إجمالًا"
+msgstr[2] "%(n)s صوتان إجمالًا"
+msgstr[3] "%(n)s أصوات إجمالًا"
+msgstr[4] "%(n)s صوتًا إجمالًا"
+msgstr[5] "%(n)s صوت إجمالًا"
+
+#: templates/polls/detail.html:29
+msgid "You took part in this vote."
+msgstr "لقد شاركت في هذا التصويت."
+
+#: templates/polls/detail.html:31
+msgid "This vote is closed. Its results are not published on the site."
+msgstr "هذا التصويت مغلق. نتائجه غير منشورة على الموقع."
+
+#: templates/polls/list.html:6
+msgid ""
+"General assemblies, strike consultations and surveys. One member, one vote, "
+"and your vote is secret."
+msgstr ""
+"الجمعيات العامة، واستشارات الإضراب، واستطلاعات الرأي. لكل منخرط صوت واحد، "
+"وتصويتك سري."
+
+#: templates/polls/list.html:8
+msgid "Open now"
+msgstr "مفتوح الآن"
+
+#: templates/polls/list.html:17
+msgid "You voted"
+msgstr "لقد صوّتّ"
+
+#: templates/polls/list.html:21
+msgid "There is no open vote at the moment."
+msgstr "لا يوجد تصويت مفتوح حاليًا."
+
+#: templates/polls/list.html:27
+#, python-format
+msgid "Opens %(date)s"
+msgstr "يُفتح في %(date)s"
+
+#: templates/polls/list.html:32
+msgid "Closed votes"
+msgstr "عمليات التصويت المغلقة"
+
+#: templates/polls/list.html:37
+msgid "See the results"
+msgstr "عرض النتائج"
+
+#: templates/polls/panel_form.html:2 templates/polls/panel_form.html:4
+msgid "Edit vote"
+msgstr "تعديل التصويت"
+
+#: templates/polls/panel_form.html:2 templates/polls/panel_form.html:4
+#: templates/polls/panel_list.html:6
+msgid "New vote"
+msgstr "تصويت جديد"
+
+#: templates/polls/panel_form.html:5
+msgid ""
+"Members have already voted, so the question and answers are locked. You can "
+"still change the explanation and the closing date."
+msgstr ""
+"سبق أن صوّت منخرطون، لذا أصبح السؤال والإجابات مقفلين. لا يزال بإمكانك تعديل"
+" الشرح وتاريخ الإغلاق."
+
+#: templates/polls/panel_list.html:5
+msgid ""
+"Members vote once per question and ballots are secret. You see results live;"
+" members see them only after the vote closes, if you choose."
+msgstr ""
+"يصوّت كل منخرط مرة واحدة على كل سؤال، والاقتراع سري. ترى النتائج مباشرةً؛ "
+"أما المنخرطون فلا يرونها إلا بعد إغلاق التصويت، إن اخترت ذلك."
+
+#: templates/polls/panel_list.html:9
+msgid "Question"
+msgstr "السؤال"
+
+#: templates/polls/panel_list.html:9
+msgid "Type"
+msgstr "النوع"
+
+#: templates/polls/panel_list.html:9 templates/polls/panel_results.html:8
+msgid "Voters"
+msgstr "المصوّتون"
+
+#: templates/polls/panel_list.html:20
+msgid "No votes yet."
+msgstr "لا توجد عمليات تصويت حاليًا."
+
+#: templates/polls/panel_results.html:9
+msgid "Active members"
+msgstr "المنخرطون النشطون"
+
+#: templates/polls/panel_results.html:10
+msgid "Turnout"
+msgstr "نسبة المشاركة"
+
+#: templates/polls/panel_results.html:13
+msgid "Final results"
+msgstr "النتائج النهائية"
+
+#: templates/polls/panel_results.html:13
+msgid "Live results (only admins see them)"
+msgstr "النتائج المباشرة (يراها المشرفون فقط)"
+
+#: templates/polls/panel_results.html:15
+msgid "Members will see these results once the vote is closed."
+msgstr "سيرى المنخرطون هذه النتائج بعد إغلاق التصويت."
+
+#: templates/polls/panel_results.html:15
+msgid "These results are not shown to members."
+msgstr "لا تُعرض هذه النتائج على المنخرطين."
+
+#: templates/polls/panel_results.html:19
+msgid "Close this vote now? Members will no longer be able to vote."
+msgstr "إغلاق هذا التصويت الآن؟ لن يتمكن المنخرطون من التصويت بعد ذلك."
+
+#: templates/polls/panel_results.html:19
+msgid "Close the vote now"
+msgstr "إغلاق التصويت الآن"
+
+#: templates/qa/chat.html:8
+msgid "SNPNCA AI Assistant"
+msgstr "مساعد SNPNCA الذكي"
+
+#: templates/qa/chat.html:9
+msgid "Document AI"
+msgstr "ذكاء اصطناعي للوثائق"
+
+#: templates/qa/chat.html:10
+#, python-format
+msgid "%(n)s doc"
+msgid_plural "%(n)s docs"
+msgstr[0] "%(n)s وثيقة"
+msgstr[1] "%(n)s وثيقة"
+msgstr[2] "%(n)s وثيقتان"
+msgstr[3] "%(n)s وثائق"
+msgstr[4] "%(n)s وثيقة"
+msgstr[5] "%(n)s وثيقة"
+
+#: templates/qa/chat.html:14
+msgid "Clear the conversation"
+msgstr "مسح المحادثة"
+
+#: templates/qa/chat.html:20
+msgid "You:"
+msgstr "أنت:"
+
+#: templates/qa/chat.html:20
+msgid "Assistant:"
+msgstr "المساعد:"
+
+#: templates/qa/chat.html:24
+msgid "Sources"
+msgstr "المصادر"
+
+#: templates/qa/chat.html:25
+#, python-format
+msgid "page %(page)s"
+msgstr "الصفحة %(page)s"
+
+#: templates/qa/chat.html:32
+msgid "Welcome to SNPNCA AI Assistant"
+msgstr "مرحبًا بك في مساعد SNPNCA الذكي"
+
+#: templates/qa/chat.html:33
+msgid "I answer questions based on your organizational documents."
+msgstr "أجيب عن الأسئلة استنادًا إلى وثائق نقابتك."
+
+#: templates/qa/chat.html:34
+msgid ""
+"Ask in French, English or Arabic. Each answer shows the document and page it"
+" comes from. If the documents do not contain the answer, I will tell you."
+msgstr ""
+"اطرح سؤالك بالفرنسية أو الإنجليزية أو العربية. يُظهر كل جواب الوثيقة والصفحة"
+" التي أُخذ منها. وإذا لم تتضمن الوثائق الجواب، فسأخبرك بذلك."
+
+#: templates/qa/chat.html:49
+msgid "Responding..."
+msgstr "جارٍ الرد..."
+
+#: templates/qa/chat.html:50
+msgid "Press Enter to send"
+msgstr "اضغط Enter للإرسال"
+
+#: templates/qa/chat.html:50
+msgid "Answers come only from the union's documents."
+msgstr "تُستقى الإجابات من وثائق النقابة فقط."
+
+#: templates/qa/documents.html:8
+msgid "Available Documents"
+msgstr "الوثائق المتاحة"
+
+#: templates/qa/documents.html:9
+msgid "Download and view the latest documents shared by the administration."
+msgstr "نزّل واطّلع على أحدث الوثائق التي نشرتها الإدارة."
+
+#: templates/qa/documents.html:11
+msgid "Total"
+msgstr "المجموع"
+
+#: templates/qa/documents.html:22
+msgid "View"
+msgstr "عرض"
+
+#: templates/qa/documents.html:27
+msgid "No documents found"
+msgstr "لم يُعثر على أي وثيقة"
+
+#: templates/team/page.html:2 templates/team/page.html:6
+msgid "Our team"
+msgstr "فريقنا"
+
+#: templates/team/page.html:7
+msgid ""
+"The national bureau of SNPNCA, elected by the members to represent and "
+"defend Algerian cabin crew."
+msgstr ""
+"المكتب الوطني لـ SNPNCA، المنتخب من قبل المنخرطين لتمثيل طاقم الضيافة "
+"الجزائري والدفاع عنه."
+
+#: templates/team/page.html:16
+msgid "Bureau members"
+msgstr "أعضاء المكتب"
+
+#: templates/team/panel_form.html:2 templates/team/panel_form.html:4
+#: templates/team/panel_list.html:6
+msgid "Add a person"
+msgstr "إضافة شخص"
+
+#: templates/team/panel_list.html:4
+msgid "Team page"
+msgstr "صفحة الفريق"
+
+#: templates/team/panel_list.html:5
+msgid ""
+"The people shown on the public team page, in hierarchy order. Only Master "
+"Admins can change this list."
+msgstr ""
+"الأشخاص المعروضون في صفحة الفريق العامة، حسب الترتيب الهرمي. وحدهم المشرفون "
+"الرئيسيون يمكنهم تعديل هذه القائمة."
+
+#: templates/team/panel_list.html:6
+msgid "See the public page"
+msgstr "عرض الصفحة العامة"
+
+#: templates/team/panel_list.html:9
+msgid "Photo"
+msgstr "الصورة"
+
+#: templates/team/panel_list.html:17
+msgid "Edit / add photo"
+msgstr "تعديل / إضافة صورة"
+
+#: templates/team/panel_list.html:20
+msgid "Nobody on the team page yet."
+msgstr "لا يوجد أحد في صفحة الفريق حاليًا."

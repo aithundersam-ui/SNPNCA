@@ -8,13 +8,16 @@ from django.utils.translation import gettext_lazy as _
 
 
 class BilingualMixin:
-    """`obj.localized("title")` returns title_fr or title_en for the active language,
-    falling back to the other language when the preferred one is empty."""
+    """`obj.localized("title")` returns title_fr, title_en or title_ar for the active
+    language. An empty field falls back to French, then English (Arabic is optional)."""
 
     def localized(self, field):
         lang = (get_language() or "fr")[:2]
-        other = "en" if lang == "fr" else "fr"
-        return getattr(self, f"{field}_{lang}", "") or getattr(self, f"{field}_{other}", "")
+        for code in dict.fromkeys([lang, "fr", "en"]):
+            value = getattr(self, f"{field}_{code}", "")
+            if value:
+                return value
+        return ""
 
 
 def hero_image_path(instance, filename):
@@ -28,6 +31,8 @@ class SiteContent(BilingualMixin, models.Model):
     description_en = models.TextField(_("organisation description (English)"), blank=True)
     mission_fr = models.TextField(_("our mission (French)"), blank=True)
     mission_en = models.TextField(_("our mission (English)"), blank=True)
+    description_ar = models.TextField(_("organisation description (Arabic)"), blank=True)
+    mission_ar = models.TextField(_("our mission (Arabic)"), blank=True)
     hero_image = models.ImageField(
         _("home page background photo"),
         upload_to=hero_image_path,

@@ -97,7 +97,7 @@ def parse(text: str, importer) -> list[Row]:
         if not row.whatsapp:
             row.warnings.append(_("No WhatsApp number: the member can add it when booking a meeting."))
         if row.language not in Language.values:
-            row.errors.append(_("Language must be fr or en."))
+            row.errors.append(_("Language must be fr, en or ar."))
         if row.role not in Role.values:
             row.errors.append(_("Role must be user, admin or master."))
         elif row.role != Role.USER and not importer.is_master:

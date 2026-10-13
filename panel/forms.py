@@ -4,6 +4,7 @@ from django.utils.translation import gettext_lazy as _
 from PIL import Image
 
 from accounts.models import Role
+from core.forms import ArabicFieldsMixin
 from news.models import Article, embed_url
 from qa.processing import InvalidPdf, validate_pdf_bytes
 
@@ -37,7 +38,7 @@ def validate_image(f):
     return f
 
 
-class ArticleForm(forms.ModelForm):
+class ArticleForm(ArabicFieldsMixin, forms.ModelForm):
     video_urls = forms.CharField(
         label=_("Videos (YouTube or Vimeo links, one per line)"),
         required=False,
@@ -47,10 +48,11 @@ class ArticleForm(forms.ModelForm):
 
     class Meta:
         model = Article
-        fields = ["title_fr", "title_en", "body_fr", "body_en", "published_at", "is_published"]
+        fields = ["title_fr", "title_en", "title_ar", "body_fr", "body_en", "body_ar", "published_at", "is_published"]
         widgets = {
             "body_fr": forms.Textarea(attrs={"rows": 10}),
             "body_en": forms.Textarea(attrs={"rows": 10}),
+            "body_ar": forms.Textarea(attrs={"rows": 10}),
             "published_at": forms.DateTimeInput(attrs={"type": "datetime-local"}, format="%Y-%m-%dT%H:%M"),
         }
 
@@ -70,7 +72,7 @@ class ArticleForm(forms.ModelForm):
     def clean(self):
         data = super().clean()
         if not (data.get("title_fr") or data.get("title_en")):
-            raise forms.ValidationError(_("Enter a title in at least one language."))
+            raise forms.ValidationError(_("Enter a title in French or English."))
         return data
 
 

@@ -1,6 +1,6 @@
 # SNPNCA membership website
 
-Website for the Syndicat National du Personnel Navigant Commercial Algérien: a public home page with a contact form, a members-only area (News and a Q&A assistant over the union's PDFs), and an admin panel. Everything is available in French (default) and English under `/fr/...` and `/en/...`.
+Website for the Syndicat National du Personnel Navigant Commercial Algérien: a public home page with a contact form, a members-only area (News and a Q&A assistant over the union's PDFs), and an admin panel. Everything is available in French (default), English and Arabic (right to left) under `/fr/...`, `/en/...` and `/ar/...`.
 
 ## Stack and why
 
@@ -56,7 +56,7 @@ DJANGO_DEBUG=1 DJANGO_TESTING=1 python manage.py test tests
 
 ## Translations
 
-All interface text is in `locale/fr/LC_MESSAGES/django.po` and `locale/en/LC_MESSAGES/django.po` (source strings are English). After changing text in code or templates:
+All interface text is in `locale/fr/LC_MESSAGES/django.po`, `locale/en/LC_MESSAGES/django.po` and `locale/ar/LC_MESSAGES/django.po` (source strings are English). The Arabic translation was machine-assisted and should be proofread by a native speaker. After changing text in code or templates:
 
 ```bash
 python manage.py makemessages -l fr -l en --ignore=tests --ignore=staticfiles
@@ -64,7 +64,7 @@ python manage.py makemessages -l fr -l en --ignore=tests --ignore=staticfiles
 python manage.py compilemessages
 ```
 
-Admin-written content (home page text, news) has separate French and English fields; if one is empty, the other is shown.
+Admin-written content (home page text, news, alerts, votes) has French, English and optional Arabic fields. An empty field falls back to French, then English. Arabic pages use the bundled Noto Sans Arabic font (`static/fonts`, SIL Open Font License).
 
 ## Roles
 

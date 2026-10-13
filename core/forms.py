@@ -13,6 +13,16 @@ MIN_FILL_SECONDS = 3
 FORM_MAX_AGE = 60 * 60 * 6
 
 
+class ArabicFieldsMixin:
+    """Arabic fields (names ending in _ar) are typed right to left."""
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for name, field in self.fields.items():
+            if name.endswith("_ar"):
+                field.widget.attrs.update({"dir": "rtl", "lang": "ar"})
+
+
 class ContactForm(forms.ModelForm):
     """Contact Us form with two invisible spam checks: a honeypot field that
     people never see, and a signed timestamp that rejects instant bot submits."""
@@ -67,11 +77,11 @@ class ContactForm(forms.ModelForm):
         return time.time() - float(started) < MIN_FILL_SECONDS
 
 
-class SiteContentForm(forms.ModelForm):
+class SiteContentForm(ArabicFieldsMixin, forms.ModelForm):
     class Meta:
         model = SiteContent
-        fields = ["description_fr", "description_en", "mission_fr", "mission_en", "hero_image"]
-        widgets = {f: forms.Textarea(attrs={"rows": 6}) for f in fields[:4]}
+        fields = ["description_fr", "description_en", "description_ar", "mission_fr", "mission_en", "mission_ar", "hero_image"]
+        widgets = {f: forms.Textarea(attrs={"rows": 6}) for f in fields[:6]}
 
     def clean_hero_image(self):
         from panel.forms import validate_image

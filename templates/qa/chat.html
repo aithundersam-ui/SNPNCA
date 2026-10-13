@@ -18,7 +18,7 @@
       {% for m in history %}
         <div class="bubble {{ m.role }}{% if m.role == 'assistant' and not m.answered %} unanswered{% endif %}" {% if forloop.last %}id="latest"{% endif %}>
           <span class="sr-only">{% if m.role == 'user' %}{% translate "You:" %}{% else %}{% translate "Assistant:" %}{% endif %}</span>
-          <div class="bubble-text">{{ m.content }}</div>
+          <div class="bubble-text" dir="auto">{{ m.content }}</div>
           {% if m.citations %}
           <div class="sources">
             <strong>{% translate "Sources" %}</strong>
@@ -31,7 +31,7 @@
           {% icon "bot" 48 %}
           <h2>{% translate "Welcome to SNPNCA AI Assistant" %}</h2>
           <p>{% translate "I answer questions based on your organizational documents." %}</p>
-          <p class="small">{% translate "Ask in French or English. Each answer shows the document and page it comes from. If the documents do not contain the answer, I will tell you." %}</p>
+          <p class="small">{% translate "Ask in French, English or Arabic. Each answer shows the document and page it comes from. If the documents do not contain the answer, I will tell you." %}</p>
         </div>
       {% endfor %}
     </div>

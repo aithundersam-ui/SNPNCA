@@ -21,6 +21,8 @@ class Alert(BilingualMixin, models.Model):
     title_en = models.CharField(_("title (English)"), max_length=200, blank=True)
     body_fr = models.TextField(_("message (French)"), blank=True)
     body_en = models.TextField(_("message (English)"), blank=True)
+    title_ar = models.CharField(_("title (Arabic)"), max_length=200, blank=True)
+    body_ar = models.TextField(_("message (Arabic)"), blank=True)
     show_until = models.DateTimeField(_("show the banner until"), default=default_show_until)
     created_by = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, on_delete=models.SET_NULL, related_name="+")
     created_at = models.DateTimeField(auto_now_add=True)
@@ -43,7 +45,7 @@ class Alert(BilingualMixin, models.Model):
             return settings.SITE_URL + reverse("alerts:detail", args=[self.pk])
 
     def text_in(self, language):
-        """Title and message in `language`, falling back to the other language."""
+        """Title and message in `language`, falling back to French, then English."""
         with translation.override(language):
             return self.localized("title"), self.localized("body")
 
@@ -58,5 +60,5 @@ class Alert(BilingualMixin, models.Model):
     def whatsapp_link_for(self, user):
         if not user.whatsapp_number:
             return ""
-        language = user.preferred_language if user.preferred_language in ("fr", "en") else "fr"
+        language = user.preferred_language if user.preferred_language in ("fr", "en", "ar") else "fr"
         return f"{user.whatsapp_link}?text={quote(self.whatsapp_text(language))}"

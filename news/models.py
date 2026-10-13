@@ -35,6 +35,8 @@ class Article(BilingualMixin, models.Model):
     title_en = models.CharField(_("title (English)"), max_length=200, blank=True)
     body_fr = models.TextField(_("text (French)"), blank=True)
     body_en = models.TextField(_("text (English)"), blank=True)
+    title_ar = models.CharField(_("title (Arabic)"), max_length=200, blank=True)
+    body_ar = models.TextField(_("text (Arabic)"), blank=True)
     published_at = models.DateTimeField(_("publication date"), default=timezone.now, db_index=True)
     is_published = models.BooleanField(_("published"), default=True)
     created_by = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, on_delete=models.SET_NULL, related_name="+")

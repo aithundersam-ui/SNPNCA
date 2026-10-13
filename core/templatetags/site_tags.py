@@ -50,10 +50,17 @@ ICONS = {
 }
 
 
+# Arrows that point along the reading direction are mirrored in Arabic pages.
+DIRECTIONAL_ICONS = {"arrow-right", "arrow-up-right", "log-in", "log-out", "send"}
+
+
 @register.simple_tag
 def icon(name, size=16, cls=""):
     from django.utils.html import format_html
     from django.utils.safestring import mark_safe
+
+    if name in DIRECTIONAL_ICONS:
+        cls = f"{cls} icon-flip".strip()  # mirrored in right-to-left pages
 
     return format_html(
         '<svg class="icon {}" width="{}" height="{}" viewBox="0 0 24 24" fill="none" stroke="currentColor" '
