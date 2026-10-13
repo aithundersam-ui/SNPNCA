@@ -1,0 +1,12 @@
+{% load i18n site_tags %}<article class="team-card{% if featured %} featured{% endif %}">
+  <div class="team-photo">
+    {% if person.photo %}<img src="{% url 'team:photo' person.pk %}?v={{ person.updated_at|date:'U' }}" alt="{{ person.full_name }}" loading="lazy" width="240" height="240">
+    {% else %}<span class="team-initials" aria-hidden="true">{{ person.initials }}</span>{% endif %}
+  </div>
+  <p class="team-role">{{ person.get_role_display }}</p>
+  <h3 class="team-name">{{ person.full_name }}</h3>
+  <div class="team-actions">
+    <a class="btn primary small" href="{% url 'core:home' %}?to={{ person.pk }}#contact">{% icon "mail" 16 %}{% translate "Contact" %}</a>
+    {% if person.whatsapp_link %}<a class="btn whatsapp small" href="{{ person.whatsapp_link }}" target="_blank" rel="noopener noreferrer">{% icon "phone" 16 %}WhatsApp</a>{% endif %}
+  </div>
+</article>

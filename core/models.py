@@ -60,6 +60,9 @@ class ContactMessage(models.Model):
     email = models.EmailField(_("email"))
     phone = models.CharField(_("phone number"), max_length=30)
     message = models.TextField(_("message"), max_length=5000)
+    recipient = models.ForeignKey(
+        "team.TeamMember", null=True, blank=True, on_delete=models.SET_NULL, related_name="+", verbose_name=_("addressed to")
+    )
     language = models.CharField(max_length=2, default="fr")
     status = models.CharField(max_length=10, choices=Status.choices, default=Status.NEW, db_index=True)
     created_at = models.DateTimeField(auto_now_add=True)

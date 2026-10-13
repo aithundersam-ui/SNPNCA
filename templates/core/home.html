@@ -22,6 +22,7 @@
           {% include "_nav_links.html" %}
         {% else %}
           <a href="#mission">{% translate "Our Mission" %}</a>
+          <a href="{% url 'team:page' %}">{% translate "Team" %}</a>
           <a href="#contact">{% translate "Contact" %}</a>
         {% endif %}
       </nav>
@@ -45,6 +46,7 @@
             <a href="{% url 'accounts:settings' %}">{% translate "My account" %}</a>
           {% else %}
             <a href="#mission">{% translate "Our Mission" %}</a>
+            <a href="{% url 'team:page' %}">{% translate "Team" %}</a>
             <a href="#contact">{% translate "Contact" %}</a>
           {% endif %}
         </nav>
@@ -139,7 +141,8 @@
       <form method="post" action="{% url 'core:home' %}#contact" novalidate>
         {% csrf_token %}
         {% if form.non_field_errors %}<ul class="errorlist nonfield" role="alert">{% for e in form.non_field_errors %}<li>{{ e }}</li>{% endfor %}</ul>{% endif %}
-        {{ form.ts }}
+        {{ form.ts }}{{ form.recipient }}
+        {% if recipient %}<p class="notice ok contact-to">{% icon "user" 18 %}{% blocktranslate with name=recipient.full_name role=recipient.get_role_display %}Your message will be passed to {{ name }} ({{ role }}).{% endblocktranslate %}</p>{% endif %}
         <div class="form-row">
           {% include "core/_contact_field.html" with field=form.full_name icon_name="user" %}
           {% include "core/_contact_field.html" with field=form.email icon_name="mail" %}

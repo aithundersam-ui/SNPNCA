@@ -346,7 +346,7 @@ def news_delete(request, pk):
 @admin_required
 def message_list(request):
     status = request.GET.get("status", "")
-    qs = ContactMessage.objects.all()
+    qs = ContactMessage.objects.select_related("recipient")
     if status in ContactMessage.Status.values:
         qs = qs.filter(status=status)
     page = Paginator(qs, 25).get_page(request.GET.get("page"))

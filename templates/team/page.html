@@ -1,0 +1,23 @@
+{% extends "base.html" %}{% load i18n site_tags %}
+{% block title %}{% translate "Our team" %}{% endblock %}
+{% block content %}
+<div class="team-page">
+  <header class="team-head">
+    <h1 class="page-head">{% icon "user" 32 %}{% translate "Our team" %}</h1>
+    <p class="page-sub">{% translate "The national bureau of SNPNCA, elected by the members to represent and defend Algerian cabin crew." %}</p>
+  </header>
+  {% if leaders %}
+  <div class="team-tier tier-1">{% for person in leaders %}{% include "team/_card.html" with featured=True %}{% endfor %}</div>
+  {% endif %}
+  {% if officers %}
+  <div class="team-tier tier-2">{% for person in officers %}{% include "team/_card.html" %}{% endfor %}</div>
+  {% endif %}
+  {% if members %}
+  <h2 class="team-tier-title">{% translate "Bureau members" %}</h2>
+  <div class="team-tier tier-3">{% for person in members %}{% include "team/_card.html" %}{% endfor %}</div>
+  {% endif %}
+  {% if not leaders and not officers and not members %}
+  <div class="card empty">{% icon "user" 48 %}<h2>{% translate "Coming soon" %}</h2></div>
+  {% endif %}
+</div>
+{% endblock %}

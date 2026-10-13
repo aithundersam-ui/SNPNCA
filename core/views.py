@@ -14,6 +14,8 @@ from accounts.audit import client_ip
 from accounts.emails import send_templated
 from accounts.lockout import hit_rate_limit
 
+from team.models import TeamMember
+
 from .forms import ContactForm
 from .models import SiteContent
 
@@ -36,7 +38,9 @@ def healthz(request):
 
 def home(request):
     content = SiteContent.load()
-    form = ContactForm(request.POST or None)
+    to = request.POST.get("recipient") if request.method == "POST" else request.GET.get("to")
+    recipient = TeamMember.objects.filter(pk=to).first() if (to or "").isdigit() else None
+    form = ContactForm(request.POST or None, initial={"recipient": recipient})
     if request.method == "POST":
         if form.is_valid():
             if form.is_spam() or hit_rate_limit(f"contact:{client_ip(request)}", 5, 3600):
@@ -49,7 +53,7 @@ def home(request):
             _notify_admins(contact)
             messages.success(request, _("Message sent successfully! We will get back to you soon."))
             return redirect(f"{request.path}#contact")
-    return render(request, "core/home.html", {"content": content, "form": form})
+    return render(request, "core/home.html", {"content": content, "form": form, "recipient": recipient})
 
 
 def _notify_admins(contact):

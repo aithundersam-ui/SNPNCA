@@ -10,6 +10,7 @@
     {% if user.is_master %}<a href="{% url 'panel:admins' %}" {% if name == 'admins' or name == 'admin_create' %}aria-current="page"{% endif %}>{% translate "Admins" %}</a>{% endif %}
     <a href="{% url 'panel:documents' %}" {% if name == 'documents' %}aria-current="page"{% endif %}>{% translate "Documents" %}</a>
     <a href="{% url 'panel:news' %}" {% if name == 'news' or name == 'news_create' or name == 'news_edit' %}aria-current="page"{% endif %}>{% translate "News" %}</a>
+    {% if user.is_master %}<a href="{% url 'panel:team' %}" {% if 'team' in name %}aria-current="page"{% endif %}>{% translate "Team" %}</a>{% endif %}
     <a href="{% url 'panel:alerts' %}" {% if 'alert' in name %}aria-current="page"{% endif %}>{% translate "Alerts" %}</a>
     <a href="{% url 'panel:polls' %}" {% if 'poll' in name %}aria-current="page"{% endif %}>{% translate "Votes" %}</a>
     <a href="{% url 'panel:meetings' %}" {% if 'meeting' in name %}aria-current="page"{% endif %}>{% translate "Meetings" %}</a>

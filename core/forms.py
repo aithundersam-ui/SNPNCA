@@ -22,7 +22,7 @@ class ContactForm(forms.ModelForm):
 
     class Meta:
         model = ContactMessage
-        fields = ["full_name", "email", "phone", "message"]
+        fields = ["full_name", "email", "phone", "message", "recipient"]
         labels = {
             "full_name": _("Full Name"),
             "email": _("Email"),
@@ -34,14 +34,16 @@ class ContactForm(forms.ModelForm):
             "email": forms.EmailInput(attrs={"autocomplete": "email", "placeholder": _("your.email@example.com")}),
             "phone": forms.TextInput(attrs={"autocomplete": "tel", "inputmode": "tel", "placeholder": "+213 5XX XX XX XX"}),
             "message": forms.Textarea(attrs={"rows": 6, "placeholder": _("How can we help you?")}),
+            "recipient": forms.HiddenInput,
         }
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         if not self.is_bound:
             self.initial["ts"] = signing.dumps(time.time(), salt="contact-ts")
-        for name in self.Meta.fields:
+        for name in ["full_name", "email", "phone", "message"]:
             self.fields[name].required = True
+        self.fields["recipient"].required = False
 
     def clean_phone(self):
         phone = self.cleaned_data["phone"].strip()

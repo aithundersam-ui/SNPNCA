@@ -1,0 +1,13 @@
+{% extends "panel/_layout.html" %}{% load i18n %}
+{% block title %}{% if person %}{{ person.full_name }}{% else %}{% translate "Add a person" %}{% endif %}{% endblock %}
+{% block panel %}
+<h1>{% if person %}{{ person.full_name }}{% else %}{% translate "Add a person" %}{% endif %}</h1>
+<form method="post" enctype="multipart/form-data" class="card" novalidate>
+  {% csrf_token %}
+  {% include "_form_fields.html" %}
+  <div class="actions">
+    <button type="submit" class="btn">{% translate "Save" %}</button>
+    <a href="{% url 'panel:team' %}">{% translate "Cancel" %}</a>
+  </div>
+</form>
+{% endblock %}

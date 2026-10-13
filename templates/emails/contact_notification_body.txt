@@ -2,7 +2,8 @@
 
 {% translate "Name:" %} {{ contact.full_name }}
 {% translate "Email:" %} {{ contact.email }}
-{% translate "Phone:" %} {{ contact.phone }}
+{% translate "Phone:" %} {{ contact.phone }}{% if contact.recipient %}
+{% translate "Addressed to:" %} {{ contact.recipient.full_name }} ({{ contact.recipient.get_role_display }}){% endif %}
 
 {{ contact.message }}
 

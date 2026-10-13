@@ -13,7 +13,7 @@
   <tbody>
   {% for m in page %}
   <tr>
-    <td><a href="{% url 'panel:message_detail' m.pk %}">{{ m.full_name }}</a><div class="small muted">{{ m.email }}</div></td>
+    <td><a href="{% url 'panel:message_detail' m.pk %}">{{ m.full_name }}</a><div class="small muted">{{ m.email }}{% if m.recipient %} · {% blocktranslate with name=m.recipient.full_name %}For {{ name }}{% endblocktranslate %}{% endif %}</div></td>
     <td>{{ m.message|truncatechars:90 }}</td>
     <td class="small">{{ m.created_at|date:"SHORT_DATETIME_FORMAT" }}</td>
     <td><span class="badge {{ m.status }}">{{ m.get_status_display }}</span></td>

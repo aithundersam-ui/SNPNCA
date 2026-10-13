@@ -1,0 +1,25 @@
+{% extends "panel/_layout.html" %}{% load i18n site_tags %}
+{% block title %}{% translate "Team" %}{% endblock %}
+{% block panel %}
+<h1>{% translate "Team page" %}</h1>
+<p class="muted">{% translate "The people shown on the public team page, in hierarchy order. Only Master Admins can change this list." %}</p>
+<p><a class="btn" href="{% url 'panel:team_create' %}">{% icon "user-plus" 16 %}{% translate "Add a person" %}</a> <a href="{% url 'team:page' %}" target="_blank" rel="noopener">{% translate "See the public page" %}</a></p>
+<div class="table-wrap">
+<table>
+  <thead><tr><th>{% translate "Photo" %}</th><th>{% translate "Name" %}</th><th>{% translate "Role" %}</th><th>WhatsApp</th><th><span class="sr-only">{% translate "Actions" %}</span></th></tr></thead>
+  <tbody>
+  {% for person in people %}
+  <tr>
+    <td>{% if person.photo %}<img class="team-thumb" src="{% url 'team:photo' person.pk %}?v={{ person.updated_at|date:'U' }}" alt="" width="40" height="40">{% else %}<span class="team-thumb team-initials">{{ person.initials }}</span>{% endif %}</td>
+    <td>{{ person.full_name }}</td>
+    <td>{{ person.get_role_display }}</td>
+    <td>{{ person.whatsapp_number|default:"—" }}</td>
+    <td><div class="actions"><a class="btn secondary small" href="{% url 'panel:team_edit' person.pk %}">{% if person.photo %}{% translate "Edit" %}{% else %}{% translate "Edit / add photo" %}{% endif %}</a><a class="btn danger small" href="{% url 'panel:team_delete' person.pk %}">{% translate "Delete" %}</a></div></td>
+  </tr>
+  {% empty %}
+  <tr><td colspan="5" class="muted">{% translate "Nobody on the team page yet." %}</td></tr>
+  {% endfor %}
+  </tbody>
+</table>
+</div>
+{% endblock %}

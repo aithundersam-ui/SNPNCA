@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-13 21:20+0100\n"
+"POT-Creation-Date: 2026-10-13 22:04+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -112,11 +112,11 @@ msgstr "Admin"
 msgid "Master Admin"
 msgstr "Master Admin"
 
-#: accounts/models.py:17 config/settings.py:133
+#: accounts/models.py:17 config/settings.py:134
 msgid "French"
 msgstr "French"
 
-#: accounts/models.py:18 config/settings.py:133
+#: accounts/models.py:18 config/settings.py:134
 msgid "English"
 msgstr "English"
 
@@ -130,7 +130,7 @@ msgstr ""
 msgid "email"
 msgstr "email"
 
-#: accounts/models.py:59 core/models.py:59
+#: accounts/models.py:59 core/models.py:59 team/models.py:27
 msgid "full name"
 msgstr "full name"
 
@@ -138,7 +138,7 @@ msgstr "full name"
 msgid "WhatsApp number"
 msgstr ""
 
-#: accounts/models.py:61
+#: accounts/models.py:61 team/models.py:28
 msgid "role"
 msgstr "role"
 
@@ -281,21 +281,21 @@ msgstr ""
 msgid "How can we help you?"
 msgstr ""
 
-#: core/forms.py:49
+#: core/forms.py:51
 msgid "Enter a valid phone number."
 msgstr "Enter a valid phone number."
 
-#: core/forms.py:55
+#: core/forms.py:57
 msgid "Your message is too short."
 msgstr "Your message is too short."
 
-#: core/forms.py:105 core/forms.py:107
+#: core/forms.py:107 core/forms.py:109
 msgid ""
 "Paste the link of a Google Form (it starts with https://forms.gle/ or "
 "https://docs.google.com/forms/)."
 msgstr ""
 
-#: core/forms.py:112
+#: core/forms.py:114
 msgid "Reply"
 msgstr "Reply"
 
@@ -351,31 +351,35 @@ msgstr "phone number"
 msgid "message"
 msgstr "message"
 
-#: core/views.py:44 core/views.py:50
+#: core/models.py:64
+msgid "addressed to"
+msgstr ""
+
+#: core/views.py:48 core/views.py:54
 msgid "Message sent successfully! We will get back to you soon."
 msgstr ""
 
-#: core/views.py:96
+#: core/views.py:100
 msgid "Access denied"
 msgstr "Access denied"
 
-#: core/views.py:96
+#: core/views.py:100
 msgid "You do not have permission to view this page."
 msgstr "You do not have permission to view this page."
 
-#: core/views.py:100
+#: core/views.py:104
 msgid "Page Not Found"
 msgstr ""
 
-#: core/views.py:100
+#: core/views.py:104
 msgid "The page you're looking for doesn't exist or may have been moved."
 msgstr ""
 
-#: core/views.py:104
+#: core/views.py:108
 msgid "Server error"
 msgstr "Server error"
 
-#: core/views.py:104
+#: core/views.py:108
 msgid "Something went wrong. Please try again later."
 msgstr "Something went wrong. Please try again later."
 
@@ -578,7 +582,7 @@ msgstr "This file is not a valid, unprotected PDF."
 
 #: panel/forms.py:96 templates/panel/admins.html:9
 #: templates/panel/admins.html:19 templates/panel/csv_import.html:22
-#: templates/panel/users.html:16
+#: templates/panel/users.html:16 templates/team/panel_list.html:9
 msgid "Role"
 msgstr "Role"
 
@@ -848,6 +852,57 @@ msgid ""
 msgstr ""
 "You have asked many questions in a short time. Please wait a few minutes."
 
+#: team/models.py:20
+msgid "President"
+msgstr ""
+
+#: team/models.py:21
+msgid "General Secretary"
+msgstr ""
+
+#: team/models.py:22
+msgid "Treasurer"
+msgstr ""
+
+#: team/models.py:23
+msgctxt "bureau role"
+msgid "Member"
+msgstr ""
+
+#: team/models.py:31
+msgid "order within the same role"
+msgstr ""
+
+#: team/models.py:31
+msgid "Lower numbers come first, for example among the members."
+msgstr ""
+
+#: team/models.py:33
+msgid "photo"
+msgstr ""
+
+#: team/models.py:33
+msgid "A square portrait works best."
+msgstr ""
+
+#: team/models.py:35
+msgid "WhatsApp number (optional)"
+msgstr ""
+
+#: team/models.py:38
+msgid ""
+"If filled in, visitors see a WhatsApp button on this card. Leave empty to "
+"keep it private."
+msgstr ""
+
+#: team/panel_views.py:24
+msgid "Team page updated."
+msgstr ""
+
+#: team/panel_views.py:35
+msgid "Removed from the team page."
+msgstr ""
+
 #: templates/_lang_switch.html:1 templates/panel/csv_import.html:22
 msgid "Language"
 msgstr "Language"
@@ -856,36 +911,42 @@ msgstr "Language"
 msgid "Home"
 msgstr "Home"
 
-#: templates/_nav_links.html:3 templates/qa/chat.html:2
+#: templates/_nav_links.html:2 templates/core/home.html:25
+#: templates/core/home.html:49 templates/panel/_layout.html:13
+#: templates/team/panel_list.html:2
+msgid "Team"
+msgstr ""
+
+#: templates/_nav_links.html:4 templates/qa/chat.html:2
 msgid "Q&A"
 msgstr "Q&A"
 
-#: templates/_nav_links.html:4 templates/news/list.html:2
+#: templates/_nav_links.html:5 templates/news/list.html:2
 #: templates/panel/_layout.html:12 templates/panel/news.html:2
 #: templates/panel/news.html:4
 msgid "News"
 msgstr "News"
 
-#: templates/_nav_links.html:5 templates/panel/_layout.html:11
+#: templates/_nav_links.html:6 templates/panel/_layout.html:11
 #: templates/panel/dashboard.html:8 templates/panel/documents.html:2
 #: templates/panel/documents.html:4 templates/qa/chat.html:12
 #: templates/qa/documents.html:2
 msgid "Documents"
 msgstr "Documents"
 
-#: templates/_nav_links.html:6 templates/panel/_layout.html:14
+#: templates/_nav_links.html:7 templates/panel/_layout.html:15
 #: templates/polls/list.html:2 templates/polls/list.html:5
 #: templates/polls/panel_list.html:2 templates/polls/panel_list.html:4
 msgid "Votes"
 msgstr ""
 
-#: templates/_nav_links.html:7 templates/meetings/index.html:2
+#: templates/_nav_links.html:8 templates/meetings/index.html:2
 #: templates/meetings/panel_days.html:2 templates/meetings/panel_days.html:4
-#: templates/panel/_layout.html:15
+#: templates/panel/_layout.html:16
 msgid "Meetings"
 msgstr ""
 
-#: templates/_nav_links.html:8
+#: templates/_nav_links.html:9
 msgctxt "navigation"
 msgid "Admin"
 msgstr ""
@@ -912,7 +973,7 @@ msgid "Sign In"
 msgstr ""
 
 #: templates/accounts/login.html:7 templates/base.html:22
-#: templates/core/home.html:16
+#: templates/core/home.html:17
 msgid "SNPNCA logo"
 msgstr "SNPNCA logo"
 
@@ -977,8 +1038,8 @@ msgid "Your password has been saved. You can now log in."
 msgstr "Your password has been saved. You can now log in."
 
 #: templates/accounts/password_reset_complete.html:7 templates/base.html:34
-#: templates/base.html:50 templates/core/home.html:33
-#: templates/core/home.html:54 templates/core/home.html:96
+#: templates/base.html:50 templates/core/home.html:35
+#: templates/core/home.html:57 templates/core/home.html:101
 msgid "Log in"
 msgstr "Log in"
 
@@ -1013,8 +1074,8 @@ msgstr ""
 "password. The link is valid for 3 days."
 
 #: templates/accounts/settings.html:2 templates/accounts/settings.html:5
-#: templates/base.html:31 templates/base.html:44 templates/core/home.html:30
-#: templates/core/home.html:44
+#: templates/base.html:31 templates/base.html:44 templates/core/home.html:32
+#: templates/core/home.html:46
 msgid "My account"
 msgstr "My account"
 
@@ -1022,6 +1083,7 @@ msgstr "My account"
 #: templates/meetings/panel_day_form.html:9
 #: templates/panel/home_content.html:19 templates/panel/news_form.html:37
 #: templates/panel/user_form.html:10 templates/polls/panel_form.html:10
+#: templates/team/panel_form.html:9
 msgid "Save"
 msgstr "Save"
 
@@ -1147,7 +1209,7 @@ msgstr[1] ""
 #: templates/alerts/panel_detail.html:33 templates/meetings/panel_days.html:19
 #: templates/panel/confirm_delete.html:8 templates/panel/documents.html:24
 #: templates/panel/news.html:16 templates/panel/users.html:30
-#: templates/polls/panel_results.html:20
+#: templates/polls/panel_results.html:20 templates/team/panel_list.html:17
 msgid "Delete"
 msgstr "Delete"
 
@@ -1175,11 +1237,11 @@ msgstr ""
 #: templates/meetings/panel_queue.html:27
 #: templates/panel/confirm_delete.html:9 templates/panel/news_form.html:38
 #: templates/panel/set_password.html:11 templates/panel/user_form.html:11
-#: templates/polls/panel_form.html:11
+#: templates/polls/panel_form.html:11 templates/team/panel_form.html:10
 msgid "Cancel"
 msgstr "Cancel"
 
-#: templates/alerts/panel_list.html:2 templates/panel/_layout.html:13
+#: templates/alerts/panel_list.html:2 templates/panel/_layout.html:14
 msgid "Alerts"
 msgstr ""
 
@@ -1218,17 +1280,17 @@ msgstr ""
 msgid "Skip to content"
 msgstr "Skip to content"
 
-#: templates/base.html:25 templates/base.html:42 templates/core/home.html:19
-#: templates/core/home.html:41
+#: templates/base.html:25 templates/base.html:42 templates/core/home.html:20
+#: templates/core/home.html:43
 msgid "Main navigation"
 msgstr "Main navigation"
 
-#: templates/base.html:32 templates/base.html:48 templates/core/home.html:31
-#: templates/core/home.html:52
+#: templates/base.html:32 templates/base.html:48 templates/core/home.html:33
+#: templates/core/home.html:55
 msgid "Log out"
 msgstr "Log out"
 
-#: templates/base.html:38 templates/core/home.html:37
+#: templates/base.html:38 templates/core/home.html:39
 msgid "Menu"
 msgstr ""
 
@@ -1240,42 +1302,43 @@ msgstr ""
 msgid "Go Back"
 msgstr ""
 
-#: templates/core/home.html:23 templates/core/home.html:46
-#: templates/core/home.html:103
+#: templates/core/home.html:24 templates/core/home.html:48
+#: templates/core/home.html:108
 msgid "Our Mission"
 msgstr ""
 
-#: templates/core/home.html:24 templates/core/home.html:47
+#: templates/core/home.html:26 templates/core/home.html:50
+#: templates/team/_card.html:9
 msgid "Contact"
 msgstr ""
 
-#: templates/core/home.html:60
+#: templates/core/home.html:65
 msgid "The voice of Algerian cabin crew"
 msgstr ""
 
-#: templates/core/home.html:61
+#: templates/core/home.html:66
 msgid ""
 "Defending the rights, working conditions and dignity of flight attendants "
 "across Algeria."
 msgstr ""
 
-#: templates/core/home.html:64
+#: templates/core/home.html:69
 msgid "Ask AI Assistant"
 msgstr ""
 
-#: templates/core/home.html:66
+#: templates/core/home.html:71
 msgid "Get started"
 msgstr ""
 
-#: templates/core/home.html:68
+#: templates/core/home.html:73
 msgid "Become a member"
 msgstr ""
 
-#: templates/core/home.html:78
+#: templates/core/home.html:83
 msgid "About us"
 msgstr "About us"
 
-#: templates/core/home.html:81
+#: templates/core/home.html:86
 msgid ""
 "An independent organization representing Algerian flight attendants, "
 "committed to protecting their rights, enhancing their status, and improving "
@@ -1283,19 +1346,19 @@ msgid ""
 "national level."
 msgstr ""
 
-#: templates/core/home.html:82
+#: templates/core/home.html:87
 msgid "Latest News"
 msgstr ""
 
-#: templates/core/home.html:88
+#: templates/core/home.html:93
 msgid "Close"
 msgstr ""
 
-#: templates/core/home.html:90
+#: templates/core/home.html:95
 msgid "Not a member yet?"
 msgstr ""
 
-#: templates/core/home.html:91
+#: templates/core/home.html:96
 #, python-format
 msgid ""
 "Join %(ORG_SHORT)s: fill in the membership form with your details. Our "
@@ -1303,68 +1366,73 @@ msgid ""
 "to choose your password."
 msgstr ""
 
-#: templates/core/home.html:93
+#: templates/core/home.html:98
 msgid "Fill in the membership form"
 msgstr ""
 
-#: templates/core/home.html:94
+#: templates/core/home.html:99
 msgid "Maybe later"
 msgstr ""
 
-#: templates/core/home.html:96
+#: templates/core/home.html:101
 msgid "Already a member?"
 msgstr ""
 
-#: templates/core/home.html:105
+#: templates/core/home.html:110
 msgid ""
 "To represent, defend, and protect the interests of flight attendants. We are"
 " the voice of cabin crew, working every day to improve your working "
 "conditions and safeguard your rights."
 msgstr ""
 
-#: templates/core/home.html:110
+#: templates/core/home.html:115
 msgid "Knowledge Sharing"
 msgstr ""
 
-#: templates/core/home.html:111
+#: templates/core/home.html:116
 msgid ""
 "Centralized access to organizational documents and resources with "
 "intelligent search capabilities."
 msgstr ""
 
-#: templates/core/home.html:115
+#: templates/core/home.html:120
 msgid "AI-Powered Assistance"
 msgstr ""
 
-#: templates/core/home.html:116
+#: templates/core/home.html:121
 msgid ""
 "Get instant, accurate answers from your organization's knowledge base using "
 "advanced AI technology."
 msgstr ""
 
-#: templates/core/home.html:120
+#: templates/core/home.html:125
 msgid "Secure & Controlled"
 msgstr ""
 
-#: templates/core/home.html:121
+#: templates/core/home.html:126
 msgid ""
 "Enterprise-grade security with role-based access control to protect "
 "sensitive information."
 msgstr ""
 
-#: templates/core/home.html:130 templates/core/home.html:134
+#: templates/core/home.html:135 templates/core/home.html:139
 msgid "Contact Us"
 msgstr ""
 
-#: templates/core/home.html:131
+#: templates/core/home.html:136
 msgid "Get in touch with us for any questions or support needs."
 msgstr ""
 
-#: templates/core/home.html:135
+#: templates/core/home.html:140
 msgid "All fields are required."
 msgstr ""
 
-#: templates/core/home.html:147
+#: templates/core/home.html:145
+#, python-format
+msgid "Your message will be passed to %(name)s (%(role)s)."
+msgstr ""
+
+#: templates/core/home.html:153
 msgid ""
 "Privacy notice: we use your name, email, phone number and message only to "
 "answer your request. They are kept in our admin panel and are not shared "
@@ -1374,7 +1442,7 @@ msgstr ""
 "answer your request. They are kept in our admin panel and are not shared "
 "with third parties. To have them deleted, write to us using this form."
 
-#: templates/core/home.html:148
+#: templates/core/home.html:154
 msgid "Send Message"
 msgstr ""
 
@@ -1406,7 +1474,11 @@ msgstr "Email:"
 msgid "Phone:"
 msgstr "Phone:"
 
-#: templates/emails/contact_notification_body.txt:9
+#: templates/emails/contact_notification_body.txt:6
+msgid "Addressed to:"
+msgstr ""
+
+#: templates/emails/contact_notification_body.txt:10
 msgid "Reply from the admin panel:"
 msgstr "Reply from the admin panel:"
 
@@ -1631,7 +1703,7 @@ msgstr ""
 #: templates/meetings/panel_days.html:9 templates/meetings/panel_queue.html:14
 #: templates/panel/admins.html:9 templates/panel/documents.html:13
 #: templates/panel/news.html:8 templates/panel/users.html:16
-#: templates/polls/panel_list.html:9
+#: templates/polls/panel_list.html:9 templates/team/panel_list.html:9
 msgid "Actions"
 msgstr "Actions"
 
@@ -1641,7 +1713,7 @@ msgstr ""
 
 #: templates/meetings/panel_days.html:19 templates/panel/news.html:16
 #: templates/panel/users.html:27 templates/polls/panel_list.html:17
-#: templates/polls/panel_results.html:18
+#: templates/polls/panel_results.html:18 templates/team/panel_list.html:17
 msgid "Edit"
 msgstr "Edit"
 
@@ -1757,15 +1829,15 @@ msgstr "Users"
 msgid "Admins"
 msgstr "Admins"
 
-#: templates/panel/_layout.html:16 templates/panel/messages.html:2
+#: templates/panel/_layout.html:17 templates/panel/messages.html:2
 msgid "Messages"
 msgstr "Messages"
 
-#: templates/panel/_layout.html:17 templates/panel/home_content.html:2
+#: templates/panel/_layout.html:18 templates/panel/home_content.html:2
 msgid "Home page"
 msgstr "Home page"
 
-#: templates/panel/_layout.html:18 templates/panel/audit.html:2
+#: templates/panel/_layout.html:19 templates/panel/audit.html:2
 #: templates/panel/audit.html:4
 msgid "Audit log"
 msgstr "Audit log"
@@ -1783,7 +1855,7 @@ msgid "New admin"
 msgstr "New admin"
 
 #: templates/panel/admins.html:9 templates/panel/csv_import.html:22
-#: templates/panel/users.html:16
+#: templates/panel/users.html:16 templates/team/panel_list.html:9
 msgid "Name"
 msgstr "Name"
 
@@ -2009,6 +2081,11 @@ msgstr ""
 msgid "All messages"
 msgstr "All messages"
 
+#: templates/panel/message_detail.html:7 templates/panel/messages.html:16
+#, python-format
+msgid "For %(name)s"
+msgstr ""
+
 #: templates/panel/message_detail.html:12
 #, python-format
 msgid "Reply by %(who)s on %(when)s"
@@ -2177,6 +2254,7 @@ msgid "Closed"
 msgstr ""
 
 #: templates/polls/_status.html:1 templates/polls/list.html:25
+#: templates/team/page.html:20
 msgid "Coming soon"
 msgstr ""
 
@@ -2417,6 +2495,51 @@ msgstr ""
 
 #: templates/qa/documents.html:27
 msgid "No documents found"
+msgstr ""
+
+#: templates/team/page.html:2 templates/team/page.html:6
+msgid "Our team"
+msgstr ""
+
+#: templates/team/page.html:7
+msgid ""
+"The national bureau of SNPNCA, elected by the members to represent and "
+"defend Algerian cabin crew."
+msgstr ""
+
+#: templates/team/page.html:16
+msgid "Bureau members"
+msgstr ""
+
+#: templates/team/panel_form.html:2 templates/team/panel_form.html:4
+#: templates/team/panel_list.html:6
+msgid "Add a person"
+msgstr ""
+
+#: templates/team/panel_list.html:4
+msgid "Team page"
+msgstr ""
+
+#: templates/team/panel_list.html:5
+msgid ""
+"The people shown on the public team page, in hierarchy order. Only Master "
+"Admins can change this list."
+msgstr ""
+
+#: templates/team/panel_list.html:6
+msgid "See the public page"
+msgstr ""
+
+#: templates/team/panel_list.html:9
+msgid "Photo"
+msgstr ""
+
+#: templates/team/panel_list.html:17
+msgid "Edit / add photo"
+msgstr ""
+
+#: templates/team/panel_list.html:20
+msgid "Nobody on the team page yet."
 msgstr ""
 
 #~ msgid "Thank you. Your message has been sent."

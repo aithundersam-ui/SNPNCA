@@ -4,7 +4,7 @@
 <p><a href="{% url 'panel:messages' %}">← {% translate "All messages" %}</a></p>
 <h1>{{ contact.full_name }} <span class="badge {{ contact.status }}">{{ contact.get_status_display }}</span></h1>
 <div class="card">
-  <p class="small muted">{{ contact.email }} · {{ contact.phone }} · {{ contact.created_at|date:"SHORT_DATETIME_FORMAT" }}</p>
+  <p class="small muted">{{ contact.email }} · {{ contact.phone }} · {{ contact.created_at|date:"SHORT_DATETIME_FORMAT" }}{% if contact.recipient %} · <strong>{% blocktranslate with name=contact.recipient.full_name %}For {{ name }}{% endblocktranslate %}</strong>{% endif %}</p>
   <div class="bubble-text">{{ contact.message }}</div>
 </div>
 {% for r in contact.replies.all %}

@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     "meetings",
     "polls",
     "alerts",
+    "team",
 ]
 
 MIDDLEWARE = [
