@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-13 22:48+0100\n"
+"POT-Creation-Date: 2026-10-13 23:07+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -384,12 +384,10 @@ msgid "icon"
 msgstr ""
 
 #: core/models.py:71
-#| msgid "phone number"
 msgid "number"
 msgstr ""
 
 #: core/models.py:72
-#| msgid "phone number"
 msgid "after the number"
 msgstr ""
 
@@ -398,12 +396,10 @@ msgid "For example + or %."
 msgstr ""
 
 #: core/models.py:73
-#| msgid "title (French)"
 msgid "label (French)"
 msgstr ""
 
 #: core/models.py:74
-#| msgid "title (English)"
 msgid "label (English)"
 msgstr ""
 
@@ -769,7 +765,6 @@ msgid "Sign-up pop-up turned off."
 msgstr ""
 
 #: panel/views.py:434
-#| msgid "Home page updated."
 msgid "Key figures updated."
 msgstr ""
 
@@ -1405,6 +1400,10 @@ msgstr "Log out"
 
 #: templates/base.html:39 templates/core/home.html:39
 msgid "Menu"
+msgstr ""
+
+#: templates/base.html:75
+msgid "All rights reserved"
 msgstr ""
 
 #: templates/core/error.html:10

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-13 22:48+0100\n"
+"POT-Creation-Date: 2026-10-13 23:07+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -394,12 +394,10 @@ msgid "icon"
 msgstr "الأيقونة"
 
 #: core/models.py:71
-#| msgid "Number"
 msgid "number"
 msgstr "العدد"
 
 #: core/models.py:72
-#| msgid "phone number"
 msgid "after the number"
 msgstr "بعد العدد"
 
@@ -408,17 +406,14 @@ msgid "For example + or %."
 msgstr "مثلًا + أو %."
 
 #: core/models.py:73
-#| msgid "title (French)"
 msgid "label (French)"
 msgstr "التسمية (بالفرنسية)"
 
 #: core/models.py:74
-#| msgid "title (English)"
 msgid "label (English)"
 msgstr "التسمية (بالإنجليزية)"
 
 #: core/models.py:75
-#| msgid "title (Arabic)"
 msgid "label (Arabic)"
 msgstr "التسمية (بالعربية)"
 
@@ -777,7 +772,6 @@ msgid "Sign-up pop-up turned off."
 msgstr "تم إيقاف نافذة الانخراط."
 
 #: panel/views.py:434
-#| msgid "Home page updated."
 msgid "Key figures updated."
 msgstr "تم تحديث الأرقام الرئيسية."
 
@@ -1439,6 +1433,11 @@ msgstr "تسجيل الخروج"
 #: templates/base.html:39 templates/core/home.html:39
 msgid "Menu"
 msgstr "القائمة"
+
+#: templates/base.html:75
+#| msgid "All fields are required."
+msgid "All rights reserved"
+msgstr "جميع الحقوق محفوظة"
 
 #: templates/core/error.html:10
 msgid "Return Home"

@@ -57,7 +57,7 @@ class KeyFiguresTests(TestCase):
 
 class FooterTests(TestCase):
     def test_copyright_on_every_kind_of_page(self):
-        for url in ["/fr/", "/en/account/login/", "/ar/team/"]:
-            self.assertContains(self.client.get(url), "Copyright © 2026 - SNPNCA")
+        for url, words in [("/fr/", "Tous droits réservés"), ("/en/account/login/", "All rights reserved"), ("/ar/team/", "جميع الحقوق محفوظة")]:
+            self.assertContains(self.client.get(url), f"{words} - <bdi>Copyright © 2026 - SNPNCA 🇩🇿</bdi>")
         self.client.force_login(make_user("master@example.com", Role.MASTER))
         self.assertContains(self.client.get(reverse("panel:home_content")), "Copyright © 2026 - SNPNCA")
