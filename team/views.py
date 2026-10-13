@@ -13,8 +13,8 @@ def team_page(request):
         request,
         "team/page.html",
         {
-            "leaders": [p for p in people if p.role == R.PRESIDENT],
-            "officers": [p for p in people if p.role in (R.SECRETARY_GENERAL, R.TREASURER)],
+            "leaders": [p for p in people if p.role in (R.PRESIDENT, R.SECRETARY_GENERAL)],
+            "officers": [p for p in people if p.role == R.TREASURER],
             "members": [p for p in people if p.role == R.MEMBER],
         },
     )
