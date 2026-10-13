@@ -23,9 +23,10 @@ def team_page(request):
 def photo(request, pk):
     """Team photos are public, like the page itself."""
     person = get_object_or_404(TeamMember, pk=pk)
-    if not person.photo or not person.photo.storage.exists(person.photo.name):
+    image = person.photo_crop or person.photo
+    if not image or not image.storage.exists(image.name):
         raise Http404
-    content_type, _enc = mimetypes.guess_type(person.photo.name)
-    response = FileResponse(person.photo.open("rb"), content_type=content_type or "application/octet-stream")
+    content_type, _enc = mimetypes.guess_type(image.name)
+    response = FileResponse(image.open("rb"), content_type=content_type or "application/octet-stream")
     response["Cache-Control"] = "public, max-age=86400"
     return response

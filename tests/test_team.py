@@ -99,3 +99,62 @@ class TeamAdminTests(TestCase):
         self.client.post(reverse("panel:team_create"), {"full_name": "A", "role": "member", "position": 0, "photo": ContentFile(b"nope", name="x.png")})
         self.client.post(reverse("panel:team_create"), {"full_name": "B", "role": "member", "position": 0, "whatsapp_number": "123"})
         self.assertFalse(TeamMember.objects.filter(full_name__in=["A", "B"]).exists())
+
+
+def crew_portrait():
+    """A real face to detect: one crew member cut from the home page photo, with lots of background."""
+    from django.conf import settings
+    from PIL import Image
+
+    img = Image.open(settings.BASE_DIR / "static" / "img" / "hero-crew.jpg").crop((470, 40, 910, 700))
+    buf = io.BytesIO()
+    img.save(buf, "JPEG")
+    return ContentFile(buf.getvalue(), name="portrait.jpg")
+
+
+@media_settings()
+class FaceCropTests(TestCase):
+    def setUp(self):
+        translation.activate("fr")
+        self.client.force_login(make_user("master@example.com", Role.MASTER))
+
+    def test_uploaded_portrait_is_cropped_square_on_the_face(self):
+        from PIL import Image
+
+        from team.faces import find_face
+
+        response = self.client.post(reverse("panel:team_create"), {"full_name": "Test Visage", "role": "member", "position": 5, "photo": crew_portrait()}, follow=True)
+        person = TeamMember.objects.get(full_name="Test Visage")
+        self.assertTrue(person.photo_crop)
+        self.assertNotContains(response, "Aucun visage")
+        with person.photo_crop.open("rb") as f:
+            crop = Image.open(f)
+            crop.load()
+        self.assertEqual(crop.width, crop.height)
+        with person.photo.open("rb") as f:
+            original = Image.open(f)
+            original.load()
+        self.assertEqual(original.size, (440, 660))  # original kept as uploaded
+        face = find_face(crop)
+        self.assertIsNotNone(face)
+        x, y, w, h = face
+        self.assertLess(abs((x + w / 2) - crop.width / 2), crop.width * 0.15)  # face is centred
+        self.assertGreater(h, crop.height * 0.25)  # and zoomed in
+        served = self.client.get(reverse("team:photo", args=[person.pk]))
+        self.assertEqual(served["Content-Type"], "image/jpeg")
+
+    def test_photo_without_face_falls_back_and_warns(self):
+        response = self.client.post(reverse("panel:team_create"), {"full_name": "Sans Visage", "role": "member", "position": 5, "photo": png()}, follow=True)
+        self.assertContains(response, "Aucun visage")
+        self.assertTrue(TeamMember.objects.get(full_name="Sans Visage").photo_crop)
+
+    def test_replacing_or_deleting_removes_old_files(self):
+        self.client.post(reverse("panel:team_create"), {"full_name": "Z", "role": "member", "position": 5, "photo": png()})
+        person = TeamMember.objects.get(full_name="Z")
+        storage, first = person.photo.storage, [person.photo.name, person.photo_crop.name]
+        self.client.post(reverse("panel:team_edit", args=[person.pk]), {"full_name": "Z", "role": "member", "position": 5, "photo": crew_portrait()})
+        person.refresh_from_db()
+        self.assertFalse(any(storage.exists(n) for n in first))
+        current = [person.photo.name, person.photo_crop.name]
+        self.client.post(reverse("panel:team_delete", args=[person.pk]))
+        self.assertFalse(any(storage.exists(n) for n in current))

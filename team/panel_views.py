@@ -22,6 +22,8 @@ def team_edit(request, pk=None):
         person = form.save()
         log_action(request, "team.update" if pk else "team.create", person.full_name)
         messages.success(request, _("Team page updated."))
+        if form.face_found is False and person.photo:
+            messages.warning(request, _("No face was found in the photo, so it was cropped around the top centre. Try a photo where the face is clearly visible."))
         return redirect("panel:team")
     return render(request, "team/panel_form.html", {"form": form, "person": person})
 

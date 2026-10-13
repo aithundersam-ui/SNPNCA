@@ -30,7 +30,14 @@ class TeamMember(models.Model):
     position = models.PositiveSmallIntegerField(
         _("order within the same role"), default=0, help_text=_("Lower numbers come first, for example among the members.")
     )
-    photo = models.ImageField(_("photo"), upload_to=photo_path, blank=True, help_text=_("A square portrait works best."))
+    photo = models.ImageField(
+        _("photo"),
+        upload_to=photo_path,
+        blank=True,
+        help_text=_("Any portrait: the site zooms in on the face and crops it automatically. The original is kept."),
+    )
+    # Square crop around the face, generated from `photo`.
+    photo_crop = models.ImageField(upload_to=photo_path, blank=True, editable=False)
     whatsapp_number = models.CharField(
         _("WhatsApp number (optional)"),
         max_length=20,
@@ -52,10 +59,31 @@ class TeamMember(models.Model):
         super().save(*args, **kwargs)
 
     def delete(self, *args, **kwargs):
-        storage, name = self.photo.storage, self.photo.name
+        storage, names = self.photo.storage, [self.photo.name, self.photo_crop.name]
         super().delete(*args, **kwargs)
-        if name:
-            storage.delete(name)
+        for name in names:
+            if name:
+                storage.delete(name)
+
+    def make_crop(self, save=True):
+        """(Re)build the square face crop from the original photo. Returns True if a face was found."""
+        from django.core.files.base import ContentFile
+
+        from .faces import crop_portrait
+
+        old = self.photo_crop.name
+        if not self.photo:
+            self.photo_crop = ""
+            found = False
+        else:
+            with self.photo.open("rb") as f:
+                data, found = crop_portrait(f)
+            self.photo_crop.save("crop.jpg", ContentFile(data), save=False)
+        if old and old != self.photo_crop.name:
+            self.photo_crop.storage.delete(old)
+        if save:
+            super().save(update_fields=["photo_crop"])
+        return found
 
     @property
     def initials(self):

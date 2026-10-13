@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-13 22:04+0100\n"
+"POT-Creation-Date: 2026-10-13 22:18+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -919,19 +919,23 @@ msgid "Lower numbers come first, for example among the members."
 msgstr ""
 "Les plus petits numéros passent en premier, par exemple parmi les membres."
 
-#: team/models.py:33
+#: team/models.py:34
 msgid "photo"
 msgstr "photo"
 
-#: team/models.py:33
-msgid "A square portrait works best."
-msgstr "Un portrait carré donne le meilleur résultat."
+#: team/models.py:37
+msgid ""
+"Any portrait: the site zooms in on the face and crops it automatically. The "
+"original is kept."
+msgstr ""
+"N’importe quel portrait : le site zoome sur le visage et le recadre "
+"automatiquement. L’original est conservé."
 
-#: team/models.py:35
+#: team/models.py:42
 msgid "WhatsApp number (optional)"
 msgstr "Numéro WhatsApp (facultatif)"
 
-#: team/models.py:38
+#: team/models.py:45
 msgid ""
 "If filled in, visitors see a WhatsApp button on this card. Leave empty to "
 "keep it private."
@@ -943,7 +947,15 @@ msgstr ""
 msgid "Team page updated."
 msgstr "Page de l’équipe mise à jour."
 
-#: team/panel_views.py:35
+#: team/panel_views.py:26
+msgid ""
+"No face was found in the photo, so it was cropped around the top centre. Try"
+" a photo where the face is clearly visible."
+msgstr ""
+"Aucun visage n’a été trouvé sur la photo : elle a été recadrée sur le haut, "
+"au centre. Essayez une photo où le visage est bien visible."
+
+#: team/panel_views.py:37
 msgid "Removed from the team page."
 msgstr "Retiré de la page de l’équipe."
 
@@ -2673,6 +2685,9 @@ msgstr "Modifier / ajouter la photo"
 #: templates/team/panel_list.html:20
 msgid "Nobody on the team page yet."
 msgstr "Personne sur la page de l’équipe pour le moment."
+
+#~ msgid "A square portrait works best."
+#~ msgstr "Un portrait carré donne le meilleur résultat."
 
 #~ msgid ""
 #~ "The video call could not be created. Check that DAILY_API_KEY is set in the "

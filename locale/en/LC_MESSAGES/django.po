@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-13 22:04+0100\n"
+"POT-Creation-Date: 2026-10-13 22:18+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -877,19 +877,21 @@ msgstr ""
 msgid "Lower numbers come first, for example among the members."
 msgstr ""
 
-#: team/models.py:33
+#: team/models.py:34
 msgid "photo"
 msgstr ""
 
-#: team/models.py:33
-msgid "A square portrait works best."
+#: team/models.py:37
+msgid ""
+"Any portrait: the site zooms in on the face and crops it automatically. The "
+"original is kept."
 msgstr ""
 
-#: team/models.py:35
+#: team/models.py:42
 msgid "WhatsApp number (optional)"
 msgstr ""
 
-#: team/models.py:38
+#: team/models.py:45
 msgid ""
 "If filled in, visitors see a WhatsApp button on this card. Leave empty to "
 "keep it private."
@@ -899,7 +901,13 @@ msgstr ""
 msgid "Team page updated."
 msgstr ""
 
-#: team/panel_views.py:35
+#: team/panel_views.py:26
+msgid ""
+"No face was found in the photo, so it was cropped around the top centre. Try"
+" a photo where the face is clearly visible."
+msgstr ""
+
+#: team/panel_views.py:37
 msgid "Removed from the team page."
 msgstr ""
 

@@ -31,6 +31,9 @@ class TeamMemberForm(forms.ModelForm):
     def save(self, commit=True):
         old = TeamMember.objects.filter(pk=self.instance.pk).values_list("photo", flat=True).first() if self.instance.pk else None
         obj = super().save(commit)
-        if commit and old and old != obj.photo.name:
-            obj.photo.storage.delete(old)
+        self.face_found = None
+        if commit and (old or "") != (obj.photo.name or ""):
+            if old:
+                obj.photo.storage.delete(old)
+            self.face_found = obj.make_crop()
         return obj
