@@ -467,3 +467,8 @@ code { font-size: .85em; background: var(--slate-100); padding: .1rem .35rem; bo
 .wa-list { list-style: none; padding: 0; margin: .75rem 0; display: grid; gap: .4rem; }
 .wa-list li { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: .4rem 0; border-bottom: 1px solid var(--border); }
 details summary { cursor: pointer; font-weight: 600; color: var(--blue); }
+
+/* Alert banner inside the home page hero, right under its navbar */
+.alert-banner.in-hero { position: relative; z-index: 2; margin: 14px 24px 0; border-radius: 16px; background: rgb(185 28 28 / .94); box-shadow: 0 10px 30px -10px rgb(0 0 0 / .5); backdrop-filter: blur(4px); }
+.alert-banner.in-hero .alert-banner-inner { padding: .55rem .75rem .55rem 1rem; }
+@media (max-width: 860px) { .alert-banner.in-hero { margin: 14px 12px 0; } }

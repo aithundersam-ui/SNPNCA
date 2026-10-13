@@ -1,6 +1,6 @@
 {% load i18n site_tags %}{% if active_alert %}
-<div class="alert-banner" role="alert" data-alert-banner="{{ active_alert.pk }}">
-  <div class="container alert-banner-inner">
+<div class="alert-banner{% if in_hero %} in-hero{% endif %}" role="alert" data-alert-banner="{{ active_alert.pk }}">
+  <div class="{% if not in_hero %}container {% endif %}alert-banner-inner">
     {% icon "alert-triangle" 20 %}
     <p><strong>{% localized active_alert "title" %}</strong> <a href="{% url 'alerts:detail' active_alert.pk %}">{% translate "Read the alert" %}</a></p>
     <button type="button" class="alert-banner-close" data-alert-dismiss>{% icon "x" 18 %}<span class="sr-only">{% translate "Hide this alert" %}</span></button>

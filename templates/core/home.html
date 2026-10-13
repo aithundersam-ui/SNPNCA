@@ -1,6 +1,7 @@
 {% extends "base.html" %}{% load i18n static site_tags %}
 {% block title %}{% translate "Home" %}{% endblock %}
 {% block main_class %}bg-home{% endblock %}
+{% block alert_banner %}{% endblock %}
 {% block header %}
 <div class="hero-frame">
   <section class="hero-card" aria-labelledby="hero-title">
@@ -55,6 +56,8 @@
         {% endif %}
       </div>
     </header>
+
+    {% include "alerts/_banner.html" with in_hero=True %}
 
     <div class="hero-body">
       <h1 id="hero-title">{% translate "The voice of Algerian cabin crew" %}</h1>
