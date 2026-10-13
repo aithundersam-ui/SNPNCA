@@ -36,6 +36,16 @@ Code: `qa/assistant.py`, `qa/search.py`, `qa/llm.py`, `qa/processing.py`. Tests:
 
 Data lives in the Docker volumes `pgdata` (database) and `media` (PDFs and images). Back up both, e.g. nightly `docker compose exec db pg_dump -U snpnca snpnca > backup.sql` plus a copy of the `media` volume.
 
+## Local preview on a Mac
+
+```bash
+git clone https://github.com/aithundersam-ui/SNPNCA.git ~/Desktop/SNPNCA
+# copy your .env into ~/Desktop/SNPNCA (DATABASE_URL=postgres://snpnca:PASSWORD@127.0.0.1:5433/snpnca, same PASSWORD as POSTGRES_PASSWORD)
+~/Desktop/SNPNCA/mac/setup.sh     # once: installs Homebrew packages, .venv, a private PostgreSQL in .localdev (port 5433), starts the site
+~/Desktop/SNPNCA/mac/stop.sh      # stop
+~/Desktop/SNPNCA/mac/start.sh     # start again (http://localhost:8000)
+```
+
 ## Local development
 
 ```bash

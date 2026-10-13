@@ -4,3 +4,5 @@ __pycache__/
 private_media/
 staticfiles/
 *.sqlite3
+.venv/
+.localdev/
