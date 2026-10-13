@@ -7,8 +7,8 @@
   <title>{% block title %}{{ ORG_SHORT }}{% endblock %} · {{ ORG_SHORT }}</title>
   <meta name="description" content="{{ ORG_NAME }}">
   <link rel="icon" type="image/png" href="{% static 'img/favicon.png' %}">
-  <link rel="stylesheet" href="{% static 'css/site.css' %}">
-  <script src="{% static 'js/site.js' %}" defer></script>
+  <link rel="stylesheet" href="{% static 'css/site.css' %}?v={{ ASSET_VERSION }}">
+  <script src="{% static 'js/site.js' %}?v={{ ASSET_VERSION }}" defer></script>
   {% block extra_head %}{% endblock %}
 </head>
 <body>
