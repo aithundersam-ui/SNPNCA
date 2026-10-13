@@ -56,6 +56,32 @@ class SiteContent(BilingualMixin, models.Model):
         super().save(*args, **kwargs)
 
 
+class KeyFigure(BilingualMixin, models.Model):
+    """A big number shown on the home page above Our mission, e.g. 700+ affiliated cabin crew."""
+
+    class Icon(models.TextChoices):
+        CREW = "users", _("People")
+        CITY = "map-pin", _("Map pin")
+        PLANE = "plane", _("Plane")
+        GLOBE = "globe", _("Globe")
+        CALENDAR = "calendar", _("Calendar")
+        SHIELD = "shield", _("Shield")
+
+    icon = models.CharField(_("icon"), max_length=20, choices=Icon.choices, default=Icon.CREW)
+    value = models.PositiveIntegerField(_("number"))
+    suffix = models.CharField(_("after the number"), max_length=3, blank=True, help_text=_("For example + or %."))
+    label_fr = models.CharField(_("label (French)"), max_length=60)
+    label_en = models.CharField(_("label (English)"), max_length=60, blank=True)
+    label_ar = models.CharField(_("label (Arabic)"), max_length=60, blank=True)
+    position = models.PositiveSmallIntegerField(_("order"), default=0)
+
+    class Meta:
+        ordering = ["position", "pk"]
+
+    def __str__(self):
+        return f"{self.value}{self.suffix} {self.label_fr}"
+
+
 class ContactMessage(models.Model):
     class Status(models.TextChoices):
         NEW = "new", _("New")

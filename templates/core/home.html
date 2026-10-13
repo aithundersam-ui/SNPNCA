@@ -102,6 +102,22 @@
 </dialog>
 {% endif %}
 
+{% if figures %}
+<section class="section key-figures" aria-label="{% translate 'Key figures' %}">
+  <div class="container">
+    <ul class="figures figures-{{ figures|length }}">
+      {% for f in figures %}
+      <li class="figure">
+        {% icon f.icon 56 %}
+        <strong class="figure-number" data-count="{{ f.value }}" data-suffix="{{ f.suffix }}">{{ f.value }}{{ f.suffix }}</strong>
+        <span class="figure-label">{% localized f "label" %}</span>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+{% endif %}
+
 <section class="section section-white" id="mission" aria-labelledby="mission-title">
   <div class="container">
     <div class="section-head">

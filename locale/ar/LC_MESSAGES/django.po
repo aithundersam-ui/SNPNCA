@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-13 22:32+0100\n"
+"POT-Creation-Date: 2026-10-13 22:48+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -130,11 +130,11 @@ msgid ""
 "XX."
 msgstr "أدخل رقم WhatsApp مع رمز البلد، مثلًا +213 5XX XX XX XX."
 
-#: accounts/models.py:59 core/models.py:65
+#: accounts/models.py:59 core/models.py:91
 msgid "email"
 msgstr "البريد الإلكتروني"
 
-#: accounts/models.py:60 core/models.py:64 team/models.py:27
+#: accounts/models.py:60 core/models.py:90 team/models.py:27
 msgid "full name"
 msgstr "الاسم الكامل"
 
@@ -365,23 +365,84 @@ msgstr ""
 "يرى الزوار غير المسجلين الدخول نافذة منبثقة في الصفحة الرئيسية تفتح هذه "
 "الاستمارة. اتركه فارغًا لإخفاء النافذة."
 
-#: core/models.py:61 templates/panel/messages.html:7
+#: core/models.py:63
+msgid "People"
+msgstr "أشخاص"
+
+#: core/models.py:64
+msgid "Map pin"
+msgstr "موقع"
+
+#: core/models.py:65
+msgid "Plane"
+msgstr "طائرة"
+
+#: core/models.py:66
+msgid "Globe"
+msgstr "الكرة الأرضية"
+
+#: core/models.py:67
+msgid "Calendar"
+msgstr "تقويم"
+
+#: core/models.py:68
+msgid "Shield"
+msgstr "درع"
+
+#: core/models.py:70
+msgid "icon"
+msgstr "الأيقونة"
+
+#: core/models.py:71
+#| msgid "Number"
+msgid "number"
+msgstr "العدد"
+
+#: core/models.py:72
+#| msgid "phone number"
+msgid "after the number"
+msgstr "بعد العدد"
+
+#: core/models.py:72
+msgid "For example + or %."
+msgstr "مثلًا + أو %."
+
+#: core/models.py:73
+#| msgid "title (French)"
+msgid "label (French)"
+msgstr "التسمية (بالفرنسية)"
+
+#: core/models.py:74
+#| msgid "title (English)"
+msgid "label (English)"
+msgstr "التسمية (بالإنجليزية)"
+
+#: core/models.py:75
+#| msgid "title (Arabic)"
+msgid "label (Arabic)"
+msgstr "التسمية (بالعربية)"
+
+#: core/models.py:76
+msgid "order"
+msgstr "الترتيب"
+
+#: core/models.py:87 templates/panel/messages.html:7
 msgid "New"
 msgstr "جديد"
 
-#: core/models.py:62 templates/panel/messages.html:8
+#: core/models.py:88 templates/panel/messages.html:8
 msgid "Replied"
 msgstr "تم الرد"
 
-#: core/models.py:66
+#: core/models.py:92
 msgid "phone number"
 msgstr "رقم الهاتف"
 
-#: core/models.py:67
+#: core/models.py:93
 msgid "message"
 msgstr "الرسالة"
 
-#: core/models.py:69
+#: core/models.py:95
 msgid "addressed to"
 msgstr "موجَّهة إلى"
 
@@ -389,27 +450,27 @@ msgstr "موجَّهة إلى"
 msgid "Message sent successfully! We will get back to you soon."
 msgstr "تم إرسال الرسالة بنجاح! سنتواصل معك قريبًا."
 
-#: core/views.py:100
+#: core/views.py:101
 msgid "Access denied"
 msgstr "الوصول مرفوض"
 
-#: core/views.py:100
+#: core/views.py:101
 msgid "You do not have permission to view this page."
 msgstr "ليست لديك صلاحية لعرض هذه الصفحة."
 
-#: core/views.py:104
+#: core/views.py:105
 msgid "Page Not Found"
 msgstr "الصفحة غير موجودة"
 
-#: core/views.py:104
+#: core/views.py:105
 msgid "The page you're looking for doesn't exist or may have been moved."
 msgstr "الصفحة التي تبحث عنها غير موجودة أو ربما تم نقلها."
 
-#: core/views.py:108
+#: core/views.py:109
 msgid "Server error"
 msgstr "خطأ في الخادم"
 
-#: core/views.py:108
+#: core/views.py:109
 msgid "Something went wrong. Please try again later."
 msgstr "حدث خطأ ما. يرجى المحاولة لاحقًا."
 
@@ -707,13 +768,18 @@ msgstr "تم حذف الرسالة."
 msgid "Home page updated."
 msgstr "تم تحديث الصفحة الرئيسية."
 
-#: panel/views.py:413
+#: panel/views.py:420
 msgid "Sign-up pop-up updated. Visitors now see it on the home page."
 msgstr "تم تحديث نافذة الانخراط. أصبح الزوار يرونها الآن في الصفحة الرئيسية."
 
-#: panel/views.py:415
+#: panel/views.py:422
 msgid "Sign-up pop-up turned off."
 msgstr "تم إيقاف نافذة الانخراط."
+
+#: panel/views.py:434
+#| msgid "Home page updated."
+msgid "Key figures updated."
+msgstr "تم تحديث الأرقام الرئيسية."
 
 #: polls/forms.py:17
 msgid "Answers (French), one per line"
@@ -1383,7 +1449,7 @@ msgid "Go Back"
 msgstr "رجوع"
 
 #: templates/core/home.html:24 templates/core/home.html:48
-#: templates/core/home.html:108
+#: templates/core/home.html:124
 msgid "Our Mission"
 msgstr "مهمتنا"
 
@@ -1463,7 +1529,11 @@ msgstr "لاحقًا"
 msgid "Already a member?"
 msgstr "منخرط بالفعل؟"
 
-#: templates/core/home.html:110
+#: templates/core/home.html:106 templates/panel/home_content.html:27
+msgid "Key figures"
+msgstr "أرقام رئيسية"
+
+#: templates/core/home.html:126
 msgid ""
 "To represent, defend, and protect the interests of flight attendants. We are"
 " the voice of cabin crew, working every day to improve your working "
@@ -1472,21 +1542,21 @@ msgstr ""
 "كل رحلة تبدأ بالتزام: التزام بخدمة الآخرين. وتحرص SNPNCA على أن يكون هذا "
 "الالتزام معترفًا به ومحترمًا ومصونًا."
 
-#: templates/core/home.html:115
+#: templates/core/home.html:131
 msgid "Knowledge Sharing"
 msgstr "تبادل المعارف"
 
-#: templates/core/home.html:116
+#: templates/core/home.html:132
 msgid ""
 "Centralized access to organizational documents and resources with "
 "intelligent search capabilities."
 msgstr "وصول مركزي إلى وثائق النقابة ومواردها مع إمكانيات بحث ذكية."
 
-#: templates/core/home.html:120
+#: templates/core/home.html:136
 msgid "AI-Powered Assistance"
 msgstr "مساعدة بالذكاء الاصطناعي"
 
-#: templates/core/home.html:121
+#: templates/core/home.html:137
 msgid ""
 "Get instant, accurate answers from your organization's knowledge base using "
 "advanced AI technology."
@@ -1494,11 +1564,11 @@ msgstr ""
 "احصل على إجابات فورية ودقيقة من قاعدة معارف نقابتك بفضل تقنيات الذكاء "
 "الاصطناعي المتقدمة."
 
-#: templates/core/home.html:125
+#: templates/core/home.html:141
 msgid "Secure & Controlled"
 msgstr "آمن ومُتحكَّم فيه"
 
-#: templates/core/home.html:126
+#: templates/core/home.html:142
 msgid ""
 "Enterprise-grade security with role-based access control to protect "
 "sensitive information."
@@ -1506,24 +1576,24 @@ msgstr ""
 "أمان على مستوى المؤسسات مع تحكم في الوصول حسب الأدوار لحماية المعلومات "
 "الحساسة."
 
-#: templates/core/home.html:135 templates/core/home.html:139
+#: templates/core/home.html:151 templates/core/home.html:155
 msgid "Contact Us"
 msgstr "اتصل بنا"
 
-#: templates/core/home.html:136
+#: templates/core/home.html:152
 msgid "Get in touch with us for any questions or support needs."
 msgstr "تواصل معنا لأي سؤال أو طلب مساعدة."
 
-#: templates/core/home.html:140
+#: templates/core/home.html:156
 msgid "All fields are required."
 msgstr "جميع الحقول إلزامية."
 
-#: templates/core/home.html:145
+#: templates/core/home.html:161
 #, python-format
 msgid "Your message will be passed to %(name)s (%(role)s)."
 msgstr "ستُحال رسالتك إلى %(name)s (%(role)s)."
 
-#: templates/core/home.html:153
+#: templates/core/home.html:169
 msgid ""
 "Privacy notice: we use your name, email, phone number and message only to "
 "answer your request. They are kept in our admin panel and are not shared "
@@ -1533,7 +1603,7 @@ msgstr ""
 "على طلبك. تُحفظ هذه البيانات في لوحة الإدارة ولا تُشارك مع أي طرف ثالث. لطلب"
 " حذفها، راسلنا عبر هذه الاستمارة."
 
-#: templates/core/home.html:154
+#: templates/core/home.html:170
 msgid "Send Message"
 msgstr "إرسال الرسالة"
 
@@ -2178,11 +2248,29 @@ msgstr ""
 "إذا تُركت لغة فارغة، يرى الزوار النص الفرنسي (أو الإنجليزي إذا كان الفرنسي "
 "فارغًا أيضًا)."
 
-#: templates/panel/home_content.html:27
+#: templates/panel/home_content.html:28
+msgid ""
+"Big numbers shown on the home page above Our mission (up to 4). Leave the "
+"last block empty if you don't need it, and tick Delete to remove one. Only "
+"Master Admins can change them."
+msgstr ""
+"الأرقام الكبيرة المعروضة في الصفحة الرئيسية فوق قسم «مهمتنا» (4 كحد أقصى). "
+"اترك الخانة الأخيرة فارغة إن لم تكن بحاجة إليها، وحدِّد «حذف» لإزالة رقم. "
+"يمكن للمشرفين الرئيسيين وحدهم تعديلها."
+
+#: templates/panel/home_content.html:35
+msgid "New figure"
+msgstr "رقم جديد"
+
+#: templates/panel/home_content.html:45
+msgid "Save figures"
+msgstr "حفظ الأرقام"
+
+#: templates/panel/home_content.html:50
 msgid "Membership sign-up pop-up"
 msgstr "نافذة الانخراط المنبثقة"
 
-#: templates/panel/home_content.html:28
+#: templates/panel/home_content.html:51
 msgid ""
 "Visitors who aren't logged in see a pop-up on the home page inviting them to"
 " join. It opens your Google Form, and admins then create the accounts from "
@@ -2192,19 +2280,19 @@ msgstr ""
 " تفتح هذه النافذة استمارة Google الخاصة بكم، ثم ينشئ المشرفون الحسابات "
 "انطلاقًا من الإجابات. وحدهم المشرفون الرئيسيون يمكنهم تغيير هذا الرابط."
 
-#: templates/panel/home_content.html:32
+#: templates/panel/home_content.html:55
 msgid "Status: the pop-up is shown to visitors."
 msgstr "الحالة: النافذة المنبثقة معروضة للزوار."
 
-#: templates/panel/home_content.html:32
+#: templates/panel/home_content.html:55
 msgid "Open the form"
 msgstr "فتح الاستمارة"
 
-#: templates/panel/home_content.html:32
+#: templates/panel/home_content.html:55
 msgid "Status: no link, so the pop-up is hidden."
 msgstr "الحالة: لا يوجد رابط، لذا النافذة المنبثقة مخفية."
 
-#: templates/panel/home_content.html:33
+#: templates/panel/home_content.html:56
 msgid "Save link"
 msgstr "حفظ الرابط"
 

@@ -15,13 +15,36 @@
       <div class="field">{{ form.description_en.as_field_group }}</div>
       <div class="field">{{ form.mission_en.as_field_group }}</div>
     </fieldset>
-    <fieldset lang="ar" dir="rtl"><legend>العربية</legend>
+    <fieldset class="lang-ar"><legend lang="ar">العربية</legend>
       <div class="field">{{ form.description_ar.as_field_group }}</div>
       <div class="field">{{ form.mission_ar.as_field_group }}</div>
     </fieldset>
   </div>
   <button type="submit" class="btn">{% translate "Save" %}</button>
 </form>
+
+{% if figures_formset %}
+<h2 class="panel-subtitle">{% translate "Key figures" %}</h2>
+<p class="muted">{% translate "Big numbers shown on the home page above Our mission (up to 4). Leave the last block empty if you don't need it, and tick Delete to remove one. Only Master Admins can change them." %}</p>
+<form method="post" action="{% url 'panel:key_figures' %}" novalidate>
+  {% csrf_token %}
+  {{ figures_formset.management_form }}
+  {% if figures_formset.non_form_errors %}<ul class="errorlist nonfield" role="alert">{% for e in figures_formset.non_form_errors %}<li>{{ e }}</li>{% endfor %}</ul>{% endif %}
+  {% for f in figures_formset %}
+  <fieldset class="figure-form">
+    <legend>{% if f.instance.pk %}{{ f.instance }}{% else %}{% translate "New figure" %}{% endif %}</legend>
+    {% for hidden in f.hidden_fields %}{{ hidden }}{% endfor %}
+    {% if f.non_field_errors %}<ul class="errorlist nonfield">{% for e in f.non_field_errors %}<li>{{ e }}</li>{% endfor %}</ul>{% endif %}
+    <div class="figure-fields">
+      {% for field in f.visible_fields %}
+      <div class="field{% if field.widget_type == 'checkbox' %} checkbox{% endif %}">{{ field.as_field_group }}</div>
+      {% endfor %}
+    </div>
+  </fieldset>
+  {% endfor %}
+  <button type="submit" class="btn">{% translate "Save figures" %}</button>
+</form>
+{% endif %}
 
 {% if signup_form %}
 <h2 class="panel-subtitle">{% translate "Membership sign-up pop-up" %}</h2>

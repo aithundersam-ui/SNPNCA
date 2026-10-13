@@ -21,8 +21,8 @@ from accounts.audit import log_action
 from accounts.emails import send_invitation, send_templated
 from accounts.forms import CsvUploadForm, UserForm
 from accounts.models import AuditLog, Role, User
-from core.forms import ReplyForm, SignupFormLinkForm, SiteContentForm
-from core.models import ContactMessage, ContactReply, SiteContent
+from core.forms import KeyFigureFormSet, ReplyForm, SignupFormLinkForm, SiteContentForm
+from core.models import ContactMessage, ContactReply, KeyFigure, SiteContent
 from news.models import Article, ArticleImage, ArticleVideo
 from qa.models import Document
 
@@ -397,8 +397,15 @@ def home_content(request):
         log_action(request, "home.update")
         messages.success(request, _("Home page updated."))
         return redirect("panel:home_content")
-    signup_form = SignupFormLinkForm(instance=content) if request.user.is_master else None
-    return render(request, "panel/home_content.html", {"form": form, "signup_form": signup_form, "content": content})
+    return _render_home_content(request, content, form)
+
+
+def _render_home_content(request, content, form, signup_form=None, figures_formset=None):
+    if request.user.is_master:
+        signup_form = signup_form or SignupFormLinkForm(instance=content)
+        figures_formset = figures_formset or KeyFigureFormSet(queryset=KeyFigure.objects.all(), prefix="fig")
+    context = {"form": form, "signup_form": signup_form, "figures_formset": figures_formset, "content": content}
+    return render(request, "panel/home_content.html", context)
 
 
 @master_required
@@ -414,11 +421,20 @@ def signup_link(request):
         else:
             messages.success(request, _("Sign-up pop-up turned off."))
         return redirect("panel:home_content")
-    return render(
-        request,
-        "panel/home_content.html",
-        {"form": SiteContentForm(instance=content), "signup_form": form, "content": content},
-    )
+    return _render_home_content(request, content, SiteContentForm(instance=content), signup_form=form)
+
+
+@master_required
+@require_POST
+def key_figures(request):
+    formset = KeyFigureFormSet(request.POST, queryset=KeyFigure.objects.all(), prefix="fig")
+    if formset.is_valid():
+        formset.save()
+        log_action(request, "home.key_figures", figures=[str(f) for f in KeyFigure.objects.all()])
+        messages.success(request, _("Key figures updated."))
+        return redirect("panel:home_content")
+    content = SiteContent.load()
+    return _render_home_content(request, content, SiteContentForm(instance=content), figures_formset=formset)
 
 
 @admin_required

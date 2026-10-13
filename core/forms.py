@@ -6,7 +6,7 @@ from django import forms
 from django.core import signing
 from django.utils.translation import gettext_lazy as _
 
-from .models import ContactMessage, SiteContent
+from .models import ContactMessage, KeyFigure, SiteContent
 
 PHONE_RE = re.compile(r"^\+?[0-9 ().-]{8,20}$")
 MIN_FILL_SECONDS = 3
@@ -122,3 +122,14 @@ class SignupFormLinkForm(forms.ModelForm):
 
 class ReplyForm(forms.Form):
     body = forms.CharField(label=_("Reply"), widget=forms.Textarea(attrs={"rows": 8}), max_length=10000)
+
+
+class KeyFigureForm(ArabicFieldsMixin, forms.ModelForm):
+    class Meta:
+        model = KeyFigure
+        fields = ["icon", "value", "suffix", "label_fr", "label_en", "label_ar", "position"]
+
+
+KeyFigureFormSet = forms.modelformset_factory(
+    KeyFigure, form=KeyFigureForm, extra=1, can_delete=True, max_num=4, validate_max=True
+)

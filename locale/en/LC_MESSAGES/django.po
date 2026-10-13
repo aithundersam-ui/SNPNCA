@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-13 22:32+0100\n"
+"POT-Creation-Date: 2026-10-13 22:48+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -48,7 +48,6 @@ msgid "No WhatsApp number: the member can add it when booking a meeting."
 msgstr ""
 
 #: accounts/csv_import.py:100
-#| msgid "Language must be fr or en."
 msgid "Language must be fr, en or ar."
 msgstr ""
 
@@ -131,11 +130,11 @@ msgid ""
 "XX."
 msgstr ""
 
-#: accounts/models.py:59 core/models.py:65
+#: accounts/models.py:59 core/models.py:91
 msgid "email"
 msgstr "email"
 
-#: accounts/models.py:60 core/models.py:64 team/models.py:27
+#: accounts/models.py:60 core/models.py:90 team/models.py:27
 msgid "full name"
 msgstr "full name"
 
@@ -224,12 +223,10 @@ msgid "message (English)"
 msgstr ""
 
 #: alerts/models.py:24 news/models.py:38
-#| msgid "title (French)"
 msgid "title (Arabic)"
 msgstr ""
 
 #: alerts/models.py:25
-#| msgid "message"
 msgid "message (Arabic)"
 msgstr ""
 
@@ -331,12 +328,10 @@ msgid "our mission (English)"
 msgstr "our mission (English)"
 
 #: core/models.py:34
-#| msgid "organisation description (French)"
 msgid "organisation description (Arabic)"
 msgstr ""
 
 #: core/models.py:35
-#| msgid "our mission (French)"
 msgid "our mission (Arabic)"
 msgstr ""
 
@@ -360,23 +355,83 @@ msgid ""
 "form. Leave empty to hide the pop-up."
 msgstr ""
 
-#: core/models.py:61 templates/panel/messages.html:7
+#: core/models.py:63
+msgid "People"
+msgstr ""
+
+#: core/models.py:64
+msgid "Map pin"
+msgstr ""
+
+#: core/models.py:65
+msgid "Plane"
+msgstr ""
+
+#: core/models.py:66
+msgid "Globe"
+msgstr ""
+
+#: core/models.py:67
+msgid "Calendar"
+msgstr ""
+
+#: core/models.py:68
+msgid "Shield"
+msgstr ""
+
+#: core/models.py:70
+msgid "icon"
+msgstr ""
+
+#: core/models.py:71
+#| msgid "phone number"
+msgid "number"
+msgstr ""
+
+#: core/models.py:72
+#| msgid "phone number"
+msgid "after the number"
+msgstr ""
+
+#: core/models.py:72
+msgid "For example + or %."
+msgstr ""
+
+#: core/models.py:73
+#| msgid "title (French)"
+msgid "label (French)"
+msgstr ""
+
+#: core/models.py:74
+#| msgid "title (English)"
+msgid "label (English)"
+msgstr ""
+
+#: core/models.py:75
+msgid "label (Arabic)"
+msgstr ""
+
+#: core/models.py:76
+msgid "order"
+msgstr ""
+
+#: core/models.py:87 templates/panel/messages.html:7
 msgid "New"
 msgstr "New"
 
-#: core/models.py:62 templates/panel/messages.html:8
+#: core/models.py:88 templates/panel/messages.html:8
 msgid "Replied"
 msgstr "Replied"
 
-#: core/models.py:66
+#: core/models.py:92
 msgid "phone number"
 msgstr "phone number"
 
-#: core/models.py:67
+#: core/models.py:93
 msgid "message"
 msgstr "message"
 
-#: core/models.py:69
+#: core/models.py:95
 msgid "addressed to"
 msgstr ""
 
@@ -384,27 +439,27 @@ msgstr ""
 msgid "Message sent successfully! We will get back to you soon."
 msgstr ""
 
-#: core/views.py:100
+#: core/views.py:101
 msgid "Access denied"
 msgstr "Access denied"
 
-#: core/views.py:100
+#: core/views.py:101
 msgid "You do not have permission to view this page."
 msgstr "You do not have permission to view this page."
 
-#: core/views.py:104
+#: core/views.py:105
 msgid "Page Not Found"
 msgstr ""
 
-#: core/views.py:104
+#: core/views.py:105
 msgid "The page you're looking for doesn't exist or may have been moved."
 msgstr ""
 
-#: core/views.py:108
+#: core/views.py:109
 msgid "Server error"
 msgstr "Server error"
 
-#: core/views.py:108
+#: core/views.py:109
 msgid "Something went wrong. Please try again later."
 msgstr "Something went wrong. Please try again later."
 
@@ -538,7 +593,6 @@ msgid "text (English)"
 msgstr "text (English)"
 
 #: news/models.py:39
-#| msgid "text (French)"
 msgid "text (Arabic)"
 msgstr ""
 
@@ -581,7 +635,6 @@ msgid "Only YouTube and Vimeo links are accepted: %(urls)s"
 msgstr "Only YouTube and Vimeo links are accepted: %(urls)s"
 
 #: panel/forms.py:75
-#| msgid "Enter a title in at least one language."
 msgid "Enter a title in French or English."
 msgstr ""
 
@@ -707,12 +760,17 @@ msgstr "Message deleted."
 msgid "Home page updated."
 msgstr "Home page updated."
 
-#: panel/views.py:413
+#: panel/views.py:420
 msgid "Sign-up pop-up updated. Visitors now see it on the home page."
 msgstr ""
 
-#: panel/views.py:415
+#: panel/views.py:422
 msgid "Sign-up pop-up turned off."
+msgstr ""
+
+#: panel/views.py:434
+#| msgid "Home page updated."
+msgid "Key figures updated."
 msgstr ""
 
 #: polls/forms.py:17
@@ -1358,7 +1416,7 @@ msgid "Go Back"
 msgstr ""
 
 #: templates/core/home.html:24 templates/core/home.html:48
-#: templates/core/home.html:108
+#: templates/core/home.html:124
 msgid "Our Mission"
 msgstr ""
 
@@ -1433,61 +1491,65 @@ msgstr ""
 msgid "Already a member?"
 msgstr ""
 
-#: templates/core/home.html:110
+#: templates/core/home.html:106 templates/panel/home_content.html:27
+msgid "Key figures"
+msgstr ""
+
+#: templates/core/home.html:126
 msgid ""
 "To represent, defend, and protect the interests of flight attendants. We are"
 " the voice of cabin crew, working every day to improve your working "
 "conditions and safeguard your rights."
 msgstr ""
 
-#: templates/core/home.html:115
+#: templates/core/home.html:131
 msgid "Knowledge Sharing"
 msgstr ""
 
-#: templates/core/home.html:116
+#: templates/core/home.html:132
 msgid ""
 "Centralized access to organizational documents and resources with "
 "intelligent search capabilities."
 msgstr ""
 
-#: templates/core/home.html:120
+#: templates/core/home.html:136
 msgid "AI-Powered Assistance"
 msgstr ""
 
-#: templates/core/home.html:121
+#: templates/core/home.html:137
 msgid ""
 "Get instant, accurate answers from your organization's knowledge base using "
 "advanced AI technology."
 msgstr ""
 
-#: templates/core/home.html:125
+#: templates/core/home.html:141
 msgid "Secure & Controlled"
 msgstr ""
 
-#: templates/core/home.html:126
+#: templates/core/home.html:142
 msgid ""
 "Enterprise-grade security with role-based access control to protect "
 "sensitive information."
 msgstr ""
 
-#: templates/core/home.html:135 templates/core/home.html:139
+#: templates/core/home.html:151 templates/core/home.html:155
 msgid "Contact Us"
 msgstr ""
 
-#: templates/core/home.html:136
+#: templates/core/home.html:152
 msgid "Get in touch with us for any questions or support needs."
 msgstr ""
 
-#: templates/core/home.html:140
+#: templates/core/home.html:156
 msgid "All fields are required."
 msgstr ""
 
-#: templates/core/home.html:145
+#: templates/core/home.html:161
 #, python-format
 msgid "Your message will be passed to %(name)s (%(role)s)."
 msgstr ""
 
-#: templates/core/home.html:153
+#: templates/core/home.html:169
 msgid ""
 "Privacy notice: we use your name, email, phone number and message only to "
 "answer your request. They are kept in our admin panel and are not shared "
@@ -1497,7 +1559,7 @@ msgstr ""
 "answer your request. They are kept in our admin panel and are not shared "
 "with third parties. To have them deleted, write to us using this form."
 
-#: templates/core/home.html:154
+#: templates/core/home.html:170
 msgid "Send Message"
 msgstr ""
 
@@ -2102,36 +2164,50 @@ msgid "Home page text"
 msgstr "Home page text"
 
 #: templates/panel/home_content.html:5
-#| msgid "If one language is empty, visitors see the other one."
 msgid ""
 "If one language is empty, visitors see the French text (or the English one "
 "if French is empty too)."
 msgstr ""
 
-#: templates/panel/home_content.html:27
+#: templates/panel/home_content.html:28
+msgid ""
+"Big numbers shown on the home page above Our mission (up to 4). Leave the "
+"last block empty if you don't need it, and tick Delete to remove one. Only "
+"Master Admins can change them."
+msgstr ""
+
+#: templates/panel/home_content.html:35
+msgid "New figure"
+msgstr ""
+
+#: templates/panel/home_content.html:45
+msgid "Save figures"
+msgstr ""
+
+#: templates/panel/home_content.html:50
 msgid "Membership sign-up pop-up"
 msgstr ""
 
-#: templates/panel/home_content.html:28
+#: templates/panel/home_content.html:51
 msgid ""
 "Visitors who aren't logged in see a pop-up on the home page inviting them to"
 " join. It opens your Google Form, and admins then create the accounts from "
 "the answers. Only Master Admins can change this link."
 msgstr ""
 
-#: templates/panel/home_content.html:32
+#: templates/panel/home_content.html:55
 msgid "Status: the pop-up is shown to visitors."
 msgstr ""
 
-#: templates/panel/home_content.html:32
+#: templates/panel/home_content.html:55
 msgid "Open the form"
 msgstr ""
 
-#: templates/panel/home_content.html:32
+#: templates/panel/home_content.html:55
 msgid "Status: no link, so the pop-up is hidden."
 msgstr ""
 
-#: templates/panel/home_content.html:33
+#: templates/panel/home_content.html:56
 msgid "Save link"
 msgstr ""
 
@@ -2211,9 +2287,6 @@ msgid "Edit article"
 msgstr "Edit article"
 
 #: templates/panel/news_form.html:5
-#| msgid ""
-#| "Fill in French, English or both. If one language is empty, readers see the "
-#| "other one."
 msgid ""
 "Fill in French, English or both. Arabic is optional: if it is empty, Arabic "
 "readers see the French text."

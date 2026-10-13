@@ -17,7 +17,7 @@ from accounts.lockout import hit_rate_limit
 from team.models import TeamMember
 
 from .forms import ContactForm
-from .models import SiteContent
+from .models import KeyFigure, SiteContent
 
 logger = logging.getLogger(__name__)
 
@@ -53,7 +53,8 @@ def home(request):
             _notify_admins(contact)
             messages.success(request, _("Message sent successfully! We will get back to you soon."))
             return redirect(f"{request.path}#contact")
-    return render(request, "core/home.html", {"content": content, "form": form, "recipient": recipient})
+    context = {"content": content, "form": form, "recipient": recipient, "figures": KeyFigure.objects.all()}
+    return render(request, "core/home.html", context)
 
 
 def _notify_admins(contact):
