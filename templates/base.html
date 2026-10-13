@@ -14,6 +14,7 @@
 <body>
   <a class="skip-link" href="#main">{% translate "Skip to content" %}</a>
   {% with app=request.resolver_match.app_name url_name=request.resolver_match.url_name %}
+  {% block header %}
   <header class="site-header">
     <div class="container">
       <div class="header-inner">
@@ -51,6 +52,7 @@
       </div>
     </div>
   </header>
+  {% endblock %}
   {% endwith %}
 
   <main id="main" tabindex="-1" class="{% block main_class %}page bg-gray{% endblock %}">

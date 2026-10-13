@@ -1,3 +1,6 @@
+import uuid
+from pathlib import Path
+
 from django.conf import settings
 from django.db import models
 from django.utils.translation import get_language
@@ -14,6 +17,10 @@ class BilingualMixin:
         return getattr(self, f"{field}_{lang}", "") or getattr(self, f"{field}_{other}", "")
 
 
+def hero_image_path(instance, filename):
+    return f"site/hero-{uuid.uuid4().hex}{Path(filename).suffix.lower()}"
+
+
 class SiteContent(BilingualMixin, models.Model):
     """Single row holding the editable text of the public home page."""
 
@@ -21,6 +28,12 @@ class SiteContent(BilingualMixin, models.Model):
     description_en = models.TextField(_("organisation description (English)"), blank=True)
     mission_fr = models.TextField(_("our mission (French)"), blank=True)
     mission_en = models.TextField(_("our mission (English)"), blank=True)
+    hero_image = models.ImageField(
+        _("home page background photo"),
+        upload_to=hero_image_path,
+        blank=True,
+        help_text=_("Shown behind the title at the top of the home page. A wide photo (at least 1600 pixels across) works best. Leave empty to use the default background."),
+    )
     signup_form_url = models.URLField(
         _("membership sign-up form (Google Form link)"),
         blank=True,

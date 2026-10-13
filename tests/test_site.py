@@ -262,3 +262,49 @@ class SignupPopupTests(TestCase):
         response = self.client.post(reverse("panel:signup_link"), {"signup_form_url": self.FORM_URL})
         self.assertEqual(response.status_code, 403)
         self.assertEqual(SiteContent.load().signup_form_url, "")
+
+
+@media_settings()
+class HeroPhotoTests(TestCase):
+    def png(self, name="hero.png"):
+        import io
+
+        from PIL import Image
+
+        buf = io.BytesIO()
+        Image.new("RGB", (40, 20), "navy").save(buf, "PNG")
+        return ContentFile(buf.getvalue(), name=name)
+
+    def post_home(self, **extra):
+        data = {"description_fr": "Desc", "description_en": "", "mission_fr": "", "mission_en": ""}
+        data.update(extra)
+        return self.client.post(reverse("panel:home_content"), data)
+
+    def test_home_uses_default_background_and_keeps_navigation(self):
+        guest = self.client.get("/fr/")
+        self.assertContains(guest, "img/hero-default.svg")
+        self.assertContains(guest, 'href="#contact"')
+        self.client.force_login(make_user("m@example.com"))
+        member = self.client.get("/fr/")
+        self.assertContains(member, reverse("meetings:index"))
+        self.assertContains(member, reverse("accounts:logout"))
+        self.assertNotContains(member, 'href="/fr/panel/')
+
+    def test_admin_uploads_photo_shown_publicly_and_old_file_removed(self):
+        self.client.force_login(make_user("admin@example.com", Role.ADMIN))
+        self.post_home(hero_image=self.png())
+        first = SiteContent.load().hero_image.name
+        self.assertTrue(first.startswith("site/hero-"))
+        self.post_home(hero_image=self.png("second.png"))
+        second = SiteContent.load().hero_image
+        self.assertNotEqual(second.name, first)
+        self.assertFalse(second.storage.exists(first))
+        self.client.logout()
+        self.assertContains(self.client.get("/fr/"), reverse("core:hero_image"))
+        self.assertEqual(self.client.get(reverse("core:hero_image")).status_code, 200)
+
+    def test_non_images_are_rejected_and_missing_photo_is_404(self):
+        self.client.force_login(make_user("admin@example.com", Role.ADMIN))
+        self.post_home(hero_image=ContentFile(b"not an image", name="x.png"))
+        self.assertFalse(SiteContent.load().hero_image)
+        self.assertEqual(self.client.get(reverse("core:hero_image")).status_code, 404)

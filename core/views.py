@@ -81,6 +81,17 @@ def private_media(request, path):
     return response
 
 
+def hero_image(request):
+    """Public home page background photo uploaded under Admin → Home page."""
+    image = SiteContent.load().hero_image
+    if not image or not image.storage.exists(image.name):
+        raise Http404
+    content_type, _enc = mimetypes.guess_type(image.name)
+    response = FileResponse(image.open("rb"), content_type=content_type or "application/octet-stream")
+    response["Cache-Control"] = "public, max-age=86400"
+    return response
+
+
 def error_403(request, exception=None):
     return render(request, "core/error.html", {"code": 403, "title": _("Access denied"), "text": _("You do not have permission to view this page.")}, status=403)
 

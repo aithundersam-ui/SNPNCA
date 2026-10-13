@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-11 20:25+0100\n"
+"POT-Creation-Date: 2026-10-13 20:09+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -126,11 +126,11 @@ msgid ""
 "XX."
 msgstr ""
 
-#: accounts/models.py:58 core/models.py:47
+#: accounts/models.py:58 core/models.py:60
 msgid "email"
 msgstr "email"
 
-#: accounts/models.py:59 core/models.py:46
+#: accounts/models.py:59 core/models.py:59
 msgid "full name"
 msgstr "full name"
 
@@ -203,55 +203,65 @@ msgstr "Enter a valid phone number."
 msgid "Your message is too short."
 msgstr "Your message is too short."
 
-#: core/forms.py:90 core/forms.py:92
+#: core/forms.py:105 core/forms.py:107
 msgid ""
 "Paste the link of a Google Form (it starts with https://forms.gle/ or "
 "https://docs.google.com/forms/)."
 msgstr ""
 
-#: core/forms.py:97
+#: core/forms.py:112
 msgid "Reply"
 msgstr "Reply"
 
-#: core/models.py:20
+#: core/models.py:27
 msgid "organisation description (French)"
 msgstr "organisation description (French)"
 
-#: core/models.py:21
+#: core/models.py:28
 msgid "organisation description (English)"
 msgstr "organisation description (English)"
 
-#: core/models.py:22
+#: core/models.py:29
 msgid "our mission (French)"
 msgstr "our mission (French)"
 
-#: core/models.py:23
+#: core/models.py:30
 msgid "our mission (English)"
 msgstr "our mission (English)"
 
-#: core/models.py:25
+#: core/models.py:32
+msgid "home page background photo"
+msgstr ""
+
+#: core/models.py:35
+msgid ""
+"Shown behind the title at the top of the home page. A wide photo (at least "
+"1600 pixels across) works best. Leave empty to use the default background."
+msgstr ""
+
+#: core/models.py:38
 msgid "membership sign-up form (Google Form link)"
 msgstr ""
 
-#: core/models.py:27
+#: core/models.py:40
 msgid ""
 "Visitors who aren't logged in see a pop-up on the home page that opens this "
 "form. Leave empty to hide the pop-up."
 msgstr ""
 
-#: core/models.py:43 templates/panel/messages.html:7
+#: core/models.py:56 templates/panel/messages.html:7
 msgid "New"
 msgstr "New"
 
-#: core/models.py:44 templates/panel/messages.html:8
+#: core/models.py:57 templates/panel/messages.html:8
 msgid "Replied"
 msgstr "Replied"
 
-#: core/models.py:48
+#: core/models.py:61
 msgid "phone number"
 msgstr "phone number"
 
-#: core/models.py:49
+#: core/models.py:62
 msgid "message"
 msgstr "message"
 
@@ -259,27 +269,27 @@ msgstr "message"
 msgid "Message sent successfully! We will get back to you soon."
 msgstr ""
 
-#: core/views.py:85
+#: core/views.py:96
 msgid "Access denied"
 msgstr "Access denied"
 
-#: core/views.py:85
+#: core/views.py:96
 msgid "You do not have permission to view this page."
 msgstr "You do not have permission to view this page."
 
-#: core/views.py:89
+#: core/views.py:100
 msgid "Page Not Found"
 msgstr ""
 
-#: core/views.py:89
+#: core/views.py:100
 msgid "The page you're looking for doesn't exist or may have been moved."
 msgstr ""
 
-#: core/views.py:93
+#: core/views.py:104
 msgid "Server error"
 msgstr "Server error"
 
-#: core/views.py:93
+#: core/views.py:104
 msgid "Something went wrong. Please try again later."
 msgstr "Something went wrong. Please try again later."
 
@@ -693,8 +703,8 @@ msgstr "Next"
 msgid "Sign In"
 msgstr ""
 
-#: templates/accounts/login.html:7 templates/base.html:21
-#: templates/core/home.html:7
+#: templates/accounts/login.html:7 templates/base.html:22
+#: templates/core/home.html:16
 msgid "SNPNCA logo"
 msgstr "SNPNCA logo"
 
@@ -758,8 +768,9 @@ msgstr "Password saved"
 msgid "Your password has been saved. You can now log in."
 msgstr "Your password has been saved. You can now log in."
 
-#: templates/accounts/password_reset_complete.html:7 templates/base.html:33
-#: templates/base.html:49 templates/core/home.html:35
+#: templates/accounts/password_reset_complete.html:7 templates/base.html:34
+#: templates/base.html:50 templates/core/home.html:33
+#: templates/core/home.html:54 templates/core/home.html:96
 msgid "Log in"
 msgstr "Log in"
 
@@ -794,13 +805,14 @@ msgstr ""
 "password. The link is valid for 3 days."
 
 #: templates/accounts/settings.html:2 templates/accounts/settings.html:5
-#: templates/base.html:30 templates/base.html:43
+#: templates/base.html:31 templates/base.html:44 templates/core/home.html:30
+#: templates/core/home.html:44
 msgid "My account"
 msgstr "My account"
 
 #: templates/accounts/settings.html:10
 #: templates/meetings/panel_day_form.html:9
-#: templates/panel/home_content.html:18 templates/panel/news_form.html:37
+#: templates/panel/home_content.html:19 templates/panel/news_form.html:37
 #: templates/panel/user_form.html:10
 msgid "Save"
 msgstr "Save"
@@ -809,15 +821,17 @@ msgstr "Save"
 msgid "Skip to content"
 msgstr "Skip to content"
 
-#: templates/base.html:24 templates/base.html:41
+#: templates/base.html:25 templates/base.html:42 templates/core/home.html:19
+#: templates/core/home.html:41
 msgid "Main navigation"
 msgstr "Main navigation"
 
-#: templates/base.html:31 templates/base.html:47
+#: templates/base.html:32 templates/base.html:48 templates/core/home.html:31
+#: templates/core/home.html:52
 msgid "Log out"
 msgstr "Log out"
 
-#: templates/base.html:37
+#: templates/base.html:38 templates/core/home.html:37
 msgid "Menu"
 msgstr ""
 
@@ -829,7 +843,42 @@ msgstr ""
 msgid "Go Back"
 msgstr ""
 
-#: templates/core/home.html:10
+#: templates/core/home.html:23 templates/core/home.html:46
+#: templates/core/home.html:103
+msgid "Our Mission"
+msgstr ""
+
+#: templates/core/home.html:24 templates/core/home.html:47
+msgid "Contact"
+msgstr ""
+
+#: templates/core/home.html:60
+msgid "The voice of Algerian cabin crew"
+msgstr ""
+
+#: templates/core/home.html:61
+msgid ""
+"Defending the rights, working conditions and dignity of flight attendants "
+"across Algeria."
+msgstr ""
+
+#: templates/core/home.html:64
+msgid "Ask AI Assistant"
+msgstr ""
+
+#: templates/core/home.html:66
+msgid "Get started"
+msgstr ""
+
+#: templates/core/home.html:68
+msgid "Become a member"
+msgstr ""
+
+#: templates/core/home.html:78
+msgid "About us"
+msgstr "About us"
+
+#: templates/core/home.html:81
 msgid ""
 "An independent organization representing Algerian flight attendants, "
 "committed to protecting their rights, enhancing their status, and improving "
@@ -837,31 +886,19 @@ msgid ""
 "national level."
 msgstr ""
 
-#: templates/core/home.html:13
-msgid "Ask AI Assistant"
-msgstr ""
-
-#: templates/core/home.html:15
-msgid "Get started"
-msgstr ""
-
-#: templates/core/home.html:17
-msgid "Become a member"
-msgstr ""
-
-#: templates/core/home.html:20
+#: templates/core/home.html:82
 msgid "Latest News"
 msgstr ""
 
-#: templates/core/home.html:27
+#: templates/core/home.html:88
 msgid "Close"
 msgstr ""
 
-#: templates/core/home.html:29
+#: templates/core/home.html:90
 msgid "Not a member yet?"
 msgstr ""
 
-#: templates/core/home.html:30
+#: templates/core/home.html:91
 #, python-format
 msgid ""
 "Join %(ORG_SHORT)s: fill in the membership form with your details. Our "
@@ -869,72 +906,68 @@ msgid ""
 "to choose your password."
 msgstr ""
 
-#: templates/core/home.html:32
+#: templates/core/home.html:93
 msgid "Fill in the membership form"
 msgstr ""
 
-#: templates/core/home.html:33
+#: templates/core/home.html:94
 msgid "Maybe later"
 msgstr ""
 
-#: templates/core/home.html:35
+#: templates/core/home.html:96
 msgid "Already a member?"
 msgstr ""
 
-#: templates/core/home.html:42
-msgid "Our Mission"
-msgstr ""
-
-#: templates/core/home.html:44
+#: templates/core/home.html:105
 msgid ""
 "To represent, defend, and protect the interests of flight attendants. We are"
 " the voice of cabin crew, working every day to improve your working "
 "conditions and safeguard your rights."
 msgstr ""
 
-#: templates/core/home.html:49
+#: templates/core/home.html:110
 msgid "Knowledge Sharing"
 msgstr ""
 
-#: templates/core/home.html:50
+#: templates/core/home.html:111
 msgid ""
 "Centralized access to organizational documents and resources with "
 "intelligent search capabilities."
 msgstr ""
 
-#: templates/core/home.html:54
+#: templates/core/home.html:115
 msgid "AI-Powered Assistance"
 msgstr ""
 
-#: templates/core/home.html:55
+#: templates/core/home.html:116
 msgid ""
 "Get instant, accurate answers from your organization's knowledge base using "
 "advanced AI technology."
 msgstr ""
 
-#: templates/core/home.html:59
+#: templates/core/home.html:120
 msgid "Secure & Controlled"
 msgstr ""
 
-#: templates/core/home.html:60
+#: templates/core/home.html:121
 msgid ""
 "Enterprise-grade security with role-based access control to protect "
 "sensitive information."
 msgstr ""
 
-#: templates/core/home.html:69 templates/core/home.html:73
+#: templates/core/home.html:130 templates/core/home.html:134
 msgid "Contact Us"
 msgstr ""
 
-#: templates/core/home.html:70
+#: templates/core/home.html:131
 msgid "Get in touch with us for any questions or support needs."
 msgstr ""
 
-#: templates/core/home.html:74
+#: templates/core/home.html:135
 msgid "All fields are required."
 msgstr ""
 
-#: templates/core/home.html:86
+#: templates/core/home.html:147
 msgid ""
 "Privacy notice: we use your name, email, phone number and message only to "
 "answer your request. They are kept in our admin panel and are not shared "
@@ -944,7 +977,7 @@ msgstr ""
 "answer your request. They are kept in our admin panel and are not shared "
 "with third parties. To have them deleted, write to us using this form."
 
-#: templates/core/home.html:87
+#: templates/core/home.html:148
 msgid "Send Message"
 msgstr ""
 
@@ -1546,30 +1579,30 @@ msgstr "Home page text"
 msgid "If one language is empty, visitors see the other one."
 msgstr "If one language is empty, visitors see the other one."
 
-#: templates/panel/home_content.html:22
+#: templates/panel/home_content.html:23
 msgid "Membership sign-up pop-up"
 msgstr ""
 
-#: templates/panel/home_content.html:23
+#: templates/panel/home_content.html:24
 msgid ""
 "Visitors who aren't logged in see a pop-up on the home page inviting them to"
 " join. It opens your Google Form, and admins then create the accounts from "
 "the answers. Only Master Admins can change this link."
 msgstr ""
 
-#: templates/panel/home_content.html:27
+#: templates/panel/home_content.html:28
 msgid "Status: the pop-up is shown to visitors."
 msgstr ""
 
-#: templates/panel/home_content.html:27
+#: templates/panel/home_content.html:28
 msgid "Open the form"
 msgstr ""
 
-#: templates/panel/home_content.html:27
+#: templates/panel/home_content.html:28
 msgid "Status: no link, so the pop-up is hidden."
 msgstr ""
 
-#: templates/panel/home_content.html:28
+#: templates/panel/home_content.html:29
 msgid "Save link"
 msgstr ""
 
@@ -1827,9 +1860,6 @@ msgstr ""
 #~ msgstr ""
 #~ "Accounts are created by the union. If you are a member and have no account, "
 #~ "use the contact form on the home page."
-
-#~ msgid "About us"
-#~ msgstr "About us"
 
 #~ msgid "Content coming soon."
 #~ msgstr "Content coming soon."

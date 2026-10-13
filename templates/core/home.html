@@ -1,24 +1,85 @@
 {% extends "base.html" %}{% load i18n static site_tags %}
 {% block title %}{% translate "Home" %}{% endblock %}
 {% block main_class %}bg-home{% endblock %}
-{% block body %}
-<section class="hero" aria-labelledby="hero-title">
-  <div class="container">
-    <img class="hero-logo" src="{% static 'img/logo.png' %}" alt="{% translate 'SNPNCA logo' %}" width="442" height="224">
-    <h1 id="hero-title" class="gradient-text">{{ ORG_SHORT }}</h1>
-    {% localized content "description" as description %}
-    <div class="hero-lead">{{ description|default:_("An independent organization representing Algerian flight attendants, committed to protecting their rights, enhancing their status, and improving their working conditions while upholding dignity and professionalism at a national level.")|linebreaksbr }}</div>
-    <div class="hero-actions">
-      {% if user.is_authenticated %}
-        <a class="btn gradient lg" href="{% url 'qa:chat' %}">{% translate "Ask AI Assistant" %}{% icon "arrow-right" 20 %}</a>
-      {% else %}
-        <a class="btn gradient lg" href="{% url 'accounts:login' %}?next={% url 'qa:chat' %}">{% translate "Get started" %}{% icon "arrow-right" 20 %}</a>
-        {% if content.signup_form_url %}
-          <a class="btn outline lg" href="{{ content.signup_form_url }}" target="_blank" rel="noopener noreferrer" data-signup-open>{% icon "user-plus" 20 %}{% translate "Become a member" %}</a>
+{% block header %}
+<div class="hero-frame">
+  <section class="hero-card" aria-labelledby="hero-title">
+    {% if content.hero_image %}
+      <img class="hero-bg" src="{% url 'core:hero_image' %}?v={{ content.updated_at|date:'U' }}" alt="" aria-hidden="true">
+    {% else %}
+      <img class="hero-bg" src="{% static 'img/hero-default.svg' %}" alt="" aria-hidden="true">
+    {% endif %}
+    <div class="hero-shade" aria-hidden="true"></div>
+
+    <header class="hero-top">
+      <a class="hero-notch hero-brand" href="{% url 'core:home' %}">
+        <img src="{% static 'img/logo.png' %}" alt="{% translate 'SNPNCA logo' %}" width="88" height="44">
+        <span class="brand-short">{{ ORG_SHORT }}</span>
+      </a>
+      <nav class="hero-nav" aria-label="{% translate 'Main navigation' %}">
+        {% if user.is_authenticated %}
+          {% include "_nav_links.html" %}
+        {% else %}
+          <a href="#mission">{% translate "Our Mission" %}</a>
+          <a href="#contact">{% translate "Contact" %}</a>
         {% endif %}
-      {% endif %}
-      <a class="btn outline lg" href="{% url 'news:list' %}">{% translate "Latest News" %}</a>
+      </nav>
+      <div class="hero-notch hero-tools">
+        {% include "_lang_switch.html" %}
+        {% if user.is_authenticated %}
+          <a class="pill dark" href="{% url 'accounts:settings' %}" title="{% translate 'My account' %}"><span class="pill-text">{{ user.full_name|default:user.email }}</span></a>
+          <form method="post" action="{% url 'accounts:logout' %}">{% csrf_token %}<button type="submit" class="pill-round dark" title="{% translate 'Log out' %}">{% icon "log-out" 18 %}<span class="sr-only">{% translate "Log out" %}</span></button></form>
+        {% else %}
+          <a class="pill dark" href="{% url 'accounts:login' %}">{% translate "Log in" %}</a>
+          <a class="pill-round dark" href="{% url 'accounts:login' %}" aria-hidden="true" tabindex="-1">{% icon "arrow-up-right" 18 %}</a>
+        {% endif %}
+        <button type="button" class="pill-round dark hero-menu-toggle" aria-expanded="false" aria-controls="hero-menu" data-menu-toggle>
+          {% icon "menu" 20 %}<span class="sr-only">{% translate "Menu" %}</span>
+        </button>
+      </div>
+      <div class="hero-menu" id="hero-menu">
+        <nav aria-label="{% translate 'Main navigation' %}">
+          {% if user.is_authenticated %}
+            {% include "_nav_links.html" %}
+            <a href="{% url 'accounts:settings' %}">{% translate "My account" %}</a>
+          {% else %}
+            <a href="#mission">{% translate "Our Mission" %}</a>
+            <a href="#contact">{% translate "Contact" %}</a>
+          {% endif %}
+        </nav>
+        {% include "_lang_switch.html" %}
+        {% if user.is_authenticated %}
+          <form method="post" action="{% url 'accounts:logout' %}">{% csrf_token %}<button type="submit" class="btn outline block">{% icon "log-out" 16 %}{% translate "Log out" %}</button></form>
+        {% else %}
+          <a class="btn primary block" href="{% url 'accounts:login' %}">{% icon "log-in" 16 %}{% translate "Log in" %}</a>
+        {% endif %}
+      </div>
+    </header>
+
+    <div class="hero-body">
+      <h1 id="hero-title">{% translate "The voice of Algerian cabin crew" %}</h1>
+      <p class="hero-sub">{% translate "Defending the rights, working conditions and dignity of flight attendants across Algeria." %}</p>
+      <div class="hero-cta">
+        {% if user.is_authenticated %}
+          <a class="pill-cta" href="{% url 'qa:chat' %}"><span>{% translate "Ask AI Assistant" %}</span><span class="pill-cta-icon">{% icon "arrow-up-right" 18 %}</span></a>
+        {% else %}
+          <a class="pill-cta" href="{% url 'accounts:login' %}?next={% url 'qa:chat' %}"><span>{% translate "Get started" %}</span><span class="pill-cta-icon">{% icon "arrow-up-right" 18 %}</span></a>
+          {% if content.signup_form_url %}
+            <a class="pill-ghost" href="{{ content.signup_form_url }}" target="_blank" rel="noopener noreferrer" data-signup-open>{% icon "user-plus" 18 %}{% translate "Become a member" %}</a>
+          {% endif %}
+        {% endif %}
+      </div>
     </div>
+  </section>
+</div>
+{% endblock %}
+
+{% block body %}
+<section class="section section-intro" aria-label="{% translate 'About us' %}">
+  <div class="container">
+    {% localized content "description" as description %}
+    <div class="intro-text">{{ description|default:_("An independent organization representing Algerian flight attendants, committed to protecting their rights, enhancing their status, and improving their working conditions while upholding dignity and professionalism at a national level.")|linebreaksbr }}</div>
+    {% if user.is_authenticated %}<p class="intro-links"><a href="{% url 'news:list' %}">{% translate "Latest News" %}{% icon "arrow-right" 16 %}</a></p>{% endif %}
   </div>
 </section>
 
@@ -36,7 +97,7 @@
 </dialog>
 {% endif %}
 
-<section class="section section-white" aria-labelledby="mission-title">
+<section class="section section-white" id="mission" aria-labelledby="mission-title">
   <div class="container">
     <div class="section-head">
       <h2 id="mission-title">{% translate "Our Mission" %}</h2>

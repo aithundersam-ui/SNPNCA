@@ -391,7 +391,7 @@ def message_delete(request, pk):
 @admin_required
 def home_content(request):
     content = SiteContent.load()
-    form = SiteContentForm(request.POST or None, instance=content)
+    form = SiteContentForm(request.POST or None, request.FILES or None, instance=content)
     if request.method == "POST" and form.is_valid():
         form.save()
         log_action(request, "home.update")

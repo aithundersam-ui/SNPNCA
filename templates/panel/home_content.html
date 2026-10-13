@@ -3,8 +3,9 @@
 {% block panel %}
 <h1>{% translate "Home page text" %}</h1>
 <p class="muted">{% translate "If one language is empty, visitors see the other one." %}</p>
-<form method="post" novalidate>
+<form method="post" enctype="multipart/form-data" novalidate>
   {% csrf_token %}
+  <div class="field">{{ form.hero_image.as_field_group }}</div>
   <div class="form-row">
     <fieldset lang="fr"><legend>Français</legend>
       <div class="field">{{ form.description_fr.as_field_group }}</div>

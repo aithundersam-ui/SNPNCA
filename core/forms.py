@@ -68,8 +68,23 @@ class ContactForm(forms.ModelForm):
 class SiteContentForm(forms.ModelForm):
     class Meta:
         model = SiteContent
-        fields = ["description_fr", "description_en", "mission_fr", "mission_en"]
-        widgets = {f: forms.Textarea(attrs={"rows": 6}) for f in fields}
+        fields = ["description_fr", "description_en", "mission_fr", "mission_en", "hero_image"]
+        widgets = {f: forms.Textarea(attrs={"rows": 6}) for f in fields[:4]}
+
+    def clean_hero_image(self):
+        from panel.forms import validate_image
+
+        image = self.cleaned_data.get("hero_image")
+        if image and image is not self.instance.hero_image:
+            validate_image(image)
+        return image
+
+    def save(self, commit=True):
+        old = SiteContent.objects.filter(pk=self.instance.pk).values_list("hero_image", flat=True).first()
+        obj = super().save(commit)
+        if commit and old and old != obj.hero_image.name:
+            obj.hero_image.storage.delete(old)
+        return obj
 
 
 GOOGLE_FORM_HOSTS = {"docs.google.com", "forms.gle", "forms.google.com"}
