@@ -54,6 +54,8 @@ INSTALLED_APPS = [
     "qa",
     "panel",
     "meetings",
+    "polls",
+    "alerts",
 ]
 
 MIDDLEWARE = [

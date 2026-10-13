@@ -1,0 +1,14 @@
+{% extends "panel/_layout.html" %}{% load i18n %}
+{% block title %}{% translate "New alert" %}{% endblock %}
+{% block panel %}
+<h1>{% translate "New alert" %}</h1>
+<p class="muted">{% translate "Keep it short: members read it on their phones. If one language is empty, members see the other one." %}</p>
+<form method="post" class="card" novalidate>
+  {% csrf_token %}
+  {% include "_form_fields.html" %}
+  <div class="actions">
+    <button type="submit" class="btn danger" data-confirm="{% translate 'Publish this alert to all members now?' %}">{% translate "Publish the alert" %}</button>
+    <a href="{% url 'panel:alerts' %}">{% translate "Cancel" %}</a>
+  </div>
+</form>
+{% endblock %}

@@ -3,7 +3,7 @@
 {% block content %}
 <div class="narrow">
   <h1 class="page-head">{% icon "newspaper" 32 %}{% translate "News & Updates" %}</h1>
-  <p class="page-sub">{% translate "Stay informed with the latest organizational announcements and updates" %}</p>
+  <p class="page-sub">{% translate "Stay informed with the latest organizational announcements and updates" %} · <a href="{% url 'alerts:list' %}">{% translate "Urgent alerts" %}</a></p>
   {% if page.object_list %}
   <ul class="news-list">
     {% for article in page %}

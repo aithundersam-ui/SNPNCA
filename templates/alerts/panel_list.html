@@ -1,0 +1,25 @@
+{% extends "panel/_layout.html" %}{% load i18n site_tags %}
+{% block title %}{% translate "Alerts" %}{% endblock %}
+{% block panel %}
+<h1>{% translate "Urgent alerts" %}</h1>
+<p class="muted">{% translate "An alert appears as a red banner for logged-in members, is emailed to every member and can be shared on WhatsApp in one tap." %}</p>
+<p><a class="btn" href="{% url 'panel:alert_create' %}">{% icon "bell" 16 %}{% translate "New alert" %}</a></p>
+<div class="table-wrap">
+<table>
+  <thead><tr><th>{% translate "Title" %}</th><th>{% translate "Sent" %}</th><th>{% translate "Emails" %}</th><th>{% translate "Banner" %}</th></tr></thead>
+  <tbody>
+  {% now "U" as now_ts %}
+  {% for alert in alerts %}
+  <tr>
+    <td><a href="{% url 'panel:alert_detail' alert.pk %}">{% localized alert "title" %}</a></td>
+    <td>{{ alert.created_at|date:"SHORT_DATETIME_FORMAT" }}</td>
+    <td>{% if alert.emailed_at %}{{ alert.emails_sent }}{% if alert.emails_failed %} <span class="badge failed">{% blocktranslate with n=alert.emails_failed %}{{ n }} failed{% endblocktranslate %}</span>{% endif %}{% else %}<span class="muted">—</span>{% endif %}</td>
+    <td>{% if alert.show_until|date:"U" > now_ts %}<span class="badge ok">{% translate "Visible" %}</span>{% else %}<span class="badge">{% translate "Ended" %}</span>{% endif %}</td>
+  </tr>
+  {% empty %}
+  <tr><td colspan="4" class="muted">{% translate "No alerts yet." %}</td></tr>
+  {% endfor %}
+  </tbody>
+</table>
+</div>
+{% endblock %}

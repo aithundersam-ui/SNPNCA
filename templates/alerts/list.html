@@ -1,0 +1,17 @@
+{% extends "base.html" %}{% load i18n site_tags %}
+{% block title %}{% translate "Urgent alerts" %}{% endblock %}
+{% block content %}
+<div class="narrow">
+  <h1 class="page-head">{% icon "bell" 32 %}{% translate "Urgent alerts" %}</h1>
+  <p class="page-sub">{% translate "Important announcements from the union, such as strike notices or negotiation results. They are also sent by email and WhatsApp." %}</p>
+  {% for alert in alerts %}
+    <a class="card hoverable alert-card" href="{% url 'alerts:detail' alert.pk %}">
+      <p class="small muted">{% icon "calendar" 14 %} {{ alert.created_at|date:"DATETIME_FORMAT" }}</p>
+      <h2>{% localized alert "title" %}</h2>
+      {% localized alert "body" as body %}<p>{{ body|truncatewords:40 }}</p>
+    </a>
+  {% empty %}
+    <div class="card empty">{% icon "bell" 48 %}<h2>{% translate "No alerts" %}</h2><p>{% translate "Urgent announcements will appear here." %}</p></div>
+  {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends "panel/_layout.html" %}{% load i18n site_tags %}
+{% block title %}{% translate "Results" %}{% endblock %}
+{% block panel %}
+<p><a href="{% url 'panel:polls' %}">{% translate "All votes" %}</a></p>
+<h1>{% localized poll "title" %}</h1>
+<p>{% include "polls/_status.html" %} <span class="muted">{{ poll.get_category_display }} · {{ poll.opens_at|date:"DATETIME_FORMAT" }} → {{ poll.ends_at|date:"DATETIME_FORMAT" }}</span></p>
+<div class="queue-stats">
+  <div><span class="queue-label">{% translate "Voters" %}</span><strong>{{ voters }}</strong></div>
+  <div><span class="queue-label">{% translate "Active members" %}</span><strong>{{ members }}</strong></div>
+  <div><span class="queue-label">{% translate "Turnout" %}</span><strong>{{ turnout }}%</strong></div>
+</div>
+<section class="card mt-lg">
+  <h2 class="card-title">{% if poll.is_closed %}{% translate "Final results" %}{% else %}{% translate "Live results (only admins see them)" %}{% endif %}</h2>
+  {% include "polls/_bars.html" %}
+  <p class="small muted">{% if poll.show_results %}{% translate "Members will see these results once the vote is closed." %}{% else %}{% translate "These results are not shown to members." %}{% endif %}</p>
+</section>
+<div class="actions mt-lg">
+  {% if not poll.is_closed %}<a class="btn secondary" href="{% url 'panel:poll_edit' poll.pk %}">{% translate "Edit" %}</a>{% endif %}
+  {% if poll.is_open %}<form method="post" action="{% url 'panel:poll_close' poll.pk %}">{% csrf_token %}<button type="submit" class="btn" data-confirm="{% translate 'Close this vote now? Members will no longer be able to vote.' %}">{% translate "Close the vote now" %}</button></form>{% endif %}
+  <a class="btn danger secondary" href="{% url 'panel:poll_delete' poll.pk %}">{% translate "Delete" %}</a>
+</div>
+{% endblock %}

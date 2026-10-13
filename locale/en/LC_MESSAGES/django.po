@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-13 20:09+0100\n"
+"POT-Creation-Date: 2026-10-13 21:20+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -112,11 +112,11 @@ msgstr "Admin"
 msgid "Master Admin"
 msgstr "Master Admin"
 
-#: accounts/models.py:17 config/settings.py:131
+#: accounts/models.py:17 config/settings.py:133
 msgid "French"
 msgstr "French"
 
-#: accounts/models.py:18 config/settings.py:131
+#: accounts/models.py:18 config/settings.py:133
 msgid "English"
 msgstr "English"
 
@@ -165,6 +165,92 @@ msgstr "Your settings were saved."
 #: accounts/views.py:121
 msgid "Your password was changed."
 msgstr "Your password was changed."
+
+#: alerts/forms.py:9
+msgid "1 day"
+msgstr ""
+
+#: alerts/forms.py:9
+msgid "3 days"
+msgstr ""
+
+#: alerts/forms.py:9
+msgid "1 week"
+msgstr ""
+
+#: alerts/forms.py:9
+msgid "2 weeks"
+msgstr ""
+
+#: alerts/forms.py:9
+msgid "1 month"
+msgstr ""
+
+#: alerts/forms.py:13
+msgid "Show the banner on the site for"
+msgstr ""
+
+#: alerts/forms.py:14
+msgid "Also email it to all members now"
+msgstr ""
+
+#: alerts/forms.py:24
+msgid "Write the title in at least one language."
+msgstr ""
+
+#: alerts/forms.py:26
+msgid "Write the message in at least one language."
+msgstr ""
+
+#: alerts/models.py:20 news/models.py:34
+msgid "title (French)"
+msgstr "title (French)"
+
+#: alerts/models.py:21 news/models.py:35
+msgid "title (English)"
+msgstr "title (English)"
+
+#: alerts/models.py:22
+msgid "message (French)"
+msgstr ""
+
+#: alerts/models.py:23
+msgid "message (English)"
+msgstr ""
+
+#: alerts/models.py:24
+msgid "show the banner until"
+msgstr ""
+
+#: alerts/panel_views.py:32
+#, python-format
+msgid ""
+"The alert is on the site, but %(failed)s emails could not be sent. Check the"
+" email settings."
+msgstr ""
+
+#: alerts/panel_views.py:34
+#, python-format
+msgid "Alert published and emailed to %(sent)s members."
+msgstr ""
+
+#: alerts/panel_views.py:36
+msgid "Alert published on the site."
+msgstr ""
+
+#: alerts/panel_views.py:67
+#, python-format
+msgid "%(failed)s emails could not be sent. Check the email settings."
+msgstr ""
+
+#: alerts/panel_views.py:69
+#, python-format
+msgid "Alert emailed to %(sent)s members."
+msgstr ""
+
+#: alerts/panel_views.py:79
+msgid "Alert deleted."
+msgstr ""
 
 #: core/forms.py:20
 msgid "Leave this field empty"
@@ -414,14 +500,6 @@ msgstr ""
 msgid "Your request #%(number)s has been cancelled."
 msgstr ""
 
-#: news/models.py:34
-msgid "title (French)"
-msgstr "title (French)"
-
-#: news/models.py:35
-msgid "title (English)"
-msgstr "title (English)"
-
 #: news/models.py:36
 msgid "text (French)"
 msgstr "text (French)"
@@ -472,8 +550,8 @@ msgstr "Only YouTube and Vimeo links are accepted: %(urls)s"
 msgid "Enter a title in at least one language."
 msgstr "Enter a title in at least one language."
 
-#: panel/forms.py:78 templates/panel/documents.html:13
-#: templates/panel/news.html:8
+#: panel/forms.py:78 templates/alerts/panel_list.html:9
+#: templates/panel/documents.html:13 templates/panel/news.html:8
 msgid "Title"
 msgstr "Title"
 
@@ -602,6 +680,130 @@ msgstr ""
 msgid "Sign-up pop-up turned off."
 msgstr ""
 
+#: polls/forms.py:15
+msgid "Answers (French), one per line"
+msgstr ""
+
+#: polls/forms.py:18
+msgid "For example: Oui / Non / Abstention."
+msgstr ""
+
+#: polls/forms.py:21
+msgid "Answers (English), one per line"
+msgstr ""
+
+#: polls/forms.py:24
+msgid "Optional. Same order and number of lines as the French answers."
+msgstr ""
+
+#: polls/forms.py:52
+msgid "Write the question in at least one language."
+msgstr ""
+
+#: polls/forms.py:55
+msgid "The vote must close after it opens."
+msgstr ""
+
+#: polls/forms.py:61
+msgid "Give at least two answers."
+msgstr ""
+
+#: polls/forms.py:63
+#, python-format
+msgid "Give at most %(n)s answers."
+msgstr ""
+
+#: polls/forms.py:65
+msgid "Give the same number of answers in French and English."
+msgstr ""
+
+#: polls/forms.py:79
+msgid "Your answer"
+msgstr ""
+
+#: polls/models.py:13
+msgid "General assembly"
+msgstr ""
+
+#: polls/models.py:14
+msgid "Strike consultation"
+msgstr ""
+
+#: polls/models.py:15
+msgid "Survey"
+msgstr ""
+
+#: polls/models.py:22
+msgid "question (French)"
+msgstr ""
+
+#: polls/models.py:23
+msgid "question (English)"
+msgstr ""
+
+#: polls/models.py:24
+msgid "explanation (French)"
+msgstr ""
+
+#: polls/models.py:25
+msgid "explanation (English)"
+msgstr ""
+
+#: polls/models.py:26
+msgid "type"
+msgstr ""
+
+#: polls/models.py:27
+msgid "voting opens"
+msgstr ""
+
+#: polls/models.py:28
+msgid "voting closes"
+msgstr ""
+
+#: polls/models.py:31
+msgid "show results to members once the vote is closed"
+msgstr ""
+
+#: polls/models.py:33
+msgid "Admins always see the results, even while the vote is open."
+msgstr ""
+
+#: polls/panel_views.py:24
+msgid "This vote is closed and can no longer be changed."
+msgstr ""
+
+#: polls/panel_views.py:33
+msgid "Vote saved."
+msgstr ""
+
+#: polls/panel_views.py:60
+msgid ""
+"Vote closed. Members can now see the results if you chose to show them."
+msgstr ""
+
+#: polls/panel_views.py:69
+msgid "Members have already voted. Only a Master Admin can delete this vote."
+msgstr ""
+
+#: polls/panel_views.py:73
+msgid "Vote deleted."
+msgstr ""
+
+#: polls/views.py:38
+msgid "This vote is closed."
+msgstr ""
+
+#: polls/views.py:41 polls/views.py:49
+msgid "You have already voted. Each member votes only once."
+msgstr ""
+
+#: polls/views.py:51
+msgid ""
+"Thank you, your vote has been counted. It is secret: nobody can see what you"
+" chose."
+msgstr ""
+
 #: qa/assistant.py:40
 msgid ""
 "I could not find the answer to this question in the documents available. "
@@ -671,13 +873,19 @@ msgstr "News"
 msgid "Documents"
 msgstr "Documents"
 
-#: templates/_nav_links.html:6 templates/meetings/index.html:2
+#: templates/_nav_links.html:6 templates/panel/_layout.html:14
+#: templates/polls/list.html:2 templates/polls/list.html:5
+#: templates/polls/panel_list.html:2 templates/polls/panel_list.html:4
+msgid "Votes"
+msgstr ""
+
+#: templates/_nav_links.html:7 templates/meetings/index.html:2
 #: templates/meetings/panel_days.html:2 templates/meetings/panel_days.html:4
-#: templates/panel/_layout.html:13
+#: templates/panel/_layout.html:15
 msgid "Meetings"
 msgstr ""
 
-#: templates/_nav_links.html:7
+#: templates/_nav_links.html:8
 msgctxt "navigation"
 msgid "Admin"
 msgstr ""
@@ -813,9 +1021,198 @@ msgstr "My account"
 #: templates/accounts/settings.html:10
 #: templates/meetings/panel_day_form.html:9
 #: templates/panel/home_content.html:19 templates/panel/news_form.html:37
-#: templates/panel/user_form.html:10
+#: templates/panel/user_form.html:10 templates/polls/panel_form.html:10
 msgid "Save"
 msgstr "Save"
+
+#: templates/alerts/_banner.html:5
+msgid "Read the alert"
+msgstr ""
+
+#: templates/alerts/_banner.html:6
+msgid "Hide this alert"
+msgstr ""
+
+#: templates/alerts/detail.html:5 templates/alerts/panel_detail.html:4
+msgid "All alerts"
+msgstr ""
+
+#: templates/alerts/detail.html:7
+msgid "Urgent alert"
+msgstr ""
+
+#: templates/alerts/list.html:2 templates/alerts/list.html:5
+#: templates/alerts/panel_list.html:4 templates/news/list.html:6
+msgid "Urgent alerts"
+msgstr ""
+
+#: templates/alerts/list.html:6
+msgid ""
+"Important announcements from the union, such as strike notices or "
+"negotiation results. They are also sent by email and WhatsApp."
+msgstr ""
+
+#: templates/alerts/list.html:14
+msgid "No alerts"
+msgstr ""
+
+#: templates/alerts/list.html:14
+msgid "Urgent announcements will appear here."
+msgstr ""
+
+#: templates/alerts/panel_detail.html:2
+msgid "Alert"
+msgstr ""
+
+#: templates/alerts/panel_detail.html:9
+msgid "Site banner"
+msgstr ""
+
+#: templates/alerts/panel_detail.html:9
+#, python-format
+msgid "Until %(date)s"
+msgstr ""
+
+#: templates/alerts/panel_detail.html:9 templates/alerts/panel_list.html:17
+msgid "Ended"
+msgstr ""
+
+#: templates/alerts/panel_detail.html:10
+msgid "Emails sent"
+msgstr ""
+
+#: templates/alerts/panel_detail.html:10
+msgid "Not sent"
+msgstr ""
+
+#: templates/alerts/panel_detail.html:11
+msgid "Emails failed"
+msgstr ""
+
+#: templates/alerts/panel_detail.html:13
+msgid "Email this alert to all members?"
+msgstr ""
+
+#: templates/alerts/panel_detail.html:13
+msgid "Email it again"
+msgstr ""
+
+#: templates/alerts/panel_detail.html:13
+msgid "Email it to all members"
+msgstr ""
+
+#: templates/alerts/panel_detail.html:16
+msgid "Send on WhatsApp"
+msgstr ""
+
+#: templates/alerts/panel_detail.html:17
+msgid ""
+"WhatsApp opens with the message ready. Choose your union's WhatsApp group, "
+"community or broadcast list and tap send: everyone in it gets the alert at "
+"once, for free."
+msgstr ""
+
+#: templates/alerts/panel_detail.html:19
+msgid "Share in French"
+msgstr ""
+
+#: templates/alerts/panel_detail.html:20
+msgid "Share in English"
+msgstr ""
+
+#: templates/alerts/panel_detail.html:23
+#, python-format
+msgid "Or send it one by one (%(n)s member with a WhatsApp number)"
+msgid_plural "Or send it one by one (%(n)s members with a WhatsApp number)"
+msgstr[0] ""
+msgstr[1] ""
+
+#: templates/alerts/panel_detail.html:24
+msgid ""
+"Each link opens a chat with that member and the message ready to send. "
+"Useful for members who are not in your WhatsApp group."
+msgstr ""
+
+#: templates/alerts/panel_detail.html:27 templates/qa/chat.html:46
+msgid "Send"
+msgstr ""
+
+#: templates/alerts/panel_detail.html:30
+#, python-format
+msgid "%(n)s member has no WhatsApp number."
+msgid_plural "%(n)s members have no WhatsApp number."
+msgstr[0] ""
+msgstr[1] ""
+
+#: templates/alerts/panel_detail.html:33 templates/meetings/panel_days.html:19
+#: templates/panel/confirm_delete.html:8 templates/panel/documents.html:24
+#: templates/panel/news.html:16 templates/panel/users.html:30
+#: templates/polls/panel_results.html:20
+msgid "Delete"
+msgstr "Delete"
+
+#: templates/alerts/panel_form.html:2 templates/alerts/panel_form.html:4
+#: templates/alerts/panel_list.html:6
+msgid "New alert"
+msgstr ""
+
+#: templates/alerts/panel_form.html:5
+msgid ""
+"Keep it short: members read it on their phones. If one language is empty, "
+"members see the other one."
+msgstr ""
+
+#: templates/alerts/panel_form.html:10
+msgid "Publish this alert to all members now?"
+msgstr ""
+
+#: templates/alerts/panel_form.html:10
+msgid "Publish the alert"
+msgstr ""
+
+#: templates/alerts/panel_form.html:11
+#: templates/meetings/panel_day_form.html:10
+#: templates/meetings/panel_queue.html:27
+#: templates/panel/confirm_delete.html:9 templates/panel/news_form.html:38
+#: templates/panel/set_password.html:11 templates/panel/user_form.html:11
+#: templates/polls/panel_form.html:11
+msgid "Cancel"
+msgstr "Cancel"
+
+#: templates/alerts/panel_list.html:2 templates/panel/_layout.html:13
+msgid "Alerts"
+msgstr ""
+
+#: templates/alerts/panel_list.html:5
+msgid ""
+"An alert appears as a red banner for logged-in members, is emailed to every "
+"member and can be shared on WhatsApp in one tap."
+msgstr ""
+
+#: templates/alerts/panel_list.html:9
+msgid "Sent"
+msgstr ""
+
+#: templates/alerts/panel_list.html:9
+msgid "Emails"
+msgstr ""
+
+#: templates/alerts/panel_list.html:9
+msgid "Banner"
+msgstr ""
+
+#: templates/alerts/panel_list.html:16
+#, python-format
+msgid "%(n)s failed"
+msgstr ""
+
+#: templates/alerts/panel_list.html:17
+msgid "Visible"
+msgstr ""
+
+#: templates/alerts/panel_list.html:20
+msgid "No alerts yet."
+msgstr ""
 
 #: templates/base.html:15
 msgid "Skip to content"
@@ -979,6 +1376,18 @@ msgstr ""
 
 #: templates/core/home.html:148
 msgid "Send Message"
+msgstr ""
+
+#: templates/emails/alert_body.txt:5
+msgid "Read it on the members' site:"
+msgstr ""
+
+#: templates/emails/alert_body.txt:9
+msgid "You receive this email because you are a member of SNPNCA."
+msgstr ""
+
+#: templates/emails/alert_subject.txt:1
+msgid "Urgent"
 msgstr ""
 
 #: templates/emails/contact_notification_body.txt:1
@@ -1169,6 +1578,7 @@ msgstr ""
 #: templates/meetings/index.html:60 templates/meetings/panel_queue.html:14
 #: templates/panel/documents.html:13 templates/panel/messages.html:12
 #: templates/panel/news.html:8 templates/panel/users.html:16
+#: templates/polls/panel_list.html:9
 msgid "Status"
 msgstr "Status"
 
@@ -1203,13 +1613,6 @@ msgstr ""
 msgid "New meeting day"
 msgstr ""
 
-#: templates/meetings/panel_day_form.html:10
-#: templates/meetings/panel_queue.html:27
-#: templates/panel/confirm_delete.html:9 templates/panel/news_form.html:38
-#: templates/panel/set_password.html:11 templates/panel/user_form.html:11
-msgid "Cancel"
-msgstr "Cancel"
-
 #: templates/meetings/panel_days.html:5
 msgid ""
 "Members book one-on-one WhatsApp calls on the meeting days below (at most "
@@ -1228,6 +1631,7 @@ msgstr ""
 #: templates/meetings/panel_days.html:9 templates/meetings/panel_queue.html:14
 #: templates/panel/admins.html:9 templates/panel/documents.html:13
 #: templates/panel/news.html:8 templates/panel/users.html:16
+#: templates/polls/panel_list.html:9
 msgid "Actions"
 msgstr "Actions"
 
@@ -1236,15 +1640,10 @@ msgid "Open queue"
 msgstr ""
 
 #: templates/meetings/panel_days.html:19 templates/panel/news.html:16
-#: templates/panel/users.html:27
+#: templates/panel/users.html:27 templates/polls/panel_list.html:17
+#: templates/polls/panel_results.html:18
 msgid "Edit"
 msgstr "Edit"
-
-#: templates/meetings/panel_days.html:19 templates/panel/confirm_delete.html:8
-#: templates/panel/documents.html:24 templates/panel/news.html:16
-#: templates/panel/users.html:30
-msgid "Delete"
-msgstr "Delete"
 
 #: templates/meetings/panel_days.html:23
 msgid "No upcoming meeting days."
@@ -1358,15 +1757,15 @@ msgstr "Users"
 msgid "Admins"
 msgstr "Admins"
 
-#: templates/panel/_layout.html:14 templates/panel/messages.html:2
+#: templates/panel/_layout.html:16 templates/panel/messages.html:2
 msgid "Messages"
 msgstr "Messages"
 
-#: templates/panel/_layout.html:15 templates/panel/home_content.html:2
+#: templates/panel/_layout.html:17 templates/panel/home_content.html:2
 msgid "Home page"
 msgstr "Home page"
 
-#: templates/panel/_layout.html:16 templates/panel/audit.html:2
+#: templates/panel/_layout.html:18 templates/panel/audit.html:2
 #: templates/panel/audit.html:4
 msgid "Audit log"
 msgstr "Audit log"
@@ -1762,6 +2161,182 @@ msgstr "Resend invitation"
 msgid "No accounts found."
 msgstr "No accounts found."
 
+#: templates/polls/_bars.html:6
+#, python-format
+msgid "%(n)s vote"
+msgid_plural "%(n)s votes"
+msgstr[0] ""
+msgstr[1] ""
+
+#: templates/polls/_status.html:1
+msgid "Open"
+msgstr ""
+
+#: templates/polls/_status.html:1
+msgid "Closed"
+msgstr ""
+
+#: templates/polls/_status.html:1 templates/polls/list.html:25
+msgid "Coming soon"
+msgstr ""
+
+#: templates/polls/detail.html:2 templates/polls/list.html:17
+msgid "Vote"
+msgstr ""
+
+#: templates/polls/detail.html:5 templates/polls/panel_results.html:4
+msgid "All votes"
+msgstr ""
+
+#: templates/polls/detail.html:11 templates/polls/list.html:15
+#, python-format
+msgid "Closes %(date)s"
+msgstr ""
+
+#: templates/polls/detail.html:12 templates/polls/list.html:37
+#, python-format
+msgid "Closed on %(date)s"
+msgstr ""
+
+#: templates/polls/detail.html:17
+msgid ""
+"You have voted. Thank you! Results will be published when the vote closes."
+msgstr ""
+
+#: templates/polls/detail.html:22
+msgid ""
+"Your vote is secret and final: the union only records that you voted, never "
+"what you chose."
+msgstr ""
+
+#: templates/polls/detail.html:23
+msgid "Confirm your vote? You cannot change it afterwards."
+msgstr ""
+
+#: templates/polls/detail.html:23
+msgid "Submit my vote"
+msgstr ""
+
+#: templates/polls/detail.html:27 templates/polls/panel_list.html:17
+#: templates/polls/panel_results.html:2
+msgid "Results"
+msgstr ""
+
+#: templates/polls/detail.html:29
+#, python-format
+msgid "%(n)s vote in total"
+msgid_plural "%(n)s votes in total"
+msgstr[0] ""
+msgstr[1] ""
+
+#: templates/polls/detail.html:29
+msgid "You took part in this vote."
+msgstr ""
+
+#: templates/polls/detail.html:31
+msgid "This vote is closed. Its results are not published on the site."
+msgstr ""
+
+#: templates/polls/list.html:6
+msgid ""
+"General assemblies, strike consultations and surveys. One member, one vote, "
+"and your vote is secret."
+msgstr ""
+
+#: templates/polls/list.html:8
+msgid "Open now"
+msgstr ""
+
+#: templates/polls/list.html:17
+msgid "You voted"
+msgstr ""
+
+#: templates/polls/list.html:21
+msgid "There is no open vote at the moment."
+msgstr ""
+
+#: templates/polls/list.html:27
+#, python-format
+msgid "Opens %(date)s"
+msgstr ""
+
+#: templates/polls/list.html:32
+msgid "Closed votes"
+msgstr ""
+
+#: templates/polls/list.html:37
+msgid "See the results"
+msgstr ""
+
+#: templates/polls/panel_form.html:2 templates/polls/panel_form.html:4
+msgid "Edit vote"
+msgstr ""
+
+#: templates/polls/panel_form.html:2 templates/polls/panel_form.html:4
+#: templates/polls/panel_list.html:6
+msgid "New vote"
+msgstr ""
+
+#: templates/polls/panel_form.html:5
+msgid ""
+"Members have already voted, so the question and answers are locked. You can "
+"still change the explanation and the closing date."
+msgstr ""
+
+#: templates/polls/panel_list.html:5
+msgid ""
+"Members vote once per question and ballots are secret. You see results live;"
+" members see them only after the vote closes, if you choose."
+msgstr ""
+
+#: templates/polls/panel_list.html:9
+msgid "Question"
+msgstr ""
+
+#: templates/polls/panel_list.html:9
+msgid "Type"
+msgstr ""
+
+#: templates/polls/panel_list.html:9 templates/polls/panel_results.html:8
+msgid "Voters"
+msgstr ""
+
+#: templates/polls/panel_list.html:20
+msgid "No votes yet."
+msgstr ""
+
+#: templates/polls/panel_results.html:9
+msgid "Active members"
+msgstr ""
+
+#: templates/polls/panel_results.html:10
+msgid "Turnout"
+msgstr ""
+
+#: templates/polls/panel_results.html:13
+msgid "Final results"
+msgstr ""
+
+#: templates/polls/panel_results.html:13
+msgid "Live results (only admins see them)"
+msgstr ""
+
+#: templates/polls/panel_results.html:15
+msgid "Members will see these results once the vote is closed."
+msgstr ""
+
+#: templates/polls/panel_results.html:15
+msgid "These results are not shown to members."
+msgstr ""
+
+#: templates/polls/panel_results.html:19
+msgid "Close this vote now? Members will no longer be able to vote."
+msgstr ""
+
+#: templates/polls/panel_results.html:19
+msgid "Close the vote now"
+msgstr ""
+
 #: templates/qa/chat.html:8
 msgid "SNPNCA AI Assistant"
 msgstr ""
@@ -1812,10 +2387,6 @@ msgid ""
 "from. If the documents do not contain the answer, I will tell you."
 msgstr ""
 
-#: templates/qa/chat.html:46
-msgid "Send"
-msgstr ""
-
 #: templates/qa/chat.html:49
 msgid "Responding..."
 msgstr ""
@@ -1860,12 +2431,6 @@ msgstr ""
 #~ msgstr ""
 #~ "Accounts are created by the union. If you are a member and have no account, "
 #~ "use the contact form on the home page."
-
-#~ msgid "Content coming soon."
-#~ msgstr "Content coming soon."
-
-#~ msgid "No news yet."
-#~ msgstr "No news yet."
 
 #~ msgid "No questions yet. Ask your first question below."
 #~ msgstr "No questions yet. Ask your first question below."

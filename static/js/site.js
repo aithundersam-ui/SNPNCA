@@ -76,6 +76,18 @@
     if (!seen) window.setTimeout(openSignup, 1500);
   }
 
+  // Urgent alert banner: members can hide it; it stays hidden for that alert only.
+  var banner = document.querySelector("[data-alert-banner]");
+  if (banner) {
+    var alertKey = "alertHidden" + banner.getAttribute("data-alert-banner");
+    try { if (window.localStorage.getItem(alertKey) === "1") banner.hidden = true; } catch (e) { /* storage blocked */ }
+    var hideBtn = banner.querySelector("[data-alert-dismiss]");
+    if (hideBtn) hideBtn.addEventListener("click", function () {
+      banner.hidden = true;
+      try { window.localStorage.setItem(alertKey, "1"); } catch (e) { /* storage blocked */ }
+    });
+  }
+
   // Confirmation for destructive buttons that aren't on their own confirm page.
   document.querySelectorAll("[data-confirm]").forEach(function (el) {
     el.addEventListener("click", function (e) {

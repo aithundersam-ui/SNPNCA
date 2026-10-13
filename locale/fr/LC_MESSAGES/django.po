@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-13 20:09+0100\n"
+"POT-Creation-Date: 2026-10-13 21:20+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -121,11 +121,11 @@ msgstr "Administrateur"
 msgid "Master Admin"
 msgstr "Administrateur principal"
 
-#: accounts/models.py:17 config/settings.py:131
+#: accounts/models.py:17 config/settings.py:133
 msgid "French"
 msgstr "Français"
 
-#: accounts/models.py:18 config/settings.py:131
+#: accounts/models.py:18 config/settings.py:133
 msgid "English"
 msgstr "Anglais"
 
@@ -177,6 +177,95 @@ msgstr "Vos préférences ont été enregistrées."
 #: accounts/views.py:121
 msgid "Your password was changed."
 msgstr "Votre mot de passe a été modifié."
+
+#: alerts/forms.py:9
+msgid "1 day"
+msgstr "1 jour"
+
+#: alerts/forms.py:9
+msgid "3 days"
+msgstr "3 jours"
+
+#: alerts/forms.py:9
+msgid "1 week"
+msgstr "1 semaine"
+
+#: alerts/forms.py:9
+msgid "2 weeks"
+msgstr "2 semaines"
+
+#: alerts/forms.py:9
+msgid "1 month"
+msgstr "1 mois"
+
+#: alerts/forms.py:13
+msgid "Show the banner on the site for"
+msgstr "Afficher le bandeau sur le site pendant"
+
+#: alerts/forms.py:14
+msgid "Also email it to all members now"
+msgstr "L’envoyer aussi maintenant par e-mail à tous les adhérents"
+
+#: alerts/forms.py:24
+msgid "Write the title in at least one language."
+msgstr "Saisissez un titre dans au moins une langue."
+
+#: alerts/forms.py:26
+msgid "Write the message in at least one language."
+msgstr "Saisissez le message dans au moins une langue."
+
+#: alerts/models.py:20 news/models.py:34
+msgid "title (French)"
+msgstr "titre (français)"
+
+#: alerts/models.py:21 news/models.py:35
+msgid "title (English)"
+msgstr "titre (anglais)"
+
+#: alerts/models.py:22
+msgid "message (French)"
+msgstr "message (français)"
+
+#: alerts/models.py:23
+msgid "message (English)"
+msgstr "message (anglais)"
+
+#: alerts/models.py:24
+msgid "show the banner until"
+msgstr "afficher le bandeau jusqu’au"
+
+#: alerts/panel_views.py:32
+#, python-format
+msgid ""
+"The alert is on the site, but %(failed)s emails could not be sent. Check the"
+" email settings."
+msgstr ""
+"L’alerte est sur le site, mais %(failed)s e-mails n’ont pas pu être envoyés."
+" Vérifiez les réglages e-mail."
+
+#: alerts/panel_views.py:34
+#, python-format
+msgid "Alert published and emailed to %(sent)s members."
+msgstr "Alerte publiée et envoyée par e-mail à %(sent)s adhérents."
+
+#: alerts/panel_views.py:36
+msgid "Alert published on the site."
+msgstr "Alerte publiée sur le site."
+
+#: alerts/panel_views.py:67
+#, python-format
+msgid "%(failed)s emails could not be sent. Check the email settings."
+msgstr ""
+"%(failed)s e-mails n’ont pas pu être envoyés. Vérifiez les réglages e-mail."
+
+#: alerts/panel_views.py:69
+#, python-format
+msgid "Alert emailed to %(sent)s members."
+msgstr "Alerte envoyée par e-mail à %(sent)s adhérents."
+
+#: alerts/panel_views.py:79
+msgid "Alert deleted."
+msgstr "Alerte supprimée."
 
 #: core/forms.py:20
 msgid "Leave this field empty"
@@ -437,14 +526,6 @@ msgstr "Votre demande est enregistrée sous le numéro n°%(number)s."
 msgid "Your request #%(number)s has been cancelled."
 msgstr "Votre demande n°%(number)s a été annulée."
 
-#: news/models.py:34
-msgid "title (French)"
-msgstr "titre (français)"
-
-#: news/models.py:35
-msgid "title (English)"
-msgstr "titre (anglais)"
-
 #: news/models.py:36
 msgid "text (French)"
 msgstr "texte (français)"
@@ -495,8 +576,8 @@ msgstr "Seuls les liens YouTube et Vimeo sont acceptés : %(urls)s"
 msgid "Enter a title in at least one language."
 msgstr "Saisissez un titre dans au moins une langue."
 
-#: panel/forms.py:78 templates/panel/documents.html:13
-#: templates/panel/news.html:8
+#: panel/forms.py:78 templates/alerts/panel_list.html:9
+#: templates/panel/documents.html:13 templates/panel/news.html:8
 msgid "Title"
 msgstr "Titre"
 
@@ -629,6 +710,139 @@ msgstr ""
 msgid "Sign-up pop-up turned off."
 msgstr "Fenêtre d’adhésion désactivée."
 
+#: polls/forms.py:15
+msgid "Answers (French), one per line"
+msgstr "Réponses (français), une par ligne"
+
+#: polls/forms.py:18
+msgid "For example: Oui / Non / Abstention."
+msgstr "Par exemple : Oui / Non / Abstention."
+
+#: polls/forms.py:21
+msgid "Answers (English), one per line"
+msgstr "Réponses (anglais), une par ligne"
+
+#: polls/forms.py:24
+msgid "Optional. Same order and number of lines as the French answers."
+msgstr ""
+"Facultatif. Même ordre et même nombre de lignes que les réponses en "
+"français."
+
+#: polls/forms.py:52
+msgid "Write the question in at least one language."
+msgstr "Saisissez la question dans au moins une langue."
+
+#: polls/forms.py:55
+msgid "The vote must close after it opens."
+msgstr "Le vote doit se fermer après son ouverture."
+
+#: polls/forms.py:61
+msgid "Give at least two answers."
+msgstr "Indiquez au moins deux réponses."
+
+#: polls/forms.py:63
+#, python-format
+msgid "Give at most %(n)s answers."
+msgstr "Indiquez au plus %(n)s réponses."
+
+#: polls/forms.py:65
+msgid "Give the same number of answers in French and English."
+msgstr "Indiquez le même nombre de réponses en français et en anglais."
+
+#: polls/forms.py:79
+msgid "Your answer"
+msgstr "Votre réponse"
+
+#: polls/models.py:13
+msgid "General assembly"
+msgstr "Assemblée générale"
+
+#: polls/models.py:14
+msgid "Strike consultation"
+msgstr "Consultation sur la grève"
+
+#: polls/models.py:15
+msgid "Survey"
+msgstr "Sondage"
+
+#: polls/models.py:22
+msgid "question (French)"
+msgstr "question (français)"
+
+#: polls/models.py:23
+msgid "question (English)"
+msgstr "question (anglais)"
+
+#: polls/models.py:24
+msgid "explanation (French)"
+msgstr "explication (français)"
+
+#: polls/models.py:25
+msgid "explanation (English)"
+msgstr "explication (anglais)"
+
+#: polls/models.py:26
+msgid "type"
+msgstr "type"
+
+#: polls/models.py:27
+msgid "voting opens"
+msgstr "ouverture du vote"
+
+#: polls/models.py:28
+msgid "voting closes"
+msgstr "clôture du vote"
+
+#: polls/models.py:31
+msgid "show results to members once the vote is closed"
+msgstr "montrer les résultats aux adhérents une fois le vote clos"
+
+#: polls/models.py:33
+msgid "Admins always see the results, even while the vote is open."
+msgstr ""
+"Les administrateurs voient toujours les résultats, même pendant le vote."
+
+#: polls/panel_views.py:24
+msgid "This vote is closed and can no longer be changed."
+msgstr "Ce vote est clos et ne peut plus être modifié."
+
+#: polls/panel_views.py:33
+msgid "Vote saved."
+msgstr "Vote enregistré."
+
+#: polls/panel_views.py:60
+msgid ""
+"Vote closed. Members can now see the results if you chose to show them."
+msgstr ""
+"Vote clos. Les adhérents voient maintenant les résultats si vous avez choisi"
+" de les montrer."
+
+#: polls/panel_views.py:69
+msgid "Members have already voted. Only a Master Admin can delete this vote."
+msgstr ""
+"Des adhérents ont déjà voté. Seul un Administrateur principal peut supprimer"
+" ce vote."
+
+#: polls/panel_views.py:73
+msgid "Vote deleted."
+msgstr "Vote supprimé."
+
+#: polls/views.py:38
+msgid "This vote is closed."
+msgstr "Ce vote est clos."
+
+#: polls/views.py:41 polls/views.py:49
+msgid "You have already voted. Each member votes only once."
+msgstr "Vous avez déjà voté. Chaque adhérent ne vote qu’une fois."
+
+#: polls/views.py:51
+msgid ""
+"Thank you, your vote has been counted. It is secret: nobody can see what you"
+" chose."
+msgstr ""
+"Merci, votre vote a été pris en compte. Il est secret : personne ne peut "
+"voir votre choix."
+
 #: qa/assistant.py:40
 msgid ""
 "I could not find the answer to this question in the documents available. "
@@ -700,13 +914,19 @@ msgstr "Actualités"
 msgid "Documents"
 msgstr "Documents"
 
-#: templates/_nav_links.html:6 templates/meetings/index.html:2
+#: templates/_nav_links.html:6 templates/panel/_layout.html:14
+#: templates/polls/list.html:2 templates/polls/list.html:5
+#: templates/polls/panel_list.html:2 templates/polls/panel_list.html:4
+msgid "Votes"
+msgstr "Votes"
+
+#: templates/_nav_links.html:7 templates/meetings/index.html:2
 #: templates/meetings/panel_days.html:2 templates/meetings/panel_days.html:4
-#: templates/panel/_layout.html:13
+#: templates/panel/_layout.html:15
 msgid "Meetings"
 msgstr "Rendez-vous"
 
-#: templates/_nav_links.html:7
+#: templates/_nav_links.html:8
 msgctxt "navigation"
 msgid "Admin"
 msgstr "Admin"
@@ -843,9 +1063,212 @@ msgstr "Mon compte"
 #: templates/accounts/settings.html:10
 #: templates/meetings/panel_day_form.html:9
 #: templates/panel/home_content.html:19 templates/panel/news_form.html:37
-#: templates/panel/user_form.html:10
+#: templates/panel/user_form.html:10 templates/polls/panel_form.html:10
 msgid "Save"
 msgstr "Enregistrer"
+
+#: templates/alerts/_banner.html:5
+msgid "Read the alert"
+msgstr "Lire l’alerte"
+
+#: templates/alerts/_banner.html:6
+msgid "Hide this alert"
+msgstr "Masquer cette alerte"
+
+#: templates/alerts/detail.html:5 templates/alerts/panel_detail.html:4
+msgid "All alerts"
+msgstr "Toutes les alertes"
+
+#: templates/alerts/detail.html:7
+msgid "Urgent alert"
+msgstr "Alerte urgente"
+
+#: templates/alerts/list.html:2 templates/alerts/list.html:5
+#: templates/alerts/panel_list.html:4 templates/news/list.html:6
+msgid "Urgent alerts"
+msgstr "Alertes urgentes"
+
+#: templates/alerts/list.html:6
+msgid ""
+"Important announcements from the union, such as strike notices or "
+"negotiation results. They are also sent by email and WhatsApp."
+msgstr ""
+"Les annonces importantes du syndicat, comme un préavis de grève ou le "
+"résultat d’une négociation. Elles sont aussi envoyées par e-mail et "
+"WhatsApp."
+
+#: templates/alerts/list.html:14
+msgid "No alerts"
+msgstr "Aucune alerte"
+
+#: templates/alerts/list.html:14
+msgid "Urgent announcements will appear here."
+msgstr "Les annonces urgentes apparaîtront ici."
+
+#: templates/alerts/panel_detail.html:2
+msgid "Alert"
+msgstr "Alerte"
+
+#: templates/alerts/panel_detail.html:9
+msgid "Site banner"
+msgstr "Bandeau sur le site"
+
+#: templates/alerts/panel_detail.html:9
+#, python-format
+msgid "Until %(date)s"
+msgstr "Jusqu’au %(date)s"
+
+#: templates/alerts/panel_detail.html:9 templates/alerts/panel_list.html:17
+msgid "Ended"
+msgstr "Terminé"
+
+#: templates/alerts/panel_detail.html:10
+msgid "Emails sent"
+msgstr "E-mails envoyés"
+
+#: templates/alerts/panel_detail.html:10
+msgid "Not sent"
+msgstr "Non envoyé"
+
+#: templates/alerts/panel_detail.html:11
+msgid "Emails failed"
+msgstr "E-mails en échec"
+
+#: templates/alerts/panel_detail.html:13
+msgid "Email this alert to all members?"
+msgstr "Envoyer cette alerte par e-mail à tous les adhérents ?"
+
+#: templates/alerts/panel_detail.html:13
+msgid "Email it again"
+msgstr "La renvoyer par e-mail"
+
+#: templates/alerts/panel_detail.html:13
+msgid "Email it to all members"
+msgstr "L’envoyer par e-mail à tous les adhérents"
+
+#: templates/alerts/panel_detail.html:16
+msgid "Send on WhatsApp"
+msgstr "Envoyer sur WhatsApp"
+
+#: templates/alerts/panel_detail.html:17
+msgid ""
+"WhatsApp opens with the message ready. Choose your union's WhatsApp group, "
+"community or broadcast list and tap send: everyone in it gets the alert at "
+"once, for free."
+msgstr ""
+"WhatsApp s’ouvre avec le message prêt. Choisissez le groupe, la communauté "
+"ou la liste de diffusion WhatsApp du syndicat et appuyez sur envoyer : tous "
+"les membres reçoivent l’alerte en une fois, gratuitement."
+
+#: templates/alerts/panel_detail.html:19
+msgid "Share in French"
+msgstr "Partager en français"
+
+#: templates/alerts/panel_detail.html:20
+msgid "Share in English"
+msgstr "Partager en anglais"
+
+#: templates/alerts/panel_detail.html:23
+#, python-format
+msgid "Or send it one by one (%(n)s member with a WhatsApp number)"
+msgid_plural "Or send it one by one (%(n)s members with a WhatsApp number)"
+msgstr[0] "Ou l’envoyer un par un (%(n)s adhérent avec un numéro WhatsApp)"
+msgstr[1] "Ou l’envoyer un par un (%(n)s adhérents avec un numéro WhatsApp)"
+
+#: templates/alerts/panel_detail.html:24
+msgid ""
+"Each link opens a chat with that member and the message ready to send. "
+"Useful for members who are not in your WhatsApp group."
+msgstr ""
+"Chaque lien ouvre une conversation avec cet adhérent, message prêt à "
+"envoyer. Pratique pour les adhérents qui ne sont pas dans votre groupe "
+"WhatsApp."
+
+#: templates/alerts/panel_detail.html:27 templates/qa/chat.html:46
+msgid "Send"
+msgstr "Envoyer"
+
+#: templates/alerts/panel_detail.html:30
+#, python-format
+msgid "%(n)s member has no WhatsApp number."
+msgid_plural "%(n)s members have no WhatsApp number."
+msgstr[0] "%(n)s adhérent n’a pas de numéro WhatsApp."
+msgstr[1] "%(n)s adhérents n’ont pas de numéro WhatsApp."
+
+#: templates/alerts/panel_detail.html:33 templates/meetings/panel_days.html:19
+#: templates/panel/confirm_delete.html:8 templates/panel/documents.html:24
+#: templates/panel/news.html:16 templates/panel/users.html:30
+#: templates/polls/panel_results.html:20
+msgid "Delete"
+msgstr "Supprimer"
+
+#: templates/alerts/panel_form.html:2 templates/alerts/panel_form.html:4
+#: templates/alerts/panel_list.html:6
+msgid "New alert"
+msgstr "Nouvelle alerte"
+
+#: templates/alerts/panel_form.html:5
+msgid ""
+"Keep it short: members read it on their phones. If one language is empty, "
+"members see the other one."
+msgstr ""
+"Restez bref : les adhérents la lisent sur leur téléphone. Si une langue est "
+"vide, ils voient l’autre."
+
+#: templates/alerts/panel_form.html:10
+msgid "Publish this alert to all members now?"
+msgstr "Publier cette alerte pour tous les adhérents maintenant ?"
+
+#: templates/alerts/panel_form.html:10
+msgid "Publish the alert"
+msgstr "Publier l’alerte"
+
+#: templates/alerts/panel_form.html:11
+#: templates/meetings/panel_day_form.html:10
+#: templates/meetings/panel_queue.html:27
+#: templates/panel/confirm_delete.html:9 templates/panel/news_form.html:38
+#: templates/panel/set_password.html:11 templates/panel/user_form.html:11
+#: templates/polls/panel_form.html:11
+msgid "Cancel"
+msgstr "Annuler"
+
+#: templates/alerts/panel_list.html:2 templates/panel/_layout.html:13
+msgid "Alerts"
+msgstr "Alertes"
+
+#: templates/alerts/panel_list.html:5
+msgid ""
+"An alert appears as a red banner for logged-in members, is emailed to every "
+"member and can be shared on WhatsApp in one tap."
+msgstr ""
+"Une alerte s’affiche dans un bandeau rouge pour les adhérents connectés, est"
+" envoyée par e-mail à chaque adhérent et peut être partagée sur WhatsApp en "
+"un geste."
+
+#: templates/alerts/panel_list.html:9
+msgid "Sent"
+msgstr "Envoyée"
+
+#: templates/alerts/panel_list.html:9
+msgid "Emails"
+msgstr "E-mails"
+
+#: templates/alerts/panel_list.html:9
+msgid "Banner"
+msgstr "Bandeau"
+
+#: templates/alerts/panel_list.html:16
+#, python-format
+msgid "%(n)s failed"
+msgstr "%(n)s en échec"
+
+#: templates/alerts/panel_list.html:17
+msgid "Visible"
+msgstr "Visible"
+
+#: templates/alerts/panel_list.html:20
+msgid "No alerts yet."
+msgstr "Aucune alerte pour le moment."
 
 #: templates/base.html:15
 msgid "Skip to content"
@@ -1027,6 +1450,18 @@ msgstr ""
 #: templates/core/home.html:148
 msgid "Send Message"
 msgstr "Envoyer le Message"
+
+#: templates/emails/alert_body.txt:5
+msgid "Read it on the members' site:"
+msgstr "Lire sur l’espace adhérents :"
+
+#: templates/emails/alert_body.txt:9
+msgid "You receive this email because you are a member of SNPNCA."
+msgstr "Vous recevez cet e-mail parce que vous êtes adhérent du SNPNCA."
+
+#: templates/emails/alert_subject.txt:1
+msgid "Urgent"
+msgstr "Urgent"
 
 #: templates/emails/contact_notification_body.txt:1
 msgid "A new message was sent through the contact form."
@@ -1227,6 +1662,7 @@ msgstr "Objet"
 #: templates/meetings/index.html:60 templates/meetings/panel_queue.html:14
 #: templates/panel/documents.html:13 templates/panel/messages.html:12
 #: templates/panel/news.html:8 templates/panel/users.html:16
+#: templates/polls/panel_list.html:9
 msgid "Status"
 msgstr "Statut"
 
@@ -1264,13 +1700,6 @@ msgstr "Modifier le jour de rendez-vous"
 msgid "New meeting day"
 msgstr "Nouveau jour de rendez-vous"
 
-#: templates/meetings/panel_day_form.html:10
-#: templates/meetings/panel_queue.html:27
-#: templates/panel/confirm_delete.html:9 templates/panel/news_form.html:38
-#: templates/panel/set_password.html:11 templates/panel/user_form.html:11
-msgid "Cancel"
-msgstr "Annuler"
-
 #: templates/meetings/panel_days.html:5
 msgid ""
 "Members book one-on-one WhatsApp calls on the meeting days below (at most "
@@ -1292,6 +1721,7 @@ msgstr "Demandes"
 #: templates/meetings/panel_days.html:9 templates/meetings/panel_queue.html:14
 #: templates/panel/admins.html:9 templates/panel/documents.html:13
 #: templates/panel/news.html:8 templates/panel/users.html:16
+#: templates/polls/panel_list.html:9
 msgid "Actions"
 msgstr "Actions"
 
@@ -1300,15 +1730,10 @@ msgid "Open queue"
 msgstr "Ouvrir la file"
 
 #: templates/meetings/panel_days.html:19 templates/panel/news.html:16
-#: templates/panel/users.html:27
+#: templates/panel/users.html:27 templates/polls/panel_list.html:17
+#: templates/polls/panel_results.html:18
 msgid "Edit"
 msgstr "Modifier"
-
-#: templates/meetings/panel_days.html:19 templates/panel/confirm_delete.html:8
-#: templates/panel/documents.html:24 templates/panel/news.html:16
-#: templates/panel/users.html:30
-msgid "Delete"
-msgstr "Supprimer"
 
 #: templates/meetings/panel_days.html:23
 msgid "No upcoming meeting days."
@@ -1428,15 +1853,15 @@ msgstr "Utilisateurs"
 msgid "Admins"
 msgstr "Administrateurs"
 
-#: templates/panel/_layout.html:14 templates/panel/messages.html:2
+#: templates/panel/_layout.html:16 templates/panel/messages.html:2
 msgid "Messages"
 msgstr "Messages"
 
-#: templates/panel/_layout.html:15 templates/panel/home_content.html:2
+#: templates/panel/_layout.html:17 templates/panel/home_content.html:2
 msgid "Home page"
 msgstr "Page d’accueil"
 
-#: templates/panel/_layout.html:16 templates/panel/audit.html:2
+#: templates/panel/_layout.html:18 templates/panel/audit.html:2
 #: templates/panel/audit.html:4
 msgid "Audit log"
 msgstr "Journal d’audit"
@@ -1845,6 +2270,192 @@ msgstr "Renvoyer l’invitation"
 msgid "No accounts found."
 msgstr "Aucun compte trouvé."
 
+#: templates/polls/_bars.html:6
+#, python-format
+msgid "%(n)s vote"
+msgid_plural "%(n)s votes"
+msgstr[0] "%(n)s voix"
+msgstr[1] "%(n)s voix"
+
+#: templates/polls/_status.html:1
+msgid "Open"
+msgstr "Ouvert"
+
+#: templates/polls/_status.html:1
+msgid "Closed"
+msgstr "Clos"
+
+#: templates/polls/_status.html:1 templates/polls/list.html:25
+msgid "Coming soon"
+msgstr "Bientôt"
+
+#: templates/polls/detail.html:2 templates/polls/list.html:17
+msgid "Vote"
+msgstr "Voter"
+
+#: templates/polls/detail.html:5 templates/polls/panel_results.html:4
+msgid "All votes"
+msgstr "Tous les votes"
+
+#: templates/polls/detail.html:11 templates/polls/list.html:15
+#, python-format
+msgid "Closes %(date)s"
+msgstr "Clôture le %(date)s"
+
+#: templates/polls/detail.html:12 templates/polls/list.html:37
+#, python-format
+msgid "Closed on %(date)s"
+msgstr "Clos le %(date)s"
+
+#: templates/polls/detail.html:17
+msgid ""
+"You have voted. Thank you! Results will be published when the vote closes."
+msgstr ""
+"Vous avez voté. Merci ! Les résultats seront publiés à la clôture du vote."
+
+#: templates/polls/detail.html:22
+msgid ""
+"Your vote is secret and final: the union only records that you voted, never "
+"what you chose."
+msgstr ""
+"Votre vote est secret et définitif : le syndicat enregistre seulement que "
+"vous avez voté, jamais votre choix."
+
+#: templates/polls/detail.html:23
+msgid "Confirm your vote? You cannot change it afterwards."
+msgstr "Confirmer votre vote ? Vous ne pourrez plus le modifier."
+
+#: templates/polls/detail.html:23
+msgid "Submit my vote"
+msgstr "Valider mon vote"
+
+#: templates/polls/detail.html:27 templates/polls/panel_list.html:17
+#: templates/polls/panel_results.html:2
+msgid "Results"
+msgstr "Résultats"
+
+#: templates/polls/detail.html:29
+#, python-format
+msgid "%(n)s vote in total"
+msgid_plural "%(n)s votes in total"
+msgstr[0] "%(n)s vote au total"
+msgstr[1] "%(n)s votes au total"
+
+#: templates/polls/detail.html:29
+msgid "You took part in this vote."
+msgstr "Vous avez participé à ce vote."
+
+#: templates/polls/detail.html:31
+msgid "This vote is closed. Its results are not published on the site."
+msgstr "Ce vote est clos. Ses résultats ne sont pas publiés sur le site."
+
+#: templates/polls/list.html:6
+msgid ""
+"General assemblies, strike consultations and surveys. One member, one vote, "
+"and your vote is secret."
+msgstr ""
+"Assemblées générales, consultations sur la grève et sondages. Un adhérent, "
+"une voix, et votre vote est secret."
+
+#: templates/polls/list.html:8
+msgid "Open now"
+msgstr "En cours"
+
+#: templates/polls/list.html:17
+msgid "You voted"
+msgstr "Vous avez voté"
+
+#: templates/polls/list.html:21
+msgid "There is no open vote at the moment."
+msgstr "Aucun vote en cours pour le moment."
+
+#: templates/polls/list.html:27
+#, python-format
+msgid "Opens %(date)s"
+msgstr "Ouverture le %(date)s"
+
+#: templates/polls/list.html:32
+msgid "Closed votes"
+msgstr "Votes clos"
+
+#: templates/polls/list.html:37
+msgid "See the results"
+msgstr "Voir les résultats"
+
+#: templates/polls/panel_form.html:2 templates/polls/panel_form.html:4
+msgid "Edit vote"
+msgstr "Modifier le vote"
+
+#: templates/polls/panel_form.html:2 templates/polls/panel_form.html:4
+#: templates/polls/panel_list.html:6
+msgid "New vote"
+msgstr "Nouveau vote"
+
+#: templates/polls/panel_form.html:5
+msgid ""
+"Members have already voted, so the question and answers are locked. You can "
+"still change the explanation and the closing date."
+msgstr ""
+"Des adhérents ont déjà voté : la question et les réponses sont verrouillées."
+" Vous pouvez encore modifier l’explication et la date de clôture."
+
+#: templates/polls/panel_list.html:5
+msgid ""
+"Members vote once per question and ballots are secret. You see results live;"
+" members see them only after the vote closes, if you choose."
+msgstr ""
+"Chaque adhérent vote une fois et le vote est secret. Vous voyez les "
+"résultats en direct ; les adhérents ne les voient qu’après la clôture, si "
+"vous le choisissez."
+
+#: templates/polls/panel_list.html:9
+msgid "Question"
+msgstr "Question"
+
+#: templates/polls/panel_list.html:9
+msgid "Type"
+msgstr "Type"
+
+#: templates/polls/panel_list.html:9 templates/polls/panel_results.html:8
+msgid "Voters"
+msgstr "Votants"
+
+#: templates/polls/panel_list.html:20
+msgid "No votes yet."
+msgstr "Aucun vote pour le moment."
+
+#: templates/polls/panel_results.html:9
+msgid "Active members"
+msgstr "Adhérents actifs"
+
+#: templates/polls/panel_results.html:10
+msgid "Turnout"
+msgstr "Participation"
+
+#: templates/polls/panel_results.html:13
+msgid "Final results"
+msgstr "Résultats définitifs"
+
+#: templates/polls/panel_results.html:13
+msgid "Live results (only admins see them)"
+msgstr "Résultats en direct (visibles seulement par les administrateurs)"
+
+#: templates/polls/panel_results.html:15
+msgid "Members will see these results once the vote is closed."
+msgstr "Les adhérents verront ces résultats après la clôture du vote."
+
+#: templates/polls/panel_results.html:15
+msgid "These results are not shown to members."
+msgstr "Ces résultats ne sont pas montrés aux adhérents."
+
+#: templates/polls/panel_results.html:19
+msgid "Close this vote now? Members will no longer be able to vote."
+msgstr "Clore ce vote maintenant ? Les adhérents ne pourront plus voter."
+
+#: templates/polls/panel_results.html:19
+msgid "Close the vote now"
+msgstr "Clore le vote maintenant"
+
 #: templates/qa/chat.html:8
 msgid "SNPNCA AI Assistant"
 msgstr "Assistant IA SNPNCA"
@@ -1897,10 +2508,6 @@ msgstr ""
 "Posez votre question en français ou en anglais. Chaque réponse indique le "
 "document et la page d’où elle vient. Si les documents ne contiennent pas la "
 "réponse, je vous le dirai."
-
-#: templates/qa/chat.html:46
-msgid "Send"
-msgstr "Envoyer"
 
 #: templates/qa/chat.html:49
 msgid "Responding..."
@@ -2012,12 +2619,6 @@ msgstr "Aucun document trouvé"
 
 #~ msgid "Back to the home page"
 #~ msgstr "Retour à l’accueil"
-
-#~ msgid "Content coming soon."
-#~ msgstr "Contenu bientôt disponible."
-
-#~ msgid "No news yet."
-#~ msgstr "Aucune actualité pour le moment."
 
 #~ msgid "No questions yet. Ask your first question below."
 #~ msgstr ""

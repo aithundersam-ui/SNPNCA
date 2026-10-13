@@ -15,7 +15,13 @@ _STARTUP_VERSION = _asset_version()
 
 
 def site(request):
+    active_alert = None
+    if getattr(request, "user", None) is not None and request.user.is_authenticated:
+        from alerts.models import Alert
+
+        active_alert = Alert.active().first()
     return {
+        "active_alert": active_alert,
         "ORG_NAME": "Syndicat National du Personnel Navigant Commercial Algérien",
         "ORG_SHORT": "SNPNCA",
         "LANGUAGES": settings.LANGUAGES,

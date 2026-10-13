@@ -1,0 +1,35 @@
+{% extends "base.html" %}{% load i18n site_tags %}
+{% block title %}{% translate "Vote" %}{% endblock %}
+{% block content %}
+<div class="narrow">
+  <p><a href="{% url 'polls:list' %}">{% translate "All votes" %}</a></p>
+  <article class="card">
+    <span class="badge {{ poll.category }}">{{ poll.get_category_display }}</span>
+    <h1 class="poll-title">{% localized poll "title" %}</h1>
+    {% localized poll "description" as description %}{% if description %}<p>{{ description|linebreaksbr }}</p>{% endif %}
+    <p class="small muted">{% icon "clock" 14 %}
+      {% if poll.is_open %}{% blocktranslate with date=poll.ends_at|date:"DATETIME_FORMAT" %}Closes {{ date }}{% endblocktranslate %}
+      {% else %}{% blocktranslate with date=poll.ends_at|date:"DATETIME_FORMAT" %}Closed on {{ date }}{% endblocktranslate %}{% endif %}
+    </p>
+
+    {% if poll.is_open %}
+      {% if voted %}
+        <p class="notice ok">{% icon "check" 18 %}{% translate "You have voted. Thank you! Results will be published when the vote closes." %}</p>
+      {% else %}
+        <form method="post" class="poll-form" novalidate>
+          {% csrf_token %}
+          {% include "_form_fields.html" %}
+          <p class="small muted">{% icon "lock" 14 %} {% translate "Your vote is secret and final: the union only records that you voted, never what you chose." %}</p>
+          <button type="submit" class="btn primary" data-confirm="{% translate 'Confirm your vote? You cannot change it afterwards.' %}">{% translate "Submit my vote" %}</button>
+        </form>
+      {% endif %}
+    {% elif results is not None %}
+      <h2 class="section-title">{% translate "Results" %}</h2>
+      {% include "polls/_bars.html" %}
+      <p class="small muted">{% blocktranslate count n=total %}{{ n }} vote in total{% plural %}{{ n }} votes in total{% endblocktranslate %}{% if voted %} · {% translate "You took part in this vote." %}{% endif %}</p>
+    {% else %}
+      <p class="muted">{% translate "This vote is closed. Its results are not published on the site." %}</p>
+    {% endif %}
+  </article>
+</div>
+{% endblock %}

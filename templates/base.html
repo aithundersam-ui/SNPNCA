@@ -55,6 +55,7 @@
   {% endblock %}
   {% endwith %}
 
+  {% include "alerts/_banner.html" %}
   <main id="main" tabindex="-1" class="{% block main_class %}page bg-gray{% endblock %}">
     {% if messages %}
       <div class="container flash-wrap">

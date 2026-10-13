@@ -86,6 +86,14 @@ Columns `full_name,email` with optional `language` (`fr`/`en`) and `role` (`user
 
 Members book a WhatsApp call from **Meetings** and get an order number (`#12`). They see which number is being processed, how many people are before them and an estimated time. A Master Admin creates the meeting days (at most two per month) under Admin → Meetings. On the day, any admin opens the day's queue and presses **Start meeting**: the order is marked "in meeting", the previous one is closed, and WhatsApp opens on the admin's device with that member's chat (a `wa.me` link), where the admin taps the call button. WhatsApp has no link that starts a call directly. Each account has a WhatsApp number (required when an admin creates a member, optional `whatsapp` CSV column, and members confirm it when booking). Code: `meetings/`.
 
+## Votes
+
+Admin → Votes creates a question with 2 to 10 answers, an opening and a closing time. Each member votes once. Ballots are secret by design: the database stores who voted (to prevent double voting) and a counter per answer, never which answer a member picked. Admins see live results; members see them after closing if "show results" is ticked. Once someone has voted, the question and answers are locked.
+
+## Urgent alerts
+
+Admin → Alerts publishes a red banner for logged-in members and emails every active member in their language (through the normal email settings). WhatsApp has no free API for sending to many people, so the alert page has a "Share" button that opens WhatsApp with the message ready: pick the union's group, community or broadcast list and send. A per-member list of one-tap links is there for members outside the group.
+
 ## Security notes
 
 - HTTPS enforced (Caddy + `SECURE_SSL_REDIRECT`, HSTS), secure HTTP-only session cookies, CSRF on every form, a strict Content-Security-Policy, no inline scripts.

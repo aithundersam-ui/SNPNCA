@@ -1,0 +1,13 @@
+{% extends "base.html" %}{% load i18n site_tags %}
+{% block title %}{% localized alert "title" %}{% endblock %}
+{% block content %}
+<div class="narrow">
+  <p><a href="{% url 'alerts:list' %}">{% translate "All alerts" %}</a></p>
+  <article class="card alert-full">
+    <p class="alert-kicker">{% icon "alert-triangle" 18 %}{% translate "Urgent alert" %}</p>
+    <h1>{% localized alert "title" %}</h1>
+    <p class="small muted">{% icon "calendar" 14 %} {{ alert.created_at|date:"DATETIME_FORMAT" }}</p>
+    {% localized alert "body" as body %}<div class="article-body">{{ body|linebreaks }}</div>
+  </article>
+</div>
+{% endblock %}

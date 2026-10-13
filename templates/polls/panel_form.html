@@ -1,0 +1,14 @@
+{% extends "panel/_layout.html" %}{% load i18n %}
+{% block title %}{% if poll %}{% translate "Edit vote" %}{% else %}{% translate "New vote" %}{% endif %}{% endblock %}
+{% block panel %}
+<h1>{% if poll %}{% translate "Edit vote" %}{% else %}{% translate "New vote" %}{% endif %}</h1>
+{% if form.locked %}<p class="notice">{% translate "Members have already voted, so the question and answers are locked. You can still change the explanation and the closing date." %}</p>{% endif %}
+<form method="post" class="card" novalidate>
+  {% csrf_token %}
+  {% include "_form_fields.html" %}
+  <div class="actions">
+    <button type="submit" class="btn">{% translate "Save" %}</button>
+    <a href="{% if poll %}{% url 'panel:poll_results' poll.pk %}{% else %}{% url 'panel:polls' %}{% endif %}">{% translate "Cancel" %}</a>
+  </div>
+</form>
+{% endblock %}

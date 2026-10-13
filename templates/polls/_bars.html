@@ -1,0 +1,9 @@
+{% load i18n site_tags %}<ul class="poll-results">
+  {% for c in results %}
+  <li>
+    <div class="poll-row"><span>{% localized c "text" %}</span><strong>{{ c.percent }}%</strong></div>
+    <meter class="poll-bar" min="0" max="100" value="{{ c.percent }}">{{ c.percent }}%</meter>
+    <span class="small muted">{% blocktranslate count n=c.votes %}{{ n }} vote{% plural %}{{ n }} votes{% endblocktranslate %}</span>
+  </li>
+  {% endfor %}
+</ul>

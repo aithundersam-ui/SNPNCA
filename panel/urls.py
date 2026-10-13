@@ -2,7 +2,9 @@ from django.urls import path
 
 from accounts.models import Role
 
+from alerts import panel_views as alert_views
 from meetings import panel_views as meeting_views
+from polls import panel_views as poll_views
 
 from . import views
 
@@ -32,6 +34,17 @@ urlpatterns = [
     path("messages/", views.message_list, name="messages"),
     path("messages/<int:pk>/", views.message_detail, name="message_detail"),
     path("messages/<int:pk>/delete/", views.message_delete, name="message_delete"),
+    path("votes/", poll_views.poll_list, name="polls"),
+    path("votes/new/", poll_views.poll_edit, name="poll_create"),
+    path("votes/<int:pk>/", poll_views.poll_results, name="poll_results"),
+    path("votes/<int:pk>/edit/", poll_views.poll_edit, name="poll_edit"),
+    path("votes/<int:pk>/close/", poll_views.poll_close, name="poll_close"),
+    path("votes/<int:pk>/delete/", poll_views.poll_delete, name="poll_delete"),
+    path("alerts/", alert_views.alert_list, name="alerts"),
+    path("alerts/new/", alert_views.alert_create, name="alert_create"),
+    path("alerts/<int:pk>/", alert_views.alert_detail, name="alert_detail"),
+    path("alerts/<int:pk>/email/", alert_views.alert_email, name="alert_email"),
+    path("alerts/<int:pk>/delete/", alert_views.alert_delete, name="alert_delete"),
     path("meetings/", meeting_views.day_list, name="meetings"),
     path("meetings/days/new/", meeting_views.day_edit, name="meeting_day_create"),
     path("meetings/days/<int:pk>/", meeting_views.day_queue, name="meeting_queue"),

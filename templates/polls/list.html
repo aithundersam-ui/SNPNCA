@@ -1,0 +1,42 @@
+{% extends "base.html" %}{% load i18n site_tags %}
+{% block title %}{% translate "Votes" %}{% endblock %}
+{% block content %}
+<div class="narrow">
+  <h1 class="page-head">{% icon "vote" 32 %}{% translate "Votes" %}</h1>
+  <p class="page-sub">{% translate "General assemblies, strike consultations and surveys. One member, one vote, and your vote is secret." %}</p>
+
+  <h2 class="section-title">{% translate "Open now" %}</h2>
+  {% for poll in open_polls %}
+    <a class="card hoverable poll-card" href="{% url 'polls:detail' poll.pk %}">
+      <div class="doc-head">
+        <div>
+          <span class="badge {{ poll.category }}">{{ poll.get_category_display }}</span>
+          <h3>{% localized poll "title" %}</h3>
+          <p class="small muted">{% icon "clock" 14 %} {% blocktranslate with date=poll.ends_at|date:"DATETIME_FORMAT" %}Closes {{ date }}{% endblocktranslate %}</p>
+        </div>
+        {% if poll.voted %}<span class="badge ok">{% icon "check" 14 %}{% translate "You voted" %}</span>{% else %}<span class="btn primary small">{% translate "Vote" %}</span>{% endif %}
+      </div>
+    </a>
+  {% empty %}
+    <p class="muted card">{% translate "There is no open vote at the moment." %}</p>
+  {% endfor %}
+
+  {% if upcoming %}
+  <h2 class="section-title">{% translate "Coming soon" %}</h2>
+  <ul class="plain-list">
+    {% for poll in upcoming %}<li><strong>{% localized poll "title" %}</strong> · <span class="muted">{% blocktranslate with date=poll.opens_at|date:"DATETIME_FORMAT" %}Opens {{ date }}{% endblocktranslate %}</span></li>{% endfor %}
+  </ul>
+  {% endif %}
+
+  {% if closed_polls %}
+  <h2 class="section-title">{% translate "Closed votes" %}</h2>
+  {% for poll in closed_polls %}
+    <a class="card hoverable poll-card" href="{% url 'polls:detail' poll.pk %}">
+      <span class="badge">{{ poll.get_category_display }}</span>
+      <h3>{% localized poll "title" %}</h3>
+      <p class="small muted">{% blocktranslate with date=poll.ends_at|date:"DATE_FORMAT" %}Closed on {{ date }}{% endblocktranslate %}{% if poll.show_results %} · {% translate "See the results" %}{% endif %}</p>
+    </a>
+  {% endfor %}
+  {% endif %}
+</div>
+{% endblock %}

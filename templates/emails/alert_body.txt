@@ -1,0 +1,9 @@
+{% load i18n %}{{ title }}
+
+{{ body }}
+
+{% translate "Read it on the members' site:" %} {{ url }}
+
+--
+SNPNCA · Syndicat National du Personnel Navigant Commercial Algérien
+{% translate "You receive this email because you are a member of SNPNCA." %}

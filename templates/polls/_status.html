@@ -1,0 +1,1 @@
+{% load i18n %}{% if poll.is_open %}<span class="badge ok">{% translate "Open" %}</span>{% elif poll.is_closed %}<span class="badge">{% translate "Closed" %}</span>{% else %}<span class="badge new">{% translate "Coming soon" %}</span>{% endif %}

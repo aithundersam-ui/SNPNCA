@@ -1,0 +1,25 @@
+{% extends "panel/_layout.html" %}{% load i18n site_tags %}
+{% block title %}{% translate "Votes" %}{% endblock %}
+{% block panel %}
+<h1>{% translate "Votes" %}</h1>
+<p class="muted">{% translate "Members vote once per question and ballots are secret. You see results live; members see them only after the vote closes, if you choose." %}</p>
+<p><a class="btn" href="{% url 'panel:poll_create' %}">{% translate "New vote" %}</a></p>
+<div class="table-wrap">
+<table>
+  <thead><tr><th>{% translate "Question" %}</th><th>{% translate "Type" %}</th><th>{% translate "Status" %}</th><th>{% translate "Voters" %}</th><th><span class="sr-only">{% translate "Actions" %}</span></th></tr></thead>
+  <tbody>
+  {% for poll in polls %}
+  <tr>
+    <td><a href="{% url 'panel:poll_results' poll.pk %}">{% localized poll "title" %}</a></td>
+    <td>{{ poll.get_category_display }}</td>
+    <td>{% include "polls/_status.html" %}</td>
+    <td>{{ poll.ballots.all|length }}</td>
+    <td><div class="actions"><a class="btn primary small" href="{% url 'panel:poll_results' poll.pk %}">{% translate "Results" %}</a>{% if not poll.is_closed %}<a class="btn secondary small" href="{% url 'panel:poll_edit' poll.pk %}">{% translate "Edit" %}</a>{% endif %}</div></td>
+  </tr>
+  {% empty %}
+  <tr><td colspan="5" class="muted">{% translate "No votes yet." %}</td></tr>
+  {% endfor %}
+  </tbody>
+</table>
+</div>
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends "panel/_layout.html" %}{% load i18n site_tags %}
+{% block title %}{% translate "Alert" %}{% endblock %}
+{% block panel %}
+<p><a href="{% url 'panel:alerts' %}">{% translate "All alerts" %}</a></p>
+<h1>{% localized alert "title" %}</h1>
+{% localized alert "body" as body %}<div class="card mb">{{ body|linebreaks }}</div>
+
+<div class="queue-stats">
+  <div><span class="queue-label">{% translate "Site banner" %}</span><strong>{% if is_active %}{% blocktranslate with date=alert.show_until|date:"SHORT_DATETIME_FORMAT" %}Until {{ date }}{% endblocktranslate %}{% else %}{% translate "Ended" %}{% endif %}</strong></div>
+  <div><span class="queue-label">{% translate "Emails sent" %}</span><strong>{% if alert.emailed_at %}{{ alert.emails_sent }}{% else %}{% translate "Not sent" %}{% endif %}</strong></div>
+  <div><span class="queue-label">{% translate "Emails failed" %}</span><strong>{{ alert.emails_failed }}</strong></div>
+</div>
+<form method="post" action="{% url 'panel:alert_email' alert.pk %}" class="mb">{% csrf_token %}<button type="submit" class="btn secondary small" data-confirm="{% translate 'Email this alert to all members?' %}">{% icon "mail" 16 %}{% if alert.emailed_at %}{% translate "Email it again" %}{% else %}{% translate "Email it to all members" %}{% endif %}</button></form>
+
+<section class="card mt-lg">
+  <h2 class="card-title">{% icon "send" 20 %}{% translate "Send on WhatsApp" %}</h2>
+  <p class="card-sub">{% translate "WhatsApp opens with the message ready. Choose your union's WhatsApp group, community or broadcast list and tap send: everyone in it gets the alert at once, for free." %}</p>
+  <div class="actions">
+    <a class="btn whatsapp" href="{{ share_fr }}" target="_blank" rel="noopener noreferrer">{% icon "send" 16 %}{% translate "Share in French" %}</a>
+    {% if share_en %}<a class="btn secondary" href="{{ share_en }}" target="_blank" rel="noopener noreferrer">{% translate "Share in English" %}</a>{% endif %}
+  </div>
+  <details class="mt-lg">
+    <summary>{% blocktranslate count n=with_number|length %}Or send it one by one ({{ n }} member with a WhatsApp number){% plural %}Or send it one by one ({{ n }} members with a WhatsApp number){% endblocktranslate %}</summary>
+    <p class="small muted">{% translate "Each link opens a chat with that member and the message ready to send. Useful for members who are not in your WhatsApp group." %}</p>
+    <ul class="wa-list">
+      {% for member, link in with_number %}
+      <li><span>{{ member.full_name|default:member.email }} <span class="muted small">{{ member.whatsapp_number }}</span></span><a class="btn secondary small" href="{{ link }}" target="_blank" rel="noopener noreferrer">{% translate "Send" %}</a></li>
+      {% endfor %}
+    </ul>
+    {% if without_number %}<p class="small muted">{% blocktranslate count n=without_number %}{{ n }} member has no WhatsApp number.{% plural %}{{ n }} members have no WhatsApp number.{% endblocktranslate %}</p>{% endif %}
+  </details>
+</section>
+<p class="mt-lg"><a class="btn danger secondary small" href="{% url 'panel:alert_delete' alert.pk %}">{% translate "Delete" %}</a></p>
+{% endblock %}
