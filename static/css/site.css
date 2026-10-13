@@ -537,3 +537,9 @@ html[lang="ar"] h1, html[lang="ar"] h2, html[lang="ar"] h3 { line-height: 1.4; l
 html[lang="ar"] .figure-label { letter-spacing: 0; font-size: 1.15rem; }
 .figure-fields { display: grid; gap: 0 1rem; grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr)); }
 .figures-2 { max-width: 56rem; margin-inline: auto; }
+
+/* Footer on every page */
+body { display: flex; flex-direction: column; min-height: 100vh; }
+body > main { flex: 1 0 auto; }
+.site-footer { border-top: 1px solid var(--border); background: #fff; padding: 1.25rem 1rem; text-align: center; }
+.site-footer p { margin: 0; font-size: .875rem; color: var(--gray-600); }

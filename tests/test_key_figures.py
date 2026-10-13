@@ -53,3 +53,11 @@ class KeyFiguresTests(TestCase):
         self.assertNotContains(self.client.get(reverse("panel:home_content")), "Chiffres clés")
         response = self.client.post(reverse("panel:key_figures"), formset_data([]))
         self.assertEqual(response.status_code, 403)
+
+
+class FooterTests(TestCase):
+    def test_copyright_on_every_kind_of_page(self):
+        for url in ["/fr/", "/en/account/login/", "/ar/team/"]:
+            self.assertContains(self.client.get(url), "Copyright © 2026 - SNPNCA")
+        self.client.force_login(make_user("master@example.com", Role.MASTER))
+        self.assertContains(self.client.get(reverse("panel:home_content")), "Copyright © 2026 - SNPNCA")
