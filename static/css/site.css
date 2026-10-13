@@ -350,8 +350,8 @@ code { font-size: .85em; background: var(--slate-100); padding: .1rem .35rem; bo
 /* ---------- Home: hero card with notched header ---------- */
 .hero-frame { padding: 14px; background: var(--blue-50); }
 .hero-card { --notch: 28px; --mat: #fff; position: relative; display: flex; flex-direction: column; min-height: clamp(540px, 82vh, 760px); border-radius: 34px; color: #fff; background: var(--navy); box-shadow: 0 0 0 12px var(--mat); margin: 12px; isolation: isolate; }
-.hero-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; border-radius: inherit; }
-.hero-shade { position: absolute; inset: 0; z-index: -1; border-radius: inherit; background: linear-gradient(to bottom, rgb(5 10 31 / .35), rgb(5 10 31 / .25) 45%, rgb(5 10 31 / .6)); }
+.hero-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%; z-index: -2; border-radius: inherit; }
+.hero-shade { position: absolute; inset: 0; z-index: -1; border-radius: inherit; background: linear-gradient(to bottom, rgb(5 10 31 / .45), rgb(5 10 31 / 0) 22%, rgb(5 10 31 / 0) 45%, rgb(8 20 66 / .78) 72%, rgb(5 12 45 / .92)); }
 
 .hero-top { position: relative; display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; }
 .hero-notch { position: relative; z-index: 1; display: flex; align-items: center; gap: .6rem; background: var(--mat); color: var(--gray-900); padding: 12px 18px 14px; }
@@ -380,7 +380,7 @@ code { font-size: .85em; background: var(--slate-100); padding: .1rem .35rem; bo
 .hero-menu-toggle { display: none; }
 .hero-menu-toggle:hover svg { transform: none !important; }
 
-.hero-body { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; max-width: 52rem; margin: 0 auto; padding: 2rem 1.5rem 4.5rem; }
+.hero-body { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; text-align: center; max-width: 52rem; margin: 0 auto; padding: 2rem 1.5rem 3.5rem; }
 .hero-body h1 { color: #fff; font-size: clamp(2.25rem, 5.4vw, 4.25rem); font-weight: 700; line-height: 1.08; letter-spacing: -.01em; margin: 0 0 1.25rem; text-wrap: balance; text-shadow: 0 2px 24px rgb(0 0 0 / .35); }
 .hero-sub { color: rgb(255 255 255 / .86); font-size: clamp(1rem, 1.6vw, 1.2rem); max-width: 36rem; margin: 0 auto 2rem; text-wrap: balance; }
 .hero-cta { display: flex; flex-wrap: wrap; justify-content: center; gap: .9rem; }

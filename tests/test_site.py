@@ -282,7 +282,7 @@ class HeroPhotoTests(TestCase):
 
     def test_home_uses_default_background_and_keeps_navigation(self):
         guest = self.client.get("/fr/")
-        self.assertContains(guest, "img/hero-default.svg")
+        self.assertContains(guest, "img/hero-crew.jpg")
         self.assertContains(guest, 'href="#contact"')
         self.client.force_login(make_user("m@example.com"))
         member = self.client.get("/fr/")

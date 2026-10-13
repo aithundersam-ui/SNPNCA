@@ -7,7 +7,7 @@
     {% if content.hero_image %}
       <img class="hero-bg" src="{% url 'core:hero_image' %}?v={{ content.updated_at|date:'U' }}" alt="" aria-hidden="true">
     {% else %}
-      <img class="hero-bg" src="{% static 'img/hero-default.svg' %}" alt="" aria-hidden="true">
+      <img class="hero-bg" src="{% static 'img/hero-crew.jpg' %}" alt="" aria-hidden="true">
     {% endif %}
     <div class="hero-shade" aria-hidden="true"></div>
 
