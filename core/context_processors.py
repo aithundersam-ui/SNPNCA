@@ -20,8 +20,12 @@ def site(request):
         from alerts.models import Alert
 
         active_alert = Alert.active().first()
+    from core.models import SiteContent
+
+    social = SiteContent.objects.filter(pk=1).values("facebook_url", "instagram_url").first() or {}
     return {
         "active_alert": active_alert,
+        "SOCIAL": social,
         "ORG_NAME": "Syndicat National du Personnel Navigant Commercial Algérien",
         "ORG_SHORT": "SNPNCA",
         "LANGUAGES": settings.LANGUAGES,

@@ -72,7 +72,16 @@
     {% endblock %}
   </main>
   <footer class="site-footer">
-    <p>{% translate "All rights reserved" %} - <bdi>Copyright © 2026 - {{ ORG_SHORT }} 🇩🇿</bdi></p>
+    {% if SOCIAL.facebook_url or SOCIAL.instagram_url %}
+    <div class="footer-social">
+      <p class="footer-follow">{% translate "Follow us" %}</p>
+      <ul class="social-links">
+        {% if SOCIAL.facebook_url %}<li><a class="social-btn facebook" href="{{ SOCIAL.facebook_url }}" target="_blank" rel="noopener noreferrer">{% icon "facebook" 22 %}<span class="sr-only">Facebook</span></a></li>{% endif %}
+        {% if SOCIAL.instagram_url %}<li><a class="social-btn instagram" href="{{ SOCIAL.instagram_url }}" target="_blank" rel="noopener noreferrer">{% icon "instagram" 22 %}<span class="sr-only">Instagram</span></a></li>{% endif %}
+      </ul>
+    </div>
+    {% endif %}
+    <p class="footer-copy">{% translate "All rights reserved" %} - <bdi>Copyright © 2026 - {{ ORG_SHORT }} 🇩🇿</bdi></p>
   </footer>
 </body>
 </html>

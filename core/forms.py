@@ -120,6 +120,38 @@ class SignupFormLinkForm(forms.ModelForm):
         return url
 
 
+SOCIAL_HOSTS = {
+    "facebook_url": {"facebook.com", "www.facebook.com", "m.facebook.com", "fb.com", "www.fb.com", "fb.me"},
+    "instagram_url": {"instagram.com", "www.instagram.com", "instagr.am"},
+}
+
+
+class SocialLinksForm(forms.ModelForm):
+    """Facebook and Instagram buttons in the footer of every page."""
+
+    class Meta:
+        model = SiteContent
+        fields = ["facebook_url", "instagram_url"]
+        widgets = {
+            "facebook_url": forms.URLInput(attrs={"placeholder": "https://www.facebook.com/..."}),
+            "instagram_url": forms.URLInput(attrs={"placeholder": "https://www.instagram.com/..."}),
+        }
+
+    def _clean_social(self, name, message):
+        url = self.cleaned_data[name].strip()
+        if url:
+            parts = urlsplit(url)
+            if parts.scheme != "https" or (parts.hostname or "").lower() not in SOCIAL_HOSTS[name]:
+                raise forms.ValidationError(message)
+        return url
+
+    def clean_facebook_url(self):
+        return self._clean_social("facebook_url", _("Paste the link of a Facebook page (it starts with https://www.facebook.com/)."))
+
+    def clean_instagram_url(self):
+        return self._clean_social("instagram_url", _("Paste the link of an Instagram account (it starts with https://www.instagram.com/)."))
+
+
 class ReplyForm(forms.Form):
     body = forms.CharField(label=_("Reply"), widget=forms.Textarea(attrs={"rows": 8}), max_length=10000)
 

@@ -46,6 +46,16 @@
 </form>
 {% endif %}
 
+{% if social_form %}
+<h2 class="panel-subtitle">{% translate "Social media" %}</h2>
+<p class="muted">{% translate "Facebook and Instagram buttons shown at the bottom of every page. Leave a link empty to hide its button. Only Master Admins can change them." %}</p>
+<form method="post" action="{% url 'panel:social_links' %}" class="card" novalidate>
+  {% csrf_token %}
+  {% include "_form_fields.html" with form=social_form %}
+  <button type="submit" class="btn">{% translate "Save links" %}</button>
+</form>
+{% endif %}
+
 {% if signup_form %}
 <h2 class="panel-subtitle">{% translate "Membership sign-up pop-up" %}</h2>
 <p class="muted">{% translate "Visitors who aren't logged in see a pop-up on the home page inviting them to join. It opens your Google Form, and admins then create the accounts from the answers. Only Master Admins can change this link." %}</p>

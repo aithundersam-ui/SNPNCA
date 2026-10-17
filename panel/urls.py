@@ -66,5 +66,6 @@ urlpatterns = [
     path("home/", views.home_content, name="home_content"),
     path("home/signup-link/", views.signup_link, name="signup_link"),
     path("home/figures/", views.key_figures, name="key_figures"),
+    path("home/social/", views.social_links, name="social_links"),
     path("audit/", views.audit_log, name="audit"),
 ]

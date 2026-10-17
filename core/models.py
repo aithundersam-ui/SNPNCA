@@ -44,6 +44,8 @@ class SiteContent(BilingualMixin, models.Model):
         blank=True,
         help_text=_("Visitors who aren't logged in see a pop-up on the home page that opens this form. Leave empty to hide the pop-up."),
     )
+    facebook_url = models.URLField(_("Facebook page link"), blank=True)
+    instagram_url = models.URLField(_("Instagram page link"), blank=True)
     updated_at = models.DateTimeField(auto_now=True)
 
     @classmethod

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-17 17:54+0100\n"
+"POT-Creation-Date: 2026-10-17 18:44+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -130,11 +130,11 @@ msgid ""
 "XX."
 msgstr ""
 
-#: accounts/models.py:59 core/models.py:91
+#: accounts/models.py:59 core/models.py:93
 msgid "email"
 msgstr "email"
 
-#: accounts/models.py:60 core/models.py:90 team/models.py:27
+#: accounts/models.py:60 core/models.py:92 team/models.py:27
 msgid "full name"
 msgstr "full name"
 
@@ -307,7 +307,19 @@ msgid ""
 "https://docs.google.com/forms/)."
 msgstr ""
 
-#: core/forms.py:124
+#: core/forms.py:149
+msgid ""
+"Paste the link of a Facebook page (it starts with "
+"https://www.facebook.com/)."
+msgstr ""
+
+#: core/forms.py:152
+msgid ""
+"Paste the link of an Instagram account (it starts with "
+"https://www.instagram.com/)."
+msgstr ""
+
+#: core/forms.py:156
 msgid "Reply"
 msgstr "Reply"
 
@@ -355,79 +367,87 @@ msgid ""
 "form. Leave empty to hide the pop-up."
 msgstr ""
 
-#: core/models.py:63
-msgid "People"
+#: core/models.py:47
+msgid "Facebook page link"
 msgstr ""
 
-#: core/models.py:64
-msgid "Map pin"
+#: core/models.py:48
+msgid "Instagram page link"
 msgstr ""
 
 #: core/models.py:65
-msgid "Plane"
+msgid "People"
 msgstr ""
 
 #: core/models.py:66
-msgid "Globe"
+msgid "Map pin"
 msgstr ""
 
 #: core/models.py:67
-msgid "Calendar"
+msgid "Plane"
 msgstr ""
 
 #: core/models.py:68
-msgid "Shield"
+msgid "Globe"
+msgstr ""
+
+#: core/models.py:69
+msgid "Calendar"
 msgstr ""
 
 #: core/models.py:70
+msgid "Shield"
+msgstr ""
+
+#: core/models.py:72
 msgid "icon"
 msgstr ""
 
-#: core/models.py:71
+#: core/models.py:73
 msgid "number"
 msgstr ""
 
-#: core/models.py:72
+#: core/models.py:74
 msgid "after the number"
 msgstr ""
 
-#: core/models.py:72
+#: core/models.py:74
 msgid "For example + or %."
 msgstr ""
 
-#: core/models.py:73
+#: core/models.py:75
 msgid "label (French)"
 msgstr ""
 
-#: core/models.py:74
+#: core/models.py:76
 msgid "label (English)"
 msgstr ""
 
-#: core/models.py:75
+#: core/models.py:77
 msgid "label (Arabic)"
 msgstr ""
 
-#: core/models.py:76 destinations/models.py:41 destinations/models.py:64
+#: core/models.py:78 destinations/models.py:41 destinations/models.py:64
 msgid "order"
 msgstr ""
 
-#: core/models.py:87 templates/panel/messages.html:7
+#: core/models.py:89 templates/panel/messages.html:7
 msgid "New"
 msgstr "New"
 
-#: core/models.py:88 templates/panel/messages.html:8
+#: core/models.py:90 templates/panel/messages.html:8
 msgid "Replied"
 msgstr "Replied"
 
-#: core/models.py:92
+#: core/models.py:94
 msgid "phone number"
 msgstr "phone number"
 
-#: core/models.py:93
+#: core/models.py:95
 msgid "message"
 msgstr "message"
 
-#: core/models.py:95
+#: core/models.py:97
 msgid "addressed to"
 msgstr ""
 
@@ -492,12 +512,10 @@ msgid "Lower numbers come first."
 msgstr ""
 
 #: destinations/models.py:56
-#| msgid "title (French)"
 msgid "activity (French)"
 msgstr ""
 
 #: destinations/models.py:57
-#| msgid "title (English)"
 msgid "activity (English)"
 msgstr ""
 
@@ -506,17 +524,14 @@ msgid "activity (Arabic)"
 msgstr ""
 
 #: destinations/models.py:59
-#| msgid "organisation description (French)"
 msgid "description (French)"
 msgstr ""
 
 #: destinations/models.py:60
-#| msgid "organisation description (English)"
 msgid "description (English)"
 msgstr ""
 
 #: destinations/models.py:61
-#| msgid "organisation description (French)"
 msgid "description (Arabic)"
 msgstr ""
 
@@ -829,15 +844,20 @@ msgstr "Message deleted."
 msgid "Home page updated."
 msgstr "Home page updated."
 
-#: panel/views.py:420
+#: panel/views.py:422
 msgid "Sign-up pop-up updated. Visitors now see it on the home page."
 msgstr ""
 
-#: panel/views.py:422
+#: panel/views.py:424
 msgid "Sign-up pop-up turned off."
 msgstr ""
 
-#: panel/views.py:434
+#: panel/views.py:437
+#| msgid "Role updated."
+msgid "Social media links updated."
+msgstr ""
+
+#: panel/views.py:449
 msgid "Key figures updated."
 msgstr ""
 
@@ -1481,7 +1501,11 @@ msgstr "Log out"
 msgid "Menu"
 msgstr ""
 
-#: templates/base.html:75
+#: templates/base.html:77
+msgid "Follow us"
+msgstr ""
+
+#: templates/base.html:84
 msgid "All rights reserved"
 msgstr ""
 
@@ -1689,7 +1713,6 @@ msgid ""
 msgstr ""
 
 #: templates/destinations/panel_form.html:16
-#| msgid "New account"
 msgid "New activity"
 msgstr ""
 
@@ -2336,29 +2359,44 @@ msgid "Save figures"
 msgstr ""
 
 #: templates/panel/home_content.html:50
-msgid "Membership sign-up pop-up"
+msgid "Social media"
 msgstr ""
 
 #: templates/panel/home_content.html:51
+msgid ""
+"Facebook and Instagram buttons shown at the bottom of every page. Leave a "
+"link empty to hide its button. Only Master Admins can change them."
+msgstr ""
+
+#: templates/panel/home_content.html:55
+#| msgid "Send the link"
+msgid "Save links"
+msgstr ""
+
+#: templates/panel/home_content.html:60
+msgid "Membership sign-up pop-up"
+msgstr ""
+
+#: templates/panel/home_content.html:61
 msgid ""
 "Visitors who aren't logged in see a pop-up on the home page inviting them to"
 " join. It opens your Google Form, and admins then create the accounts from "
 "the answers. Only Master Admins can change this link."
 msgstr ""
 
-#: templates/panel/home_content.html:55
+#: templates/panel/home_content.html:65
 msgid "Status: the pop-up is shown to visitors."
 msgstr ""
 
-#: templates/panel/home_content.html:55
+#: templates/panel/home_content.html:65
 msgid "Open the form"
 msgstr ""
 
-#: templates/panel/home_content.html:55
+#: templates/panel/home_content.html:65
 msgid "Status: no link, so the pop-up is hidden."
 msgstr ""
 
-#: templates/panel/home_content.html:56
+#: templates/panel/home_content.html:66
 msgid "Save link"
 msgstr ""
 

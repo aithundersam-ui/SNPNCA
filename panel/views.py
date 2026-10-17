@@ -21,7 +21,7 @@ from accounts.audit import log_action
 from accounts.emails import send_invitation, send_templated
 from accounts.forms import CsvUploadForm, UserForm
 from accounts.models import AuditLog, Role, User
-from core.forms import KeyFigureFormSet, ReplyForm, SignupFormLinkForm, SiteContentForm
+from core.forms import KeyFigureFormSet, ReplyForm, SignupFormLinkForm, SiteContentForm, SocialLinksForm
 from core.models import ContactMessage, ContactReply, KeyFigure, SiteContent
 from news.models import Article, ArticleImage, ArticleVideo
 from qa.models import Document
@@ -400,11 +400,13 @@ def home_content(request):
     return _render_home_content(request, content, form)
 
 
-def _render_home_content(request, content, form, signup_form=None, figures_formset=None):
+def _render_home_content(request, content, form, signup_form=None, figures_formset=None, social_form=None):
     if request.user.is_master:
         signup_form = signup_form or SignupFormLinkForm(instance=content)
         figures_formset = figures_formset or KeyFigureFormSet(queryset=KeyFigure.objects.all(), prefix="fig")
-    context = {"form": form, "signup_form": signup_form, "figures_formset": figures_formset, "content": content}
+        social_form = social_form or SocialLinksForm(instance=content)
+    context = {"form": form, "signup_form": signup_form, "figures_formset": figures_formset,
+               "social_form": social_form, "content": content}
     return render(request, "panel/home_content.html", context)
 
 
@@ -422,6 +424,19 @@ def signup_link(request):
             messages.success(request, _("Sign-up pop-up turned off."))
         return redirect("panel:home_content")
     return _render_home_content(request, content, SiteContentForm(instance=content), signup_form=form)
+
+
+@master_required
+@require_POST
+def social_links(request):
+    content = SiteContent.load()
+    form = SocialLinksForm(request.POST, instance=content)
+    if form.is_valid():
+        form.save()
+        log_action(request, "home.social_links", facebook=content.facebook_url, instagram=content.instagram_url)
+        messages.success(request, _("Social media links updated."))
+        return redirect("panel:home_content")
+    return _render_home_content(request, content, SiteContentForm(instance=content), social_form=form)
 
 
 @master_required
