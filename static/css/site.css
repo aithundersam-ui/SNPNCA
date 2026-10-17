@@ -541,13 +541,13 @@ html[lang="ar"] .figure-label { letter-spacing: 0; font-size: 1.15rem; }
 /* Footer on every page */
 body { display: flex; flex-direction: column; min-height: 100vh; }
 body > main { flex: 1 0 auto; }
-.site-footer { background: #2c3245; text-align: center; }
-.footer-social { padding: 2.5rem 1rem; background: #475b7d; }
+.site-footer { background: #050c2d; text-align: center; }
+.footer-social { padding: 2.5rem 1rem; background: linear-gradient(180deg, #1b2470, #0d1650); }
 .social-links { list-style: none; margin: 0; padding: 0; display: flex; justify-content: center; gap: 1.25rem; }
-.social-btn { display: inline-flex; align-items: center; justify-content: center; width: 64px; height: 64px; border-radius: 50%; color: #fff; background: rgba(255, 255, 255, .22); transition: background .2s; }
-.social-btn:hover, .social-btn:focus-visible { background: rgba(255, 255, 255, .35); color: #fff; }
+.social-btn { display: inline-flex; align-items: center; justify-content: center; width: 64px; height: 64px; border-radius: 50%; color: #fff; background: rgba(255, 255, 255, .14); transition: background .2s; }
+.social-btn:hover, .social-btn:focus-visible { background: var(--blue); color: #fff; }
 .social-btn.facebook svg { fill: currentColor; stroke: none; }
-.footer-copy { margin: 0; padding: 1rem; background: #2c3245; color: #e2e8f0; font-size: .875rem; }
+.footer-copy { margin: 0; padding: 1rem; background: #050c2d; color: var(--blue-200); font-size: .875rem; }
 
 /* Destinations: photo cards that open to show the top activities */
 .dest-head { text-align: center; margin-bottom: 2rem; }
