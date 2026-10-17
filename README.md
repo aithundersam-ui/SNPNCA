@@ -76,6 +76,16 @@ python manage.py compilemessages
 
 Admin-written content (home page text, news, alerts, votes) has French, English and optional Arabic fields. An empty field falls back to French, then English. Arabic pages use the bundled Noto Sans Arabic font (`static/fonts`, SIL Open Font License).
 
+## Automatic translation of admin content
+
+Admins can write news, alerts, votes, home page text, key figures and destinations in one language. On save, every empty French, English or Arabic field is filled in; fields that already have text are never overwritten (`core/translation.py`).
+
+- `TRANSLATION_ENGINE=argos` (default): [Argos Translate](https://github.com/argosopentech/argos-translate), free and offline on this server. Install with `pip install -r requirements-translate.txt` then `python manage.py install_translation_models` (the Docker image does both). French and Arabic are translated through English, so quality is modest, especially for Arabic.
+- `TRANSLATION_ENGINE=claude`: the Claude API (needs `ANTHROPIC_API_KEY` with credit); better quality.
+- `TRANSLATION_ENGINE=off`: no automatic translation.
+
+If the translator is missing or fails, the form saves untranslated.
+
 ## Roles
 
 | Action | Member | Admin | Master Admin |

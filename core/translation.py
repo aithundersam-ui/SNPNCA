@@ -1,14 +1,21 @@
 """Automatic translation of admin-written content.
 
 Admins can write a text in one language only. When they save, every empty
-French, English or Arabic field is filled by Claude. Fields that already
+French, English or Arabic field is filled automatically. Fields that already
 have text are never touched, so a correction made by hand is kept. If the
-Claude API is not configured or fails, the form saves as it is.
+translator is not installed or fails, the form saves as it is.
+
+TRANSLATION_ENGINE chooses the translator:
+- "argos" (default): Argos Translate, free and offline, running on our own
+  server. Models are installed with `manage.py install_translation_models`.
+- "claude": the Claude API (better, especially for Arabic; needs API credit).
+- "off": no automatic translation.
 """
 
 import json
 import logging
 
+from django.conf import settings
 from django.contrib import messages
 from django.utils.translation import gettext as _
 
@@ -36,6 +43,47 @@ def get_llm():
 def translate(items, llm=None):
     """`items` maps a key to {"source": {lang: text}, "translate_to": [langs]}.
     Returns {key: {lang: text}}, or None when translation is unavailable."""
+    engine = settings.TRANSLATION_ENGINE
+    if engine == "claude":
+        return _claude_translate(items, llm)
+    if engine == "argos":
+        return _argos_translate(items)
+    return None
+
+
+# Which written language to translate from, best first. Argos has direct
+# French-English and English-Arabic models; French-Arabic goes through English.
+SOURCE_PREFERENCE = {"fr": ("en", "ar"), "en": ("fr", "ar"), "ar": ("en", "fr")}
+
+
+def _argos_translate(items):
+    try:
+        from argostranslate import translate as argos
+    except ImportError:
+        logger.warning("Automatic translation skipped: Argos Translate is not installed.")
+        return None
+    engines = {}
+    result = {}
+    try:
+        for key, item in items.items():
+            result[key] = {}
+            for target in item["translate_to"]:
+                source = next(lang for lang in SOURCE_PREFERENCE[target] if lang in item["source"])
+                if (source, target) not in engines:
+                    engines[source, target] = argos.get_translation_from_codes(source, target)
+                engine = engines[source, target]
+                # Line by line, so lists such as vote answers keep one item per line.
+                result[key][target] = "\n".join(
+                    engine.translate(line).strip() if line.strip() else ""
+                    for line in item["source"][source].splitlines()
+                ).strip()
+    except Exception:
+        logger.exception("Automatic translation with Argos failed (are the models installed?)")
+        return None
+    return result
+
+
+def _claude_translate(items, llm=None):
     from qa.llm import LLMError
 
     schema = {

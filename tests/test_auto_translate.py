@@ -1,7 +1,7 @@
 import json
 from unittest import mock
 
-from django.test import TestCase
+from django.test import TestCase, override_settings
 from django.urls import reverse
 from django.utils import translation
 
@@ -42,6 +42,7 @@ class BrokenLLM:
         raise LLMError("no key")
 
 
+@override_settings(TRANSLATION_ENGINE="claude")
 class AutoTranslateTests(TestCase):
     def setUp(self):
         translation.activate("fr")
@@ -115,6 +116,7 @@ class AutoTranslateTests(TestCase):
         self.assertFalse(Alert.objects.exists())
 
 
+@override_settings(TRANSLATION_ENGINE="claude")
 class TranslationUnavailableTests(TestCase):
     def setUp(self):
         translation.activate("fr")
@@ -132,3 +134,79 @@ class TranslationUnavailableTests(TestCase):
         response = self.client.post(reverse("panel:alert_create"), {"title_ar": "عنوان", "body_ar": "نص", "show_days": "7"})
         self.assertContains(response, "Veuillez aussi remplir le français")
         self.assertFalse(Alert.objects.exists())
+
+
+class FakeArgosEngine:
+    def __init__(self, source, target):
+        self.pair = (source, target)
+
+    def translate(self, text):
+        return f"<{self.pair[0]}-{self.pair[1]}> {text}"
+
+
+class FakeArgos:
+    """Stands in for argostranslate.translate, with models for fr<->en and en<->ar."""
+
+    def __init__(self):
+        self.pairs = []
+
+    def get_translation_from_codes(self, source, target):
+        self.pairs.append((source, target))
+        return FakeArgosEngine(source, target)
+
+
+@override_settings(TRANSLATION_ENGINE="argos")
+class ArgosTests(TestCase):
+    def setUp(self):
+        import sys
+        import types
+
+        self.argos = FakeArgos()
+        package = types.ModuleType("argostranslate")
+        package.translate = self.argos
+        patcher = mock.patch.dict(sys.modules, {"argostranslate": package, "argostranslate.translate": self.argos})
+        patcher.start()
+        self.addCleanup(patcher.stop)
+
+    def test_prefers_english_as_the_source_for_arabic(self):
+        from core.translation import translate
+
+        result = translate({
+            "title": {"source": {"fr": "Grève", "en": "Strike"}, "translate_to": ["ar"]},
+            "body": {"source": {"fr": "Oui\n\nNon"}, "translate_to": ["en", "ar"]},
+        })
+        self.assertEqual(result["title"], {"ar": "<en-ar> Strike"})
+        # one line in, one line out; blank lines kept
+        self.assertEqual(result["body"]["en"], "<fr-en> Oui\n\n<fr-en> Non")
+        self.assertEqual(result["body"]["ar"], "<fr-ar> Oui\n\n<fr-ar> Non")
+
+    def test_arabic_source(self):
+        from core.translation import translate
+
+        result = translate({"t": {"source": {"ar": "نعم"}, "translate_to": ["fr", "en"]}})
+        self.assertEqual(result["t"], {"fr": "<ar-fr> نعم", "en": "<ar-en> نعم"})
+
+    def test_whole_form_saved_with_argos(self):
+        translation.activate("fr")
+        self.client.force_login(make_user("master@example.com", Role.MASTER))
+        self.client.post(reverse("panel:alert_create"), {"title_fr": "Préavis", "body_fr": "Texte", "show_days": "7"})
+        alert = Alert.objects.get()
+        self.assertEqual((alert.title_en, alert.title_ar), ("<fr-en> Préavis", "<fr-ar> Préavis"))
+
+    def test_missing_models_save_without_translation(self):
+        self.argos.get_translation_from_codes = mock.Mock(side_effect=AttributeError("no model"))
+        translation.activate("fr")
+        self.client.force_login(make_user("master@example.com", Role.MASTER))
+        self.client.post(reverse("panel:alert_create"), {"title_fr": "Préavis", "body_fr": "Texte", "show_days": "7"})
+        self.assertEqual(Alert.objects.get().title_en, "")
+
+
+@override_settings(TRANSLATION_ENGINE="argos")
+class ArgosNotInstalledTests(TestCase):
+    def test_not_installed(self):
+        import sys
+
+        from core.translation import translate
+
+        with mock.patch.dict(sys.modules, {"argostranslate": None}):
+            self.assertIsNone(translate({"t": {"source": {"fr": "Oui"}, "translate_to": ["en"]}}))

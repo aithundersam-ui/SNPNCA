@@ -43,6 +43,12 @@ echo "==> 5/6 Creating the tables, translations and the Master Admin"
 .venv/bin/python manage.py createcachetable
 .venv/bin/python manage.py compilemessages --ignore=.venv >/dev/null
 .venv/bin/python manage.py seed_master_admin
+echo "Installing the free translator (about 1 GB, only once)..."
+if .venv/bin/pip install -q -r requirements-translate.txt && .venv/bin/python manage.py install_translation_models; then
+  echo "Automatic translation is ready."
+else
+  echo "Automatic translation could not be installed; the site works without it."
+fi
 pg_ctl -D .localdev/pgdata -m fast stop
 
 echo "==> 6/6 Starting the site"
