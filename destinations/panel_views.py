@@ -4,6 +4,7 @@ from django.shortcuts import get_object_or_404, redirect, render
 from django.utils.translation import gettext as _
 
 from accounts.audit import log_action
+from core.translation import notify as notify_translated
 from accounts.permissions import admin_required
 
 from .forms import ActivityFormSet, DestinationForm
@@ -28,6 +29,7 @@ def destination_edit(request, pk=None):
             formset.save()
         log_action(request, "destination.update" if pk else "destination.create", str(destination))
         messages.success(request, _("Destination saved."))
+        notify_translated(request, form, formset)
         return redirect("panel:destinations")
     return render(request, "destinations/panel_form.html", {"form": form, "formset": formset, "destination": destination})
 

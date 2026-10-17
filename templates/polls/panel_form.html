@@ -3,6 +3,7 @@
 {% block panel %}
 <h1>{% if poll %}{% translate "Edit vote" %}{% else %}{% translate "New vote" %}{% endif %}</h1>
 {% if form.locked %}<p class="notice">{% translate "Members have already voted, so the question and answers are locked. You can still change the explanation and the closing date." %}</p>{% endif %}
+{% include "_translate_hint.html" %}
 <form method="post" class="card" novalidate>
   {% csrf_token %}
   {% include "_form_fields.html" %}

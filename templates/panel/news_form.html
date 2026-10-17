@@ -2,7 +2,7 @@
 {% block title %}{% if article.pk %}{% translate "Edit article" %}{% else %}{% translate "New article" %}{% endif %}{% endblock %}
 {% block panel %}
 <h1>{% if article.pk %}{% translate "Edit article" %}{% else %}{% translate "New article" %}{% endif %}</h1>
-<p class="muted">{% translate "Fill in French, English or both. Arabic is optional: if it is empty, Arabic readers see the French text." %}</p>
+{% include "_translate_hint.html" %}
 <form method="post" enctype="multipart/form-data" novalidate>
   {% csrf_token %}
   {% if form.non_field_errors %}<ul class="errorlist nonfield" role="alert">{% for e in form.non_field_errors %}<li>{{ e }}</li>{% endfor %}</ul>{% endif %}

@@ -2,7 +2,7 @@
 {% block title %}{% if destination %}{{ destination }}{% else %}{% translate "Add a destination" %}{% endif %}{% endblock %}
 {% block panel %}
 <h1>{% if destination %}{{ destination }}{% else %}{% translate "Add a destination" %}{% endif %}</h1>
-<p class="muted">{% translate "English and Arabic are optional: if they are empty, members see the French text." %}</p>
+{% include "_translate_hint.html" %}
 <form method="post" enctype="multipart/form-data" novalidate>
   {% csrf_token %}
   <div class="card">{% include "_form_fields.html" %}</div>

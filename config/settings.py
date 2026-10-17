@@ -208,3 +208,4 @@ LOGGING = {
 }
 if env_bool("DJANGO_TESTING"):
     LOGGING["root"]["level"] = "CRITICAL"
+    ANTHROPIC_API_KEY = ""  # tests never call the real Claude API

@@ -2,7 +2,7 @@
 {% block title %}{% translate "Home page" %}{% endblock %}
 {% block panel %}
 <h1>{% translate "Home page text" %}</h1>
-<p class="muted">{% translate "If one language is empty, visitors see the French text (or the English one if French is empty too)." %}</p>
+{% include "_translate_hint.html" %}
 <form method="post" enctype="multipart/form-data" novalidate>
   {% csrf_token %}
   <div class="field">{{ form.hero_image.as_field_group }}</div>

@@ -7,6 +7,7 @@ from django.core import signing
 from django.utils.translation import gettext_lazy as _
 
 from .models import ContactMessage, KeyFigure, SiteContent
+from .translation import AutoTranslateMixin
 
 PHONE_RE = re.compile(r"^\+?[0-9 ().-]{8,20}$")
 MIN_FILL_SECONDS = 3
@@ -77,7 +78,7 @@ class ContactForm(forms.ModelForm):
         return time.time() - float(started) < MIN_FILL_SECONDS
 
 
-class SiteContentForm(ArabicFieldsMixin, forms.ModelForm):
+class SiteContentForm(AutoTranslateMixin, ArabicFieldsMixin, forms.ModelForm):
     class Meta:
         model = SiteContent
         fields = ["description_fr", "description_en", "description_ar", "mission_fr", "mission_en", "mission_ar", "hero_image"]
@@ -156,7 +157,7 @@ class ReplyForm(forms.Form):
     body = forms.CharField(label=_("Reply"), widget=forms.Textarea(attrs={"rows": 8}), max_length=10000)
 
 
-class KeyFigureForm(ArabicFieldsMixin, forms.ModelForm):
+class KeyFigureForm(AutoTranslateMixin, ArabicFieldsMixin, forms.ModelForm):
     class Meta:
         model = KeyFigure
         fields = ["icon", "value", "suffix", "label_fr", "label_en", "label_ar", "position"]

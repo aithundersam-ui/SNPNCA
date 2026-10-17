@@ -5,6 +5,7 @@ from PIL import Image
 
 from accounts.models import Role
 from core.forms import ArabicFieldsMixin
+from core.translation import AutoTranslateMixin
 from news.models import Article, embed_url
 from qa.processing import InvalidPdf, validate_pdf_bytes
 
@@ -38,7 +39,8 @@ def validate_image(f):
     return f
 
 
-class ArticleForm(ArabicFieldsMixin, forms.ModelForm):
+class ArticleForm(AutoTranslateMixin, ArabicFieldsMixin, forms.ModelForm):
+    required_translations = ("title",)
     video_urls = forms.CharField(
         label=_("Videos (YouTube or Vimeo links, one per line)"),
         required=False,
@@ -68,12 +70,6 @@ class ArticleForm(ArabicFieldsMixin, forms.ModelForm):
         if bad:
             raise forms.ValidationError(_("Only YouTube and Vimeo links are accepted: %(urls)s") % {"urls": ", ".join(bad)})
         return urls
-
-    def clean(self):
-        data = super().clean()
-        if not (data.get("title_fr") or data.get("title_en")):
-            raise forms.ValidationError(_("Enter a title in French or English."))
-        return data
 
 
 class DocumentUploadForm(forms.Form):

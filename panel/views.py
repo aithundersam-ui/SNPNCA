@@ -18,6 +18,7 @@ from accounts import csv_import
 from accounts import lockout
 from accounts import permissions as perms
 from accounts.audit import log_action
+from core.translation import notify as notify_translated
 from accounts.emails import send_invitation, send_templated
 from accounts.forms import CsvUploadForm, UserForm
 from accounts.models import AuditLog, Role, User
@@ -322,6 +323,7 @@ def news_edit(request, pk=None):
                 img.delete()
         log_action(request, "news.update" if pk else "news.create", str(article))
         messages.success(request, _("Article saved."))
+        notify_translated(request, form)
         return redirect("panel:news")
     return render(request, "panel/news_form.html", {"form": form, "article": article})
 
@@ -396,6 +398,7 @@ def home_content(request):
         form.save()
         log_action(request, "home.update")
         messages.success(request, _("Home page updated."))
+        notify_translated(request, form)
         return redirect("panel:home_content")
     return _render_home_content(request, content, form)
 
@@ -447,6 +450,7 @@ def key_figures(request):
         formset.save()
         log_action(request, "home.key_figures", figures=[str(f) for f in KeyFigure.objects.all()])
         messages.success(request, _("Key figures updated."))
+        notify_translated(request, formset)
         return redirect("panel:home_content")
     content = SiteContent.load()
     return _render_home_content(request, content, SiteContentForm(instance=content), figures_formset=formset)

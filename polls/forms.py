@@ -2,6 +2,7 @@ from django import forms
 from django.utils.translation import gettext_lazy as _
 
 from core.forms import ArabicFieldsMixin
+from core.translation import AutoTranslateMixin
 
 from .models import Poll
 
@@ -12,7 +13,8 @@ def _lines(text):
     return [line.strip() for line in (text or "").splitlines() if line.strip()]
 
 
-class PollForm(ArabicFieldsMixin, forms.ModelForm):
+class PollForm(AutoTranslateMixin, ArabicFieldsMixin, forms.ModelForm):
+    required_translations = ("title",)
     choices_fr = forms.CharField(
         label=_("Answers (French), one per line"),
         widget=forms.Textarea(attrs={"rows": 4}),
@@ -58,8 +60,6 @@ class PollForm(ArabicFieldsMixin, forms.ModelForm):
 
     def clean(self):
         data = super().clean()
-        if not (data.get("title_fr") or data.get("title_en")):
-            raise forms.ValidationError(_("Write the question in French or English."))
         opens, closes = data.get("opens_at"), data.get("closes_at")
         if opens and closes and closes <= opens:
             self.add_error("closes_at", _("The vote must close after it opens."))

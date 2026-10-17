@@ -5,6 +5,7 @@ from django.utils.translation import gettext as _
 from django.views.decorators.http import require_POST
 
 from accounts.audit import log_action
+from core.translation import notify as notify_translated
 from accounts.models import User
 from accounts.permissions import admin_required
 
@@ -24,6 +25,7 @@ def alert_create(request):
     if request.method == "POST" and form.is_valid():
         form.instance.created_by = request.user
         alert = form.save()
+        notify_translated(request, form)
         log_action(request, "alert.create", str(alert))
         if form.cleaned_data["send_email"]:
             sent, failed = email_alert(alert)

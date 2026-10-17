@@ -103,6 +103,9 @@ class ClaudeClient:
         except json.JSONDecodeError as exc:
             raise LLMError("invalid json") from exc
 
+    def translate(self, system, content, schema):
+        return self._json_call(system, content, schema, effort="low", max_tokens=16000)
+
     def plan(self, question):
         return self._json_call(PLAN_SYSTEM, question, PLAN_SCHEMA, effort="low", max_tokens=4000)
 

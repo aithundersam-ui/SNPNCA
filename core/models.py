@@ -9,11 +9,11 @@ from django.utils.translation import gettext_lazy as _
 
 class BilingualMixin:
     """`obj.localized("title")` returns title_fr, title_en or title_ar for the active
-    language. An empty field falls back to French, then English (Arabic is optional)."""
+    language. An empty field falls back to French, then English, then Arabic."""
 
     def localized(self, field):
         lang = (get_language() or "fr")[:2]
-        for code in dict.fromkeys([lang, "fr", "en"]):
+        for code in dict.fromkeys([lang, "fr", "en", "ar"]):
             value = getattr(self, f"{field}_{code}", "")
             if value:
                 return value

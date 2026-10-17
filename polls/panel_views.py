@@ -5,6 +5,7 @@ from django.utils.translation import gettext as _
 from django.views.decorators.http import require_POST
 
 from accounts.audit import log_action
+from core.translation import notify as notify_translated
 from accounts.models import User
 from accounts.permissions import admin_required
 
@@ -31,6 +32,7 @@ def poll_edit(request, pk=None):
         poll = form.save()
         log_action(request, "poll.create" if creating else "poll.update", str(poll))
         messages.success(request, _("Vote saved."))
+        notify_translated(request, form)
         return redirect("panel:poll_results", pk=poll.pk)
     return render(request, "polls/panel_form.html", {"form": form, "poll": poll})
 

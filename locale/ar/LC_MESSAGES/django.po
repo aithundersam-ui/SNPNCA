@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-17 19:07+0100\n"
+"POT-Creation-Date: 2026-10-17 19:55+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,8 +16,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
-"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 
 #: accounts/csv_import.py:53
 msgid "The file is not UTF-8 encoded. In Excel, use “Save as → CSV UTF-8”."
@@ -68,7 +67,7 @@ msgstr "يظهر هذا البريد الإلكتروني أكثر من مرة �
 msgid "An account with this email already exists; the row will be skipped."
 msgstr "يوجد حساب بهذا البريد الإلكتروني مسبقًا؛ سيتم تخطي هذا السطر."
 
-#: accounts/forms.py:9 core/forms.py:38 templates/panel/admins.html:9
+#: accounts/forms.py:9 core/forms.py:39 templates/panel/admins.html:9
 #: templates/panel/csv_import.html:22 templates/panel/users.html:16
 msgid "Email"
 msgstr "البريد الإلكتروني"
@@ -127,7 +126,8 @@ msgstr "العربية"
 
 #: accounts/models.py:36
 msgid ""
-"Enter a WhatsApp number with its country code, for example +213 5XX XX XX XX."
+"Enter a WhatsApp number with its country code, for example +213 5XX XX XX "
+"XX."
 msgstr "أدخل رقم WhatsApp مع رمز البلد، مثلًا +213 5XX XX XX XX."
 
 #: accounts/models.py:59 core/models.py:93
@@ -170,41 +170,33 @@ msgstr "تم حفظ إعداداتك."
 msgid "Your password was changed."
 msgstr "تم تغيير كلمة المرور."
 
-#: alerts/forms.py:11
+#: alerts/forms.py:12
 msgid "1 day"
 msgstr "يوم واحد"
 
-#: alerts/forms.py:11
+#: alerts/forms.py:12
 msgid "3 days"
 msgstr "3 أيام"
 
-#: alerts/forms.py:11
+#: alerts/forms.py:12
 msgid "1 week"
 msgstr "أسبوع واحد"
 
-#: alerts/forms.py:11
+#: alerts/forms.py:12
 msgid "2 weeks"
 msgstr "أسبوعان"
 
-#: alerts/forms.py:11
+#: alerts/forms.py:12
 msgid "1 month"
 msgstr "شهر واحد"
 
-#: alerts/forms.py:15
+#: alerts/forms.py:17
 msgid "Show the banner on the site for"
 msgstr "عرض الشريط على الموقع لمدة"
 
-#: alerts/forms.py:16
+#: alerts/forms.py:18
 msgid "Also email it to all members now"
 msgstr "إرساله أيضًا الآن بالبريد الإلكتروني إلى جميع المنخرطين"
-
-#: alerts/forms.py:26
-msgid "Write the title in French or English."
-msgstr "اكتب العنوان بالفرنسية أو الإنجليزية."
-
-#: alerts/forms.py:28
-msgid "Write the message in French or English."
-msgstr "اكتب الرسالة بالفرنسية أو الإنجليزية."
 
 #: alerts/models.py:20 news/models.py:34
 msgid "title (French)"
@@ -234,96 +226,98 @@ msgstr "الرسالة (بالعربية)"
 msgid "show the banner until"
 msgstr "عرض الشريط حتى"
 
-#: alerts/panel_views.py:32
+#: alerts/panel_views.py:34
 #, python-format
 msgid ""
-"The alert is on the site, but %(failed)s emails could not be sent. Check the "
-"email settings."
+"The alert is on the site, but %(failed)s emails could not be sent. Check the"
+" email settings."
 msgstr ""
 "التنبيه منشور على الموقع، لكن تعذّر إرسال %(failed)s رسالة بريد إلكتروني. "
 "تحقق من إعدادات البريد الإلكتروني."
 
-#: alerts/panel_views.py:34
+#: alerts/panel_views.py:36
 #, python-format
 msgid "Alert published and emailed to %(sent)s members."
 msgstr "تم نشر التنبيه وإرساله بالبريد الإلكتروني إلى %(sent)s منخرط."
 
-#: alerts/panel_views.py:36
+#: alerts/panel_views.py:38
 msgid "Alert published on the site."
 msgstr "تم نشر التنبيه على الموقع."
 
-#: alerts/panel_views.py:67
+#: alerts/panel_views.py:69
 #, python-format
 msgid "%(failed)s emails could not be sent. Check the email settings."
 msgstr ""
-"تعذّر إرسال %(failed)s رسالة بريد إلكتروني. تحقق من إعدادات البريد الإلكتروني."
+"تعذّر إرسال %(failed)s رسالة بريد إلكتروني. تحقق من إعدادات البريد "
+"الإلكتروني."
 
-#: alerts/panel_views.py:69
+#: alerts/panel_views.py:71
 #, python-format
 msgid "Alert emailed to %(sent)s members."
 msgstr "تم إرسال التنبيه بالبريد الإلكتروني إلى %(sent)s منخرط."
 
-#: alerts/panel_views.py:79
+#: alerts/panel_views.py:81
 msgid "Alert deleted."
 msgstr "تم حذف التنبيه."
 
-#: core/forms.py:30
+#: core/forms.py:31
 msgid "Leave this field empty"
 msgstr "اترك هذا الحقل فارغًا"
 
-#: core/forms.py:37
+#: core/forms.py:38
 msgid "Full Name"
 msgstr "الاسم الكامل"
 
-#: core/forms.py:39
+#: core/forms.py:40
 msgid "Phone Number"
 msgstr "رقم الهاتف"
 
-#: core/forms.py:40 templates/panel/message_detail.html:2
+#: core/forms.py:41 templates/panel/message_detail.html:2
 #: templates/panel/messages.html:12
 msgid "Message"
 msgstr "الرسالة"
 
-#: core/forms.py:43
+#: core/forms.py:44
 msgid "Your full name"
 msgstr "اسمك الكامل"
 
-#: core/forms.py:44
+#: core/forms.py:45
 msgid "your.email@example.com"
 msgstr "your.email@example.com"
 
-#: core/forms.py:46
+#: core/forms.py:47
 msgid "How can we help you?"
 msgstr "كيف يمكننا مساعدتك؟"
 
-#: core/forms.py:61
+#: core/forms.py:62
 msgid "Enter a valid phone number."
 msgstr "أدخل رقم هاتف صالحًا."
 
-#: core/forms.py:67
+#: core/forms.py:68
 msgid "Your message is too short."
 msgstr "رسالتك قصيرة جدًا."
 
-#: core/forms.py:117 core/forms.py:119
+#: core/forms.py:118 core/forms.py:120
 msgid ""
 "Paste the link of a Google Form (it starts with https://forms.gle/ or "
 "https://docs.google.com/forms/)."
 msgstr ""
-"الصق رابط نموذج Google (يبدأ بـ https://forms.gle/ أو https://docs.google."
-"com/forms/)."
+"الصق رابط نموذج Google (يبدأ بـ https://forms.gle/ أو "
+"https://docs.google.com/forms/)."
 
-#: core/forms.py:149
+#: core/forms.py:150
 msgid ""
-"Paste the link of a Facebook page (it starts with https://www.facebook.com/)."
+"Paste the link of a Facebook page (it starts with "
+"https://www.facebook.com/)."
 msgstr "الصق رابط صفحة فيسبوك (يبدأ بـ https://www.facebook.com/)."
 
-#: core/forms.py:152
+#: core/forms.py:153
 msgid ""
-"Paste the link of an Instagram account (it starts with https://www.instagram."
-"com/)."
+"Paste the link of an Instagram account (it starts with "
+"https://www.instagram.com/)."
 msgstr "الصق رابط حساب إنستغرام (يبدأ بـ https://www.instagram.com/)."
 
-#: core/forms.py:156
+#: core/forms.py:157
 msgid "Reply"
 msgstr "الرد"
 
@@ -360,8 +354,8 @@ msgid ""
 "Shown behind the title at the top of the home page. A wide photo (at least "
 "1600 pixels across) works best. Leave empty to use the default background."
 msgstr ""
-"تظهر خلف العنوان أعلى الصفحة الرئيسية. يُفضَّل استخدام صورة عريضة (بعرض 1600 "
-"بكسل على الأقل). اتركها فارغة لاستخدام الخلفية الافتراضية."
+"تظهر خلف العنوان أعلى الصفحة الرئيسية. يُفضَّل استخدام صورة عريضة (بعرض 1600"
+" بكسل على الأقل). اتركها فارغة لاستخدام الخلفية الافتراضية."
 
 #: core/models.py:43
 msgid "membership sign-up form (Google Form link)"
@@ -459,6 +453,22 @@ msgstr "الرسالة"
 msgid "addressed to"
 msgstr "موجَّهة إلى"
 
+#: core/translation.py:101
+msgid "Fill in at least one language."
+msgstr "املأ لغة واحدة على الأقل."
+
+#: core/translation.py:112
+msgid ""
+"Automatic translation is not available right now. Please also fill in "
+"French."
+msgstr "الترجمة التلقائية غير متاحة حاليًا. يرجى ملء الفرنسية أيضًا."
+
+#: core/translation.py:129
+msgid ""
+"The empty languages were translated automatically. You can check and correct"
+" them at any time."
+msgstr "تمت ترجمة اللغات الفارغة تلقائيًا. يمكنك مراجعتها وتصحيحها في أي وقت."
+
 #: core/views.py:48 core/views.py:54
 msgid "Message sent successfully! We will get back to you soon."
 msgstr "تم إرسال الرسالة بنجاح! سنتواصل معك قريبًا."
@@ -487,11 +497,11 @@ msgstr "خطأ في الخادم"
 msgid "Something went wrong. Please try again later."
 msgstr "حدث خطأ ما. يرجى المحاولة لاحقًا."
 
-#: destinations/forms.py:65
+#: destinations/forms.py:66
 msgid "In Google Maps, open the place, tap Share and then Copy link."
 msgstr "في خرائط Google، افتح المكان، ثم اضغط على مشاركة ثم نسخ الرابط."
 
-#: destinations/forms.py:66 destinations/models.py:39
+#: destinations/forms.py:67 destinations/models.py:39
 msgid "A landscape photo works best. It is resized and cropped automatically."
 msgstr "الصورة الأفقية هي الأنسب. يتم تغيير حجمها وقصّها تلقائيًا."
 
@@ -547,11 +557,11 @@ msgstr "الوصف (بالعربية)"
 msgid "Google Maps link"
 msgstr "رابط خرائط Google"
 
-#: destinations/panel_views.py:30
+#: destinations/panel_views.py:31
 msgid "Destination saved."
 msgstr "تم حفظ الوجهة."
 
-#: destinations/panel_views.py:41
+#: destinations/panel_views.py:43
 msgid "Destination deleted."
 msgstr "تم حذف الوجهة."
 
@@ -572,7 +582,8 @@ msgid "Your WhatsApp number"
 msgstr "رقم WhatsApp الخاص بك"
 
 #: meetings/forms.py:42
-msgid "An admin will call you on WhatsApp at this number when your turn comes."
+msgid ""
+"An admin will call you on WhatsApp at this number when your turn comes."
 msgstr "سيتصل بك أحد المشرفين عبر WhatsApp على هذا الرقم عندما يحين دورك."
 
 #: meetings/forms.py:49
@@ -699,112 +710,108 @@ msgstr "منشور"
 msgid "YouTube or Vimeo link"
 msgstr "رابط YouTube أو Vimeo"
 
-#: panel/forms.py:28
+#: panel/forms.py:29
 #, python-format
 msgid "Each image must be smaller than %(mb)s MB."
 msgstr "يجب أن يكون حجم كل صورة أقل من %(mb)s ميغابايت."
 
-#: panel/forms.py:34
+#: panel/forms.py:35
 msgid "One of the files is not a valid image."
 msgstr "أحد الملفات ليس صورة صالحة."
 
-#: panel/forms.py:36
+#: panel/forms.py:37
 msgid "Images must be JPEG, PNG or WebP."
 msgstr "يجب أن تكون الصور بصيغة JPEG أو PNG أو WebP."
 
-#: panel/forms.py:43
+#: panel/forms.py:45
 msgid "Videos (YouTube or Vimeo links, one per line)"
 msgstr "مقاطع الفيديو (روابط YouTube أو Vimeo، رابط واحد في كل سطر)"
 
-#: panel/forms.py:47
+#: panel/forms.py:49
 msgid "Add images"
 msgstr "إضافة صور"
 
-#: panel/forms.py:69
+#: panel/forms.py:71
 #, python-format
 msgid "Only YouTube and Vimeo links are accepted: %(urls)s"
 msgstr "لا تُقبل إلا روابط YouTube وVimeo: %(urls)s"
 
-#: panel/forms.py:75
-msgid "Enter a title in French or English."
-msgstr "أدخل عنوانًا بالفرنسية أو الإنجليزية."
-
-#: panel/forms.py:80 templates/alerts/panel_list.html:9
+#: panel/forms.py:76 templates/alerts/panel_list.html:9
 #: templates/panel/documents.html:13 templates/panel/news.html:8
 msgid "Title"
 msgstr "العنوان"
 
-#: panel/forms.py:80
+#: panel/forms.py:76
 msgid "Leave empty to use the file name."
 msgstr "اتركه فارغًا لاستخدام اسم الملف."
 
-#: panel/forms.py:81
+#: panel/forms.py:77
 msgid "PDF file"
 msgstr "ملف PDF"
 
-#: panel/forms.py:86
+#: panel/forms.py:82
 #, python-format
 msgid "The file is larger than %(mb)s MB."
 msgstr "حجم الملف يتجاوز %(mb)s ميغابايت."
 
-#: panel/forms.py:88
+#: panel/forms.py:84
 msgid "Only PDF files are accepted."
 msgstr "لا تُقبل إلا ملفات PDF."
 
-#: panel/forms.py:93
+#: panel/forms.py:89
 msgid "This file is not a valid, unprotected PDF."
 msgstr "هذا الملف ليس ملف PDF صالحًا وغير محمي."
 
-#: panel/forms.py:98 templates/panel/admins.html:9
+#: panel/forms.py:94 templates/panel/admins.html:9
 #: templates/panel/admins.html:19 templates/panel/csv_import.html:22
 #: templates/panel/users.html:16 templates/team/panel_list.html:9
 msgid "Role"
 msgstr "الدور"
 
-#: panel/views.py:44
+#: panel/views.py:45
 #, python-format
 msgid ""
 "The account was created but the invitation email could not be sent to "
 "%(email)s."
 msgstr "تم إنشاء الحساب، لكن تعذّر إرسال رسالة الدعوة إلى %(email)s."
 
-#: panel/views.py:91
+#: panel/views.py:92
 #, python-format
 msgid "Account created. A set-password link was emailed to %(email)s."
 msgstr "تم إنشاء الحساب. أُرسل رابط لتعيين كلمة المرور إلى %(email)s."
 
-#: panel/views.py:119 panel/views.py:154 panel/views.py:243
+#: panel/views.py:120 panel/views.py:155 panel/views.py:244
 msgid "There must always be at least one active Master Admin."
 msgstr "يجب أن يبقى دائمًا مشرف رئيسي نشط واحد على الأقل."
 
-#: panel/views.py:122
+#: panel/views.py:123
 msgid "Changes saved."
 msgstr "تم حفظ التغييرات."
 
-#: panel/views.py:139
+#: panel/views.py:140
 #, python-format
 msgid "Password changed for %(email)s."
 msgstr "تم تغيير كلمة المرور لـ %(email)s."
 
-#: panel/views.py:157
+#: panel/views.py:158
 msgid "The account was deleted."
 msgstr "تم حذف الحساب."
 
-#: panel/views.py:172
+#: panel/views.py:173
 #, python-format
 msgid "A new set-password link was emailed to %(email)s."
 msgstr "أُرسل رابط جديد لتعيين كلمة المرور إلى %(email)s."
 
-#: panel/views.py:207
+#: panel/views.py:208
 msgid "Nothing to import. Please upload the file again."
 msgstr "لا يوجد ما يُستورد. يرجى رفع الملف مرة أخرى."
 
-#: panel/views.py:218
+#: panel/views.py:219
 #, python-format
 msgid "%(count)s accounts created and invited."
 msgstr "تم إنشاء %(count)s حساب وإرسال الدعوات إليها."
 
-#: panel/views.py:220
+#: panel/views.py:221
 #, python-format
 msgid ""
 "%(count)s invitation emails could not be sent. Use “Resend invitation” on "
@@ -812,81 +819,77 @@ msgid ""
 msgstr ""
 "تعذّر إرسال %(count)s رسالة دعوة. استخدم «إعادة إرسال الدعوة» لهذه الحسابات."
 
-#: panel/views.py:246
+#: panel/views.py:247
 msgid "Role updated."
 msgstr "تم تحديث الدور."
 
-#: panel/views.py:268
+#: panel/views.py:269
 msgid "The PDF was uploaded and is being processed."
 msgstr "تم رفع ملف PDF وهو قيد المعالجة."
 
-#: panel/views.py:281
+#: panel/views.py:282
 msgid "The document and its extracted text were deleted."
 msgstr "تم حذف المستند والنص المستخرج منه."
 
-#: panel/views.py:324
+#: panel/views.py:325
 msgid "Article saved."
 msgstr "تم حفظ المقال."
 
-#: panel/views.py:338
+#: panel/views.py:340
 msgid "Article deleted."
 msgstr "تم حذف المقال."
 
-#: panel/views.py:366
+#: panel/views.py:368
 msgid "The email could not be sent. Please try again later."
 msgstr "تعذّر إرسال البريد الإلكتروني. يرجى المحاولة لاحقًا."
 
-#: panel/views.py:372
+#: panel/views.py:374
 msgid "Your reply was sent."
 msgstr "تم إرسال ردك."
 
-#: panel/views.py:383
+#: panel/views.py:385
 msgid "Message deleted."
 msgstr "تم حذف الرسالة."
 
-#: panel/views.py:398
+#: panel/views.py:400
 msgid "Home page updated."
 msgstr "تم تحديث الصفحة الرئيسية."
 
-#: panel/views.py:422
+#: panel/views.py:425
 msgid "Sign-up pop-up updated. Visitors now see it on the home page."
 msgstr "تم تحديث نافذة الانخراط. أصبح الزوار يرونها الآن في الصفحة الرئيسية."
 
-#: panel/views.py:424
+#: panel/views.py:427
 msgid "Sign-up pop-up turned off."
 msgstr "تم إيقاف نافذة الانخراط."
 
-#: panel/views.py:437
+#: panel/views.py:440
 msgid "Social media links updated."
 msgstr "تم تحديث روابط مواقع التواصل الاجتماعي."
 
-#: panel/views.py:449
+#: panel/views.py:452
 msgid "Key figures updated."
 msgstr "تم تحديث الأرقام الرئيسية."
 
-#: polls/forms.py:17
+#: polls/forms.py:19
 msgid "Answers (French), one per line"
 msgstr "الإجابات (بالفرنسية)، إجابة واحدة في كل سطر"
 
-#: polls/forms.py:20
+#: polls/forms.py:22
 msgid "For example: Oui / Non / Abstention."
 msgstr "مثلًا: Oui / Non / Abstention."
 
-#: polls/forms.py:23
+#: polls/forms.py:25
 msgid "Answers (English), one per line"
 msgstr "الإجابات (بالإنجليزية)، إجابة واحدة في كل سطر"
 
-#: polls/forms.py:26 polls/forms.py:32
+#: polls/forms.py:28 polls/forms.py:34
 msgid "Optional. Same order and number of lines as the French answers."
 msgstr "اختياري. بنفس الترتيب وعدد الأسطر الخاص بالإجابات الفرنسية."
 
-#: polls/forms.py:29
+#: polls/forms.py:31
 msgid "Answers (Arabic), one per line"
 msgstr "الأجوبة (بالعربية)، جواب في كل سطر"
-
-#: polls/forms.py:62
-msgid "Write the question in French or English."
-msgstr "اكتب السؤال بالفرنسية أو الإنجليزية."
 
 #: polls/forms.py:65
 msgid "The vote must close after it opens."
@@ -969,25 +972,26 @@ msgstr "عرض النتائج على المنخرطين بعد إغلاق الت
 msgid "Admins always see the results, even while the vote is open."
 msgstr "يرى المشرفون النتائج دائمًا، حتى أثناء فتح التصويت."
 
-#: polls/panel_views.py:24
+#: polls/panel_views.py:25
 msgid "This vote is closed and can no longer be changed."
 msgstr "هذا التصويت مغلق ولم يعد بالإمكان تعديله."
 
-#: polls/panel_views.py:33
+#: polls/panel_views.py:34
 msgid "Vote saved."
 msgstr "تم حفظ التصويت."
 
-#: polls/panel_views.py:60
-msgid "Vote closed. Members can now see the results if you chose to show them."
+#: polls/panel_views.py:62
+msgid ""
+"Vote closed. Members can now see the results if you chose to show them."
 msgstr "تم إغلاق التصويت. يمكن للمنخرطين الآن رؤية النتائج إذا اخترت عرضها."
 
-#: polls/panel_views.py:69
+#: polls/panel_views.py:71
 msgid "Members have already voted. Only a Master Admin can delete this vote."
 msgstr ""
 "لقد صوّت بعض المنخرطين بالفعل. لا يمكن حذف هذا التصويت إلا من قِبل المشرف "
 "الرئيسي."
 
-#: polls/panel_views.py:73
+#: polls/panel_views.py:75
 msgid "Vote deleted."
 msgstr "تم حذف التصويت."
 
@@ -1001,8 +1005,8 @@ msgstr "لقد صوّتّ بالفعل. يصوّت كل منخرط مرة واح
 
 #: polls/views.py:51
 msgid ""
-"Thank you, your vote has been counted. It is secret: nobody can see what you "
-"chose."
+"Thank you, your vote has been counted. It is secret: nobody can see what you"
+" chose."
 msgstr "شكرًا، تم احتساب صوتك. التصويت سري: لا أحد يمكنه معرفة اختيارك."
 
 #: qa/assistant.py:40
@@ -1077,8 +1081,8 @@ msgid ""
 "Any portrait: the site zooms in on the face and crops it automatically. The "
 "original is kept."
 msgstr ""
-"أي صورة شخصية: يقوم الموقع تلقائيًا بالتكبير على الوجه وقصّها. ويُحتفَظ بالصورة "
-"الأصلية."
+"أي صورة شخصية: يقوم الموقع تلقائيًا بالتكبير على الوجه وقصّها. ويُحتفَظ "
+"بالصورة الأصلية."
 
 #: team/models.py:42
 msgid "WhatsApp number (optional)"
@@ -1098,11 +1102,11 @@ msgstr "تم تحديث صفحة الفريق."
 
 #: team/panel_views.py:26
 msgid ""
-"No face was found in the photo, so it was cropped around the top centre. Try "
-"a photo where the face is clearly visible."
+"No face was found in the photo, so it was cropped around the top centre. Try"
+" a photo where the face is clearly visible."
 msgstr ""
-"لم يُعثر على وجه في الصورة، لذا تم قصّها حول الجزء العلوي من الوسط. جرّب صورة "
-"يظهر فيها الوجه بوضوح."
+"لم يُعثر على وجه في الصورة، لذا تم قصّها حول الجزء العلوي من الوسط. جرّب "
+"صورة يظهر فيها الوجه بوضوح."
 
 #: team/panel_views.py:37
 msgid "Removed from the team page."
@@ -1179,6 +1183,14 @@ msgstr "الصفحة %(n)s من %(total)s"
 msgid "Next"
 msgstr "التالي"
 
+#: templates/_translate_hint.html:1
+msgid ""
+"Write in just one language if you like: when you save, the empty languages "
+"are translated automatically. You can correct them afterwards."
+msgstr ""
+"يمكنك الكتابة بلغة واحدة فقط: عند الحفظ تُترجم اللغات الفارغة تلقائيًا، "
+"ويمكنك تصحيحها بعد ذلك."
+
 #: templates/accounts/login.html:2 templates/accounts/login.html:29
 msgid "Sign In"
 msgstr "تسجيل الدخول"
@@ -1229,8 +1241,8 @@ msgstr "إعادة تعيين كلمة المرور"
 
 #: templates/accounts/password_reset.html:6
 msgid ""
-"Enter the email address of your account. We will send you a link to choose a "
-"new password."
+"Enter the email address of your account. We will send you a link to choose a"
+" new password."
 msgstr ""
 "أدخل عنوان البريد الإلكتروني لحسابك. سنرسل إليك رابطًا لاختيار كلمة مرور "
 "جديدة."
@@ -1294,7 +1306,7 @@ msgstr "حسابي"
 #: templates/destinations/panel_form.html:22
 #: templates/meetings/panel_day_form.html:9
 #: templates/panel/home_content.html:23 templates/panel/news_form.html:41
-#: templates/panel/user_form.html:10 templates/polls/panel_form.html:10
+#: templates/panel/user_form.html:10 templates/polls/panel_form.html:11
 #: templates/team/panel_form.html:9
 msgid "Save"
 msgstr "حفظ"
@@ -1325,8 +1337,8 @@ msgid ""
 "Important announcements from the union, such as strike notices or "
 "negotiation results. They are also sent by email and WhatsApp."
 msgstr ""
-"الإعلانات المهمة الصادرة عن النقابة، مثل إشعارات الإضراب أو نتائج المفاوضات. "
-"تُرسل أيضًا عبر البريد الإلكتروني وWhatsApp."
+"الإعلانات المهمة الصادرة عن النقابة، مثل إشعارات الإضراب أو نتائج المفاوضات."
+" تُرسل أيضًا عبر البريد الإلكتروني وWhatsApp."
 
 #: templates/alerts/list.html:14
 msgid "No alerts"
@@ -1387,8 +1399,9 @@ msgid ""
 "community or broadcast list and tap send: everyone in it gets the alert at "
 "once, for free."
 msgstr ""
-"يُفتح WhatsApp والرسالة جاهزة. اختر مجموعة WhatsApp الخاصة بنقابتك أو مجتمعها "
-"أو قائمة البث، ثم اضغط إرسال: يتلقى الجميع التنبيه دفعة واحدة، مجانًا."
+"يُفتح WhatsApp والرسالة جاهزة. اختر مجموعة WhatsApp الخاصة بنقابتك أو "
+"مجتمعها أو قائمة البث، ثم اضغط إرسال: يتلقى الجميع التنبيه دفعة واحدة، "
+"مجانًا."
 
 #: templates/alerts/panel_detail.html:19
 msgid "Share in French"
@@ -1447,28 +1460,24 @@ msgid "New alert"
 msgstr "تنبيه جديد"
 
 #: templates/alerts/panel_form.html:5
-msgid ""
-"Keep it short: members read it on their phones. Arabic is optional: if it is "
-"empty, members who chose Arabic get the French text."
-msgstr ""
-"اختصر: يقرأ المنخرطون التنبيه على هواتفهم. العربية اختيارية: إذا تُركت فارغة، "
-"يتلقى المنخرطون الذين اختاروا العربية النص الفرنسي."
+msgid "Keep it short: members read it on their phones."
+msgstr "اجعله قصيرًا: يقرؤه المنخرطون على هواتفهم."
 
-#: templates/alerts/panel_form.html:10
+#: templates/alerts/panel_form.html:11
 msgid "Publish this alert to all members now?"
 msgstr "نشر هذا التنبيه لجميع المنخرطين الآن؟"
 
-#: templates/alerts/panel_form.html:10
+#: templates/alerts/panel_form.html:11
 msgid "Publish the alert"
 msgstr "نشر التنبيه"
 
-#: templates/alerts/panel_form.html:11
+#: templates/alerts/panel_form.html:12
 #: templates/destinations/panel_form.html:23
 #: templates/meetings/panel_day_form.html:10
-#: templates/meetings/panel_queue.html:27 templates/panel/confirm_delete.html:9
-#: templates/panel/news_form.html:42 templates/panel/set_password.html:11
-#: templates/panel/user_form.html:11 templates/polls/panel_form.html:11
-#: templates/team/panel_form.html:10
+#: templates/meetings/panel_queue.html:27
+#: templates/panel/confirm_delete.html:9 templates/panel/news_form.html:42
+#: templates/panel/set_password.html:11 templates/panel/user_form.html:11
+#: templates/polls/panel_form.html:12 templates/team/panel_form.html:10
 msgid "Cancel"
 msgstr "إلغاء"
 
@@ -1630,8 +1639,8 @@ msgstr "أرقام رئيسية"
 
 #: templates/core/home.html:126
 msgid ""
-"To represent, defend, and protect the interests of flight attendants. We are "
-"the voice of cabin crew, working every day to improve your working "
+"To represent, defend, and protect the interests of flight attendants. We are"
+" the voice of cabin crew, working every day to improve your working "
 "conditions and safeguard your rights."
 msgstr ""
 "كل رحلة تبدأ بالتزام: التزام بخدمة الآخرين. وتحرص SNPNCA على أن يكون هذا "
@@ -1695,8 +1704,8 @@ msgid ""
 "with third parties. To have them deleted, write to us using this form."
 msgstr ""
 "إشعار الخصوصية: نستخدم اسمك وبريدك الإلكتروني ورقم هاتفك ورسالتك فقط للرد "
-"على طلبك. تُحفظ هذه البيانات في لوحة الإدارة ولا تُشارك مع أي طرف ثالث. لطلب "
-"حذفها، راسلنا عبر هذه الاستمارة."
+"على طلبك. تُحفظ هذه البيانات في لوحة الإدارة ولا تُشارك مع أي طرف ثالث. لطلب"
+" حذفها، راسلنا عبر هذه الاستمارة."
 
 #: templates/core/home.html:170
 msgid "Send Message"
@@ -1737,14 +1746,6 @@ msgstr "لا توجد وجهات بعد."
 #: templates/destinations/panel_list.html:6
 msgid "Add a destination"
 msgstr "إضافة وجهة"
-
-#: templates/destinations/panel_form.html:5
-msgid ""
-"English and Arabic are optional: if they are empty, members see the French "
-"text."
-msgstr ""
-"الإنجليزية والعربية اختياريتان: إذا تُركتا فارغتين، يرى المنخرطون النص "
-"الفرنسي."
 
 #: templates/destinations/panel_form.html:11
 msgid ""
@@ -1840,7 +1841,8 @@ msgstr "الرد من لوحة الإدارة:"
 msgid "New contact message from %(name)s"
 msgstr "رسالة اتصال جديدة من %(name)s"
 
-#: templates/emails/contact_reply_body.txt:1 templates/emails/invite_body.txt:1
+#: templates/emails/contact_reply_body.txt:1
+#: templates/emails/invite_body.txt:1
 #: templates/emails/password_reset_body.txt:1
 #, python-format
 msgid "Hello %(name)s,"
@@ -1877,11 +1879,11 @@ msgstr "حسابك كمنخرط في SNPNCA"
 
 #: templates/emails/password_reset_body.txt:3
 msgid ""
-"We received a request to reset the password of your SNPNCA account. Choose a "
-"new password using this link (valid for 3 days):"
+"We received a request to reset the password of your SNPNCA account. Choose a"
+" new password using this link (valid for 3 days):"
 msgstr ""
-"تلقينا طلبًا لإعادة تعيين كلمة مرور حسابك في SNPNCA. اختر كلمة مرور جديدة عبر "
-"هذا الرابط (صالح لمدة 3 أيام):"
+"تلقينا طلبًا لإعادة تعيين كلمة مرور حسابك في SNPNCA. اختر كلمة مرور جديدة "
+"عبر هذا الرابط (صالح لمدة 3 أيام):"
 
 #: templates/emails/password_reset_body.txt:7
 msgid ""
@@ -1901,11 +1903,11 @@ msgstr "المقابلات الفردية"
 
 #: templates/meetings/index.html:7
 msgid ""
-"Book a private WhatsApp call with the union's representatives. Meetings take "
-"place on the days chosen each month, in order of request number."
+"Book a private WhatsApp call with the union's representatives. Meetings take"
+" place on the days chosen each month, in order of request number."
 msgstr ""
-"احجز مكالمة WhatsApp خاصة مع ممثلي النقابة. تُعقد المقابلات في الأيام المحددة "
-"كل شهر، حسب ترتيب أرقام الطلبات."
+"احجز مكالمة WhatsApp خاصة مع ممثلي النقابة. تُعقد المقابلات في الأيام "
+"المحددة كل شهر، حسب ترتيب أرقام الطلبات."
 
 #: templates/meetings/index.html:13
 msgid "Your request"
@@ -1923,11 +1925,11 @@ msgstr "رقمك"
 #: templates/meetings/index.html:19
 #, python-format
 msgid ""
-"It's your turn! An admin is calling you on WhatsApp at %(number)s. Keep your "
-"phone close."
+"It's your turn! An admin is calling you on WhatsApp at %(number)s. Keep your"
+" phone close."
 msgstr ""
-"حان دورك! يتصل بك أحد المشرفين على WhatsApp على الرقم %(number)s. أبقِ هاتفك "
-"قريبًا منك."
+"حان دورك! يتصل بك أحد المشرفين على WhatsApp على الرقم %(number)s. أبقِ هاتفك"
+" قريبًا منك."
 
 #: templates/meetings/index.html:22 templates/meetings/panel_queue.html:7
 msgid "Now being processed"
@@ -1949,8 +1951,8 @@ msgstr "الوقت التقديري"
 #, python-format
 msgid ""
 "The estimate assumes about %(minutes)s minutes per meeting and can change. "
-"Keep this page open on the day: an admin will call you on WhatsApp when your "
-"turn comes."
+"Keep this page open on the day: an admin will call you on WhatsApp when your"
+" turn comes."
 msgstr ""
 "يفترض التقدير نحو %(minutes)s دقيقة لكل مقابلة وقد يتغير. أبقِ هذه الصفحة "
 "مفتوحة في ذلك اليوم: سيتصل بك أحد المشرفين على WhatsApp عندما يحين دورك."
@@ -2028,8 +2030,8 @@ msgid ""
 "WhatsApp opens the chat with this member: tap the call (phone or video) "
 "button at the top to call them. When the call is over, close it here."
 msgstr ""
-"يفتح WhatsApp المحادثة مع هذا المنخرط: اضغط على زر الاتصال (صوتي أو مرئي) في "
-"الأعلى للاتصال به. عند انتهاء المكالمة، أغلقها هنا."
+"يفتح WhatsApp المحادثة مع هذا المنخرط: اضغط على زر الاتصال (صوتي أو مرئي) في"
+" الأعلى للاتصال به. عند انتهاء المكالمة، أغلقها هنا."
 
 #: templates/meetings/panel_day_form.html:2
 msgid "Meeting day"
@@ -2095,11 +2097,11 @@ msgstr "جميع أيام المقابلات"
 
 #: templates/meetings/panel_queue.html:11
 msgid ""
-"“Start meeting” marks the order as in a meeting, closes the previous one and "
-"opens WhatsApp with the member's chat: tap the call button there."
+"“Start meeting” marks the order as in a meeting, closes the previous one and"
+" opens WhatsApp with the member's chat: tap the call button there."
 msgstr ""
-"يضع زر «بدء المقابلة» الطلب في حالة مقابلة جارية، ويُغلق الطلب السابق، ويفتح "
-"WhatsApp على محادثة المنخرط: اضغط هناك على زر الاتصال."
+"يضع زر «بدء المقابلة» الطلب في حالة مقابلة جارية، ويُغلق الطلب السابق، ويفتح"
+" WhatsApp على محادثة المنخرط: اضغط هناك على زر الاتصال."
 
 #: templates/meetings/panel_queue.html:24
 msgid "Open WhatsApp again"
@@ -2276,9 +2278,9 @@ msgid ""
 "code), language (fr, en or ar) and role. The file must be UTF-8 encoded so "
 "accented names are kept."
 msgstr ""
-"الأعمدة: full_name وemail، واختياريًا whatsapp (الرقم مع رمز البلد) وlanguage "
-"(fr أو en أو ar) وrole. يجب أن يكون الملف بترميز UTF-8 للحفاظ على الأحرف "
-"المشكولة والأسماء العربية."
+"الأعمدة: full_name وemail، واختياريًا whatsapp (الرقم مع رمز البلد) "
+"وlanguage (fr أو en أو ar) وrole. يجب أن يكون الملف بترميز UTF-8 للحفاظ على "
+"الأحرف المشكولة والأسماء العربية."
 
 #: templates/panel/csv_import.html:7
 msgid ""
@@ -2286,17 +2288,17 @@ msgid ""
 "are not in the file are not changed. Each new member receives an email to "
 "choose a password."
 msgstr ""
-"تُتجاهل الأسطر التي يملك بريدها الإلكتروني حسابًا مسبقًا. لا يُغيَّر المنخرطون "
-"الحاليون غير الموجودين في الملف. يتلقى كل منخرط جديد بريدًا إلكترونيًا لاختيار "
-"كلمة المرور."
+"تُتجاهل الأسطر التي يملك بريدها الإلكتروني حسابًا مسبقًا. لا يُغيَّر "
+"المنخرطون الحاليون غير الموجودين في الملف. يتلقى كل منخرط جديد بريدًا "
+"إلكترونيًا لاختيار كلمة المرور."
 
 #: templates/panel/csv_import.html:8
 msgid ""
 "The role column is only applied when the Master Admin imports the file; "
 "otherwise everyone is imported as a member."
 msgstr ""
-"لا يُطبَّق عمود role إلا إذا استورد المشرف الرئيسي الملف؛ وإلا يُستورد الجميع "
-"كمنخرطين."
+"لا يُطبَّق عمود role إلا إذا استورد المشرف الرئيسي الملف؛ وإلا يُستورد "
+"الجميع كمنخرطين."
 
 #: templates/panel/csv_import.html:9
 msgid "Download the template file"
@@ -2378,9 +2380,9 @@ msgid ""
 "pages are read with OCR (French, English and Arabic). Members can then ask "
 "questions about these documents."
 msgstr ""
-"PDF فقط، بحجم أقصاه %(max_mb)s ميغابايت. يُستخرج النص تلقائيًا؛ وتُقرأ الصفحات "
-"الممسوحة ضوئيًا بتقنية OCR (الفرنسية والإنجليزية والعربية). يمكن للمنخرطين "
-"بعد ذلك طرح أسئلة حول هذه الوثائق."
+"PDF فقط، بحجم أقصاه %(max_mb)s ميغابايت. يُستخرج النص تلقائيًا؛ وتُقرأ "
+"الصفحات الممسوحة ضوئيًا بتقنية OCR (الفرنسية والإنجليزية والعربية). يمكن "
+"للمنخرطين بعد ذلك طرح أسئلة حول هذه الوثائق."
 
 #: templates/panel/documents.html:9
 msgid "Upload"
@@ -2413,14 +2415,6 @@ msgstr "لا توجد وثائق حاليًا."
 msgid "Home page text"
 msgstr "نصوص الصفحة الرئيسية"
 
-#: templates/panel/home_content.html:5
-msgid ""
-"If one language is empty, visitors see the French text (or the English one "
-"if French is empty too)."
-msgstr ""
-"إذا تُركت لغة فارغة، يرى الزوار النص الفرنسي (أو الإنجليزي إذا كان الفرنسي "
-"فارغًا أيضًا)."
-
 #: templates/panel/home_content.html:28
 msgid ""
 "Big numbers shown on the home page above Our mission (up to 4). Leave the "
@@ -2428,8 +2422,8 @@ msgid ""
 "Master Admins can change them."
 msgstr ""
 "الأرقام الكبيرة المعروضة في الصفحة الرئيسية فوق قسم «مهمتنا» (4 كحد أقصى). "
-"اترك الخانة الأخيرة فارغة إن لم تكن بحاجة إليها، وحدِّد «حذف» لإزالة رقم. يمكن "
-"للمشرفين الرئيسيين وحدهم تعديلها."
+"اترك الخانة الأخيرة فارغة إن لم تكن بحاجة إليها، وحدِّد «حذف» لإزالة رقم. "
+"يمكن للمشرفين الرئيسيين وحدهم تعديلها."
 
 #: templates/panel/home_content.html:35
 msgid "New figure"
@@ -2444,8 +2438,8 @@ msgid ""
 "Facebook and Instagram buttons shown at the bottom of every page. Leave a "
 "link empty to hide its button. Only Master Admins can change them."
 msgstr ""
-"أزرار فيسبوك وإنستغرام المعروضة أسفل كل صفحة. اترك الرابط فارغًا لإخفاء زره. "
-"يمكن للمشرف الرئيسي فقط تغييرها."
+"أزرار فيسبوك وإنستغرام المعروضة أسفل كل صفحة. اترك الرابط فارغًا لإخفاء زره."
+" يمكن للمشرف الرئيسي فقط تغييرها."
 
 #: templates/panel/home_content.html:55
 msgid "Save links"
@@ -2457,12 +2451,12 @@ msgstr "نافذة الانخراط المنبثقة"
 
 #: templates/panel/home_content.html:61
 msgid ""
-"Visitors who aren't logged in see a pop-up on the home page inviting them to "
-"join. It opens your Google Form, and admins then create the accounts from "
+"Visitors who aren't logged in see a pop-up on the home page inviting them to"
+" join. It opens your Google Form, and admins then create the accounts from "
 "the answers. Only Master Admins can change this link."
 msgstr ""
-"يرى الزوار غير المسجلين نافذة منبثقة في الصفحة الرئيسية تدعوهم إلى الانخراط. "
-"تفتح هذه النافذة استمارة Google الخاصة بكم، ثم ينشئ المشرفون الحسابات "
+"يرى الزوار غير المسجلين نافذة منبثقة في الصفحة الرئيسية تدعوهم إلى الانخراط."
+" تفتح هذه النافذة استمارة Google الخاصة بكم، ثم ينشئ المشرفون الحسابات "
 "انطلاقًا من الإجابات. وحدهم المشرفون الرئيسيون يمكنهم تغيير هذا الرابط."
 
 #: templates/panel/home_content.html:65
@@ -2556,14 +2550,6 @@ msgstr "لا توجد مقالات حاليًا."
 msgid "Edit article"
 msgstr "تعديل المقال"
 
-#: templates/panel/news_form.html:5
-msgid ""
-"Fill in French, English or both. Arabic is optional: if it is empty, Arabic "
-"readers see the French text."
-msgstr ""
-"املأ بالفرنسية أو الإنجليزية أو كليهما. العربية اختيارية: إذا تُركت فارغة، "
-"يرى قرّاء العربية النص الفرنسي."
-
 #: templates/panel/news_form.html:23
 msgid "Media"
 msgstr "الوسائط"
@@ -2592,8 +2578,8 @@ msgid ""
 "sessions."
 msgstr ""
 "كلمة مرور جديدة لـ %(name)s (%(email)s). لا تُرسل عبر البريد الإلكتروني ولا "
-"يمكن الاطلاع عليها لاحقًا، لذا أبلغها للشخص مباشرة. سيتم تسجيل خروجه من جميع "
-"الجلسات المفتوحة."
+"يمكن الاطلاع عليها لاحقًا، لذا أبلغها للشخص مباشرة. سيتم تسجيل خروجه من جميع"
+" الجلسات المفتوحة."
 
 #: templates/panel/user_form.html:2 templates/panel/user_form.html:4
 msgid "New account"
@@ -2696,7 +2682,8 @@ msgstr "لقد صوّتّ. شكرًا لك! ستُنشر النتائج عند �
 msgid ""
 "Your vote is secret and final: the union only records that you voted, never "
 "what you chose."
-msgstr "تصويتك سري ونهائي: لا تسجل النقابة إلا أنك صوّتّ، ولا تسجل أبدًا اختيارك."
+msgstr ""
+"تصويتك سري ونهائي: لا تسجل النقابة إلا أنك صوّتّ، ولا تسجل أبدًا اختيارك."
 
 #: templates/polls/detail.html:23
 msgid "Confirm your vote? You cannot change it afterwards."
@@ -2777,16 +2764,16 @@ msgid ""
 "Members have already voted, so the question and answers are locked. You can "
 "still change the explanation and the closing date."
 msgstr ""
-"سبق أن صوّت منخرطون، لذا أصبح السؤال والإجابات مقفلين. لا يزال بإمكانك تعديل "
-"الشرح وتاريخ الإغلاق."
+"سبق أن صوّت منخرطون، لذا أصبح السؤال والإجابات مقفلين. لا يزال بإمكانك تعديل"
+" الشرح وتاريخ الإغلاق."
 
 #: templates/polls/panel_list.html:5
 msgid ""
-"Members vote once per question and ballots are secret. You see results live; "
-"members see them only after the vote closes, if you choose."
+"Members vote once per question and ballots are secret. You see results live;"
+" members see them only after the vote closes, if you choose."
 msgstr ""
-"يصوّت كل منخرط مرة واحدة على كل سؤال، والاقتراع سري. ترى النتائج مباشرةً؛ أما "
-"المنخرطون فلا يرونها إلا بعد إغلاق التصويت، إن اخترت ذلك."
+"يصوّت كل منخرط مرة واحدة على كل سؤال، والاقتراع سري. ترى النتائج مباشرةً؛ "
+"أما المنخرطون فلا يرونها إلا بعد إغلاق التصويت، إن اخترت ذلك."
 
 #: templates/polls/panel_list.html:9
 msgid "Question"
@@ -2886,11 +2873,11 @@ msgstr "أجيب عن الأسئلة استنادًا إلى وثائق نقاب
 
 #: templates/qa/chat.html:34
 msgid ""
-"Ask in French, English or Arabic. Each answer shows the document and page it "
-"comes from. If the documents do not contain the answer, I will tell you."
+"Ask in French, English or Arabic. Each answer shows the document and page it"
+" comes from. If the documents do not contain the answer, I will tell you."
 msgstr ""
-"اطرح سؤالك بالفرنسية أو الإنجليزية أو العربية. يُظهر كل جواب الوثيقة والصفحة "
-"التي أُخذ منها. وإذا لم تتضمن الوثائق الجواب، فسأخبرك بذلك."
+"اطرح سؤالك بالفرنسية أو الإنجليزية أو العربية. يُظهر كل جواب الوثيقة والصفحة"
+" التي أُخذ منها. وإذا لم تتضمن الوثائق الجواب، فسأخبرك بذلك."
 
 #: templates/qa/chat.html:49
 msgid "Responding..."
@@ -2968,6 +2955,46 @@ msgstr "تعديل / إضافة صورة"
 #: templates/team/panel_list.html:20
 msgid "Nobody on the team page yet."
 msgstr "لا يوجد أحد في صفحة الفريق حاليًا."
+
+#~ msgid "Write the title in French or English."
+#~ msgstr "اكتب العنوان بالفرنسية أو الإنجليزية."
+
+#~ msgid "Write the message in French or English."
+#~ msgstr "اكتب الرسالة بالفرنسية أو الإنجليزية."
+
+#~ msgid "Enter a title in French or English."
+#~ msgstr "أدخل عنوانًا بالفرنسية أو الإنجليزية."
+
+#~ msgid "Write the question in French or English."
+#~ msgstr "اكتب السؤال بالفرنسية أو الإنجليزية."
+
+#~ msgid ""
+#~ "Keep it short: members read it on their phones. Arabic is optional: if it is"
+#~ " empty, members who chose Arabic get the French text."
+#~ msgstr ""
+#~ "اختصر: يقرأ المنخرطون التنبيه على هواتفهم. العربية اختيارية: إذا تُركت "
+#~ "فارغة، يتلقى المنخرطون الذين اختاروا العربية النص الفرنسي."
+
+#~ msgid ""
+#~ "English and Arabic are optional: if they are empty, members see the French "
+#~ "text."
+#~ msgstr ""
+#~ "الإنجليزية والعربية اختياريتان: إذا تُركتا فارغتين، يرى المنخرطون النص "
+#~ "الفرنسي."
+
+#~ msgid ""
+#~ "If one language is empty, visitors see the French text (or the English one "
+#~ "if French is empty too)."
+#~ msgstr ""
+#~ "إذا تُركت لغة فارغة، يرى الزوار النص الفرنسي (أو الإنجليزي إذا كان الفرنسي "
+#~ "فارغًا أيضًا)."
+
+#~ msgid ""
+#~ "Fill in French, English or both. Arabic is optional: if it is empty, Arabic "
+#~ "readers see the French text."
+#~ msgstr ""
+#~ "املأ بالفرنسية أو الإنجليزية أو كليهما. العربية اختيارية: إذا تُركت فارغة، "
+#~ "يرى قرّاء العربية النص الفرنسي."
 
 #~ msgid "Follow us"
 #~ msgstr "تابعونا"

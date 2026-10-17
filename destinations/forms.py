@@ -6,6 +6,7 @@ from django.utils.translation import gettext_lazy as _
 from PIL import Image, ImageOps
 
 from core.forms import ArabicFieldsMixin
+from core.translation import AutoTranslateMixin
 
 from .models import Activity, Destination
 
@@ -46,13 +47,13 @@ class PhotoFormMixin:
         return obj
 
 
-class DestinationForm(PhotoFormMixin, ArabicFieldsMixin, forms.ModelForm):
+class DestinationForm(AutoTranslateMixin, PhotoFormMixin, ArabicFieldsMixin, forms.ModelForm):
     class Meta:
         model = Destination
         fields = ["name_fr", "name_en", "name_ar", "photo", "position"]
 
 
-class ActivityForm(PhotoFormMixin, ArabicFieldsMixin, forms.ModelForm):
+class ActivityForm(AutoTranslateMixin, PhotoFormMixin, ArabicFieldsMixin, forms.ModelForm):
     class Meta:
         model = Activity
         fields = [

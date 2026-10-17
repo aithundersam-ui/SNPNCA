@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-17 19:07+0100\n"
+"POT-Creation-Date: 2026-10-17 19:55+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -67,7 +67,7 @@ msgstr "This email appears more than once in the file."
 msgid "An account with this email already exists; the row will be skipped."
 msgstr "An account with this email already exists; the row will be skipped."
 
-#: accounts/forms.py:9 core/forms.py:38 templates/panel/admins.html:9
+#: accounts/forms.py:9 core/forms.py:39 templates/panel/admins.html:9
 #: templates/panel/csv_import.html:22 templates/panel/users.html:16
 msgid "Email"
 msgstr "Email"
@@ -126,7 +126,8 @@ msgstr ""
 
 #: accounts/models.py:36
 msgid ""
-"Enter a WhatsApp number with its country code, for example +213 5XX XX XX XX."
+"Enter a WhatsApp number with its country code, for example +213 5XX XX XX "
+"XX."
 msgstr ""
 
 #: accounts/models.py:59 core/models.py:93
@@ -169,40 +170,32 @@ msgstr "Your settings were saved."
 msgid "Your password was changed."
 msgstr "Your password was changed."
 
-#: alerts/forms.py:11
+#: alerts/forms.py:12
 msgid "1 day"
 msgstr ""
 
-#: alerts/forms.py:11
+#: alerts/forms.py:12
 msgid "3 days"
 msgstr ""
 
-#: alerts/forms.py:11
+#: alerts/forms.py:12
 msgid "1 week"
 msgstr ""
 
-#: alerts/forms.py:11
+#: alerts/forms.py:12
 msgid "2 weeks"
 msgstr ""
 
-#: alerts/forms.py:11
+#: alerts/forms.py:12
 msgid "1 month"
 msgstr ""
 
-#: alerts/forms.py:15
+#: alerts/forms.py:17
 msgid "Show the banner on the site for"
 msgstr ""
 
-#: alerts/forms.py:16
+#: alerts/forms.py:18
 msgid "Also email it to all members now"
-msgstr ""
-
-#: alerts/forms.py:26
-msgid "Write the title in French or English."
-msgstr ""
-
-#: alerts/forms.py:28
-msgid "Write the message in French or English."
 msgstr ""
 
 #: alerts/models.py:20 news/models.py:34
@@ -233,91 +226,92 @@ msgstr ""
 msgid "show the banner until"
 msgstr ""
 
-#: alerts/panel_views.py:32
+#: alerts/panel_views.py:34
 #, python-format
 msgid ""
-"The alert is on the site, but %(failed)s emails could not be sent. Check the "
-"email settings."
+"The alert is on the site, but %(failed)s emails could not be sent. Check the"
+" email settings."
 msgstr ""
 
-#: alerts/panel_views.py:34
+#: alerts/panel_views.py:36
 #, python-format
 msgid "Alert published and emailed to %(sent)s members."
 msgstr ""
 
-#: alerts/panel_views.py:36
+#: alerts/panel_views.py:38
 msgid "Alert published on the site."
-msgstr ""
-
-#: alerts/panel_views.py:67
-#, python-format
-msgid "%(failed)s emails could not be sent. Check the email settings."
 msgstr ""
 
 #: alerts/panel_views.py:69
 #, python-format
+msgid "%(failed)s emails could not be sent. Check the email settings."
+msgstr ""
+
+#: alerts/panel_views.py:71
+#, python-format
 msgid "Alert emailed to %(sent)s members."
 msgstr ""
 
-#: alerts/panel_views.py:79
+#: alerts/panel_views.py:81
 msgid "Alert deleted."
 msgstr ""
 
-#: core/forms.py:30
+#: core/forms.py:31
 msgid "Leave this field empty"
 msgstr "Leave this field empty"
 
-#: core/forms.py:37
+#: core/forms.py:38
 msgid "Full Name"
 msgstr ""
 
-#: core/forms.py:39
+#: core/forms.py:40
 msgid "Phone Number"
 msgstr ""
 
-#: core/forms.py:40 templates/panel/message_detail.html:2
+#: core/forms.py:41 templates/panel/message_detail.html:2
 #: templates/panel/messages.html:12
 msgid "Message"
 msgstr "Message"
 
-#: core/forms.py:43
+#: core/forms.py:44
 msgid "Your full name"
 msgstr ""
 
-#: core/forms.py:44
+#: core/forms.py:45
 msgid "your.email@example.com"
 msgstr ""
 
-#: core/forms.py:46
+#: core/forms.py:47
 msgid "How can we help you?"
 msgstr ""
 
-#: core/forms.py:61
+#: core/forms.py:62
 msgid "Enter a valid phone number."
 msgstr "Enter a valid phone number."
 
-#: core/forms.py:67
+#: core/forms.py:68
 msgid "Your message is too short."
 msgstr "Your message is too short."
 
-#: core/forms.py:117 core/forms.py:119
+#: core/forms.py:118 core/forms.py:120
 msgid ""
 "Paste the link of a Google Form (it starts with https://forms.gle/ or "
 "https://docs.google.com/forms/)."
 msgstr ""
 
-#: core/forms.py:149
+#: core/forms.py:150
 msgid ""
-"Paste the link of a Facebook page (it starts with https://www.facebook.com/)."
+"Paste the link of a Facebook page (it starts with "
+"https://www.facebook.com/)."
 msgstr ""
 
-#: core/forms.py:152
+#: core/forms.py:153
 msgid ""
-"Paste the link of an Instagram account (it starts with https://www.instagram."
-"com/)."
+"Paste the link of an Instagram account (it starts with "
+"https://www.instagram.com/)."
 msgstr ""
 
-#: core/forms.py:156
+#: core/forms.py:157
 msgid "Reply"
 msgstr "Reply"
 
@@ -449,6 +443,22 @@ msgstr "message"
 msgid "addressed to"
 msgstr ""
 
+#: core/translation.py:101
+msgid "Fill in at least one language."
+msgstr ""
+
+#: core/translation.py:112
+msgid ""
+"Automatic translation is not available right now. Please also fill in "
+"French."
+msgstr ""
+
+#: core/translation.py:129
+msgid ""
+"The empty languages were translated automatically. You can check and correct"
+" them at any time."
+msgstr ""
+
 #: core/views.py:48 core/views.py:54
 msgid "Message sent successfully! We will get back to you soon."
 msgstr ""
@@ -477,11 +487,11 @@ msgstr "Server error"
 msgid "Something went wrong. Please try again later."
 msgstr "Something went wrong. Please try again later."
 
-#: destinations/forms.py:65
+#: destinations/forms.py:66
 msgid "In Google Maps, open the place, tap Share and then Copy link."
 msgstr ""
 
-#: destinations/forms.py:66 destinations/models.py:39
+#: destinations/forms.py:67 destinations/models.py:39
 msgid "A landscape photo works best. It is resized and cropped automatically."
 msgstr ""
 
@@ -537,11 +547,11 @@ msgstr ""
 msgid "Google Maps link"
 msgstr ""
 
-#: destinations/panel_views.py:30
+#: destinations/panel_views.py:31
 msgid "Destination saved."
 msgstr ""
 
-#: destinations/panel_views.py:41
+#: destinations/panel_views.py:43
 msgid "Destination deleted."
 msgstr ""
 
@@ -562,7 +572,8 @@ msgid "Your WhatsApp number"
 msgstr ""
 
 #: meetings/forms.py:42
-msgid "An admin will call you on WhatsApp at this number when your turn comes."
+msgid ""
+"An admin will call you on WhatsApp at this number when your turn comes."
 msgstr ""
 
 #: meetings/forms.py:49
@@ -689,69 +700,65 @@ msgstr "published"
 msgid "YouTube or Vimeo link"
 msgstr "YouTube or Vimeo link"
 
-#: panel/forms.py:28
+#: panel/forms.py:29
 #, python-format
 msgid "Each image must be smaller than %(mb)s MB."
 msgstr "Each image must be smaller than %(mb)s MB."
 
-#: panel/forms.py:34
+#: panel/forms.py:35
 msgid "One of the files is not a valid image."
 msgstr "One of the files is not a valid image."
 
-#: panel/forms.py:36
+#: panel/forms.py:37
 msgid "Images must be JPEG, PNG or WebP."
 msgstr "Images must be JPEG, PNG or WebP."
 
-#: panel/forms.py:43
+#: panel/forms.py:45
 msgid "Videos (YouTube or Vimeo links, one per line)"
 msgstr "Videos (YouTube or Vimeo links, one per line)"
 
-#: panel/forms.py:47
+#: panel/forms.py:49
 msgid "Add images"
 msgstr "Add images"
 
-#: panel/forms.py:69
+#: panel/forms.py:71
 #, python-format
 msgid "Only YouTube and Vimeo links are accepted: %(urls)s"
 msgstr "Only YouTube and Vimeo links are accepted: %(urls)s"
 
-#: panel/forms.py:75
-msgid "Enter a title in French or English."
-msgstr ""
-
-#: panel/forms.py:80 templates/alerts/panel_list.html:9
+#: panel/forms.py:76 templates/alerts/panel_list.html:9
 #: templates/panel/documents.html:13 templates/panel/news.html:8
 msgid "Title"
 msgstr "Title"
 
-#: panel/forms.py:80
+#: panel/forms.py:76
 msgid "Leave empty to use the file name."
 msgstr "Leave empty to use the file name."
 
-#: panel/forms.py:81
+#: panel/forms.py:77
 msgid "PDF file"
 msgstr "PDF file"
 
-#: panel/forms.py:86
+#: panel/forms.py:82
 #, python-format
 msgid "The file is larger than %(mb)s MB."
 msgstr "The file is larger than %(mb)s MB."
 
-#: panel/forms.py:88
+#: panel/forms.py:84
 msgid "Only PDF files are accepted."
 msgstr "Only PDF files are accepted."
 
-#: panel/forms.py:93
+#: panel/forms.py:89
 msgid "This file is not a valid, unprotected PDF."
 msgstr "This file is not a valid, unprotected PDF."
 
-#: panel/forms.py:98 templates/panel/admins.html:9
+#: panel/forms.py:94 templates/panel/admins.html:9
 #: templates/panel/admins.html:19 templates/panel/csv_import.html:22
 #: templates/panel/users.html:16 templates/team/panel_list.html:9
 msgid "Role"
 msgstr "Role"
 
-#: panel/views.py:44
+#: panel/views.py:45
 #, python-format
 msgid ""
 "The account was created but the invitation email could not be sent to "
@@ -760,43 +767,43 @@ msgstr ""
 "The account was created but the invitation email could not be sent to "
 "%(email)s."
 
-#: panel/views.py:91
+#: panel/views.py:92
 #, python-format
 msgid "Account created. A set-password link was emailed to %(email)s."
 msgstr "Account created. A set-password link was emailed to %(email)s."
 
-#: panel/views.py:119 panel/views.py:154 panel/views.py:243
+#: panel/views.py:120 panel/views.py:155 panel/views.py:244
 msgid "There must always be at least one active Master Admin."
 msgstr "There must always be at least one active Master Admin."
 
-#: panel/views.py:122
+#: panel/views.py:123
 msgid "Changes saved."
 msgstr "Changes saved."
 
-#: panel/views.py:139
+#: panel/views.py:140
 #, python-format
 msgid "Password changed for %(email)s."
 msgstr ""
 
-#: panel/views.py:157
+#: panel/views.py:158
 msgid "The account was deleted."
 msgstr "The account was deleted."
 
-#: panel/views.py:172
+#: panel/views.py:173
 #, python-format
 msgid "A new set-password link was emailed to %(email)s."
 msgstr "A new set-password link was emailed to %(email)s."
 
-#: panel/views.py:207
+#: panel/views.py:208
 msgid "Nothing to import. Please upload the file again."
 msgstr "Nothing to import. Please upload the file again."
 
-#: panel/views.py:218
+#: panel/views.py:219
 #, python-format
 msgid "%(count)s accounts created and invited."
 msgstr "%(count)s accounts created and invited."
 
-#: panel/views.py:220
+#: panel/views.py:221
 #, python-format
 msgid ""
 "%(count)s invitation emails could not be sent. Use “Resend invitation” on "
@@ -805,80 +812,76 @@ msgstr ""
 "%(count)s invitation emails could not be sent. Use “Resend invitation” on "
 "those accounts."
 
-#: panel/views.py:246
+#: panel/views.py:247
 msgid "Role updated."
 msgstr "Role updated."
 
-#: panel/views.py:268
+#: panel/views.py:269
 msgid "The PDF was uploaded and is being processed."
 msgstr "The PDF was uploaded and is being processed."
 
-#: panel/views.py:281
+#: panel/views.py:282
 msgid "The document and its extracted text were deleted."
 msgstr "The document and its extracted text were deleted."
 
-#: panel/views.py:324
+#: panel/views.py:325
 msgid "Article saved."
 msgstr "Article saved."
 
-#: panel/views.py:338
+#: panel/views.py:340
 msgid "Article deleted."
 msgstr "Article deleted."
 
-#: panel/views.py:366
+#: panel/views.py:368
 msgid "The email could not be sent. Please try again later."
 msgstr "The email could not be sent. Please try again later."
 
-#: panel/views.py:372
+#: panel/views.py:374
 msgid "Your reply was sent."
 msgstr "Your reply was sent."
 
-#: panel/views.py:383
+#: panel/views.py:385
 msgid "Message deleted."
 msgstr "Message deleted."
 
-#: panel/views.py:398
+#: panel/views.py:400
 msgid "Home page updated."
 msgstr "Home page updated."
 
-#: panel/views.py:422
+#: panel/views.py:425
 msgid "Sign-up pop-up updated. Visitors now see it on the home page."
 msgstr ""
 
-#: panel/views.py:424
+#: panel/views.py:427
 msgid "Sign-up pop-up turned off."
 msgstr ""
 
-#: panel/views.py:437
+#: panel/views.py:440
 msgid "Social media links updated."
 msgstr ""
 
-#: panel/views.py:449
+#: panel/views.py:452
 msgid "Key figures updated."
 msgstr ""
 
-#: polls/forms.py:17
+#: polls/forms.py:19
 msgid "Answers (French), one per line"
 msgstr ""
 
-#: polls/forms.py:20
+#: polls/forms.py:22
 msgid "For example: Oui / Non / Abstention."
 msgstr ""
 
-#: polls/forms.py:23
+#: polls/forms.py:25
 msgid "Answers (English), one per line"
 msgstr ""
 
-#: polls/forms.py:26 polls/forms.py:32
+#: polls/forms.py:28 polls/forms.py:34
 msgid "Optional. Same order and number of lines as the French answers."
 msgstr ""
 
-#: polls/forms.py:29
+#: polls/forms.py:31
 msgid "Answers (Arabic), one per line"
-msgstr ""
-
-#: polls/forms.py:62
-msgid "Write the question in French or English."
 msgstr ""
 
 #: polls/forms.py:65
@@ -962,23 +965,24 @@ msgstr ""
 msgid "Admins always see the results, even while the vote is open."
 msgstr ""
 
-#: polls/panel_views.py:24
+#: polls/panel_views.py:25
 msgid "This vote is closed and can no longer be changed."
 msgstr ""
 
-#: polls/panel_views.py:33
+#: polls/panel_views.py:34
 msgid "Vote saved."
 msgstr ""
 
-#: polls/panel_views.py:60
-msgid "Vote closed. Members can now see the results if you chose to show them."
+#: polls/panel_views.py:62
+msgid ""
+"Vote closed. Members can now see the results if you chose to show them."
 msgstr ""
 
-#: polls/panel_views.py:69
+#: polls/panel_views.py:71
 msgid "Members have already voted. Only a Master Admin can delete this vote."
 msgstr ""
 
-#: polls/panel_views.py:73
+#: polls/panel_views.py:75
 msgid "Vote deleted."
 msgstr ""
 
@@ -992,8 +996,8 @@ msgstr ""
 
 #: polls/views.py:51
 msgid ""
-"Thank you, your vote has been counted. It is secret: nobody can see what you "
-"chose."
+"Thank you, your vote has been counted. It is secret: nobody can see what you"
+" chose."
 msgstr ""
 
 #: qa/assistant.py:40
@@ -1087,8 +1091,8 @@ msgstr ""
 
 #: team/panel_views.py:26
 msgid ""
-"No face was found in the photo, so it was cropped around the top centre. Try "
-"a photo where the face is clearly visible."
+"No face was found in the photo, so it was cropped around the top centre. Try"
+" a photo where the face is clearly visible."
 msgstr ""
 
 #: team/panel_views.py:37
@@ -1166,6 +1170,12 @@ msgstr "Page %(n)s of %(total)s"
 msgid "Next"
 msgstr "Next"
 
+#: templates/_translate_hint.html:1
+msgid ""
+"Write in just one language if you like: when you save, the empty languages "
+"are translated automatically. You can correct them afterwards."
+msgstr ""
+
 #: templates/accounts/login.html:2 templates/accounts/login.html:29
 msgid "Sign In"
 msgstr ""
@@ -1216,11 +1226,11 @@ msgstr "Reset your password"
 
 #: templates/accounts/password_reset.html:6
 msgid ""
-"Enter the email address of your account. We will send you a link to choose a "
-"new password."
+"Enter the email address of your account. We will send you a link to choose a"
+" new password."
 msgstr ""
-"Enter the email address of your account. We will send you a link to choose a "
-"new password."
+"Enter the email address of your account. We will send you a link to choose a"
+" new password."
 
 #: templates/accounts/password_reset.html:10
 msgid "Send the link"
@@ -1281,7 +1291,7 @@ msgstr "My account"
 #: templates/destinations/panel_form.html:22
 #: templates/meetings/panel_day_form.html:9
 #: templates/panel/home_content.html:23 templates/panel/news_form.html:41
-#: templates/panel/user_form.html:10 templates/polls/panel_form.html:10
+#: templates/panel/user_form.html:10 templates/polls/panel_form.html:11
 #: templates/team/panel_form.html:9
 msgid "Save"
 msgstr "Save"
@@ -1420,26 +1430,24 @@ msgid "New alert"
 msgstr ""
 
 #: templates/alerts/panel_form.html:5
-msgid ""
-"Keep it short: members read it on their phones. Arabic is optional: if it is "
-"empty, members who chose Arabic get the French text."
-msgstr ""
-
-#: templates/alerts/panel_form.html:10
-msgid "Publish this alert to all members now?"
-msgstr ""
-
-#: templates/alerts/panel_form.html:10
-msgid "Publish the alert"
+msgid "Keep it short: members read it on their phones."
 msgstr ""
 
 #: templates/alerts/panel_form.html:11
+msgid "Publish this alert to all members now?"
+msgstr ""
+
+#: templates/alerts/panel_form.html:11
+msgid "Publish the alert"
+msgstr ""
+
+#: templates/alerts/panel_form.html:12
 #: templates/destinations/panel_form.html:23
 #: templates/meetings/panel_day_form.html:10
-#: templates/meetings/panel_queue.html:27 templates/panel/confirm_delete.html:9
-#: templates/panel/news_form.html:42 templates/panel/set_password.html:11
-#: templates/panel/user_form.html:11 templates/polls/panel_form.html:11
-#: templates/team/panel_form.html:10
+#: templates/meetings/panel_queue.html:27
+#: templates/panel/confirm_delete.html:9 templates/panel/news_form.html:42
+#: templates/panel/set_password.html:11 templates/panel/user_form.html:11
+#: templates/polls/panel_form.html:12 templates/team/panel_form.html:10
 msgid "Cancel"
 msgstr "Cancel"
 
@@ -1594,8 +1602,8 @@ msgstr ""
 
 #: templates/core/home.html:126
 msgid ""
-"To represent, defend, and protect the interests of flight attendants. We are "
-"the voice of cabin crew, working every day to improve your working "
+"To represent, defend, and protect the interests of flight attendants. We are"
+" the voice of cabin crew, working every day to improve your working "
 "conditions and safeguard your rights."
 msgstr ""
 
@@ -1694,12 +1702,6 @@ msgstr ""
 msgid "Add a destination"
 msgstr ""
 
-#: templates/destinations/panel_form.html:5
-msgid ""
-"English and Arabic are optional: if they are empty, members see the French "
-"text."
-msgstr ""
-
 #: templates/destinations/panel_form.html:11
 msgid ""
 "Each activity has its own photo, description and Google Maps link. Fill in "
@@ -1791,7 +1793,8 @@ msgstr "Reply from the admin panel:"
 msgid "New contact message from %(name)s"
 msgstr "New contact message from %(name)s"
 
-#: templates/emails/contact_reply_body.txt:1 templates/emails/invite_body.txt:1
+#: templates/emails/contact_reply_body.txt:1
+#: templates/emails/invite_body.txt:1
 #: templates/emails/password_reset_body.txt:1
 #, python-format
 msgid "Hello %(name)s,"
@@ -1829,11 +1832,11 @@ msgstr "Your SNPNCA member account"
 
 #: templates/emails/password_reset_body.txt:3
 msgid ""
-"We received a request to reset the password of your SNPNCA account. Choose a "
-"new password using this link (valid for 3 days):"
+"We received a request to reset the password of your SNPNCA account. Choose a"
+" new password using this link (valid for 3 days):"
 msgstr ""
-"We received a request to reset the password of your SNPNCA account. Choose a "
-"new password using this link (valid for 3 days):"
+"We received a request to reset the password of your SNPNCA account. Choose a"
+" new password using this link (valid for 3 days):"
 
 #: templates/emails/password_reset_body.txt:7
 msgid ""
@@ -1853,8 +1856,8 @@ msgstr ""
 
 #: templates/meetings/index.html:7
 msgid ""
-"Book a private WhatsApp call with the union's representatives. Meetings take "
-"place on the days chosen each month, in order of request number."
+"Book a private WhatsApp call with the union's representatives. Meetings take"
+" place on the days chosen each month, in order of request number."
 msgstr ""
 
 #: templates/meetings/index.html:13
@@ -1873,8 +1876,8 @@ msgstr ""
 #: templates/meetings/index.html:19
 #, python-format
 msgid ""
-"It's your turn! An admin is calling you on WhatsApp at %(number)s. Keep your "
-"phone close."
+"It's your turn! An admin is calling you on WhatsApp at %(number)s. Keep your"
+" phone close."
 msgstr ""
 
 #: templates/meetings/index.html:22 templates/meetings/panel_queue.html:7
@@ -1897,8 +1900,8 @@ msgstr ""
 #, python-format
 msgid ""
 "The estimate assumes about %(minutes)s minutes per meeting and can change. "
-"Keep this page open on the day: an admin will call you on WhatsApp when your "
-"turn comes."
+"Keep this page open on the day: an admin will call you on WhatsApp when your"
+" turn comes."
 msgstr ""
 
 #: templates/meetings/index.html:27
@@ -2032,8 +2035,8 @@ msgstr ""
 
 #: templates/meetings/panel_queue.html:11
 msgid ""
-"“Start meeting” marks the order as in a meeting, closes the previous one and "
-"opens WhatsApp with the member's chat: tap the call button there."
+"“Start meeting” marks the order as in a meeting, closes the previous one and"
+" opens WhatsApp with the member's chat: tap the call button there."
 msgstr ""
 
 #: templates/meetings/panel_queue.html:24
@@ -2331,12 +2334,6 @@ msgstr "No documents yet."
 msgid "Home page text"
 msgstr "Home page text"
 
-#: templates/panel/home_content.html:5
-msgid ""
-"If one language is empty, visitors see the French text (or the English one "
-"if French is empty too)."
-msgstr ""
-
 #: templates/panel/home_content.html:28
 msgid ""
 "Big numbers shown on the home page above Our mission (up to 4). Leave the "
@@ -2368,8 +2365,8 @@ msgstr ""
 
 #: templates/panel/home_content.html:61
 msgid ""
-"Visitors who aren't logged in see a pop-up on the home page inviting them to "
-"join. It opens your Google Form, and admins then create the accounts from "
+"Visitors who aren't logged in see a pop-up on the home page inviting them to"
+" join. It opens your Google Form, and admins then create the accounts from "
 "the answers. Only Master Admins can change this link."
 msgstr ""
 
@@ -2463,12 +2460,6 @@ msgstr "No articles yet."
 #: templates/panel/news_form.html:2 templates/panel/news_form.html:4
 msgid "Edit article"
 msgstr "Edit article"
-
-#: templates/panel/news_form.html:5
-msgid ""
-"Fill in French, English or both. Arabic is optional: if it is empty, Arabic "
-"readers see the French text."
-msgstr ""
 
 #: templates/panel/news_form.html:23
 msgid "Media"
@@ -2673,8 +2664,8 @@ msgstr ""
 
 #: templates/polls/panel_list.html:5
 msgid ""
-"Members vote once per question and ballots are secret. You see results live; "
-"members see them only after the vote closes, if you choose."
+"Members vote once per question and ballots are secret. You see results live;"
+" members see them only after the vote closes, if you choose."
 msgstr ""
 
 #: templates/polls/panel_list.html:9
@@ -2771,8 +2762,8 @@ msgstr ""
 
 #: templates/qa/chat.html:34
 msgid ""
-"Ask in French, English or Arabic. Each answer shows the document and page it "
-"comes from. If the documents do not contain the answer, I will tell you."
+"Ask in French, English or Arabic. Each answer shows the document and page it"
+" comes from. If the documents do not contain the answer, I will tell you."
 msgstr ""
 
 #: templates/qa/chat.html:49
@@ -2855,11 +2846,11 @@ msgstr ""
 #~ msgstr "Member login"
 
 #~ msgid ""
-#~ "Accounts are created by the union. If you are a member and have no "
-#~ "account, use the contact form on the home page."
+#~ "Accounts are created by the union. If you are a member and have no account, "
+#~ "use the contact form on the home page."
 #~ msgstr ""
-#~ "Accounts are created by the union. If you are a member and have no "
-#~ "account, use the contact form on the home page."
+#~ "Accounts are created by the union. If you are a member and have no account, "
+#~ "use the contact form on the home page."
 
 #~ msgid "No questions yet. Ask your first question below."
 #~ msgstr "No questions yet. Ask your first question below."
