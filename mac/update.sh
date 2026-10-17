@@ -11,7 +11,9 @@ echo "==> 1/5 Stopping the site"
 ./mac/stop.sh >/dev/null 2>&1 || true
 
 echo "==> 2/5 Downloading the latest version"
-git pull --ff-only origin main || { echo "git pull failed: see the message above."; exit 1; }
+# Compiled translations are rebuilt on every update; drop the local copies so they never block the download.
+git checkout -- locale/ 2>/dev/null
+git pull --ff-only origin main || { echo; echo "UPDATE STOPPED: the new version could not be downloaded (see the message above)."; exit 1; }
 
 echo "==> 3/5 Updating the Python packages"
 .venv/bin/pip install -q -r requirements.txt || exit 1
