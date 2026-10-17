@@ -48,7 +48,7 @@ git clone https://github.com/aithundersam-ui/SNPNCA.git ~/SNPNCA
 ~/SNPNCA/mac/start.sh     # start again (http://localhost:8000)
 ```
 
-To update later: `~/SNPNCA/mac/stop.sh && cd ~/SNPNCA && git pull && .venv/bin/python manage.py migrate && .venv/bin/python manage.py compilemessages --ignore=.venv && ~/SNPNCA/mac/start.sh`
+To update later, keeping your data: `~/SNPNCA/mac/update.sh` (stops the site, pulls, updates packages, translations and the database, restarts).
 
 ## Local development
 
