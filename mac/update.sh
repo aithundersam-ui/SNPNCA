@@ -3,6 +3,9 @@
 # and uploaded files. Run: ./mac/update.sh
 set -uo pipefail
 cd "$(dirname "$0")/.."
+[ -f .env ] || { echo "No .env file in $(pwd)."; exit 1; }
+set -a; . ./.env; set +a  # the site's settings (secret key, database...)
+export LC_ALL=C
 
 echo "==> 1/5 Stopping the site"
 ./mac/stop.sh >/dev/null 2>&1 || true
