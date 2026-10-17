@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-17 18:44+0100\n"
+"POT-Creation-Date: 2026-10-17 19:07+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -135,8 +135,7 @@ msgstr "Arabe"
 
 #: accounts/models.py:36
 msgid ""
-"Enter a WhatsApp number with its country code, for example +213 5XX XX XX "
-"XX."
+"Enter a WhatsApp number with its country code, for example +213 5XX XX XX XX."
 msgstr ""
 "Saisissez un numéro WhatsApp avec l’indicatif du pays, par exemple +213 5XX "
 "XX XX XX."
@@ -249,11 +248,11 @@ msgstr "afficher le bandeau jusqu’au"
 #: alerts/panel_views.py:32
 #, python-format
 msgid ""
-"The alert is on the site, but %(failed)s emails could not be sent. Check the"
-" email settings."
+"The alert is on the site, but %(failed)s emails could not be sent. Check the "
+"email settings."
 msgstr ""
-"L’alerte est sur le site, mais %(failed)s e-mails n’ont pas pu être envoyés."
-" Vérifiez les réglages e-mail."
+"L’alerte est sur le site, mais %(failed)s e-mails n’ont pas pu être envoyés. "
+"Vérifiez les réglages e-mail."
 
 #: alerts/panel_views.py:34
 #, python-format
@@ -321,24 +320,23 @@ msgid ""
 "Paste the link of a Google Form (it starts with https://forms.gle/ or "
 "https://docs.google.com/forms/)."
 msgstr ""
-"Collez le lien d’un formulaire Google (il commence par https://forms.gle/ ou"
-" https://docs.google.com/forms/)."
+"Collez le lien d’un formulaire Google (il commence par https://forms.gle/ ou "
+"https://docs.google.com/forms/)."
 
 #: core/forms.py:149
 msgid ""
-"Paste the link of a Facebook page (it starts with "
-"https://www.facebook.com/)."
+"Paste the link of a Facebook page (it starts with https://www.facebook.com/)."
 msgstr ""
-"Collez le lien d’une page Facebook (il commence par "
-"https://www.facebook.com/)."
+"Collez le lien d’une page Facebook (il commence par https://www.facebook."
+"com/)."
 
 #: core/forms.py:152
 msgid ""
-"Paste the link of an Instagram account (it starts with "
-"https://www.instagram.com/)."
+"Paste the link of an Instagram account (it starts with https://www.instagram."
+"com/)."
 msgstr ""
-"Collez le lien d’un compte Instagram (il commence par "
-"https://www.instagram.com/)."
+"Collez le lien d’un compte Instagram (il commence par https://www.instagram."
+"com/)."
 
 #: core/forms.py:156
 msgid "Reply"
@@ -377,8 +375,8 @@ msgid ""
 "Shown behind the title at the top of the home page. A wide photo (at least "
 "1600 pixels across) works best. Leave empty to use the default background."
 msgstr ""
-"Affichée derrière le titre en haut de la page d’accueil. Une photo large (au"
-" moins 1600 pixels de large) donne le meilleur résultat. Laissez vide pour "
+"Affichée derrière le titre en haut de la page d’accueil. Une photo large (au "
+"moins 1600 pixels de large) donne le meilleur résultat. Laissez vide pour "
 "garder le fond par défaut."
 
 #: core/models.py:43
@@ -594,8 +592,7 @@ msgid "Your WhatsApp number"
 msgstr "Votre numéro WhatsApp"
 
 #: meetings/forms.py:42
-msgid ""
-"An admin will call you on WhatsApp at this number when your turn comes."
+msgid "An admin will call you on WhatsApp at this number when your turn comes."
 msgstr ""
 "Un administrateur vous appellera sur WhatsApp à ce numéro quand votre tour "
 "viendra."
@@ -823,8 +820,7 @@ msgstr "Le compte a été supprimé."
 #: panel/views.py:172
 #, python-format
 msgid "A new set-password link was emailed to %(email)s."
-msgstr ""
-"Un nouveau lien pour choisir le mot de passe a été envoyé à %(email)s."
+msgstr "Un nouveau lien pour choisir le mot de passe a été envoyé à %(email)s."
 
 #: panel/views.py:207
 msgid "Nothing to import. Please upload the file again."
@@ -913,8 +909,7 @@ msgstr "Réponses (anglais), une par ligne"
 #: polls/forms.py:26 polls/forms.py:32
 msgid "Optional. Same order and number of lines as the French answers."
 msgstr ""
-"Facultatif. Même ordre et même nombre de lignes que les réponses en "
-"français."
+"Facultatif. Même ordre et même nombre de lignes que les réponses en français."
 
 #: polls/forms.py:29
 msgid "Answers (Arabic), one per line"
@@ -1015,17 +1010,16 @@ msgid "Vote saved."
 msgstr "Vote enregistré."
 
 #: polls/panel_views.py:60
-msgid ""
-"Vote closed. Members can now see the results if you chose to show them."
+msgid "Vote closed. Members can now see the results if you chose to show them."
 msgstr ""
-"Vote clos. Les adhérents voient maintenant les résultats si vous avez choisi"
-" de les montrer."
+"Vote clos. Les adhérents voient maintenant les résultats si vous avez choisi "
+"de les montrer."
 
 #: polls/panel_views.py:69
 msgid "Members have already voted. Only a Master Admin can delete this vote."
 msgstr ""
-"Des adhérents ont déjà voté. Seul un Administrateur principal peut supprimer"
-" ce vote."
+"Des adhérents ont déjà voté. Seul un Administrateur principal peut supprimer "
+"ce vote."
 
 #: polls/panel_views.py:73
 msgid "Vote deleted."
@@ -1041,8 +1035,8 @@ msgstr "Vous avez déjà voté. Chaque adhérent ne vote qu’une fois."
 
 #: polls/views.py:51
 msgid ""
-"Thank you, your vote has been counted. It is secret: nobody can see what you"
-" chose."
+"Thank you, your vote has been counted. It is secret: nobody can see what you "
+"chose."
 msgstr ""
 "Merci, votre vote a été pris en compte. Il est secret : personne ne peut "
 "voir votre choix."
@@ -1059,8 +1053,8 @@ msgstr ""
 msgid ""
 "The assistant is temporarily unavailable. Please try again in a few minutes."
 msgstr ""
-"L’assistant est momentanément indisponible. Veuillez réessayer dans quelques"
-" minutes."
+"L’assistant est momentanément indisponible. Veuillez réessayer dans quelques "
+"minutes."
 
 #: qa/models.py:17
 msgid "Processing"
@@ -1145,8 +1139,8 @@ msgstr "Page de l’équipe mise à jour."
 
 #: team/panel_views.py:26
 msgid ""
-"No face was found in the photo, so it was cropped around the top centre. Try"
-" a photo where the face is clearly visible."
+"No face was found in the photo, so it was cropped around the top centre. Try "
+"a photo where the face is clearly visible."
 msgstr ""
 "Aucun visage n’a été trouvé sur la photo : elle a été recadrée sur le haut, "
 "au centre. Essayez une photo où le visage est bien visible."
@@ -1276,11 +1270,11 @@ msgstr "Réinitialiser votre mot de passe"
 
 #: templates/accounts/password_reset.html:6
 msgid ""
-"Enter the email address of your account. We will send you a link to choose a"
-" new password."
+"Enter the email address of your account. We will send you a link to choose a "
+"new password."
 msgstr ""
-"Saisissez l’adresse e-mail de votre compte. Nous vous enverrons un lien pour"
-" choisir un nouveau mot de passe."
+"Saisissez l’adresse e-mail de votre compte. Nous vous enverrons un lien pour "
+"choisir un nouveau mot de passe."
 
 #: templates/accounts/password_reset.html:10
 msgid "Send the link"
@@ -1374,8 +1368,7 @@ msgid ""
 "negotiation results. They are also sent by email and WhatsApp."
 msgstr ""
 "Les annonces importantes du syndicat, comme un préavis de grève ou le "
-"résultat d’une négociation. Elles sont aussi envoyées par e-mail et "
-"WhatsApp."
+"résultat d’une négociation. Elles sont aussi envoyées par e-mail et WhatsApp."
 
 #: templates/alerts/list.html:14
 msgid "No alerts"
@@ -1491,8 +1484,8 @@ msgstr "Nouvelle alerte"
 
 #: templates/alerts/panel_form.html:5
 msgid ""
-"Keep it short: members read it on their phones. Arabic is optional: if it is"
-" empty, members who chose Arabic get the French text."
+"Keep it short: members read it on their phones. Arabic is optional: if it is "
+"empty, members who chose Arabic get the French text."
 msgstr ""
 "Soyez bref : les adhérents le lisent sur leur téléphone. L’arabe est "
 "facultatif : s’il est vide, les adhérents qui ont choisi l’arabe reçoivent "
@@ -1509,10 +1502,10 @@ msgstr "Publier l’alerte"
 #: templates/alerts/panel_form.html:11
 #: templates/destinations/panel_form.html:23
 #: templates/meetings/panel_day_form.html:10
-#: templates/meetings/panel_queue.html:27
-#: templates/panel/confirm_delete.html:9 templates/panel/news_form.html:42
-#: templates/panel/set_password.html:11 templates/panel/user_form.html:11
-#: templates/polls/panel_form.html:11 templates/team/panel_form.html:10
+#: templates/meetings/panel_queue.html:27 templates/panel/confirm_delete.html:9
+#: templates/panel/news_form.html:42 templates/panel/set_password.html:11
+#: templates/panel/user_form.html:11 templates/polls/panel_form.html:11
+#: templates/team/panel_form.html:10
 msgid "Cancel"
 msgstr "Annuler"
 
@@ -1525,8 +1518,8 @@ msgid ""
 "An alert appears as a red banner for logged-in members, is emailed to every "
 "member and can be shared on WhatsApp in one tap."
 msgstr ""
-"Une alerte s’affiche dans un bandeau rouge pour les adhérents connectés, est"
-" envoyée par e-mail à chaque adhérent et peut être partagée sur WhatsApp en "
+"Une alerte s’affiche dans un bandeau rouge pour les adhérents connectés, est "
+"envoyée par e-mail à chaque adhérent et peut être partagée sur WhatsApp en "
 "un geste."
 
 #: templates/alerts/panel_list.html:9
@@ -1572,11 +1565,11 @@ msgstr "Se déconnecter"
 msgid "Menu"
 msgstr "Menu"
 
-#: templates/base.html:77
-msgid "Follow us"
-msgstr "Suivez-nous"
+#: templates/base.html:77 templates/panel/home_content.html:50
+msgid "Social media"
+msgstr "Réseaux sociaux"
 
-#: templates/base.html:84
+#: templates/base.html:83
 msgid "All rights reserved"
 msgstr "Tous droits réservés"
 
@@ -1634,8 +1627,8 @@ msgid ""
 "national level."
 msgstr ""
 "Un syndicat autonome et représentative, le SNPNCA défend les droits, "
-"valorise le rôle et améliore les conditions de travail du personnel navigant"
-" commercial Algérien"
+"valorise le rôle et améliore les conditions de travail du personnel navigant "
+"commercial Algérien"
 
 #: templates/core/home.html:87
 msgid "Latest News"
@@ -1678,8 +1671,8 @@ msgstr "Chiffres clés"
 
 #: templates/core/home.html:126
 msgid ""
-"To represent, defend, and protect the interests of flight attendants. We are"
-" the voice of cabin crew, working every day to improve your working "
+"To represent, defend, and protect the interests of flight attendants. We are "
+"the voice of cabin crew, working every day to improve your working "
 "conditions and safeguard your rights."
 msgstr ""
 "Chaque vol commence par un engagement : celui d’être au service des autres. "
@@ -1706,8 +1699,8 @@ msgid ""
 "Get instant, accurate answers from your organization's knowledge base using "
 "advanced AI technology."
 msgstr ""
-"Obtenez des réponses instantanées et précises de la base de connaissances de"
-" votre organisation en utilisant une technologie IA avancée."
+"Obtenez des réponses instantanées et précises de la base de connaissances de "
+"votre organisation en utilisant une technologie IA avancée."
 
 #: templates/core/home.html:141
 msgid "Secure & Controlled"
@@ -1893,8 +1886,7 @@ msgstr "Répondre depuis l’administration :"
 msgid "New contact message from %(name)s"
 msgstr "Nouveau message de contact de %(name)s"
 
-#: templates/emails/contact_reply_body.txt:1
-#: templates/emails/invite_body.txt:1
+#: templates/emails/contact_reply_body.txt:1 templates/emails/invite_body.txt:1
 #: templates/emails/password_reset_body.txt:1
 #, python-format
 msgid "Hello %(name)s,"
@@ -1916,8 +1908,8 @@ msgstr "Un compte a été créé pour vous sur l’espace adhérents du SNPNCA."
 msgid ""
 "To activate it, choose your password using this link (valid for 3 days):"
 msgstr ""
-"Pour l’activer, choisissez votre mot de passe avec ce lien (valable 3 jours)"
-" :"
+"Pour l’activer, choisissez votre mot de passe avec ce lien (valable 3 "
+"jours) :"
 
 #: templates/emails/invite_body.txt:8
 msgid "Your login is your email address:"
@@ -1933,8 +1925,8 @@ msgstr "Votre compte adhérent SNPNCA"
 
 #: templates/emails/password_reset_body.txt:3
 msgid ""
-"We received a request to reset the password of your SNPNCA account. Choose a"
-" new password using this link (valid for 3 days):"
+"We received a request to reset the password of your SNPNCA account. Choose a "
+"new password using this link (valid for 3 days):"
 msgstr ""
 "Nous avons reçu une demande de réinitialisation du mot de passe de votre "
 "compte SNPNCA. Choisissez un nouveau mot de passe avec ce lien (valable 3 "
@@ -1958,12 +1950,12 @@ msgstr "Rendez-vous individuels"
 
 #: templates/meetings/index.html:7
 msgid ""
-"Book a private WhatsApp call with the union's representatives. Meetings take"
-" place on the days chosen each month, in order of request number."
+"Book a private WhatsApp call with the union's representatives. Meetings take "
+"place on the days chosen each month, in order of request number."
 msgstr ""
 "Réservez un appel WhatsApp privé avec les représentants du syndicat. Les "
-"rendez-vous ont lieu les jours choisis chaque mois, dans l’ordre des numéros"
-" de demande."
+"rendez-vous ont lieu les jours choisis chaque mois, dans l’ordre des numéros "
+"de demande."
 
 #: templates/meetings/index.html:13
 msgid "Your request"
@@ -1981,8 +1973,8 @@ msgstr "Votre numéro"
 #: templates/meetings/index.html:19
 #, python-format
 msgid ""
-"It's your turn! An admin is calling you on WhatsApp at %(number)s. Keep your"
-" phone close."
+"It's your turn! An admin is calling you on WhatsApp at %(number)s. Keep your "
+"phone close."
 msgstr ""
 "C’est votre tour ! Un administrateur vous appelle sur WhatsApp au "
 "%(number)s. Gardez votre téléphone à portée de main."
@@ -2007,8 +1999,8 @@ msgstr "Heure estimée"
 #, python-format
 msgid ""
 "The estimate assumes about %(minutes)s minutes per meeting and can change. "
-"Keep this page open on the day: an admin will call you on WhatsApp when your"
-" turn comes."
+"Keep this page open on the day: an admin will call you on WhatsApp when your "
+"turn comes."
 msgstr ""
 "L’estimation compte environ %(minutes)s minutes par rendez-vous et peut "
 "changer. Le jour venu, gardez cette page ouverte : un administrateur vous "
@@ -2088,8 +2080,8 @@ msgid ""
 "WhatsApp opens the chat with this member: tap the call (phone or video) "
 "button at the top to call them. When the call is over, close it here."
 msgstr ""
-"WhatsApp ouvre la conversation avec cet adhérent : touchez le bouton d’appel"
-" (téléphone ou vidéo) en haut pour l’appeler. Une fois l’appel terminé, "
+"WhatsApp ouvre la conversation avec cet adhérent : touchez le bouton d’appel "
+"(téléphone ou vidéo) en haut pour l’appeler. Une fois l’appel terminé, "
 "clôturez-le ici."
 
 #: templates/meetings/panel_day_form.html:2
@@ -2111,9 +2103,9 @@ msgid ""
 "two per month, chosen by a Master Admin). Open a day to see its queue and "
 "start meetings."
 msgstr ""
-"Les adhérents réservent des appels WhatsApp individuels aux jours ci-dessous"
-" (deux par mois au maximum, choisis par un Administrateur principal). Ouvrez"
-" un jour pour voir sa file et lancer les rendez-vous."
+"Les adhérents réservent des appels WhatsApp individuels aux jours ci-dessous "
+"(deux par mois au maximum, choisis par un Administrateur principal). Ouvrez "
+"un jour pour voir sa file et lancer les rendez-vous."
 
 #: templates/meetings/panel_days.html:9 templates/meetings/panel_queue.html:9
 msgid "Start"
@@ -2152,8 +2144,8 @@ msgstr "Tous les jours de rendez-vous"
 
 #: templates/meetings/panel_queue.html:11
 msgid ""
-"“Start meeting” marks the order as in a meeting, closes the previous one and"
-" opens WhatsApp with the member's chat: tap the call button there."
+"“Start meeting” marks the order as in a meeting, closes the previous one and "
+"opens WhatsApp with the member's chat: tap the call button there."
 msgstr ""
 "« Lancer le rendez-vous » marque la demande comme en cours, clôt la "
 "précédente et ouvre WhatsApp sur la conversation de l’adhérent : touchez-y "
@@ -2324,8 +2316,7 @@ msgstr "Confirmer la suppression"
 #, python-format
 msgid "Are you sure you want to delete “%(label)s”? This cannot be undone."
 msgstr ""
-"Voulez-vous vraiment supprimer « %(label)s » ? Cette action est "
-"irréversible."
+"Voulez-vous vraiment supprimer « %(label)s » ? Cette action est irréversible."
 
 #: templates/panel/csv_import.html:2 templates/panel/users.html:7
 msgid "Import from CSV"
@@ -2360,8 +2351,8 @@ msgid ""
 "The role column is only applied when the Master Admin imports the file; "
 "otherwise everyone is imported as a member."
 msgstr ""
-"La colonne role n’est appliquée que si l’administrateur principal importe le"
-" fichier ; sinon, tout le monde est importé comme adhérent."
+"La colonne role n’est appliquée que si l’administrateur principal importe le "
+"fichier ; sinon, tout le monde est importé comme adhérent."
 
 #: templates/panel/csv_import.html:9
 msgid "Download the template file"
@@ -2431,9 +2422,10 @@ msgid ""
 "pages are read with OCR (French, English and Arabic). Members can then ask "
 "questions about these documents."
 msgstr ""
-"PDF uniquement, jusqu’à %(max_mb)s Mo. Le texte est extrait automatiquement "
-"; les pages numérisées sont lues par OCR (français, anglais et arabe). Les "
-"adhérents peuvent ensuite poser des questions sur ces documents."
+"PDF uniquement, jusqu’à %(max_mb)s Mo. Le texte est extrait "
+"automatiquement ; les pages numérisées sont lues par OCR (français, anglais "
+"et arabe). Les adhérents peuvent ensuite poser des questions sur ces "
+"documents."
 
 #: templates/panel/documents.html:9
 msgid "Upload"
@@ -2467,8 +2459,8 @@ msgid ""
 "If one language is empty, visitors see the French text (or the English one "
 "if French is empty too)."
 msgstr ""
-"Si une langue est vide, les visiteurs voient le texte français (ou l’anglais"
-" si le français est vide aussi)."
+"Si une langue est vide, les visiteurs voient le texte français (ou l’anglais "
+"si le français est vide aussi)."
 
 #: templates/panel/home_content.html:28
 msgid ""
@@ -2477,8 +2469,8 @@ msgid ""
 "Master Admins can change them."
 msgstr ""
 "Les grands chiffres affichés sur la page d’accueil au-dessus de « Notre "
-"mission » (4 au maximum). Laissez le dernier bloc vide si vous n’en avez pas"
-" besoin, et cochez Supprimer pour en retirer un. Seuls les Master Admins "
+"mission » (4 au maximum). Laissez le dernier bloc vide si vous n’en avez pas "
+"besoin, et cochez Supprimer pour en retirer un. Seuls les Master Admins "
 "peuvent les modifier."
 
 #: templates/panel/home_content.html:35
@@ -2488,10 +2480,6 @@ msgstr "Nouveau chiffre"
 #: templates/panel/home_content.html:45
 msgid "Save figures"
 msgstr "Enregistrer les chiffres"
-
-#: templates/panel/home_content.html:50
-msgid "Social media"
-msgstr "Réseaux sociaux"
 
 #: templates/panel/home_content.html:51
 msgid ""
@@ -2512,8 +2500,8 @@ msgstr "Fenêtre d’adhésion"
 
 #: templates/panel/home_content.html:61
 msgid ""
-"Visitors who aren't logged in see a pop-up on the home page inviting them to"
-" join. It opens your Google Form, and admins then create the accounts from "
+"Visitors who aren't logged in see a pop-up on the home page inviting them to "
+"join. It opens your Google Form, and admins then create the accounts from "
 "the answers. Only Master Admins can change this link."
 msgstr ""
 "Les visiteurs non connectés voient sur la page d’accueil une fenêtre les "
@@ -2647,9 +2635,9 @@ msgid ""
 "viewed later, so pass it on in person. They will be signed out of any open "
 "sessions."
 msgstr ""
-"Nouveau mot de passe pour %(name)s (%(email)s). Il n’est pas envoyé par "
-"e-mail et ne peut pas être consulté ensuite : communiquez-le en personne. La"
-" personne sera déconnectée de ses sessions ouvertes."
+"Nouveau mot de passe pour %(name)s (%(email)s). Il n’est pas envoyé par e-"
+"mail et ne peut pas être consulté ensuite : communiquez-le en personne. La "
+"personne sera déconnectée de ses sessions ouvertes."
 
 #: templates/panel/user_form.html:2 templates/panel/user_form.html:4
 msgid "New account"
@@ -2829,13 +2817,13 @@ msgid ""
 "Members have already voted, so the question and answers are locked. You can "
 "still change the explanation and the closing date."
 msgstr ""
-"Des adhérents ont déjà voté : la question et les réponses sont verrouillées."
-" Vous pouvez encore modifier l’explication et la date de clôture."
+"Des adhérents ont déjà voté : la question et les réponses sont verrouillées. "
+"Vous pouvez encore modifier l’explication et la date de clôture."
 
 #: templates/polls/panel_list.html:5
 msgid ""
-"Members vote once per question and ballots are secret. You see results live;"
-" members see them only after the vote closes, if you choose."
+"Members vote once per question and ballots are secret. You see results live; "
+"members see them only after the vote closes, if you choose."
 msgstr ""
 "Chaque adhérent vote une fois et le vote est secret. Vous voyez les "
 "résultats en direct ; les adhérents ne les voient qu’après la clôture, si "
@@ -2935,8 +2923,8 @@ msgstr "Je réponds aux questions basées sur vos documents organisationnels."
 
 #: templates/qa/chat.html:34
 msgid ""
-"Ask in French, English or Arabic. Each answer shows the document and page it"
-" comes from. If the documents do not contain the answer, I will tell you."
+"Ask in French, English or Arabic. Each answer shows the document and page it "
+"comes from. If the documents do not contain the answer, I will tell you."
 msgstr ""
 "Posez votre question en français, en anglais ou en arabe. Chaque réponse "
 "indique le document et la page d’où elle provient. Si les documents ne "
@@ -3022,6 +3010,9 @@ msgstr "Modifier / ajouter la photo"
 msgid "Nobody on the team page yet."
 msgstr "Personne sur la page de l’équipe pour le moment."
 
+#~ msgid "Follow us"
+#~ msgstr "Suivez-nous"
+
 #~ msgid "Top activities (French), one per line"
 #~ msgstr "Activités incontournables (français), une par ligne"
 
@@ -3049,8 +3040,8 @@ msgstr "Personne sur la page de l’équipe pour le moment."
 #~ msgstr "Un portrait carré donne le meilleur résultat."
 
 #~ msgid ""
-#~ "The video call could not be created. Check that DAILY_API_KEY is set in the "
-#~ "server settings, then try again."
+#~ "The video call could not be created. Check that DAILY_API_KEY is set in "
+#~ "the server settings, then try again."
 #~ msgstr ""
 #~ "L’appel vidéo n’a pas pu être créé. Vérifiez que DAILY_API_KEY est "
 #~ "renseignée dans les réglages du serveur, puis réessayez."
@@ -3058,7 +3049,8 @@ msgstr "Personne sur la page de l’équipe pour le moment."
 #~ msgid "This meeting is not in progress."
 #~ msgstr "Ce rendez-vous n’est pas en cours."
 
-#~ msgid "The video call is unavailable right now. Please try again in a moment."
+#~ msgid ""
+#~ "The video call is unavailable right now. Please try again in a moment."
 #~ msgstr ""
 #~ "L’appel vidéo est indisponible pour le moment. Réessayez dans un instant."
 
@@ -3069,13 +3061,13 @@ msgstr "Personne sur la page de l’équipe pour le moment."
 #~ msgstr "Rejoindre l’appel vidéo"
 
 #~ msgid ""
-#~ "“Start meeting” opens a private video call on this site, marks the order as "
-#~ "in a meeting (the member then sees a Join button) and closes the previous "
-#~ "meeting."
+#~ "“Start meeting” opens a private video call on this site, marks the order "
+#~ "as in a meeting (the member then sees a Join button) and closes the "
+#~ "previous meeting."
 #~ msgstr ""
-#~ "« Lancer le rendez-vous » ouvre un appel vidéo privé sur ce site, passe la "
-#~ "demande en rendez-vous (l’adhérent voit alors un bouton Rejoindre) et clôt "
-#~ "le rendez-vous précédent."
+#~ "« Lancer le rendez-vous » ouvre un appel vidéo privé sur ce site, passe "
+#~ "la demande en rendez-vous (l’adhérent voit alors un bouton Rejoindre) et "
+#~ "clôt le rendez-vous précédent."
 
 #~ msgid "Rejoin call"
 #~ msgstr "Rejoindre l’appel"
@@ -3094,11 +3086,11 @@ msgstr "Personne sur la page de l’équipe pour le moment."
 #~ msgstr "Quitter"
 
 #~ msgid ""
-#~ "Create a meeting in Google Meet or Google Calendar and paste its link here. "
-#~ "Members only see it when their turn comes."
+#~ "Create a meeting in Google Meet or Google Calendar and paste its link "
+#~ "here. Members only see it when their turn comes."
 #~ msgstr ""
-#~ "Créez une réunion dans Google Meet ou Google Agenda et collez son lien ici. "
-#~ "Les adhérents ne le voient que lorsque leur tour arrive."
+#~ "Créez une réunion dans Google Meet ou Google Agenda et collez son lien "
+#~ "ici. Les adhérents ne le voient que lorsque leur tour arrive."
 
 #~ msgid "Join the Google Meet"
 #~ msgstr "Rejoindre le Google Meet"
@@ -3113,11 +3105,11 @@ msgstr "Personne sur la page de l’équipe pour le moment."
 #~ msgstr "Espace adhérent"
 
 #~ msgid ""
-#~ "Accounts are created by the union. If you are a member and have no account, "
-#~ "use the contact form on the home page."
+#~ "Accounts are created by the union. If you are a member and have no "
+#~ "account, use the contact form on the home page."
 #~ msgstr ""
-#~ "Les comptes sont créés par le syndicat. Si vous êtes adhérent et n’avez pas "
-#~ "de compte, utilisez le formulaire de contact de la page d’accueil."
+#~ "Les comptes sont créés par le syndicat. Si vous êtes adhérent et n’avez "
+#~ "pas de compte, utilisez le formulaire de contact de la page d’accueil."
 
 #~ msgid "Back to the home page"
 #~ msgstr "Retour à l’accueil"

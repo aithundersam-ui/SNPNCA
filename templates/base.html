@@ -74,10 +74,9 @@
   <footer class="site-footer">
     {% if SOCIAL.facebook_url or SOCIAL.instagram_url %}
     <div class="footer-social">
-      <p class="footer-follow">{% translate "Follow us" %}</p>
-      <ul class="social-links">
-        {% if SOCIAL.facebook_url %}<li><a class="social-btn facebook" href="{{ SOCIAL.facebook_url }}" target="_blank" rel="noopener noreferrer">{% icon "facebook" 22 %}<span class="sr-only">Facebook</span></a></li>{% endif %}
-        {% if SOCIAL.instagram_url %}<li><a class="social-btn instagram" href="{{ SOCIAL.instagram_url }}" target="_blank" rel="noopener noreferrer">{% icon "instagram" 22 %}<span class="sr-only">Instagram</span></a></li>{% endif %}
+      <ul class="social-links" aria-label="{% translate "Social media" %}">
+        {% if SOCIAL.facebook_url %}<li><a class="social-btn facebook" href="{{ SOCIAL.facebook_url }}" target="_blank" rel="noopener noreferrer">{% icon "facebook" 30 %}<span class="sr-only">Facebook</span></a></li>{% endif %}
+        {% if SOCIAL.instagram_url %}<li><a class="social-btn instagram" href="{{ SOCIAL.instagram_url }}" target="_blank" rel="noopener noreferrer">{% icon "instagram" 28 %}<span class="sr-only">Instagram</span></a></li>{% endif %}
       </ul>
     </div>
     {% endif %}

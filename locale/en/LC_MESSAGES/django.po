@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-17 18:44+0100\n"
+"POT-Creation-Date: 2026-10-17 19:07+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -126,8 +126,7 @@ msgstr ""
 
 #: accounts/models.py:36
 msgid ""
-"Enter a WhatsApp number with its country code, for example +213 5XX XX XX "
-"XX."
+"Enter a WhatsApp number with its country code, for example +213 5XX XX XX XX."
 msgstr ""
 
 #: accounts/models.py:59 core/models.py:93
@@ -237,8 +236,8 @@ msgstr ""
 #: alerts/panel_views.py:32
 #, python-format
 msgid ""
-"The alert is on the site, but %(failed)s emails could not be sent. Check the"
-" email settings."
+"The alert is on the site, but %(failed)s emails could not be sent. Check the "
+"email settings."
 msgstr ""
 
 #: alerts/panel_views.py:34
@@ -309,14 +308,13 @@ msgstr ""
 
 #: core/forms.py:149
 msgid ""
-"Paste the link of a Facebook page (it starts with "
-"https://www.facebook.com/)."
+"Paste the link of a Facebook page (it starts with https://www.facebook.com/)."
 msgstr ""
 
 #: core/forms.py:152
 msgid ""
-"Paste the link of an Instagram account (it starts with "
-"https://www.instagram.com/)."
+"Paste the link of an Instagram account (it starts with https://www.instagram."
+"com/)."
 msgstr ""
 
 #: core/forms.py:156
@@ -564,8 +562,7 @@ msgid "Your WhatsApp number"
 msgstr ""
 
 #: meetings/forms.py:42
-msgid ""
-"An admin will call you on WhatsApp at this number when your turn comes."
+msgid "An admin will call you on WhatsApp at this number when your turn comes."
 msgstr ""
 
 #: meetings/forms.py:49
@@ -853,7 +850,6 @@ msgid "Sign-up pop-up turned off."
 msgstr ""
 
 #: panel/views.py:437
-#| msgid "Role updated."
 msgid "Social media links updated."
 msgstr ""
 
@@ -975,8 +971,7 @@ msgid "Vote saved."
 msgstr ""
 
 #: polls/panel_views.py:60
-msgid ""
-"Vote closed. Members can now see the results if you chose to show them."
+msgid "Vote closed. Members can now see the results if you chose to show them."
 msgstr ""
 
 #: polls/panel_views.py:69
@@ -997,8 +992,8 @@ msgstr ""
 
 #: polls/views.py:51
 msgid ""
-"Thank you, your vote has been counted. It is secret: nobody can see what you"
-" chose."
+"Thank you, your vote has been counted. It is secret: nobody can see what you "
+"chose."
 msgstr ""
 
 #: qa/assistant.py:40
@@ -1092,8 +1087,8 @@ msgstr ""
 
 #: team/panel_views.py:26
 msgid ""
-"No face was found in the photo, so it was cropped around the top centre. Try"
-" a photo where the face is clearly visible."
+"No face was found in the photo, so it was cropped around the top centre. Try "
+"a photo where the face is clearly visible."
 msgstr ""
 
 #: team/panel_views.py:37
@@ -1221,11 +1216,11 @@ msgstr "Reset your password"
 
 #: templates/accounts/password_reset.html:6
 msgid ""
-"Enter the email address of your account. We will send you a link to choose a"
-" new password."
+"Enter the email address of your account. We will send you a link to choose a "
+"new password."
 msgstr ""
-"Enter the email address of your account. We will send you a link to choose a"
-" new password."
+"Enter the email address of your account. We will send you a link to choose a "
+"new password."
 
 #: templates/accounts/password_reset.html:10
 msgid "Send the link"
@@ -1426,8 +1421,8 @@ msgstr ""
 
 #: templates/alerts/panel_form.html:5
 msgid ""
-"Keep it short: members read it on their phones. Arabic is optional: if it is"
-" empty, members who chose Arabic get the French text."
+"Keep it short: members read it on their phones. Arabic is optional: if it is "
+"empty, members who chose Arabic get the French text."
 msgstr ""
 
 #: templates/alerts/panel_form.html:10
@@ -1441,10 +1436,10 @@ msgstr ""
 #: templates/alerts/panel_form.html:11
 #: templates/destinations/panel_form.html:23
 #: templates/meetings/panel_day_form.html:10
-#: templates/meetings/panel_queue.html:27
-#: templates/panel/confirm_delete.html:9 templates/panel/news_form.html:42
-#: templates/panel/set_password.html:11 templates/panel/user_form.html:11
-#: templates/polls/panel_form.html:11 templates/team/panel_form.html:10
+#: templates/meetings/panel_queue.html:27 templates/panel/confirm_delete.html:9
+#: templates/panel/news_form.html:42 templates/panel/set_password.html:11
+#: templates/panel/user_form.html:11 templates/polls/panel_form.html:11
+#: templates/team/panel_form.html:10
 msgid "Cancel"
 msgstr "Cancel"
 
@@ -1501,11 +1496,11 @@ msgstr "Log out"
 msgid "Menu"
 msgstr ""
 
-#: templates/base.html:77
-msgid "Follow us"
+#: templates/base.html:77 templates/panel/home_content.html:50
+msgid "Social media"
 msgstr ""
 
-#: templates/base.html:84
+#: templates/base.html:83
 msgid "All rights reserved"
 msgstr ""
 
@@ -1599,8 +1594,8 @@ msgstr ""
 
 #: templates/core/home.html:126
 msgid ""
-"To represent, defend, and protect the interests of flight attendants. We are"
-" the voice of cabin crew, working every day to improve your working "
+"To represent, defend, and protect the interests of flight attendants. We are "
+"the voice of cabin crew, working every day to improve your working "
 "conditions and safeguard your rights."
 msgstr ""
 
@@ -1796,8 +1791,7 @@ msgstr "Reply from the admin panel:"
 msgid "New contact message from %(name)s"
 msgstr "New contact message from %(name)s"
 
-#: templates/emails/contact_reply_body.txt:1
-#: templates/emails/invite_body.txt:1
+#: templates/emails/contact_reply_body.txt:1 templates/emails/invite_body.txt:1
 #: templates/emails/password_reset_body.txt:1
 #, python-format
 msgid "Hello %(name)s,"
@@ -1835,11 +1829,11 @@ msgstr "Your SNPNCA member account"
 
 #: templates/emails/password_reset_body.txt:3
 msgid ""
-"We received a request to reset the password of your SNPNCA account. Choose a"
-" new password using this link (valid for 3 days):"
+"We received a request to reset the password of your SNPNCA account. Choose a "
+"new password using this link (valid for 3 days):"
 msgstr ""
-"We received a request to reset the password of your SNPNCA account. Choose a"
-" new password using this link (valid for 3 days):"
+"We received a request to reset the password of your SNPNCA account. Choose a "
+"new password using this link (valid for 3 days):"
 
 #: templates/emails/password_reset_body.txt:7
 msgid ""
@@ -1859,8 +1853,8 @@ msgstr ""
 
 #: templates/meetings/index.html:7
 msgid ""
-"Book a private WhatsApp call with the union's representatives. Meetings take"
-" place on the days chosen each month, in order of request number."
+"Book a private WhatsApp call with the union's representatives. Meetings take "
+"place on the days chosen each month, in order of request number."
 msgstr ""
 
 #: templates/meetings/index.html:13
@@ -1879,8 +1873,8 @@ msgstr ""
 #: templates/meetings/index.html:19
 #, python-format
 msgid ""
-"It's your turn! An admin is calling you on WhatsApp at %(number)s. Keep your"
-" phone close."
+"It's your turn! An admin is calling you on WhatsApp at %(number)s. Keep your "
+"phone close."
 msgstr ""
 
 #: templates/meetings/index.html:22 templates/meetings/panel_queue.html:7
@@ -1903,8 +1897,8 @@ msgstr ""
 #, python-format
 msgid ""
 "The estimate assumes about %(minutes)s minutes per meeting and can change. "
-"Keep this page open on the day: an admin will call you on WhatsApp when your"
-" turn comes."
+"Keep this page open on the day: an admin will call you on WhatsApp when your "
+"turn comes."
 msgstr ""
 
 #: templates/meetings/index.html:27
@@ -2038,8 +2032,8 @@ msgstr ""
 
 #: templates/meetings/panel_queue.html:11
 msgid ""
-"“Start meeting” marks the order as in a meeting, closes the previous one and"
-" opens WhatsApp with the member's chat: tap the call button there."
+"“Start meeting” marks the order as in a meeting, closes the previous one and "
+"opens WhatsApp with the member's chat: tap the call button there."
 msgstr ""
 
 #: templates/meetings/panel_queue.html:24
@@ -2358,10 +2352,6 @@ msgstr ""
 msgid "Save figures"
 msgstr ""
 
-#: templates/panel/home_content.html:50
-msgid "Social media"
-msgstr ""
-
 #: templates/panel/home_content.html:51
 msgid ""
 "Facebook and Instagram buttons shown at the bottom of every page. Leave a "
@@ -2369,7 +2359,6 @@ msgid ""
 msgstr ""
 
 #: templates/panel/home_content.html:55
-#| msgid "Send the link"
 msgid "Save links"
 msgstr ""
 
@@ -2379,8 +2368,8 @@ msgstr ""
 
 #: templates/panel/home_content.html:61
 msgid ""
-"Visitors who aren't logged in see a pop-up on the home page inviting them to"
-" join. It opens your Google Form, and admins then create the accounts from "
+"Visitors who aren't logged in see a pop-up on the home page inviting them to "
+"join. It opens your Google Form, and admins then create the accounts from "
 "the answers. Only Master Admins can change this link."
 msgstr ""
 
@@ -2684,8 +2673,8 @@ msgstr ""
 
 #: templates/polls/panel_list.html:5
 msgid ""
-"Members vote once per question and ballots are secret. You see results live;"
-" members see them only after the vote closes, if you choose."
+"Members vote once per question and ballots are secret. You see results live; "
+"members see them only after the vote closes, if you choose."
 msgstr ""
 
 #: templates/polls/panel_list.html:9
@@ -2782,8 +2771,8 @@ msgstr ""
 
 #: templates/qa/chat.html:34
 msgid ""
-"Ask in French, English or Arabic. Each answer shows the document and page it"
-" comes from. If the documents do not contain the answer, I will tell you."
+"Ask in French, English or Arabic. Each answer shows the document and page it "
+"comes from. If the documents do not contain the answer, I will tell you."
 msgstr ""
 
 #: templates/qa/chat.html:49
@@ -2866,11 +2855,11 @@ msgstr ""
 #~ msgstr "Member login"
 
 #~ msgid ""
-#~ "Accounts are created by the union. If you are a member and have no account, "
-#~ "use the contact form on the home page."
+#~ "Accounts are created by the union. If you are a member and have no "
+#~ "account, use the contact form on the home page."
 #~ msgstr ""
-#~ "Accounts are created by the union. If you are a member and have no account, "
-#~ "use the contact form on the home page."
+#~ "Accounts are created by the union. If you are a member and have no "
+#~ "account, use the contact form on the home page."
 
 #~ msgid "No questions yet. Ask your first question below."
 #~ msgstr "No questions yet. Ask your first question below."
