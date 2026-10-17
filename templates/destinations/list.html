@@ -1,0 +1,41 @@
+{% extends "base.html" %}{% load i18n site_tags %}
+{% block title %}{% translate "Destinations" %}{% endblock %}
+{% block content %}
+<header class="dest-head">
+  <h1 class="page-head">{% icon "plane" 32 %}{% translate "Destinations" %}</h1>
+  <p class="page-sub">{% translate "Our current destinations and the best things to do during your layover. Tap a destination to see its top activities." %}</p>
+</header>
+{% if destinations %}
+<div class="dest-grid">
+  {% for d in destinations %}
+  <details class="dest-card">
+    <summary>
+      {% if d.photo %}
+        <img class="dest-photo" src="{% url 'destinations:photo' d.pk %}?v={{ d.updated_at|date:'U' }}" alt="" width="600" height="450" loading="lazy">
+      {% else %}
+        <span class="dest-photo dest-placeholder" aria-hidden="true">{% icon "plane" 48 %}</span>
+      {% endif %}
+      <span class="dest-name">
+        <span>{% localized d "name" %}</span>
+        {% icon "chevron-down" 20 "dest-chevron" %}
+      </span>
+    </summary>
+    <div class="dest-body">
+      {% with activities=d.activities.all %}
+      {% if activities %}
+      <h2 class="dest-sub">{% translate "Top activities" %}</h2>
+      <ol class="dest-activities">
+        {% for a in activities %}<li>{% localized a "text" %}</li>{% endfor %}
+      </ol>
+      {% else %}
+      <p class="muted">{% translate "No activities added yet." %}</p>
+      {% endif %}
+      {% endwith %}
+    </div>
+  </details>
+  {% endfor %}
+</div>
+{% else %}
+<p class="empty">{% translate "No destinations yet." %}</p>
+{% endif %}
+{% endblock %}

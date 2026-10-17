@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-13 23:07+0100\n"
+"POT-Creation-Date: 2026-10-17 17:05+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -121,15 +121,15 @@ msgstr "Administrateur"
 msgid "Master Admin"
 msgstr "Administrateur principal"
 
-#: accounts/models.py:17 config/settings.py:134
+#: accounts/models.py:17 config/settings.py:135
 msgid "French"
 msgstr "Français"
 
-#: accounts/models.py:18 config/settings.py:134
+#: accounts/models.py:18 config/settings.py:135
 msgid "English"
 msgstr "Anglais"
 
-#: accounts/models.py:19 config/settings.py:134
+#: accounts/models.py:19 config/settings.py:135
 msgid "Arabic"
 msgstr "Arabe"
 
@@ -429,7 +429,7 @@ msgstr "libellé (anglais)"
 msgid "label (Arabic)"
 msgstr "libellé (arabe)"
 
-#: core/models.py:76
+#: core/models.py:76 destinations/models.py:23
 msgid "order"
 msgstr "ordre"
 
@@ -480,6 +480,83 @@ msgstr "Erreur du serveur"
 #: core/views.py:109
 msgid "Something went wrong. Please try again later."
 msgstr "Une erreur s’est produite. Veuillez réessayer plus tard."
+
+#: destinations/forms.py:32
+#| msgid "Answers (French), one per line"
+msgid "Top activities (French), one per line"
+msgstr "Activités incontournables (français), une par ligne"
+
+#: destinations/forms.py:34
+msgid "For example: Visit the Eiffel Tower. They are shown in this order."
+msgstr ""
+"Par exemple : Visiter la tour Eiffel. Elles s’affichent dans cet ordre."
+
+#: destinations/forms.py:37
+#| msgid "Answers (English), one per line"
+msgid "Top activities (English), one per line"
+msgstr "Activités incontournables (anglais), une par ligne"
+
+#: destinations/forms.py:39 destinations/forms.py:44
+#| msgid ""
+#| "Optional. Same order and number of lines as the French answers."
+msgid "Optional. Same order and number of lines as in French."
+msgstr "Facultatif. Même ordre et même nombre de lignes qu’en français."
+
+#: destinations/forms.py:42
+#| msgid "Answers (Arabic), one per line"
+msgid "Top activities (Arabic), one per line"
+msgstr "Activités incontournables (arabe), une par ligne"
+
+#: destinations/forms.py:71
+#, python-format
+#| msgid "Give at most %(n)s answers."
+msgid "Give at most %(n)s activities."
+msgstr "Indiquez au maximum %(n)s activités."
+
+#: destinations/forms.py:74
+#| msgid "Give the same number of answers in Arabic as in French."
+msgid "Give the same number of lines as in French."
+msgstr "Indiquez le même nombre de lignes qu’en français."
+
+#: destinations/models.py:16
+#| msgid "label (French)"
+msgid "name (French)"
+msgstr "nom (français)"
+
+#: destinations/models.py:17
+#| msgid "label (English)"
+msgid "name (English)"
+msgstr "nom (anglais)"
+
+#: destinations/models.py:18
+#| msgid "label (Arabic)"
+msgid "name (Arabic)"
+msgstr "nom (arabe)"
+
+#: destinations/models.py:20 team/models.py:34
+msgid "photo"
+msgstr "photo"
+
+#: destinations/models.py:21
+msgid "A landscape photo works best. It is resized and cropped automatically."
+msgstr ""
+"Une photo au format paysage donne le meilleur résultat. Elle est "
+"redimensionnée et recadrée automatiquement."
+
+#: destinations/models.py:23
+#| msgid "Lower numbers come first, for example among the members."
+msgid "Lower numbers come first."
+msgstr "Les plus petits nombres s’affichent en premier."
+
+#: destinations/panel_views.py:25
+#| msgid "Meeting day saved."
+msgid "Destination saved."
+msgstr "Destination enregistrée."
+
+#: destinations/panel_views.py:36
+#| msgid "Meeting day deleted."
+msgid "Destination deleted."
+msgstr "Destination supprimée."
 
 #: meetings/forms.py:22
 msgid "Choose a date that is not in the past."
@@ -1019,10 +1096,6 @@ msgid "Lower numbers come first, for example among the members."
 msgstr ""
 "Les plus petits numéros passent en premier, par exemple parmi les membres."
 
-#: team/models.py:34
-msgid "photo"
-msgstr "photo"
-
 #: team/models.py:37
 msgid ""
 "Any portrait: the site zooms in on the face and crops it automatically. The "
@@ -1090,19 +1163,26 @@ msgstr "Actualités"
 msgid "Documents"
 msgstr "Documents"
 
-#: templates/_nav_links.html:7 templates/panel/_layout.html:15
+#: templates/_nav_links.html:7 templates/panel/_layout.html:16
 #: templates/polls/list.html:2 templates/polls/list.html:5
 #: templates/polls/panel_list.html:2 templates/polls/panel_list.html:4
 msgid "Votes"
 msgstr "Votes"
 
-#: templates/_nav_links.html:8 templates/meetings/index.html:2
+#: templates/_nav_links.html:8 templates/destinations/list.html:2
+#: templates/destinations/list.html:5 templates/destinations/panel_list.html:2
+#: templates/destinations/panel_list.html:4 templates/panel/_layout.html:14
+#| msgid "Resend invitation"
+msgid "Destinations"
+msgstr "Destinations"
+
+#: templates/_nav_links.html:9 templates/meetings/index.html:2
 #: templates/meetings/panel_days.html:2 templates/meetings/panel_days.html:4
-#: templates/panel/_layout.html:16
+#: templates/panel/_layout.html:17
 msgid "Meetings"
 msgstr "Rendez-vous"
 
-#: templates/_nav_links.html:9
+#: templates/_nav_links.html:10
 msgctxt "navigation"
 msgid "Admin"
 msgstr "Admin"
@@ -1237,6 +1317,7 @@ msgid "My account"
 msgstr "Mon compte"
 
 #: templates/accounts/settings.html:10
+#: templates/destinations/panel_form.html:10
 #: templates/meetings/panel_day_form.html:9
 #: templates/panel/home_content.html:23 templates/panel/news_form.html:41
 #: templates/panel/user_form.html:10 templates/polls/panel_form.html:10
@@ -1372,10 +1453,12 @@ msgid_plural "%(n)s members have no WhatsApp number."
 msgstr[0] "%(n)s adhérent n’a pas de numéro WhatsApp."
 msgstr[1] "%(n)s adhérents n’ont pas de numéro WhatsApp."
 
-#: templates/alerts/panel_detail.html:33 templates/meetings/panel_days.html:19
-#: templates/panel/confirm_delete.html:8 templates/panel/documents.html:24
-#: templates/panel/news.html:16 templates/panel/users.html:30
-#: templates/polls/panel_results.html:20 templates/team/panel_list.html:17
+#: templates/alerts/panel_detail.html:33
+#: templates/destinations/panel_list.html:16
+#: templates/meetings/panel_days.html:19 templates/panel/confirm_delete.html:8
+#: templates/panel/documents.html:24 templates/panel/news.html:16
+#: templates/panel/users.html:30 templates/polls/panel_results.html:20
+#: templates/team/panel_list.html:17
 msgid "Delete"
 msgstr "Supprimer"
 
@@ -1402,6 +1485,7 @@ msgid "Publish the alert"
 msgstr "Publier l’alerte"
 
 #: templates/alerts/panel_form.html:11
+#: templates/destinations/panel_form.html:11
 #: templates/meetings/panel_day_form.html:10
 #: templates/meetings/panel_queue.html:27
 #: templates/panel/confirm_delete.html:9 templates/panel/news_form.html:42
@@ -1410,7 +1494,7 @@ msgstr "Publier l’alerte"
 msgid "Cancel"
 msgstr "Annuler"
 
-#: templates/alerts/panel_list.html:2 templates/panel/_layout.html:14
+#: templates/alerts/panel_list.html:2 templates/panel/_layout.html:15
 msgid "Alerts"
 msgstr "Alertes"
 
@@ -1467,7 +1551,6 @@ msgid "Menu"
 msgstr "Menu"
 
 #: templates/base.html:75
-#| msgid "All fields are required."
 msgid "All rights reserved"
 msgstr "Tous droits réservés"
 
@@ -1643,6 +1726,91 @@ msgstr ""
 #: templates/core/home.html:170
 msgid "Send Message"
 msgstr "Envoyer le Message"
+
+#: templates/destinations/list.html:6
+msgid ""
+"Our current destinations and the best things to do during your layover. Tap "
+"a destination to see its top activities."
+msgstr ""
+"Nos destinations actuelles et les meilleures choses à faire pendant votre "
+"escale. Touchez une destination pour voir ses activités incontournables."
+
+#: templates/destinations/list.html:26
+#| msgid "active"
+msgid "Top activities"
+msgstr "Activités incontournables"
+
+#: templates/destinations/list.html:31
+#| msgid "No articles yet."
+msgid "No activities added yet."
+msgstr "Aucune activité pour l’instant."
+
+#: templates/destinations/list.html:39
+#: templates/destinations/panel_list.html:19
+#| msgid "No documents yet."
+msgid "No destinations yet."
+msgstr "Aucune destination pour l’instant."
+
+#: templates/destinations/panel_form.html:2
+#: templates/destinations/panel_form.html:4
+#: templates/destinations/panel_list.html:6
+#| msgid "Add a person"
+msgid "Add a destination"
+msgstr "Ajouter une destination"
+
+#: templates/destinations/panel_form.html:5
+#| msgid ""
+#| "Fill in French, English or both. Arabic is optional: if it is empty, Arabic "
+#| "readers see the French text."
+msgid ""
+"English and Arabic are optional: if they are empty, members see the French "
+"text."
+msgstr ""
+"L’anglais et l’arabe sont facultatifs : s’ils sont vides, les adhérents "
+"voient le texte français."
+
+#: templates/destinations/panel_list.html:5
+msgid ""
+"The destinations members see on the Destinations page, each with its top "
+"activities."
+msgstr ""
+"Les destinations que les adhérents voient sur la page Destinations, chacune "
+"avec ses activités incontournables."
+
+#: templates/destinations/panel_list.html:6
+#| msgid "See the public page"
+msgid "See the members' page"
+msgstr "Voir la page des adhérents"
+
+#: templates/destinations/panel_list.html:9 templates/team/panel_list.html:9
+msgid "Photo"
+msgstr "Photo"
+
+#: templates/destinations/panel_list.html:9 templates/panel/admins.html:9
+#: templates/panel/csv_import.html:22 templates/panel/users.html:16
+#: templates/team/panel_list.html:9
+msgid "Name"
+msgstr "Nom"
+
+#: templates/destinations/panel_list.html:9
+#| msgid "Active"
+msgid "Activities"
+msgstr "Activités"
+
+#: templates/destinations/panel_list.html:9
+#: templates/meetings/panel_days.html:9 templates/meetings/panel_queue.html:14
+#: templates/panel/admins.html:9 templates/panel/documents.html:13
+#: templates/panel/news.html:8 templates/panel/users.html:16
+#: templates/polls/panel_list.html:9 templates/team/panel_list.html:9
+msgid "Actions"
+msgstr "Actions"
+
+#: templates/destinations/panel_list.html:16
+#: templates/meetings/panel_days.html:19 templates/panel/news.html:16
+#: templates/panel/users.html:27 templates/polls/panel_list.html:17
+#: templates/polls/panel_results.html:18 templates/team/panel_list.html:17
+msgid "Edit"
+msgstr "Modifier"
 
 #: templates/emails/alert_body.txt:5
 msgid "Read it on the members' site:"
@@ -1915,22 +2083,9 @@ msgstr "Début"
 msgid "Requests"
 msgstr "Demandes"
 
-#: templates/meetings/panel_days.html:9 templates/meetings/panel_queue.html:14
-#: templates/panel/admins.html:9 templates/panel/documents.html:13
-#: templates/panel/news.html:8 templates/panel/users.html:16
-#: templates/polls/panel_list.html:9 templates/team/panel_list.html:9
-msgid "Actions"
-msgstr "Actions"
-
 #: templates/meetings/panel_days.html:18
 msgid "Open queue"
 msgstr "Ouvrir la file"
-
-#: templates/meetings/panel_days.html:19 templates/panel/news.html:16
-#: templates/panel/users.html:27 templates/polls/panel_list.html:17
-#: templates/polls/panel_results.html:18 templates/team/panel_list.html:17
-msgid "Edit"
-msgstr "Modifier"
 
 #: templates/meetings/panel_days.html:23
 msgid "No upcoming meeting days."
@@ -2050,15 +2205,15 @@ msgstr "Utilisateurs"
 msgid "Admins"
 msgstr "Administrateurs"
 
-#: templates/panel/_layout.html:17 templates/panel/messages.html:2
+#: templates/panel/_layout.html:18 templates/panel/messages.html:2
 msgid "Messages"
 msgstr "Messages"
 
-#: templates/panel/_layout.html:18 templates/panel/home_content.html:2
+#: templates/panel/_layout.html:19 templates/panel/home_content.html:2
 msgid "Home page"
 msgstr "Page d’accueil"
 
-#: templates/panel/_layout.html:19 templates/panel/audit.html:2
+#: templates/panel/_layout.html:20 templates/panel/audit.html:2
 #: templates/panel/audit.html:4
 msgid "Audit log"
 msgstr "Journal d’audit"
@@ -2074,11 +2229,6 @@ msgstr ""
 #: templates/panel/admins.html:6
 msgid "New admin"
 msgstr "Nouvel administrateur"
-
-#: templates/panel/admins.html:9 templates/panel/csv_import.html:22
-#: templates/panel/users.html:16 templates/team/panel_list.html:9
-msgid "Name"
-msgstr "Nom"
 
 #: templates/panel/admins.html:9
 msgid "Change role"
@@ -2806,10 +2956,6 @@ msgstr ""
 #: templates/team/panel_list.html:6
 msgid "See the public page"
 msgstr "Voir la page publique"
-
-#: templates/team/panel_list.html:9
-msgid "Photo"
-msgstr "Photo"
 
 #: templates/team/panel_list.html:17
 msgid "Edit / add photo"

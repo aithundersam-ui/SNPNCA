@@ -1,0 +1,24 @@
+{% extends "panel/_layout.html" %}{% load i18n site_tags %}
+{% block title %}{% translate "Destinations" %}{% endblock %}
+{% block panel %}
+<h1>{% translate "Destinations" %}</h1>
+<p class="muted">{% translate "The destinations members see on the Destinations page, each with its top activities." %}</p>
+<p><a class="btn" href="{% url 'panel:destination_create' %}">{% icon "plane" 16 %}{% translate "Add a destination" %}</a> <a href="{% url 'destinations:list' %}" target="_blank" rel="noopener">{% translate "See the members' page" %}</a></p>
+<div class="table-wrap">
+<table>
+  <thead><tr><th>{% translate "Photo" %}</th><th>{% translate "Name" %}</th><th>{% translate "Activities" %}</th><th><span class="sr-only">{% translate "Actions" %}</span></th></tr></thead>
+  <tbody>
+  {% for d in destinations %}
+  <tr>
+    <td>{% if d.photo %}<img class="dest-thumb" src="{% url 'destinations:photo' d.pk %}?v={{ d.updated_at|date:'U' }}" alt="" width="64" height="48">{% else %}<span class="dest-thumb dest-placeholder">{% icon "plane" 18 %}</span>{% endif %}</td>
+    <td>{% localized d "name" %}</td>
+    <td>{{ d.activities.all|length }}</td>
+    <td><div class="actions"><a class="btn secondary small" href="{% url 'panel:destination_edit' d.pk %}">{% translate "Edit" %}</a><a class="btn danger small" href="{% url 'panel:destination_delete' d.pk %}">{% translate "Delete" %}</a></div></td>
+  </tr>
+  {% empty %}
+  <tr><td colspan="4" class="muted">{% translate "No destinations yet." %}</td></tr>
+  {% endfor %}
+  </tbody>
+</table>
+</div>
+{% endblock %}

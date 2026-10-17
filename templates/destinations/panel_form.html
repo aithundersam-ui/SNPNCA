@@ -1,0 +1,14 @@
+{% extends "panel/_layout.html" %}{% load i18n %}
+{% block title %}{% if destination %}{{ destination }}{% else %}{% translate "Add a destination" %}{% endif %}{% endblock %}
+{% block panel %}
+<h1>{% if destination %}{{ destination }}{% else %}{% translate "Add a destination" %}{% endif %}</h1>
+<p class="muted">{% translate "English and Arabic are optional: if they are empty, members see the French text." %}</p>
+<form method="post" enctype="multipart/form-data" class="card" novalidate>
+  {% csrf_token %}
+  {% include "_form_fields.html" %}
+  <div class="actions">
+    <button type="submit" class="btn">{% translate "Save" %}</button>
+    <a href="{% url 'panel:destinations' %}">{% translate "Cancel" %}</a>
+  </div>
+</form>
+{% endblock %}

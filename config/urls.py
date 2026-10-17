@@ -18,6 +18,7 @@ urlpatterns += i18n_patterns(
     path("votes/", include("polls.urls")),
     path("alerts/", include("alerts.urls")),
     path("team/", include("team.urls")),
+    path("destinations/", include("destinations.urls")),
     path("panel/", include("panel.urls")),
     prefix_default_language=True,
 )

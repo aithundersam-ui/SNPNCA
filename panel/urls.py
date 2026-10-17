@@ -5,6 +5,7 @@ from accounts.models import Role
 from alerts import panel_views as alert_views
 from meetings import panel_views as meeting_views
 from polls import panel_views as poll_views
+from destinations import panel_views as destination_views
 from team import panel_views as team_views
 
 from . import views
@@ -45,6 +46,10 @@ urlpatterns = [
     path("team/new/", team_views.team_edit, name="team_create"),
     path("team/<int:pk>/", team_views.team_edit, name="team_edit"),
     path("team/<int:pk>/delete/", team_views.team_delete, name="team_delete"),
+    path("destinations/", destination_views.destination_list, name="destinations"),
+    path("destinations/new/", destination_views.destination_edit, name="destination_create"),
+    path("destinations/<int:pk>/", destination_views.destination_edit, name="destination_edit"),
+    path("destinations/<int:pk>/delete/", destination_views.destination_delete, name="destination_delete"),
     path("alerts/", alert_views.alert_list, name="alerts"),
     path("alerts/new/", alert_views.alert_create, name="alert_create"),
     path("alerts/<int:pk>/", alert_views.alert_detail, name="alert_detail"),
