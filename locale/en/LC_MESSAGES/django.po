@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-17 17:05+0100\n"
+"POT-Creation-Date: 2026-10-17 17:54+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -407,7 +407,7 @@ msgstr ""
 msgid "label (Arabic)"
 msgstr ""
 
-#: core/models.py:76 destinations/models.py:23
+#: core/models.py:76 destinations/models.py:41 destinations/models.py:64
 msgid "order"
 msgstr ""
 
@@ -459,67 +459,76 @@ msgstr "Server error"
 msgid "Something went wrong. Please try again later."
 msgstr "Something went wrong. Please try again later."
 
-#: destinations/forms.py:32
-msgid "Top activities (French), one per line"
+#: destinations/forms.py:65
+msgid "In Google Maps, open the place, tap Share and then Copy link."
 msgstr ""
 
-#: destinations/forms.py:34
-msgid "For example: Visit the Eiffel Tower. They are shown in this order."
-msgstr ""
-
-#: destinations/forms.py:37
-msgid "Top activities (English), one per line"
-msgstr ""
-
-#: destinations/forms.py:39 destinations/forms.py:44
-msgid "Optional. Same order and number of lines as in French."
-msgstr ""
-
-#: destinations/forms.py:42
-msgid "Top activities (Arabic), one per line"
-msgstr ""
-
-#: destinations/forms.py:71
-#, python-format
-msgid "Give at most %(n)s activities."
-msgstr ""
-
-#: destinations/forms.py:74
-msgid "Give the same number of lines as in French."
-msgstr ""
-
-#: destinations/models.py:16
-#| msgid "text (French)"
-msgid "name (French)"
-msgstr ""
-
-#: destinations/models.py:17
-#| msgid "text (English)"
-msgid "name (English)"
-msgstr ""
-
-#: destinations/models.py:18
-msgid "name (Arabic)"
-msgstr ""
-
-#: destinations/models.py:20 team/models.py:34
-msgid "photo"
-msgstr ""
-
-#: destinations/models.py:21
+#: destinations/forms.py:66 destinations/models.py:39
 msgid "A landscape photo works best. It is resized and cropped automatically."
 msgstr ""
 
-#: destinations/models.py:23
+#: destinations/models.py:28
+msgid "Paste a Google Maps link (from Share → Copy link in Google Maps)."
+msgstr ""
+
+#: destinations/models.py:34
+msgid "name (French)"
+msgstr ""
+
+#: destinations/models.py:35
+msgid "name (English)"
+msgstr ""
+
+#: destinations/models.py:36
+msgid "name (Arabic)"
+msgstr ""
+
+#: destinations/models.py:38 destinations/models.py:62 team/models.py:34
+msgid "photo"
+msgstr ""
+
+#: destinations/models.py:41
 msgid "Lower numbers come first."
 msgstr ""
 
-#: destinations/panel_views.py:25
+#: destinations/models.py:56
+#| msgid "title (French)"
+msgid "activity (French)"
+msgstr ""
+
+#: destinations/models.py:57
+#| msgid "title (English)"
+msgid "activity (English)"
+msgstr ""
+
+#: destinations/models.py:58
+msgid "activity (Arabic)"
+msgstr ""
+
+#: destinations/models.py:59
+#| msgid "organisation description (French)"
+msgid "description (French)"
+msgstr ""
+
+#: destinations/models.py:60
+#| msgid "organisation description (English)"
+msgid "description (English)"
+msgstr ""
+
+#: destinations/models.py:61
+#| msgid "organisation description (French)"
+msgid "description (Arabic)"
+msgstr ""
+
+#: destinations/models.py:63
+msgid "Google Maps link"
+msgstr ""
+
+#: destinations/panel_views.py:30
 msgid "Destination saved."
 msgstr ""
 
-#: destinations/panel_views.py:36
-#| msgid "Message deleted."
+#: destinations/panel_views.py:41
 msgid "Destination deleted."
 msgstr ""
 
@@ -1111,7 +1120,6 @@ msgstr ""
 #: templates/_nav_links.html:8 templates/destinations/list.html:2
 #: templates/destinations/list.html:5 templates/destinations/panel_list.html:2
 #: templates/destinations/panel_list.html:4 templates/panel/_layout.html:14
-#| msgid "Resend invitation"
 msgid "Destinations"
 msgstr ""
 
@@ -1255,7 +1263,7 @@ msgid "My account"
 msgstr "My account"
 
 #: templates/accounts/settings.html:10
-#: templates/destinations/panel_form.html:10
+#: templates/destinations/panel_form.html:22
 #: templates/meetings/panel_day_form.html:9
 #: templates/panel/home_content.html:23 templates/panel/news_form.html:41
 #: templates/panel/user_form.html:10 templates/polls/panel_form.html:10
@@ -1411,7 +1419,7 @@ msgid "Publish the alert"
 msgstr ""
 
 #: templates/alerts/panel_form.html:11
-#: templates/destinations/panel_form.html:11
+#: templates/destinations/panel_form.html:23
 #: templates/meetings/panel_day_form.html:10
 #: templates/meetings/panel_queue.html:27
 #: templates/panel/confirm_delete.html:9 templates/panel/news_form.html:42
@@ -1633,25 +1641,31 @@ msgstr ""
 msgid "Send Message"
 msgstr ""
 
+#: templates/destinations/detail.html:4
+msgid "All destinations"
+msgstr ""
+
+#: templates/destinations/detail.html:11
+#: templates/destinations/panel_form.html:10
+msgid "Top activities"
+msgstr ""
+
+#: templates/destinations/detail.html:24
+msgid "See on Google Maps"
+msgstr ""
+
+#: templates/destinations/detail.html:30
+msgid "No activities added yet."
+msgstr ""
+
 #: templates/destinations/list.html:6
 msgid ""
 "Our current destinations and the best things to do during your layover. Tap "
 "a destination to see its top activities."
 msgstr ""
 
-#: templates/destinations/list.html:26
-#| msgid "active"
-msgid "Top activities"
-msgstr ""
-
-#: templates/destinations/list.html:31
-#| msgid "No articles yet."
-msgid "No activities added yet."
-msgstr ""
-
-#: templates/destinations/list.html:39
+#: templates/destinations/list.html:25
 #: templates/destinations/panel_list.html:19
-#| msgid "No documents yet."
 msgid "No destinations yet."
 msgstr ""
 
@@ -1667,6 +1681,18 @@ msgid ""
 "text."
 msgstr ""
 
+#: templates/destinations/panel_form.html:11
+msgid ""
+"Each activity has its own photo, description and Google Maps link. Fill in "
+"the empty block to add one, then save to get another empty block. Tick "
+"Delete to remove one."
+msgstr ""
+
+#: templates/destinations/panel_form.html:16
+#| msgid "New account"
+msgid "New activity"
+msgstr ""
+
 #: templates/destinations/panel_list.html:5
 msgid ""
 "The destinations members see on the Destinations page, each with its top "
@@ -1674,7 +1700,6 @@ msgid ""
 msgstr ""
 
 #: templates/destinations/panel_list.html:6
-#| msgid "Delete message"
 msgid "See the members' page"
 msgstr ""
 
@@ -1689,7 +1714,6 @@ msgid "Name"
 msgstr "Name"
 
 #: templates/destinations/panel_list.html:9
-#| msgid "Active"
 msgid "Activities"
 msgstr ""
 

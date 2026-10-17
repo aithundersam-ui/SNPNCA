@@ -1,11 +1,12 @@
 from django.contrib import messages
+from django.db import transaction
 from django.shortcuts import get_object_or_404, redirect, render
 from django.utils.translation import gettext as _
 
 from accounts.audit import log_action
 from accounts.permissions import admin_required
 
-from .forms import DestinationForm
+from .forms import ActivityFormSet, DestinationForm
 from .models import Destination
 
 
@@ -19,12 +20,16 @@ def destination_list(request):
 def destination_edit(request, pk=None):
     destination = get_object_or_404(Destination, pk=pk) if pk else None
     form = DestinationForm(request.POST or None, request.FILES or None, instance=destination)
-    if request.method == "POST" and form.is_valid():
-        destination = form.save()
+    formset = ActivityFormSet(request.POST or None, request.FILES or None, instance=destination, prefix="act")
+    if request.method == "POST" and form.is_valid() and formset.is_valid():
+        with transaction.atomic():
+            destination = form.save()
+            formset.instance = destination
+            formset.save()
         log_action(request, "destination.update" if pk else "destination.create", str(destination))
         messages.success(request, _("Destination saved."))
         return redirect("panel:destinations")
-    return render(request, "destinations/panel_form.html", {"form": form, "destination": destination})
+    return render(request, "destinations/panel_form.html", {"form": form, "formset": formset, "destination": destination})
 
 
 @admin_required

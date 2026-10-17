@@ -7,14 +7,10 @@ from PIL import Image, ImageOps
 
 from core.forms import ArabicFieldsMixin
 
-from .models import Destination
+from .models import Activity, Destination
 
 MAX_ACTIVITIES = 15
 PHOTO_SIZE = (1200, 900)  # 4:3, like the cards
-
-
-def _lines(text):
-    return [line.strip() for line in (text or "").splitlines() if line.strip()]
 
 
 def card_photo(fileobj):
@@ -27,33 +23,8 @@ def card_photo(fileobj):
     return out.getvalue()
 
 
-class DestinationForm(ArabicFieldsMixin, forms.ModelForm):
-    activities_fr = forms.CharField(
-        label=_("Top activities (French), one per line"), required=False,
-        widget=forms.Textarea(attrs={"rows": 6}),
-        help_text=_("For example: Visit the Eiffel Tower. They are shown in this order."),
-    )
-    activities_en = forms.CharField(
-        label=_("Top activities (English), one per line"), required=False,
-        widget=forms.Textarea(attrs={"rows": 6}),
-        help_text=_("Optional. Same order and number of lines as in French."),
-    )
-    activities_ar = forms.CharField(
-        label=_("Top activities (Arabic), one per line"), required=False,
-        widget=forms.Textarea(attrs={"rows": 6}),
-        help_text=_("Optional. Same order and number of lines as in French."),
-    )
-
-    class Meta:
-        model = Destination
-        fields = ["name_fr", "name_en", "name_ar", "photo", "position"]
-
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        if self.instance.pk:
-            activities = list(self.instance.activities.all())
-            for code in ("fr", "en", "ar"):
-                self.initial.setdefault(f"activities_{code}", "\n".join(getattr(a, f"text_{code}") for a in activities))
+class PhotoFormMixin:
+    """Validates the photo, stores it resized and removes the file it replaces."""
 
     def clean_photo(self):
         from panel.forms import validate_image
@@ -63,29 +34,40 @@ class DestinationForm(ArabicFieldsMixin, forms.ModelForm):
             validate_image(photo)
         return photo
 
-    def clean(self):
-        data = super().clean()
-        fr, en, ar = (_lines(data.get(f"activities_{c}")) for c in ("fr", "en", "ar"))
-        main = fr or en or ar
-        if len(main) > MAX_ACTIVITIES:
-            self.add_error("activities_fr", _("Give at most %(n)s activities.") % {"n": MAX_ACTIVITIES})
-        for name, lines in (("activities_en", en), ("activities_ar", ar)):
-            if fr and lines and len(lines) != len(fr):
-                self.add_error(name, _("Give the same number of lines as in French."))
-        n = len(main)
-        data["activities"] = list(zip(fr or [""] * n, en or [""] * n, ar or [""] * n))
-        return data
-
     def save(self, commit=True):
-        old = Destination.objects.filter(pk=self.instance.pk).values_list("photo", flat=True).first() if self.instance.pk else None
+        model = type(self.instance)
+        old = model.objects.filter(pk=self.instance.pk).values_list("photo", flat=True).first() if self.instance.pk else None
         new_upload = "photo" in self.changed_data and self.cleaned_data.get("photo")
         if new_upload:
-            self.instance.photo.save("card.jpg", ContentFile(card_photo(new_upload)), save=False)
-        destination = super().save(commit=commit)
-        if commit:
-            if old and old != destination.photo.name:
-                destination.photo.storage.delete(old)
-            destination.activities.all().delete()
-            for i, (text_fr, text_en, text_ar) in enumerate(self.cleaned_data["activities"]):
-                destination.activities.create(text_fr=text_fr, text_en=text_en, text_ar=text_ar, position=i)
-        return destination
+            self.instance.photo.save("photo.jpg", ContentFile(card_photo(new_upload)), save=False)
+        obj = super().save(commit=commit)
+        if commit and old and old != obj.photo.name:
+            obj.photo.storage.delete(old)
+        return obj
+
+
+class DestinationForm(PhotoFormMixin, ArabicFieldsMixin, forms.ModelForm):
+    class Meta:
+        model = Destination
+        fields = ["name_fr", "name_en", "name_ar", "photo", "position"]
+
+
+class ActivityForm(PhotoFormMixin, ArabicFieldsMixin, forms.ModelForm):
+    class Meta:
+        model = Activity
+        fields = [
+            "title_fr", "title_en", "title_ar",
+            "description_fr", "description_en", "description_ar",
+            "photo", "maps_url", "position",
+        ]
+        widgets = {f"description_{c}": forms.Textarea(attrs={"rows": 3}) for c in ("fr", "en", "ar")}
+        help_texts = {
+            "maps_url": _("In Google Maps, open the place, tap Share and then Copy link."),
+            "photo": _("A landscape photo works best. It is resized and cropped automatically."),
+        }
+
+
+ActivityFormSet = forms.inlineformset_factory(
+    Destination, Activity, form=ActivityForm, extra=1, can_delete=True,
+    max_num=MAX_ACTIVITIES, validate_max=True,
+)

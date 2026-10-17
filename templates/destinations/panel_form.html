@@ -3,9 +3,21 @@
 {% block panel %}
 <h1>{% if destination %}{{ destination }}{% else %}{% translate "Add a destination" %}{% endif %}</h1>
 <p class="muted">{% translate "English and Arabic are optional: if they are empty, members see the French text." %}</p>
-<form method="post" enctype="multipart/form-data" class="card" novalidate>
+<form method="post" enctype="multipart/form-data" novalidate>
   {% csrf_token %}
-  {% include "_form_fields.html" %}
+  <div class="card">{% include "_form_fields.html" %}</div>
+
+  <h2 class="panel-subtitle">{% translate "Top activities" %}</h2>
+  <p class="muted">{% translate "Each activity has its own photo, description and Google Maps link. Fill in the empty block to add one, then save to get another empty block. Tick Delete to remove one." %}</p>
+  {{ formset.management_form }}
+  {% if formset.non_form_errors %}<ul class="errorlist nonfield" role="alert">{% for e in formset.non_form_errors %}<li>{{ e }}</li>{% endfor %}</ul>{% endif %}
+  {% for f in formset %}
+  <fieldset class="activity-form">
+    <legend>{% if f.instance.pk %}{{ forloop.counter }}. {{ f.instance }}{% else %}{% translate "New activity" %}{% endif %}</legend>
+    {% include "_form_fields.html" with form=f %}
+  </fieldset>
+  {% endfor %}
+
   <div class="actions">
     <button type="submit" class="btn">{% translate "Save" %}</button>
     <a href="{% url 'panel:destinations' %}">{% translate "Cancel" %}</a>

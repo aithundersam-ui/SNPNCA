@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-17 17:05+0100\n"
+"POT-Creation-Date: 2026-10-17 17:54+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -429,7 +429,7 @@ msgstr "libellé (anglais)"
 msgid "label (Arabic)"
 msgstr "libellé (arabe)"
 
-#: core/models.py:76 destinations/models.py:23
+#: core/models.py:76 destinations/models.py:41 destinations/models.py:64
 msgid "order"
 msgstr "ordre"
 
@@ -481,80 +481,75 @@ msgstr "Erreur du serveur"
 msgid "Something went wrong. Please try again later."
 msgstr "Une erreur s’est produite. Veuillez réessayer plus tard."
 
-#: destinations/forms.py:32
-#| msgid "Answers (French), one per line"
-msgid "Top activities (French), one per line"
-msgstr "Activités incontournables (français), une par ligne"
-
-#: destinations/forms.py:34
-msgid "For example: Visit the Eiffel Tower. They are shown in this order."
+#: destinations/forms.py:65
+msgid "In Google Maps, open the place, tap Share and then Copy link."
 msgstr ""
-"Par exemple : Visiter la tour Eiffel. Elles s’affichent dans cet ordre."
+"Dans Google Maps, ouvrez le lieu, touchez Partager puis Copier le lien."
 
-#: destinations/forms.py:37
-#| msgid "Answers (English), one per line"
-msgid "Top activities (English), one per line"
-msgstr "Activités incontournables (anglais), une par ligne"
-
-#: destinations/forms.py:39 destinations/forms.py:44
-#| msgid ""
-#| "Optional. Same order and number of lines as the French answers."
-msgid "Optional. Same order and number of lines as in French."
-msgstr "Facultatif. Même ordre et même nombre de lignes qu’en français."
-
-#: destinations/forms.py:42
-#| msgid "Answers (Arabic), one per line"
-msgid "Top activities (Arabic), one per line"
-msgstr "Activités incontournables (arabe), une par ligne"
-
-#: destinations/forms.py:71
-#, python-format
-#| msgid "Give at most %(n)s answers."
-msgid "Give at most %(n)s activities."
-msgstr "Indiquez au maximum %(n)s activités."
-
-#: destinations/forms.py:74
-#| msgid "Give the same number of answers in Arabic as in French."
-msgid "Give the same number of lines as in French."
-msgstr "Indiquez le même nombre de lignes qu’en français."
-
-#: destinations/models.py:16
-#| msgid "label (French)"
-msgid "name (French)"
-msgstr "nom (français)"
-
-#: destinations/models.py:17
-#| msgid "label (English)"
-msgid "name (English)"
-msgstr "nom (anglais)"
-
-#: destinations/models.py:18
-#| msgid "label (Arabic)"
-msgid "name (Arabic)"
-msgstr "nom (arabe)"
-
-#: destinations/models.py:20 team/models.py:34
-msgid "photo"
-msgstr "photo"
-
-#: destinations/models.py:21
+#: destinations/forms.py:66 destinations/models.py:39
 msgid "A landscape photo works best. It is resized and cropped automatically."
 msgstr ""
 "Une photo au format paysage donne le meilleur résultat. Elle est "
 "redimensionnée et recadrée automatiquement."
 
-#: destinations/models.py:23
-#| msgid "Lower numbers come first, for example among the members."
+#: destinations/models.py:28
+msgid "Paste a Google Maps link (from Share → Copy link in Google Maps)."
+msgstr ""
+"Collez un lien Google Maps (Partager → Copier le lien dans Google Maps)."
+
+#: destinations/models.py:34
+msgid "name (French)"
+msgstr "nom (français)"
+
+#: destinations/models.py:35
+msgid "name (English)"
+msgstr "nom (anglais)"
+
+#: destinations/models.py:36
+msgid "name (Arabic)"
+msgstr "nom (arabe)"
+
+#: destinations/models.py:38 destinations/models.py:62 team/models.py:34
+msgid "photo"
+msgstr "photo"
+
+#: destinations/models.py:41
 msgid "Lower numbers come first."
 msgstr "Les plus petits nombres s’affichent en premier."
 
-#: destinations/panel_views.py:25
-#| msgid "Meeting day saved."
+#: destinations/models.py:56
+msgid "activity (French)"
+msgstr "activité (français)"
+
+#: destinations/models.py:57
+msgid "activity (English)"
+msgstr "activité (anglais)"
+
+#: destinations/models.py:58
+msgid "activity (Arabic)"
+msgstr "activité (arabe)"
+
+#: destinations/models.py:59
+msgid "description (French)"
+msgstr "description (français)"
+
+#: destinations/models.py:60
+msgid "description (English)"
+msgstr "description (anglais)"
+
+#: destinations/models.py:61
+msgid "description (Arabic)"
+msgstr "description (arabe)"
+
+#: destinations/models.py:63
+msgid "Google Maps link"
+msgstr "lien Google Maps"
+
+#: destinations/panel_views.py:30
 msgid "Destination saved."
 msgstr "Destination enregistrée."
 
-#: destinations/panel_views.py:36
-#| msgid "Meeting day deleted."
+#: destinations/panel_views.py:41
 msgid "Destination deleted."
 msgstr "Destination supprimée."
 
@@ -1172,7 +1167,6 @@ msgstr "Votes"
 #: templates/_nav_links.html:8 templates/destinations/list.html:2
 #: templates/destinations/list.html:5 templates/destinations/panel_list.html:2
 #: templates/destinations/panel_list.html:4 templates/panel/_layout.html:14
-#| msgid "Resend invitation"
 msgid "Destinations"
 msgstr "Destinations"
 
@@ -1317,7 +1311,7 @@ msgid "My account"
 msgstr "Mon compte"
 
 #: templates/accounts/settings.html:10
-#: templates/destinations/panel_form.html:10
+#: templates/destinations/panel_form.html:22
 #: templates/meetings/panel_day_form.html:9
 #: templates/panel/home_content.html:23 templates/panel/news_form.html:41
 #: templates/panel/user_form.html:10 templates/polls/panel_form.html:10
@@ -1485,7 +1479,7 @@ msgid "Publish the alert"
 msgstr "Publier l’alerte"
 
 #: templates/alerts/panel_form.html:11
-#: templates/destinations/panel_form.html:11
+#: templates/destinations/panel_form.html:23
 #: templates/meetings/panel_day_form.html:10
 #: templates/meetings/panel_queue.html:27
 #: templates/panel/confirm_delete.html:9 templates/panel/news_form.html:42
@@ -1727,6 +1721,23 @@ msgstr ""
 msgid "Send Message"
 msgstr "Envoyer le Message"
 
+#: templates/destinations/detail.html:4
+msgid "All destinations"
+msgstr "Toutes les destinations"
+
+#: templates/destinations/detail.html:11
+#: templates/destinations/panel_form.html:10
+msgid "Top activities"
+msgstr "Activités incontournables"
+
+#: templates/destinations/detail.html:24
+msgid "See on Google Maps"
+msgstr "Voir sur Google Maps"
+
+#: templates/destinations/detail.html:30
+msgid "No activities added yet."
+msgstr "Aucune activité pour l’instant."
+
 #: templates/destinations/list.html:6
 msgid ""
 "Our current destinations and the best things to do during your layover. Tap "
@@ -1735,39 +1746,38 @@ msgstr ""
 "Nos destinations actuelles et les meilleures choses à faire pendant votre "
 "escale. Touchez une destination pour voir ses activités incontournables."
 
-#: templates/destinations/list.html:26
-#| msgid "active"
-msgid "Top activities"
-msgstr "Activités incontournables"
-
-#: templates/destinations/list.html:31
-#| msgid "No articles yet."
-msgid "No activities added yet."
-msgstr "Aucune activité pour l’instant."
-
-#: templates/destinations/list.html:39
+#: templates/destinations/list.html:25
 #: templates/destinations/panel_list.html:19
-#| msgid "No documents yet."
 msgid "No destinations yet."
 msgstr "Aucune destination pour l’instant."
 
 #: templates/destinations/panel_form.html:2
 #: templates/destinations/panel_form.html:4
 #: templates/destinations/panel_list.html:6
-#| msgid "Add a person"
 msgid "Add a destination"
 msgstr "Ajouter une destination"
 
 #: templates/destinations/panel_form.html:5
-#| msgid ""
-#| "Fill in French, English or both. Arabic is optional: if it is empty, Arabic "
-#| "readers see the French text."
 msgid ""
 "English and Arabic are optional: if they are empty, members see the French "
 "text."
 msgstr ""
 "L’anglais et l’arabe sont facultatifs : s’ils sont vides, les adhérents "
 "voient le texte français."
+
+#: templates/destinations/panel_form.html:11
+msgid ""
+"Each activity has its own photo, description and Google Maps link. Fill in "
+"the empty block to add one, then save to get another empty block. Tick "
+"Delete to remove one."
+msgstr ""
+"Chaque activité a sa propre photo, sa description et son lien Google Maps. "
+"Remplissez le bloc vide pour en ajouter une, puis enregistrez pour obtenir "
+"un nouveau bloc vide. Cochez Supprimer pour en retirer une."
+
+#: templates/destinations/panel_form.html:16
+msgid "New activity"
+msgstr "Nouvelle activité"
 
 #: templates/destinations/panel_list.html:5
 msgid ""
@@ -1778,7 +1788,6 @@ msgstr ""
 "avec ses activités incontournables."
 
 #: templates/destinations/panel_list.html:6
-#| msgid "See the public page"
 msgid "See the members' page"
 msgstr "Voir la page des adhérents"
 
@@ -1793,7 +1802,6 @@ msgid "Name"
 msgstr "Nom"
 
 #: templates/destinations/panel_list.html:9
-#| msgid "Active"
 msgid "Activities"
 msgstr "Activités"
 
@@ -2965,6 +2973,29 @@ msgstr "Modifier / ajouter la photo"
 msgid "Nobody on the team page yet."
 msgstr "Personne sur la page de l’équipe pour le moment."
 
+#~ msgid "Top activities (French), one per line"
+#~ msgstr "Activités incontournables (français), une par ligne"
+
+#~ msgid "For example: Visit the Eiffel Tower. They are shown in this order."
+#~ msgstr ""
+#~ "Par exemple : Visiter la tour Eiffel. Elles s’affichent dans cet ordre."
+
+#~ msgid "Top activities (English), one per line"
+#~ msgstr "Activités incontournables (anglais), une par ligne"
+
+#~ msgid "Optional. Same order and number of lines as in French."
+#~ msgstr "Facultatif. Même ordre et même nombre de lignes qu’en français."
+
+#~ msgid "Top activities (Arabic), one per line"
+#~ msgstr "Activités incontournables (arabe), une par ligne"
+
+#, python-format
+#~ msgid "Give at most %(n)s activities."
+#~ msgstr "Indiquez au maximum %(n)s activités."
+
+#~ msgid "Give the same number of lines as in French."
+#~ msgstr "Indiquez le même nombre de lignes qu’en français."
+
 #~ msgid "A square portrait works best."
 #~ msgstr "Un portrait carré donne le meilleur résultat."
 
@@ -3019,9 +3050,6 @@ msgstr "Personne sur la page de l’équipe pour le moment."
 #~ msgstr ""
 #~ "Créez une réunion dans Google Meet ou Google Agenda et collez son lien ici. "
 #~ "Les adhérents ne le voient que lorsque leur tour arrive."
-
-#~ msgid "Google Meet link"
-#~ msgstr "lien Google Meet"
 
 #~ msgid "Join the Google Meet"
 #~ msgstr "Rejoindre le Google Meet"

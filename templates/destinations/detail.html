@@ -1,0 +1,33 @@
+{% extends "base.html" %}{% load i18n site_tags %}
+{% block title %}{% localized destination "name" %}{% endblock %}
+{% block content %}
+<p class="dest-back"><a href="{% url 'destinations:list' %}">{% icon "arrow-left" 18 %}{% translate "All destinations" %}</a></p>
+<header class="dest-hero{% if not destination.photo %} dest-placeholder{% endif %}">
+  {% if destination.photo %}<img src="{% url 'destinations:photo' destination.pk %}?v={{ destination.updated_at|date:'U' }}" alt="" width="1200" height="900">{% endif %}
+  <h1>{% localized destination "name" %}</h1>
+</header>
+{% with activities=destination.activities.all %}
+{% if activities %}
+<h2 class="dest-section">{% translate "Top activities" %}</h2>
+<div class="act-list">
+  {% for a in activities %}
+  <article class="act-card">
+    {% if a.photo %}
+      <img class="act-photo" src="{% url 'destinations:activity_photo' a.pk %}?v={{ a.updated_at|date:'U' }}" alt="" width="600" height="450" loading="lazy">
+    {% else %}
+      <span class="act-photo dest-placeholder" aria-hidden="true">{% icon "map-pin" 40 %}</span>
+    {% endif %}
+    <div class="act-body">
+      <h3><span class="act-num">{{ forloop.counter }}</span><span class="user-text">{% localized a "title" %}</span></h3>
+      {% localized a "description" as description %}
+      {% if description %}<div class="act-text user-text">{{ description|linebreaks }}</div>{% endif %}
+      {% if a.maps_url %}<a class="btn secondary small act-map" href="{{ a.maps_url }}" target="_blank" rel="noopener noreferrer">{% icon "map-pin" 16 %}{% translate "See on Google Maps" %}</a>{% endif %}
+    </div>
+  </article>
+  {% endfor %}
+</div>
+{% else %}
+<p class="empty">{% translate "No activities added yet." %}</p>
+{% endif %}
+{% endwith %}
+{% endblock %}
