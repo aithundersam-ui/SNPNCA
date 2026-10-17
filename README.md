@@ -38,13 +38,17 @@ Data lives in the Docker volumes `pgdata` (database) and `media` (PDFs and image
 
 ## Local preview on a Mac
 
+Keep the project in your home folder, not on the Desktop or in Documents: when those sync with iCloud and the disk is nearly full, macOS moves the files to iCloud and the site becomes very slow.
+
 ```bash
-git clone https://github.com/aithundersam-ui/SNPNCA.git ~/Desktop/SNPNCA
-# copy your .env into ~/Desktop/SNPNCA (DATABASE_URL=postgres://snpnca:PASSWORD@127.0.0.1:5433/snpnca, same PASSWORD as POSTGRES_PASSWORD)
-~/Desktop/SNPNCA/mac/setup.sh     # once: installs Homebrew packages, .venv, a private PostgreSQL in .localdev (port 5433), starts the site
-~/Desktop/SNPNCA/mac/stop.sh      # stop
-~/Desktop/SNPNCA/mac/start.sh     # start again (http://localhost:8000)
+git clone https://github.com/aithundersam-ui/SNPNCA.git ~/SNPNCA
+# copy your .env into ~/SNPNCA (DATABASE_URL=postgres://snpnca:PASSWORD@127.0.0.1:5433/snpnca, same PASSWORD as POSTGRES_PASSWORD)
+~/SNPNCA/mac/setup.sh     # once: Homebrew packages, .venv, a private PostgreSQL in .localdev (port 5433), the free translator, then starts the site
+~/SNPNCA/mac/stop.sh      # stop
+~/SNPNCA/mac/start.sh     # start again (http://localhost:8000)
 ```
+
+To update later: `~/SNPNCA/mac/stop.sh && cd ~/SNPNCA && git pull && .venv/bin/python manage.py migrate && .venv/bin/python manage.py compilemessages --ignore=.venv && ~/SNPNCA/mac/start.sh`
 
 ## Local development
 
