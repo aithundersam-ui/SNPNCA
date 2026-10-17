@@ -6,6 +6,11 @@ export PATH="$BREW_PREFIX/opt/postgresql@16/bin:$BREW_PREFIX/bin:$PATH"
 set -a; . ./.env; set +a
 export LC_ALL=C
 pg_ctl -D .localdev/pgdata status >/dev/null 2>&1 || pg_ctl -D .localdev/pgdata -l .localdev/postgres.log -o "-p 5433 -c listen_addresses=127.0.0.1 -c unix_socket_directories=/tmp" -w start
+if lsof -nP -iTCP:8000 -sTCP:LISTEN >/dev/null 2>&1; then
+  echo "Something is already running on http://localhost:8000 (probably an older copy of the site)."
+  echo "Run ./mac/stop.sh first, then ./mac/start.sh again."
+  exit 1
+fi
 . .venv/bin/activate
 python manage.py migrate --noinput && python manage.py createcachetable && python manage.py seed_master_admin || exit 1
 nohup python manage.py runserver 127.0.0.1:8000 --noreload > .localdev/web.log 2>&1 &
